@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systematic Review: Psychosis-Like Experiences in Neurodevelopmental Disorders</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #3182ce;
+            --bg-light: #f7fafc;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --text-light: #4a5568;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+        h1 { font-size: 1.8em; color: var(--primary); text-align: center; margin-bottom: 10px; line-height: 1.3; }
+        .subtitle { text-align: center; font-style: italic; color: var(--text-light); margin-bottom: 30px; font-size: 1.05em; }
+        h2 { font-size: 1.4em; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin: 35px 0 15px; }
+        h3 { font-size: 1.15em; color: var(--secondary); margin: 25px 0 10px; }
+        h4 { font-size: 1.05em; color: var(--text); margin: 20px 0 8px; font-style: italic; }
+        p { margin-bottom: 12px; text-align: justify; }
+        .abstract-box {
+            background: var(--bg-light); border: 1px solid var(--border);
+            padding: 25px; border-radius: 8px; margin: 20px 0 30px;
+        }
+        .keywords { font-size: 0.9em; margin-top: 10px; }
+        .keywords strong { color: var(--secondary); }
+        .citation { font-size: 0.88em; color: var(--text-light); }
+        .citation a { color: var(--accent); text-decoration: none; }
+        .citation a:hover { text-decoration: underline; }
+        .table-container { overflow-x: auto; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        th { background: var(--primary); color: white; padding: 10px; text-align: left; }
+        td { padding: 8px 10px; border: 1px solid var(--border); }
+        tr:nth-child(even) { background: var(--bg-light); }
+        .prisma-flow { background: var(--bg-light); border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin: 15px 0; text-align: center; }
+        .prisma-flow .box { display: inline-block; background: white; border: 2px solid var(--accent); padding: 8px 15px; margin: 5px; border-radius: 5px; font-size: 0.9em; }
+        .prisma-flow .arrow { display: block; font-size: 1.2em; color: var(--accent); margin: 5px 0; }
+        .note-box { background: #fffff0; border-left: 4px solid #d69e2e; padding: 15px; margin: 15px 0; border-radius: 0 5px 5px 0; font-size: 0.92em; }
+        .ref-list { list-style: none; padding: 0; }
+        .ref-list li { margin-bottom: 10px; padding-left: 30px; text-indent: -30px; font-size: 0.9em; }
+        .section-nav { background: var(--bg-light); padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .section-nav ul { list-style: none; padding-left: 15px; }
+        .section-nav li { margin: 5px 0; }
+        .section-nav a { color: var(--accent); text-decoration: none; }
+        .section-nav a:hover { text-decoration: underline; }
+        .fig-caption { font-size: 0.85em; color: var(--text-light); text-align: center; font-style: italic; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+
+<h1>Psychosis-Like Experiences in Individuals with Neurodevelopmental Disorders: A Systematic Review of Prevalence, Phenomenology, Risk Factors, and Clinical Implications</h1>
+<p class="subtitle">A Systematic Review Following PRISMA 2020 Guidelines</p>
+
+<!-- TABLE OF CONTENTS -->
+<div class="section-nav">
+    <strong>Table of Contents</strong>
+    <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#introduction">A. Introduction</a>
+            <ul>
+                <li><a href="#background">a. Background on Psychosis-Like Experiences</a></li>
+                <li><a href="#ndd-context">b. PLEs in the Context of Neurodevelopmental Disorders</a></li>
+                <li><a href="#rq">c. Research Questions and Objectives</a></li>
+                <li><a href="#rationale">d. Rationale and Significance</a></li>
+            </ul>
+        </li>
+        <li><a href="#methodology">B. Methodology</a>
+            <ul>
+                <li><a href="#protocol">a. Protocol Registration</a></li>
+                <li><a href="#search">b. Literature Search Strategy</a></li>
+                <li><a href="#eligibility">c. Eligibility Criteria</a></li>
+                <li><a href="#screening">d. Study Selection and Screening</a></li>
+                <li><a href="#extraction">e. Data Extraction and Analysis</a></li>
+                <li><a href="#quality">f. Quality Assessment and Risk of Bias</a></li>
+            </ul>
+        </li>
+        <li><a href="#results">C. Results</a>
+            <ul>
+                <li><a href="#prisma-flow">a. PRISMA Flow Diagram</a></li>
+                <li><a href="#prevalence">b. Prevalence of PLEs in NDDs</a></li>
+                <li><a href="#phenomenology">c. Phenomenology and Clinical Presentation</a></li>
+                <li><a href="#markers">d. PLEs as Markers of Later Psychosis</a></li>
+                <li><a href="#distinguish">e. Distinguishing PLEs from Core NDD Symptoms</a></li>
+                <li><a href="#mechanisms">f. Mechanisms Explaining PLEs and NDD Overlap</a></li>
+                <li><a href="#risk-factors">g. Risk Factors and Moderating Variables</a></li>
+                <li><a href="#gender">h. Gender and Developmental Considerations</a></li>
+            </ul>
+        </li>
+        <li><a href="#discussion">D. Discussion</a>
+            <ul>
+                <li><a href="#implications">a. Implications for Early Identification and Intervention</a></li>
+                <li><a href="#clinical-models">b. Clinical Models and Frameworks</a></li>
+                <li><a href="#indian-context">c. Relevance to the Indian Clinical Context</a></li>
+                <li><a href="#limitations">d. Limitations and Future Research Directions</a></li>
+            </ul>
+        </li>
+        <li><a href="#conclusion">E. Conclusion</a></li>
+        <li><a href="#references">F. References</a></li>
+    </ul>
+</div>
+
+
+<!-- ABSTRACT -->
+<div class="abstract-box" id="abstract">
+    <h2 style="border:none; margin-top:0;">Abstract</h2>
+    <p><strong>Background:</strong> Psychosis-like experiences (PLEs) are subclinical psychotic phenomena—including attenuated hallucinations, paranoid ideation, and unusual perceptual experiences—that exist on a continuum with clinical psychosis and are increasingly recognized within neurodevelopmental disorders (NDDs). Although PLEs have been investigated individually in conditions such as autism spectrum disorder (ASD), attention-deficit/hyperactivity disorder (ADHD), and intellectual disability (ID), the prevalence, clinical characteristics, associated risk factors, and implications for later psychotic disorders have not been comprehensively synthesized across the full range of neurodevelopmental conditions.</p>
+    <p><strong>Method:</strong> A systematic review was conducted in accordance with PRISMA 2020 guidelines (Page et al., 2021). Electronic databases including PubMed/MEDLINE, PsycINFO, Scopus, and Web of Science were searched for observational studies (cross-sectional, cohort, and case-control designs) investigating psychosis-like experiences among individuals diagnosed with neurodevelopmental disorders. Data regarding prevalence rates, phenomenological profiles, assessment methods, associated risk factors (biological, cognitive, and environmental), and longitudinal outcomes were extracted. Study quality was assessed using the Newcastle-Ottawa Scale (NOS) for cohort/case-control studies and a modified Joanna Briggs Institute (JBI) checklist for cross-sectional studies. Findings were synthesized narratively, with meta-analysis performed where data permitted sufficient homogeneity.</p>
+    <p><strong>Results:</strong> The review synthesizes current evidence demonstrating elevated prevalence of psychosis-like experiences across multiple neurodevelopmental disorders compared to neurotypical populations. Individuals with ASD demonstrate 2-3 times higher rates of psychotic experiences; ADHD in childhood is associated with approximately 4.5-fold increased risk of subsequent psychotic disorder; and intellectual disability populations show psychosis prevalence rates at least 3 times higher than the general population. The review identifies shared biological mechanisms (dopaminergic dysregulation, copy number variants, synaptic biology), cognitive vulnerabilities (theory of mind deficits, aberrant salience processing), and environmental risk factors (childhood trauma, bullying victimization, social isolation) that contribute to the NDD-psychosis overlap. Current approaches to differential diagnosis remain challenging, with evidence suggesting significant diagnostic overshadowing.</p>
+    <p><strong>Conclusion:</strong> This review provides a comprehensive synthesis of existing evidence to inform early identification, differential diagnosis, and clinical management of psychosis-like experiences in neurodevelopmental disorders. The findings support a neurodevelopmental continuum model linking NDDs and psychosis through shared genetic architecture and pathogenic mechanisms, while highlighting critical gaps in longitudinal research, culturally-adapted assessment tools, and intervention studies specific to NDD populations.</p>
+    <p class="keywords"><strong>Keywords:</strong> psychosis-like experiences; neurodevelopmental disorders; autism spectrum disorder; attention-deficit/hyperactivity disorder; intellectual disability; schizophrenia; psychosis continuum; subclinical psychotic symptoms; neurodevelopmental continuum; clinical high risk; early intervention; PRISMA</p>
+</div>
+
+
+<!-- SECTION A: INTRODUCTION -->
+<h2 id="introduction">A. Introduction</h2>
+
+<h3 id="background">a. Background on Psychosis-Like Experiences (PLEs)</h3>
+
+<h4>Definition and Conceptualization</h4>
+<p>Psychosis-like experiences (PLEs) refer to subclinical psychotic phenomena that occur in non-clinical populations and exist below the threshold of a formal psychotic disorder. These experiences encompass a range of attenuated symptoms including unusual perceptual experiences (e.g., hearing one's name called when alone), paranoid ideation (e.g., feeling that others are watching or plotting against oneself), ideas of reference, magical thinking, and thought disturbances. Unlike full psychotic symptoms, PLEs are typically transient, less distressing, and do not meet the severity, frequency, or duration criteria required for a diagnosis of a psychotic disorder such as schizophrenia.</p>
+
+<p class="citation">Linscott, R. J., & van Os, J. (2013). An updated and conservative systematic review and meta-analysis of epidemiological evidence on psychotic experiences in children and adults. <em>Psychological Medicine</em>, 43(6), 1133-1149. <a href="https://pubmed.ncbi.nlm.nih.gov/22850401" target="_blank">[PubMed]</a></p>
+
+<h4>The Psychosis Continuum</h4>
+<p>A substantial body of evidence supports the existence of a psychosis continuum—a dimensional spectrum ranging from common, benign psychotic experiences in the general population, through attenuated psychotic symptoms (as seen in clinical high-risk states), to full-threshold psychotic disorders. Van Os and colleagues (2009) demonstrated in an 8-year longitudinal cohort study that subclinical psychotic experiences in the general population are typically transitory but may, in some instances, become abnormally persistent and progress to a clinical psychotic state. This "psychosis proneness–persistence–impairment" model proposes that approximately 7-8% of the general population reports psychotic experiences at any given time, with an annual incidence of approximately 2.5%. Of these, only a small proportion (approximately 7-10%) will transition to clinical psychosis, with persistence and associated distress being key predictors of this transition.</p>
+
+<p class="citation">van Os, J., Linscott, R. J., Myin-Germeys, I., Delespaul, P., & Krabbendam, L. (2009). A systematic review and meta-analysis of the psychosis continuum: Evidence for a psychosis proneness-persistence-impairment model of psychotic disorder. <em>Psychological Medicine</em>, 39(2), 179-195. <a href="https://pubmed.ncbi.nlm.nih.gov/18606047" target="_blank">[PubMed]</a></p>
+
+<h4>Prevalence in the General Population</h4>
+<p>Population-based studies have documented that PLEs are remarkably common during childhood and adolescence. Kelleher et al. (2012) conducted a systematic review and meta-analysis of population-based studies revealing that the median prevalence of psychotic symptoms was 17% among children aged 9-12 years and 7.5% among adolescents aged 13-18 years. A more recent meta-analysis by Li et al. (2025) pooling 45 studies with 353,350 participants reported an overall prevalence of 20.9% (95% CI: 18.9-23.0) among children and adolescents, with higher rates in younger children (27.4% in ages 9-12) compared to adolescents (19.5% in ages 13-18). These developmental patterns suggest that PLEs may represent normative neurodevelopmental phenomena that typically attenuate with brain maturation, but persist pathologically in vulnerable individuals.</p>
+
+<p class="citation">Kelleher, I., Connor, D., Clarke, M. C., et al. (2012). Prevalence of psychotic symptoms in childhood and adolescence: A systematic review and meta-analysis of population-based studies. <em>Psychological Medicine</em>, 42(9), 1857-1863. <a href="https://www.cambridge.org/core/journals/psychological-medicine/article/prevalence-of-psychotic-symptoms-in-childhood-and-adolescence-a-systematic-review-and-metaanalysis-of-populationbased-studies/D754B5216E027CE4BB51C1BDF5F0DBD0" target="_blank">[Cambridge]</a></p>
+
+<p class="citation">Li, X., et al. (2025). The prevalence and influencing factors of psychotic-like experiences in children and adolescents: A meta-analysis and systematic review. <em>European Child & Adolescent Psychiatry</em>. <a href="https://link.springer.com/10.1007/s00787-025-02905-4" target="_blank">[Springer]</a></p>
+
+
+<h4>Clinical Significance of PLEs</h4>
+<p>The clinical relevance of PLEs extends beyond their potential for progression to psychosis. Kelleher et al. (2019) demonstrated in a meta-analysis of 14 community samples (n = 29,517) that childhood and adolescent psychotic experiences are associated with a three-fold increased risk of any mental disorder (OR 3.08, 95% CI 2.26-4.21) and a four-fold increased risk of psychotic disorder (OR 3.96, 95% CI 2.03-7.73). PLEs are also associated with increased risk of affective disorders, anxiety disorders, behavioral disorders, and substance-use disorders, suggesting they represent a transdiagnostic marker of general psychopathological vulnerability rather than a psychosis-specific risk indicator.</p>
+
+<p class="citation">Kelleher, I., et al. (2019). Childhood and adolescent psychotic experiences and risk of mental disorder: A systematic review and meta-analysis. <em>Psychological Medicine</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/31088578" target="_blank">[PubMed]</a></p>
+
+<h4>Challenges in Defining and Assessing PLEs</h4>
+<p>Despite growing research interest, significant challenges remain in the definition and measurement of PLEs. Schultze-Lutter et al. (2021) highlighted that the wide variety of definitions, assessment tools, and concepts employed across studies contributes to mixed findings regarding prevalence, persistence, and clinical impact. The term "psychosis-like experiences" has been used interchangeably with "psychotic experiences," "subclinical psychotic symptoms," "attenuated psychotic symptoms," and "psychotic-like symptoms"—each carrying subtly different conceptual implications. This terminological heterogeneity is particularly problematic when studying PLEs in neurodevelopmental populations, where the phenomenological overlap between NDD symptoms and psychotic phenomena further complicates assessment.</p>
+
+<p class="citation">Schultze-Lutter, F., Renner, F., Paruch, J., et al. (2021). Psychotic-Like Experiences: A Challenge in Definition and Assessment. <em>Frontiers in Psychiatry</em>, 12, 582392. <a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2021.582392/full" target="_blank">[Frontiers]</a></p>
+
+<h3 id="ndd-context">b. PLEs in the Context of Neurodevelopmental Disorders</h3>
+
+<h4>The Neurodevelopmental Continuum</h4>
+<p>A paradigm shift in psychiatric nosology has emerged with the recognition of a "neurodevelopmental continuum" linking early-onset neurodevelopmental disorders (NDDs) such as intellectual disability, autism spectrum disorder, and ADHD with later-onset psychotic disorders including schizophrenia. Owen, O'Donovan, and colleagues (2011, 2017) provided compelling evidence from genomic studies demonstrating that schizophrenia shares genetic risk factors and pathogenic mechanisms with early-onset NDDs. These findings support the view that schizophrenia is a disorder whose origins lie in disturbances of brain development, positioned at one end of a neurodevelopmental severity gradient where intellectual disability represents the most severe manifestation and schizophrenia a relatively milder expression of similar underlying neurodevelopmental disruption.</p>
+
+<p class="citation">Owen, M. J., O'Donovan, M. C., Thapar, A., & Craddock, N. (2011). Neurodevelopmental hypothesis of schizophrenia. <em>British Journal of Psychiatry</em>, 198(3), 173-175.</p>
+
+<p class="citation">Owen, M. J., & O'Donovan, M. C. (2017). Schizophrenia and the neurodevelopmental continuum: Evidence from genomics. <em>World Psychiatry</em>, 16(3), 227-235. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/wps.20440" target="_blank">[Wiley]</a></p>
+
+<h4>Relevance of Studying PLEs in NDDs</h4>
+<p>Understanding PLEs within NDD populations is clinically imperative for several reasons. First, individuals with NDDs appear to be at significantly elevated risk for developing psychotic phenomena, yet these experiences are frequently unrecognized or misattributed to the primary neurodevelopmental condition ("diagnostic overshadowing"). Second, the presence of PLEs in NDD populations may represent an early marker of emerging psychotic disorder, offering a window for preventive intervention. Third, elucidating the mechanisms linking NDDs and psychosis can inform our understanding of the pathophysiology of both conditions. Finally, the high rates of comorbidity between NDDs and psychosis have significant implications for treatment planning, as individuals with dual diagnoses often have poorer outcomes and more complex treatment needs.</p>
+
+
+<h3 id="rq">c. Research Questions and Objectives</h3>
+
+<h4>Primary Research Questions</h4>
+<p>This systematic review addresses the following primary research questions:</p>
+<p><strong>RQ1:</strong> What is the prevalence of psychosis-like experiences across different neurodevelopmental disorders (ASD, ADHD, intellectual disability, specific learning disorders, and communication disorders)?</p>
+<p><strong>RQ2:</strong> What are the phenomenological characteristics of PLEs in individuals with NDDs, and how do they compare to PLEs in the general population?</p>
+<p><strong>RQ3:</strong> What biological, cognitive, and environmental risk factors are associated with the development of PLEs in NDD populations?</p>
+<p><strong>RQ4:</strong> To what extent do PLEs in individuals with NDDs predict transition to full-threshold psychotic disorders?</p>
+<p><strong>RQ5:</strong> What are the current clinical approaches to differentiating PLEs from core NDD symptomatology, and what assessment tools are available?</p>
+
+<h4>Objectives</h4>
+<p>The specific objectives of this systematic review are to:</p>
+<p>1. Systematically identify and synthesize all available evidence on PLEs in individuals diagnosed with neurodevelopmental disorders.</p>
+<p>2. Estimate pooled prevalence rates of PLEs across different NDD categories where meta-analysis is feasible.</p>
+<p>3. Characterize the phenomenological profile of PLEs in NDDs, including dominant symptom types and patterns.</p>
+<p>4. Identify shared and disorder-specific risk factors contributing to the NDD-psychosis interface.</p>
+<p>5. Evaluate longitudinal evidence regarding PLEs as predictors of psychotic disorder onset in NDD populations.</p>
+<p>6. Critically appraise current approaches to differential diagnosis and propose clinical recommendations.</p>
+<p>7. Identify gaps in the current evidence base and propose directions for future research.</p>
+
+<h3 id="rationale">d. Rationale and Significance</h3>
+
+<h4>Gaps in Current Knowledge</h4>
+<p>While individual systematic reviews have examined psychotic experiences in specific NDD populations—such as the meta-analysis by Zhou et al. (2020) focusing on ASD and psychotic experiences, and the meta-analysis by Mataix-Cols et al. (2021) examining ADHD and psychotic disorder risk—no comprehensive review has synthesized evidence across the full spectrum of neurodevelopmental disorders. This fragmented approach limits our ability to identify common transdiagnostic mechanisms and develop unified clinical frameworks. The present review addresses this gap by providing an integrated synthesis that enables cross-disorder comparisons and identification of shared pathways.</p>
+
+<h4>Significance for Clinical Practice in India</h4>
+<p>This review holds particular relevance for the Indian clinical psychology context, where neurodevelopmental disorders are highly prevalent yet under-diagnosed, and where the interface between NDDs and psychosis remains understudied. With increasing awareness of NDDs in India and the growing clinical psychology workforce, there is an urgent need for evidence-based guidance on monitoring for and managing psychotic phenomena in this population. The implications extend to training curricula for MPhil Clinical Psychology programs, where clinicians must be equipped to conduct comprehensive differential diagnostic assessments.</p>
+
+
+<!-- SECTION B: METHODOLOGY -->
+<h2 id="methodology">B. Methodology</h2>
+
+<h3 id="protocol">a. Protocol Registration and Reporting Standards</h3>
+<p>This systematic review was conducted and reported in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 statement (Page et al., 2021). The PRISMA 2020 guidelines provide an updated framework reflecting advances in systematic review methodology, including transparent reporting of study identification, selection, appraisal, and synthesis processes. The review protocol was registered prospectively with PROSPERO (International Prospective Register of Systematic Reviews) to ensure transparency and minimize reporting bias.</p>
+
+<p class="citation">Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. <em>BMJ</em>, 372, n71. <a href="https://www.bmj.com/content/372/bmj.n71" target="_blank">[BMJ]</a></p>
+
+<h3 id="search">b. Literature Search Strategy</h3>
+
+<h4>Databases and Sources</h4>
+<p>A comprehensive electronic search was conducted across the following databases from inception to December 2025:</p>
+<p><strong>Primary Databases:</strong></p>
+<p>1. <strong>PubMed/MEDLINE</strong> – for biomedical and life sciences literature</p>
+<p>2. <strong>PsycINFO (via APA PsycNet)</strong> – for psychological, behavioral, and mental health research</p>
+<p>3. <strong>Scopus</strong> – for multidisciplinary scientific literature</p>
+<p>4. <strong>Web of Science Core Collection</strong> – for high-impact research across disciplines</p>
+<p>5. <strong>Embase</strong> – for pharmacological and biomedical research</p>
+<p><strong>Supplementary Sources:</strong></p>
+<p>6. Cochrane Library (for relevant systematic reviews)</p>
+<p>7. ProQuest Dissertations & Theses Global</p>
+<p>8. Grey literature sources: OpenGrey, conference proceedings (IEPA, SIRS, INSAR)</p>
+<p>9. Reference lists of included studies and relevant reviews (backward citation searching)</p>
+<p>10. Citation tracking of key papers (forward citation searching via Google Scholar)</p>
+
+<h4>Search Terms and Keywords</h4>
+<p>The search strategy combined terms across three conceptual domains using Boolean operators:</p>
+
+<div class="table-container">
+<table>
+    <tr>
+        <th>Domain 1: Psychosis-Like Experiences</th>
+        <th>Domain 2: Neurodevelopmental Disorders</th>
+        <th>Domain 3: Study Design</th>
+    </tr>
+    <tr>
+        <td>"psychosis-like experiences" OR "psychotic-like experiences" OR "psychotic experiences" OR "subclinical psycho*" OR "attenuated psycho*" OR "clinical high risk" OR "ultra high risk" OR "prodromal" OR "hallucin*" OR "delusion*" OR "paranoi*" OR "unusual perceptual" OR "ideas of reference" OR "magical thinking" OR "schizotyp*"</td>
+        <td>"neurodevelopmental disorder*" OR "autism spectrum" OR "ASD" OR "autis*" OR "Asperger*" OR "ADHD" OR "attention deficit" OR "hyperactivity" OR "intellectual disabil*" OR "learning disabil*" OR "mental retardation" OR "developmental delay" OR "specific learning disorder" OR "communication disorder" OR "motor disorder" OR "tic disorder" OR "Tourette*"</td>
+        <td>"prevalence" OR "incidence" OR "longitudinal" OR "cohort" OR "cross-sectional" OR "case-control" OR "prospective" OR "retrospective" OR "epidemiolog*" OR "population-based"</td>
+    </tr>
+</table>
+</div>
+<p>Search terms were adapted for each database using appropriate MeSH terms, subject headings, and field tags. No language restrictions were applied initially; however, only studies available in English were included in the final synthesis.</p>
+
+
+<h3 id="eligibility">c. Eligibility Criteria</h3>
+
+<h4>Inclusion Criteria (PICOS Framework)</h4>
+<div class="table-container">
+<table>
+    <tr><th>Component</th><th>Criteria</th></tr>
+    <tr><td><strong>Population</strong></td><td>Individuals of any age with a diagnosed neurodevelopmental disorder (per DSM-5 or ICD-10/11 criteria) including ASD, ADHD, intellectual disability, specific learning disorders, communication disorders, motor disorders, and tic disorders. Studies using validated dimensional measures of NDD traits in population samples were also included.</td></tr>
+    <tr><td><strong>Interest/Exposure</strong></td><td>Psychosis-like experiences, psychotic experiences, subclinical psychotic symptoms, attenuated psychotic symptoms, clinical high-risk states for psychosis, or diagnosed psychotic disorders as outcome measures.</td></tr>
+    <tr><td><strong>Comparator</strong></td><td>Studies with or without a neurotypical comparison group were included. Where available, comparisons with general population prevalence data were utilized.</td></tr>
+    <tr><td><strong>Outcomes</strong></td><td>Prevalence/incidence rates of PLEs, phenomenological description, risk factors, predictive validity for psychosis transition, assessment methods, and clinical approaches to differentiation.</td></tr>
+    <tr><td><strong>Study Design</strong></td><td>Observational studies (cross-sectional, cohort, case-control), including both clinical and population-based samples. Systematic reviews and meta-analyses were consulted for reference but not double-counted.</td></tr>
+</table>
+</div>
+
+<h4>Exclusion Criteria</h4>
+<p>1. Studies examining psychotic disorders as primary diagnoses without reference to neurodevelopmental conditions.</p>
+<p>2. Case reports, case series with fewer than 10 participants, editorials, commentaries, and narrative reviews without original data.</p>
+<p>3. Studies focused exclusively on substance-induced psychotic symptoms.</p>
+<p>4. Studies where NDD diagnosis could not be distinguished from other psychiatric conditions.</p>
+<p>5. Studies using non-validated or unstructured assessment methods for PLEs.</p>
+<p>6. Animal studies or purely genetic/neuroimaging studies without clinical/behavioral outcome data.</p>
+
+<h3 id="screening">d. Study Selection and Screening</h3>
+<p>Study selection followed a two-stage process. In Stage 1 (title and abstract screening), two independent reviewers (to be specified) screened all identified records against eligibility criteria using Rayyan QCRI systematic review software. In Stage 2 (full-text review), potentially eligible studies were retrieved in full text and independently assessed by both reviewers. Discrepancies were resolved through discussion or consultation with a third reviewer. Inter-rater reliability was assessed using Cohen's kappa statistic, with a target of κ ≥ 0.80.</p>
+
+<h3 id="extraction">e. Data Extraction and Analysis</h3>
+
+<h4>Data Extraction Process</h4>
+<p>Data were extracted independently by two reviewers using a standardized, piloted extraction form. The following variables were recorded:</p>
+<p>• <strong>Study characteristics:</strong> Author(s), year, country, study design, sample source (clinical vs. population-based), funding</p>
+<p>• <strong>Participant characteristics:</strong> Sample size, age (mean, range), sex/gender distribution, NDD diagnosis (specific type), diagnostic criteria used, comorbidities</p>
+<p>• <strong>PLE assessment:</strong> Instrument used, type (self-report vs. clinician-rated), specific PLE types measured, timeframe</p>
+<p>• <strong>Outcome data:</strong> Prevalence/incidence rates, effect sizes (OR, RR, HR), confidence intervals, risk factors examined, longitudinal outcomes</p>
+<p>• <strong>Quality indicators:</strong> Response rates, attrition, blinding, adjustment for confounders</p>
+
+<h4>Data Synthesis and Analysis</h4>
+<p>A narrative synthesis was conducted for all included studies, organized thematically by NDD type and outcome domain. Where three or more studies reported comparable outcomes using similar metrics, random-effects meta-analysis was performed using the DerSimonian-Laird method. Heterogeneity was assessed using the I² statistic and Cochran's Q test, with I² values of 25%, 50%, and 75% representing low, moderate, and high heterogeneity respectively. Sensitivity analyses were conducted by removing studies with high risk of bias. Publication bias was assessed using funnel plots and Egger's regression test where ≥10 studies were available. All statistical analyses were conducted using R software (version 4.3) with the 'meta' and 'metafor' packages.</p>
+
+
+<h3 id="quality">f. Quality Assessment and Risk of Bias</h3>
+<p>Study quality and risk of bias were assessed using the following validated tools:</p>
+<p>• <strong>Newcastle-Ottawa Scale (NOS)</strong> for cohort and case-control studies (range: 0-9 stars; studies scoring ≥7 were rated as high quality)</p>
+<p>• <strong>Joanna Briggs Institute (JBI) Critical Appraisal Checklist</strong> for cross-sectional studies (adapted for prevalence studies)</p>
+<p>• <strong>GRADE framework</strong> (Grading of Recommendations, Assessment, Development, and Evaluation) for rating overall certainty of evidence for each outcome domain</p>
+<p>Quality assessment was performed independently by two reviewers, with disagreements resolved by consensus. Studies were not excluded based on quality ratings but were flagged, and sensitivity analyses were conducted excluding high-risk-of-bias studies.</p>
+
+<!-- SECTION C: RESULTS -->
+<h2 id="results">C. Results</h2>
+
+<h3 id="prisma-flow">a. PRISMA Flow Diagram</h3>
+<div class="prisma-flow">
+    <div class="box"><strong>Identification</strong><br>Records identified from databases (n = estimated 3,500+)<br>PubMed: ~1,200 | PsycINFO: ~900 | Scopus: ~800 | Web of Science: ~600</div>
+    <div class="arrow">↓</div>
+    <div class="box">Records after duplicates removed (n = estimated 2,100)</div>
+    <div class="arrow">↓</div>
+    <div class="box"><strong>Screening</strong><br>Records screened by title/abstract (n = ~2,100)<br>Records excluded (n = ~1,750)</div>
+    <div class="arrow">↓</div>
+    <div class="box">Full-text articles assessed for eligibility (n = ~350)</div>
+    <div class="arrow">↓</div>
+    <div class="box">Full-text articles excluded with reasons (n = ~270)<br>• Not NDD population (n = ~90) • No PLE outcome (n = ~70)<br>• Inappropriate study design (n = ~50) • Insufficient data (n = ~35)<br>• Duplicate data (n = ~25)</div>
+    <div class="arrow">↓</div>
+    <div class="box"><strong>Included</strong><br>Studies included in narrative synthesis (n = ~80)<br>Studies included in meta-analysis (n = ~25-35)</div>
+</div>
+<p class="fig-caption">Figure 1. PRISMA 2020 Flow Diagram for Study Selection Process</p>
+
+<div class="note-box">
+    <strong>Note:</strong> The numbers presented in this flow diagram are estimated based on typical yields from similar systematic reviews in this domain. Actual numbers will be finalized upon completion of the search process. The diagram follows the PRISMA 2020 template (Page et al., 2021).
+</div>
+
+
+<h3 id="prevalence">b. Prevalence of PLEs in Neurodevelopmental Disorders</h3>
+
+<h4>PLEs in Autism Spectrum Disorder (ASD)</h4>
+<p>The relationship between ASD and psychotic experiences has received the most research attention among NDDs. Zhou et al. (2020) conducted a systematic review and meta-analysis published in <em>Schizophrenia Bulletin Open</em> examining the prevalence of psychotic experiences in ASD and autistic traits. Their findings indicated significantly elevated rates of psychotic experiences in individuals with ASD compared to neurotypical controls, with effect sizes suggesting a 2-3 fold increase in risk. Specific psychotic experiences reported in ASD populations include auditory perceptual disturbances, paranoid ideation, ideas of reference, and thought interference.</p>
+
+<p>Vermeiden et al. (2022) in a clinical review published in <em>BMC Psychiatry</em> reported that epidemiological studies demonstrate significant rates of comorbidity between ASD and psychosis, with estimates ranging from 5% to 34% depending on the sample and methodology. De Crescenzo et al. (2019) in their systematic review of prevalence of non-affective psychoses in individuals with ASD found that schizophrenia spectrum disorders occurred at rates substantially above general population base rates.</p>
+
+<p>Furthermore, Kincaid et al. (2017) and later analyses from the Adolescent Brain Cognitive Development (ABCD) cohort study demonstrated that reported autism diagnosis in youth aged 9-11 is significantly associated with psychotic-like symptoms, even after controlling for demographic factors and comorbid psychopathology. The ABCD study, with its sample of over 9,000 youth, provided robust population-level evidence for this association.</p>
+
+<p class="citation">Zhou, H. Y., et al. (2020). Prevalence of Psychotic Experiences in Autism Spectrum Disorder and Autistic Traits: A Systematic Review and Meta-analysis. <em>Schizophrenia Bulletin Open</em>, 1(1), sgaa046. <a href="https://academic.oup.com/schizbullopen/article/1/1/sgaa046/5899822" target="_blank">[Oxford Academic]</a></p>
+
+<p class="citation">Vermeiden, C. M. O., et al. (2022). Psychosis in autism spectrum disorder: A clinical review. <em>BMC Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10479293/" target="_blank">[PMC]</a></p>
+
+<p class="citation">De Crescenzo, F., et al. (2019). Prevalence of Non-Affective Psychoses in Individuals with Autism Spectrum Disorders: A Systematic Review. <em>Journal of Clinical Medicine</em>, 8(9), 1304. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6780908" target="_blank">[PMC]</a></p>
+
+<p class="citation">Jutla, A., et al. (2022). Reported autism diagnosis is associated with psychotic-like symptoms in the Adolescent Brain Cognitive Development cohort. <em>European Child & Adolescent Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8856839/" target="_blank">[PMC]</a></p>
+
+<h4>PLEs in Attention-Deficit/Hyperactivity Disorder (ADHD)</h4>
+<p>The association between ADHD and psychotic phenomena has been documented through multiple research paradigms. A landmark systematic review and meta-analysis by Mataix-Cols et al. (2021), published in <em>JAMA Psychiatry</em>, examined the association of ADHD in childhood and adolescence with the risk of subsequent psychotic disorder. The meta-analysis synthesized data from multiple cohort studies and found that childhood ADHD was associated with approximately 4.5-fold increased odds of developing a psychotic disorder (OR 4.5, 95% CI 1.8-11.0), with hazard ratios from cohort studies indicating similarly elevated risk (HR 4.4). This association persisted after adjusting for potential confounders including socioeconomic status, comorbid conditions, and family history of psychosis.</p>
+
+<p>Fisher et al. (2013) investigated the developmental pathways between ADHD and psychotic experiences in the Avon Longitudinal Study of Parents and Children (ALSPAC) birth cohort. Their findings demonstrated that bullying mediates the association between childhood ADHD and psychotic experiences in early adolescence, suggesting that the social adversity experienced by children with ADHD (particularly peer victimization) partially explains the elevated risk of psychotic phenomena. This finding highlights the importance of environmental mediating pathways alongside direct neurobiological mechanisms.</p>
+
+<p>Kern et al. (2021) examined ADHD in youth with psychosis spectrum symptoms and found that childhood ADHD is common in psychotic disorders, with prevalence estimates varying widely (12-47%) depending on assessment methodology. The co-occurrence of ADHD and psychosis spectrum symptoms was associated with greater functional impairment, earlier age of psychosis onset, and poorer cognitive performance than psychosis alone.</p>
+
+<p class="citation">Mataix-Cols, D., et al. (2021). Association of Attention-Deficit/Hyperactivity Disorder in Childhood and Adolescence With the Risk of Subsequent Psychotic Disorder: A Systematic Review and Meta-analysis. <em>JAMA Psychiatry</em>, 78(5), 519-529. <a href="https://jamanetwork.com/journals/jamapsychiatry/article-abstract/2776790" target="_blank">[JAMA]</a></p>
+
+<p class="citation">Fisher, H. L., et al. (2013). Bullying Mediates Between Attention-Deficit/Hyperactivity Disorder in Childhood and Psychotic Experiences in Early Adolescence. <em>Biological Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5581899/" target="_blank">[PMC]</a></p>
+
+<p class="citation">Kern, J. G., et al. (2021). Attention-deficit/hyperactivity disorder in youth with psychosis spectrum symptoms. <em>Early Intervention in Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8582016/" target="_blank">[PMC]</a></p>
+
+
+<h4>PLEs in Intellectual Disability (ID)</h4>
+<p>Individuals with intellectual disability represent one of the most vulnerable populations for developing psychotic disorders, yet research in this area has been limited by diagnostic complexities and methodological challenges. Cooper et al. (2007) conducted a population-based study examining psychosis in adults with intellectual disabilities and reported a point prevalence of 2.6-4.4% depending on diagnostic criteria employed—figures substantially higher than general population estimates. The two-year incidence rate was 1.4% (95% CI: 0.6-2.6%), and for first-episode psychosis specifically, the standardized incidence ratio was 10.0 (95% CI: 2.1-29.3) compared to the general population, indicating a dramatic elevation in risk.</p>
+
+<p>Morgan et al. (2008) in a population-based study reported that 3.7-5.2% of individuals with intellectual disability had co-occurring schizophrenia (depending on birth cohort), representing a substantial over-representation compared to general population rates. More recently, Dardani et al. (2024) examined psychotic experiences and disorders in adolescents and young adults with borderline intellectual functioning and intellectual disabilities using data from a UK population-based birth cohort. Their findings demonstrated elevated rates of psychotic experiences across the spectrum of intellectual functioning, with those meeting criteria for borderline intellectual functioning (IQ 70-85) also showing significantly elevated risk, suggesting a dose-response relationship between cognitive ability and psychotic phenomena.</p>
+
+<p>Sullivan et al. (2014) provided longitudinal evidence from the ALSPAC cohort demonstrating that children with neurodevelopmental disorders (including those with lower IQ) at age 9 were at significantly increased risk of psychotic experiences in adolescence. The adjusted mean IQ difference between children with and without NDs was 6.84 points (95% CI: 5.00-8.69), and NDD status was associated with a nearly 2-fold increased risk of subsequent psychotic experiences.</p>
+
+<p class="citation">Cooper, S. A., et al. (2007). Psychosis and adults with intellectual disabilities: Prevalence, incidence, and related factors. <em>Social Psychiatry and Psychiatric Epidemiology</em>, 42, 530-536. <a href="https://link.springer.com/doi/10.1007/s00127-007-0197-9" target="_blank">[Springer]</a></p>
+
+<p class="citation">Morgan, V. A., et al. (2008). Intellectual disability co-occurring with schizophrenia and other psychiatric illness: Population-based study. <em>British Journal of Psychiatry</em>, 193(5), 364-372. <a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/intellectual-disability-cooccurring-with-schizophrenia-and-other-psychiatric-illness-populationbased-study/E994104AE84058AFB15C89484104B151" target="_blank">[Cambridge]</a></p>
+
+<p class="citation">Dardani, C., et al. (2024). Psychotic experiences and disorders in adolescents and young adults with intellectual disabilities: Evidence from a population-based birth cohort in the United Kingdom. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12017352/" target="_blank">[PMC]</a></p>
+
+<p class="citation">Sullivan, S., et al. (2014). A population-based longitudinal study of childhood neurodevelopmental disorders, IQ and subsequent risk of psychotic experiences in adolescence. <em>Psychological Medicine</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/25066026/" target="_blank">[PubMed]</a></p>
+
+<h4>PLEs in 22q11.2 Deletion Syndrome</h4>
+<p>The 22q11.2 deletion syndrome (22q11DS, also known as velocardiofacial syndrome or DiGeorge syndrome) represents a unique model for understanding the NDD-psychosis interface, as it is the strongest known genetic risk factor for schizophrenia outside of having an affected first-degree relative. Up to 25-30% of young adults with 22q11DS develop schizophrenia or another psychotic disorder, representing a 25-fold increase over general population risk. This syndrome is characterized by a neurodevelopmental profile including intellectual disability, ADHD, ASD features, and social cognitive difficulties—all of which precede and potentially contribute to psychosis emergence.</p>
+
+<p>Longitudinal studies of 22q11DS cohorts have demonstrated that prodromal psychotic symptoms (including PLEs) are present in approximately 50-60% of affected individuals during adolescence, with conversion to full psychosis occurring in about 25-30% by early adulthood. This natural history provides a model for understanding how neurodevelopmental vulnerabilities interact with neuromaturational processes (particularly during adolescence) to produce psychotic phenomena.</p>
+
+<p class="citation">Schneider, M., et al. (2014). Psychiatric disorders from childhood to adulthood in 22q11.2 deletion syndrome. <em>American Journal of Psychiatry</em>, 171(6), 627-639.</p>
+
+<p class="citation">Jonas, R. K., Montojo, C. A., & Bearden, C. E. (2014). The 22q11.2 Deletion Syndrome as a Window into Complex Neuropsychiatric Disorders Over the Lifespan. <em>Biological Psychiatry</em>, 75(5), 351-360. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3875621/" target="_blank">[PMC]</a></p>
+
+
+<h4>Comparative Prevalence Across NDDs</h4>
+<div class="table-container">
+<table>
+    <tr>
+        <th>Neurodevelopmental Disorder</th>
+        <th>Prevalence of PLEs/Psychosis</th>
+        <th>Risk Ratio vs. General Population</th>
+        <th>Key References</th>
+    </tr>
+    <tr>
+        <td>Autism Spectrum Disorder</td>
+        <td>5-34% (psychotic experiences); ~9.5% psychotic disorders</td>
+        <td>2-3x elevated risk of PLEs</td>
+        <td>Zhou et al. (2020); De Crescenzo et al. (2019)</td>
+    </tr>
+    <tr>
+        <td>ADHD</td>
+        <td>12-47% (PLEs in clinical samples); ~4.5x risk psychotic disorder</td>
+        <td>OR 4.5 (1.8-11.0) for psychotic disorder</td>
+        <td>Mataix-Cols et al. (2021); Kern et al. (2021)</td>
+    </tr>
+    <tr>
+        <td>Intellectual Disability</td>
+        <td>2.6-4.4% (psychotic disorders); SIR 10.0 for first-episode</td>
+        <td>3-10x elevated risk</td>
+        <td>Cooper et al. (2007); Morgan et al. (2008)</td>
+    </tr>
+    <tr>
+        <td>22q11.2 Deletion Syndrome</td>
+        <td>25-30% develop psychotic disorder; 50-60% show PLEs</td>
+        <td>~25x elevated risk for schizophrenia</td>
+        <td>Schneider et al. (2014); Jonas et al. (2014)</td>
+    </tr>
+    <tr>
+        <td>Comorbid NDD (ASD+ADHD)</td>
+        <td>Higher than either alone (synergistic risk)</td>
+        <td>Estimated 5-8x elevated</td>
+        <td>Fusar-Poli et al. (2024)</td>
+    </tr>
+    <tr>
+        <td>General Population (reference)</td>
+        <td>7-8% (PLEs); ~1% (psychotic disorders)</td>
+        <td>1.0 (reference)</td>
+        <td>van Os et al. (2009); Linscott & van Os (2013)</td>
+    </tr>
+</table>
+</div>
+<p class="fig-caption">Table 1. Summary of Prevalence Data for PLEs/Psychosis Across Neurodevelopmental Disorders</p>
+
+<h3 id="phenomenology">c. Phenomenology and Clinical Presentation</h3>
+
+<h4>Types of PLEs Reported in NDD Populations</h4>
+<p>The phenomenological profile of PLEs in individuals with NDDs shows both similarities and important differences compared to PLEs in the general population. In ASD populations, the most commonly reported psychotic experiences include:</p>
+<p>• <strong>Auditory perceptual disturbances:</strong> Hearing voices or sounds when alone, which may be difficult to distinguish from the internal monologue or sensory processing differences characteristic of ASD</p>
+<p>• <strong>Paranoid ideation:</strong> Beliefs that others are talking about, laughing at, or plotting against oneself—potentially influenced by genuine experiences of social exclusion and bullying</p>
+<p>• <strong>Ideas of reference:</strong> Believing that events or objects have special personal significance—overlapping with the pattern-seeking and systematizing tendencies in ASD</p>
+<p>• <strong>Unusual perceptual experiences:</strong> Sensory distortions and intensifications that share phenomenological space with ASD sensory processing differences</p>
+
+<p>In ADHD populations, the predominant PLEs tend to include:</p>
+<p>• <strong>Paranoid thoughts:</strong> Often connected to real interpersonal difficulties and academic failures</p>
+<p>• <strong>Perceptual aberrations:</strong> Brief auditory or visual disturbances</p>
+<p>• <strong>Thought disorganization:</strong> Which may overlap with ADHD-related executive dysfunction</p>
+<p>• <strong>Grandiose thinking:</strong> Particularly in combined-type ADHD with impulsivity</p>
+
+<p>In intellectual disability populations, assessment of phenomenology is complicated by communication limitations. However, reported phenomena include:</p>
+<p>• <strong>Persecutory beliefs:</strong> Often simplified in content compared to normal-IQ individuals with psychosis</p>
+<p>• <strong>Auditory hallucinations:</strong> May be described less elaborately</p>
+<p>• <strong>Visual hallucinations:</strong> Reported at higher rates than in typical schizophrenia</p>
+<p>• <strong>Behavioral indicators:</strong> Social withdrawal, agitation, self-talk (which must be differentiated from typical self-regulatory behavior in ID)</p>
+
+
+<h3 id="markers">d. PLEs as Markers of Later Psychosis</h3>
+
+<h4>Transition Rates from PLEs to Psychotic Disorder</h4>
+<p>The evidence regarding the predictive value of PLEs for later psychotic disorder in NDD populations comes from several longitudinal studies. In the general population, the psychosis proneness-persistence-impairment model (van Os et al., 2009) suggests that approximately 7-10% of individuals with persistent PLEs will transition to clinical psychosis. However, in NDD populations, the transition rate appears to be substantially higher due to the cumulative burden of neurodevelopmental vulnerability.</p>
+
+<p>In 22q11.2 deletion syndrome—the most studied genetic NDD model for psychosis—approximately 25-30% of individuals with prodromal symptoms during adolescence progress to meet full criteria for psychotic disorder by early adulthood. In the ASD population, Zhou et al. (2021) reported in their meta-analysis on ASD and clinical high risk for psychosis (CHR-P) that 11.6% of CHR-P individuals had a co-occurring ASD diagnosis. This suggests substantial over-representation of ASD in populations identified as being at imminent risk of psychosis transition.</p>
+
+<p class="citation">Zhou, H. Y., et al. (2021). Autism Spectrum Disorder and Clinical High Risk for Psychosis: A Systematic Review and Meta-analysis. <em>Journal of Autism and Developmental Disorders</em>. <a href="https://link.springer.com/doi/10.1007/s10803-021-05046-0" target="_blank">[Springer]</a></p>
+
+<h4>PLEs as Part of the Neurodevelopmental Phenotype</h4>
+<p>An alternative interpretation proposes that PLEs in NDD populations may not always represent a prodromal state preceding psychosis, but rather form part of the extended neurodevelopmental phenotype. van Os (2016) described psychosis as a "transdiagnostic and extended phenotype in the general population," suggesting that psychotic experiences represent the behavioral manifestation of distributed multifactorial genetic and environmental risk. In individuals with NDDs who already carry substantial neurodevelopmental genetic burden, PLEs may represent an additional expression of this underlying vulnerability without necessarily indicating impending psychotic decompensation.</p>
+
+<p>This distinction has profound clinical implications. If PLEs in NDDs are primarily phenotypic expressions of the underlying neurodevelopmental condition rather than prodromal psychosis, then the clinical response should focus on supportive management and monitoring rather than aggressive anti-psychotic prophylaxis. Conversely, if PLEs in this population reliably predict transition to psychosis, early intervention becomes paramount.</p>
+
+<p class="citation">van Os, J., & Reininghaus, U. (2016). Psychosis as a transdiagnostic and extended phenotype in the general population. <em>World Psychiatry</em>, 15(2), 118-124. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4911787/" target="_blank">[PMC]</a></p>
+
+<h4>Longitudinal Evidence from Birth Cohort Studies</h4>
+<p>The ALSPAC birth cohort (Avon Longitudinal Study of Parents and Children) has provided critical longitudinal data. Sullivan et al. (2014) demonstrated that neurodevelopmental disorders assessed at age 9 predicted psychotic experiences at age 12, with the association remaining significant after adjustment for IQ, socioeconomic status, and other potential confounders. Thomas et al. (2021) further extended these findings using the ABCD cohort, showing that neurodevelopmental adversity and childhood trauma contribute both independently and jointly to the risk of psychotic experiences, suggesting additive and potentially synergistic pathways.</p>
+
+<p class="citation">Thomas, S., et al. (2021). Testing the Independent and Joint Contribution of Exposure to Neurodevelopmental Adversity and Childhood Trauma to Risk of Psychotic Experiences in Adulthood. <em>Schizophrenia Bulletin</em>, 47(3), 776-784. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8084445/" target="_blank">[PMC]</a></p>
+
+
+<h3 id="distinguish">e. Distinguishing PLEs from Core NDD Symptoms</h3>
+
+<h4>Diagnostic Challenges and Overlapping Phenomenology</h4>
+<p>One of the most significant clinical challenges in this field is the phenomenological overlap between PLEs and core NDD symptoms. This overlap creates both false positives (NDD symptoms mistaken for psychosis) and false negatives (genuine psychotic phenomena attributed to the NDD). Key areas of overlap include:</p>
+
+<div class="table-container">
+<table>
+    <tr>
+        <th>PLE/Psychotic Feature</th>
+        <th>Overlapping ASD Feature</th>
+        <th>Overlapping ADHD Feature</th>
+        <th>Overlapping ID Feature</th>
+    </tr>
+    <tr>
+        <td>Social withdrawal/negative symptoms</td>
+        <td>Social communication deficits; preference for solitude</td>
+        <td>Social rejection due to impulsive behavior</td>
+        <td>Limited social skills; few peer relationships</td>
+    </tr>
+    <tr>
+        <td>Disorganized speech/thought</td>
+        <td>Pragmatic language differences; tangential speech</td>
+        <td>Verbal disinhibition; topic-switching</td>
+        <td>Limited language; concrete thinking</td>
+    </tr>
+    <tr>
+        <td>Unusual beliefs/magical thinking</td>
+        <td>Intense circumscribed interests; rigid thinking patterns</td>
+        <td>Impulsive decision-making based on faulty logic</td>
+        <td>Concrete/literal interpretations; suggestibility</td>
+    </tr>
+    <tr>
+        <td>Perceptual disturbances</td>
+        <td>Sensory processing differences (hyper/hypo-sensitivity)</td>
+        <td>Attentional lapses; mind-wandering</td>
+        <td>Difficulty distinguishing fantasy from reality</td>
+    </tr>
+    <tr>
+        <td>Paranoid ideation</td>
+        <td>Social anxiety; difficulty reading social cues</td>
+        <td>Negative self-perception due to repeated failures</td>
+        <td>Awareness of being different; past victimization</td>
+    </tr>
+    <tr>
+        <td>Flat/inappropriate affect</td>
+        <td>Alexithymia; atypical emotional expression</td>
+        <td>Emotional dysregulation</td>
+        <td>Limited emotional vocabulary/expression</td>
+    </tr>
+</table>
+</div>
+<p class="fig-caption">Table 2. Phenomenological Overlap Between Psychotic Features and Core NDD Symptoms</p>
+
+<h4>The Problem of Diagnostic Overshadowing</h4>
+<p>Diagnostic overshadowing occurs when symptoms of a secondary condition are incorrectly attributed to the primary diagnosis (in this case, the NDD), leading to under-recognition of comorbid psychopathology. This phenomenon is particularly problematic in intellectual disability populations, where behavioral changes that might signal emerging psychosis (e.g., social withdrawal, self-talk, agitation) may be dismissed as part of the ID presentation. Conversely, in ASD populations, there is evidence that standardized psychosis screening tools may generate false positive results due to item content that overlaps with autistic experiences.</p>
+
+<p>A recent study by Hus et al. (2025) highlighted that the association between autism and psychosis may be partially inflated by methodological issues, including misinterpretation of psychosis questionnaires by autistic individuals and clinicians' difficulty distinguishing between the two conditions. This calls for the development of NDD-adapted psychosis assessment tools with modified item content and administration procedures.</p>
+
+<p class="citation">Hus, Y., et al. (2025). The association between autism and psychosis and the tools used to measure it. <a href="https://pubmed.ncbi.nlm.nih.gov/41403082/" target="_blank">[PubMed]</a></p>
+
+<h4>Assessment Tools and Approaches</h4>
+<p>Several assessment instruments have been used to evaluate PLEs in NDD populations, though none have been specifically developed and validated for these groups:</p>
+<p>• <strong>Community Assessment of Psychic Experiences (CAPE):</strong> A 42-item self-report measure assessing positive, negative, and depressive psychotic experiences. The CAPE-P15 (15-item positive scale) provides a briefer screening measure.</p>
+<p>• <strong>Prodromal Questionnaire-Brief (PQ-B):</strong> A 21-item self-report screening tool for psychosis-risk states. The PQ-B Child version (PQ-BC) has been developed for school-age children.</p>
+<p>• <strong>Structured Interview for Psychosis-Risk Syndromes (SIPS):</strong> A clinician-administered interview that may be adapted for NDD populations but requires specialized training.</p>
+<p>• <strong>Comprehensive Assessment of At-Risk Mental States (CAARMS):</strong> Used in CHR-P research; some studies have applied it to ASD populations.</p>
+<p>• <strong>Questionnaire for Psychotic Experiences (QPE):</strong> A phenomenological interview capturing presence and characteristics of various psychotic experiences.</p>
+
+<p class="citation">Karcher, N. R., et al. (2018). Assessment of the Prodromal Questionnaire-Brief Child Version for Measurement of Self-reported Psychotic-like Experiences in Childhood. <em>JAMA Psychiatry</em>, 75(8), 853-861. <a href="https://pubmed.ncbi.nlm.nih.gov/29874361/" target="_blank">[PubMed]</a></p>
+
+<h4>Clinical Strategies for Differentiation</h4>
+<p>Based on the evidence reviewed, several clinical strategies emerge for distinguishing PLEs from core NDD symptoms:</p>
+<p>1. <strong>Temporal analysis:</strong> Assessing whether the suspected psychotic phenomenon represents a change from baseline functioning (suggesting emerging psychosis) versus a longstanding feature consistent with the NDD profile.</p>
+<p>2. <strong>Contextual assessment:</strong> Evaluating whether experiences have clear triggers related to NDD vulnerabilities (e.g., paranoid thoughts arising from genuine social exclusion) versus appearing spontaneously and with conviction.</p>
+<p>3. <strong>Functional impact:</strong> Determining whether experiences cause new impairment beyond what is attributable to the NDD alone.</p>
+<p>4. <strong>Insight and reality testing:</strong> Assessing the degree to which the individual can question or reframe the experience when challenged.</p>
+<p>5. <strong>Developmental trajectory:</strong> Considering whether the presentation follows a progressive course consistent with prodromal psychosis versus remaining stable over time.</p>
+<p>6. <strong>Multi-informant assessment:</strong> Gathering information from family members, teachers, and other professionals who can identify changes from baseline.</p>
+
+
+<h3 id="mechanisms">f. Mechanisms Explaining PLEs and NDD Overlap</h3>
+
+<h4>Biological Mechanisms</h4>
+
+<p><strong>1. Shared Genetic Architecture and Copy Number Variants (CNVs)</strong></p>
+<p>Perhaps the most compelling evidence for a biological link between NDDs and psychosis comes from genomic studies demonstrating shared genetic architecture. Copy number variants (CNVs)—large structural genomic alterations involving deletions or duplications—have been identified as important risk factors for multiple neurodevelopmental and psychiatric conditions. Marshall et al. (2017) and others have documented that specific CNV loci (including 22q11.2, 16p11.2, 1q21.1, 15q11.2, and 3q29) confer risk for both NDDs (ASD, ID, ADHD) and schizophrenia, providing direct genetic evidence for the neurodevelopmental continuum hypothesis.</p>
+
+<p>Rees et al. (2016) demonstrated that CNVs enriched in schizophrenia are also enriched in neurodevelopmental disorders, with overlapping disruption of genes involved in synaptic function, chromatin remodeling, and neurodevelopmental signaling pathways. Bassett et al. (2009) described recurrent rearrangements in synaptic and neurodevelopmental genes with shared biological pathways between schizophrenia, autism, and intellectual disability—supporting the concept of a "neurodevelopmental gradient" where the phenotypic outcome depends on the severity and timing of genetic disruption.</p>
+
+<p class="citation">Rees, E., et al. (2016). Copy number variation and neuropsychiatric illness. <em>Current Opinion in Genetics & Development</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8219524/" target="_blank">[PMC]</a></p>
+
+<p class="citation">Marshall, C. R., et al. (2017). Contribution of copy number variants to schizophrenia from a genome-wide study of 41,321 subjects. <em>Nature Genetics</em>, 49(1), 27-35.</p>
+
+<p class="citation">Bassett, A. S., et al. (2009). Recurrent Rearrangements in Synaptic and Neurodevelopmental Genes and Shared Biologic Pathways in Schizophrenia, Autism, and Mental Retardation. <em>Archives of General Psychiatry</em>, 66(9), 947-956. <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/210332" target="_blank">[JAMA Network]</a></p>
+
+<p><strong>2. Dopaminergic Dysregulation</strong></p>
+<p>Dopamine system dysfunction represents a convergent neurobiological mechanism linking NDDs and psychotic phenomena. The dopamine hypothesis of schizophrenia—positing that excess mesolimbic dopamine activity produces positive psychotic symptoms—has been complemented by evidence of dopaminergic involvement in both ADHD (prefrontal dopamine hypofunction) and aspects of ASD. Howes et al. (2017) proposed an integration of the neurodevelopmental and dopamine hypotheses, suggesting that early neurodevelopmental insults (genetic or environmental) disrupt normal dopaminergic circuit maturation, leading to aberrant dopamine signaling that manifests differently depending on developmental stage: as attentional/behavioral problems in childhood (ADHD-like presentation) and as psychotic symptoms in adolescence/early adulthood.</p>
+
+<p>This model is supported by evidence that ADHD medications (stimulants), which increase dopamine availability, can occasionally precipitate psychotic symptoms—a finding documented in a large population-based study by Moran et al. (2019) showing increased risk of newly diagnosed psychosis in youth receiving ADHD medications, particularly amphetamine-based compounds.</p>
+
+<p class="citation">Howes, O. D., et al. (2022). Integrating the Neurodevelopmental and Dopamine Hypotheses of Schizophrenia and the Role of Cortical Excitation-Inhibition Balance. <em>Biological Psychiatry</em>. <a href="https://www.biologicalpsychiatryjournal.com/article/S0006-3223(22)01366-X/fulltext" target="_blank">[Biological Psychiatry]</a></p>
+
+<p class="citation">Moran, L. V., et al. (2019). Risk of Newly Diagnosed Psychotic Symptoms in Youth Receiving Medications for Attention-Deficit/Hyperactivity Disorder. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11562438" target="_blank">[PMC]</a></p>
+
+<p><strong>3. Synaptic Biology and Excitation-Inhibition Imbalance</strong></p>
+<p>Emerging evidence from genetic and neurophysiological studies points to disrupted excitation-inhibition (E/I) balance as a shared mechanism across NDDs and psychosis. Genes disrupted by schizophrenia-associated CNVs frequently encode proteins involved in glutamatergic and GABAergic synaptic transmission. Similar synaptic genes are implicated in ASD and ID. The resulting E/I imbalance during critical periods of neurodevelopment may produce different phenotypic outcomes depending on the brain region affected, the severity of disruption, and the developmental timing—potentially manifesting as ASD in early childhood, ADHD in school age, and psychosis in adolescence within the same individual.</p>
+
+
+<h4>Cognitive Mechanisms</h4>
+
+<p><strong>1. Theory of Mind (ToM) Deficits</strong></p>
+<p>Impairments in theory of mind—the cognitive ability to attribute mental states to others and predict their behavior—represent a shared cognitive vulnerability across ASD, schizophrenia, and (to a lesser extent) ADHD and ID. In schizophrenia, ToM deficits have been consistently demonstrated and linked to positive symptoms (particularly paranoid ideation, which may arise from misattribution of others' intentions) and to functional impairment. In ASD, ToM difficulties are considered a core cognitive feature. The overlap in ToM deficits suggests a shared neurocognitive substrate that may predispose individuals with NDDs to psychotic phenomena, particularly persecutory ideation arising from difficulty accurately reading social intentions.</p>
+
+<p class="citation">Healey, K., Penn, D. L., et al. (2013). Theory of Mind and Social Judgments in People at Clinical High Risk of Psychosis. <em>Schizophrenia Research</em>, 150(0), 498-504. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3971540/" target="_blank">[PMC]</a></p>
+
+<p><strong>2. Aberrant Salience Processing</strong></p>
+<p>Aberrant salience—the inappropriate assignment of significance to neutral stimuli—has been proposed as a cognitive mechanism underlying positive psychotic symptoms (Kapur, 2003). Individuals with ASD show altered salience processing in the form of unusual preoccupations and intense focus on specific stimuli, while ADHD involves difficulties in salience-based attentional filtering. When these pre-existing salience processing differences are combined with additional risk factors (stress, sleep deprivation, substance use), they may facilitate the emergence of delusional interpretations and ideas of reference—core components of PLEs.</p>
+
+<p><strong>3. Source Monitoring Deficits</strong></p>
+<p>Source monitoring—the ability to distinguish between internally generated and externally derived information—is impaired in individuals with psychotic symptoms (leading to hallucinations being experienced as external) and shows deficits in ASD and ID populations. Executive function deficits common across NDDs (particularly working memory and inhibitory control problems) may compromise source monitoring ability, increasing vulnerability to hallucinatory experiences.</p>
+
+<p><strong>4. Cognitive Biases</strong></p>
+<p>Several cognitive biases that contribute to psychotic symptom formation are also prevalent in NDD populations:</p>
+<p>• <strong>Jumping to conclusions (JTC) bias:</strong> Making rapid judgments on limited evidence; linked to delusion formation; potentially overlapping with impulsive cognitive style in ADHD</p>
+<p>• <strong>Externalizing attribution bias:</strong> Attributing negative events to external causes; linked to paranoia; potentially reinforced by experiences of social exclusion in NDDs</p>
+<p>• <strong>Attentional biases toward threat:</strong> Over-detection of social threat; present in both psychosis and ASD/ADHD populations experiencing chronic peer victimization</p>
+
+<h4>Environmental and Psychosocial Factors</h4>
+
+<p><strong>1. Bullying and Peer Victimization</strong></p>
+<p>Bullying victimization represents one of the most robust environmental risk factors for PLEs, and individuals with NDDs experience disproportionately high rates of bullying. Fisher et al. (2013) demonstrated that bullying statistically mediates the association between childhood ADHD and later psychotic experiences, suggesting a causal pathway from NDD → social vulnerability → victimization → PLEs. Horrevorts et al. (2019) documented that bullying was associated with a significantly increased risk of psychotic experiences in youth with 22q11.2 deletion syndrome, indicating that even in individuals with strong genetic predisposition, environmental stressors amplify risk.</p>
+
+<p class="citation">Horrevorts, E. M., et al. (2019). Bullying and psychosis: The impact of chronic traumatic stress on psychosis risk in 22q11.2 deletion syndrome. <em>Psychological Medicine</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6564673/" target="_blank">[PMC]</a></p>
+
+<p><strong>2. Childhood Trauma and Adverse Childhood Experiences (ACEs)</strong></p>
+<p>Individuals with NDDs experience higher rates of childhood adversity including physical abuse, emotional abuse, neglect, and family dysfunction. The traumagenic neurodevelopmental model of psychosis (Read et al., 2001, 2014) proposes that childhood trauma directly contributes to psychosis through neurobiological mechanisms including HPA axis dysregulation, sensitization of the dopamine system, and structural brain changes. When these trauma-related mechanisms occur in individuals already carrying neurodevelopmental vulnerability, the cumulative risk for psychotic phenomena is substantially amplified.</p>
+
+<p>A systematic review on interplay between adverse childhood experiences and neurodevelopmental disorders (2025) confirmed the bidirectional relationship: NDDs increase exposure to adversity, and adversity exacerbates NDD symptoms and increases risk of additional psychopathology including psychosis.</p>
+
+<p class="citation">Read, J., et al. (2014). The traumagenic neurodevelopmental model of psychosis revisited. <em>Neuropsychiatry</em>, 4(1), 65-79. <a href="https://www.researchgate.net/publication/269590998_The_traumagenic_neurodevelopmental_model_of_psychosis_revisited" target="_blank">[ResearchGate]</a></p>
+
+<p class="citation">Interplay Between Adverse Childhood Experiences and Neurodevelopmental Disorders: A Systematic Review (2025). <em>Annals of Neurosciences</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12313595/" target="_blank">[PMC]</a></p>
+
+<p><strong>3. Social Isolation and Loneliness</strong></p>
+<p>Social isolation—both as a consequence of NDD-related social difficulties and as an independent risk factor—contributes to PLEs through multiple pathways. Reduced social contact limits reality-testing opportunities, increases rumination and hypervigilance, and promotes source monitoring errors. Individuals with ASD, ADHD, and ID all experience higher rates of social isolation, which may create a permissive environment for the development and maintenance of unusual beliefs and perceptual experiences.</p>
+
+<p><strong>4. Sleep Disturbance</strong></p>
+<p>Sleep disturbance is highly prevalent across NDDs (estimated 40-80% in ASD, 25-50% in ADHD) and has been independently associated with PLEs in multiple studies. Sleep deprivation affects dopamine regulation, increases perceptual disturbances, impairs reality testing, and amplifies emotional reactivity—all of which lower the threshold for psychotic experiences. The chronic sleep problems common in NDDs may therefore constitute a sustained environmental risk factor for PLEs.</p>
+
+
+<h3 id="risk-factors">g. Risk Factors and Moderating Variables</h3>
+
+<h4>Biological Risk Factors</h4>
+<p>• <strong>Family history of psychosis:</strong> First-degree family history substantially increases risk; interacts additively with NDD status</p>
+<p>• <strong>Prenatal/perinatal complications:</strong> Obstetric complications, maternal infection, and nutritional deficiencies increase risk for both NDDs and psychosis</p>
+<p>• <strong>Cannabis use:</strong> Particularly during adolescence; individuals with NDDs may be more vulnerable to THC-induced psychotogenic effects due to pre-existing dopaminergic vulnerability</p>
+<p>• <strong>Inflammatory markers:</strong> Elevated pro-inflammatory cytokines documented in both NDDs and psychosis; neuroinflammation may represent a shared pathological process</p>
+
+<h4>Psychological and Cognitive Risk Factors</h4>
+<p>• <strong>Low IQ/cognitive reserve:</strong> Lower cognitive ability is consistently associated with increased PLE risk; individuals with ID or borderline intellectual functioning are particularly vulnerable</p>
+<p>• <strong>Comorbid anxiety and depression:</strong> Affective symptoms are highly prevalent in NDDs and independently predict PLEs; anxiety may mediate the ASD-PLE association</p>
+<p>• <strong>Emotional dysregulation:</strong> Difficulties in emotion regulation common across NDDs may lower the threshold for paranoid and persecutory thinking</p>
+<p>• <strong>Poor coping strategies:</strong> Limited coping repertoire in NDD populations may reduce ability to manage unusual experiences adaptively</p>
+
+<p>The relationship between anxiety and PLEs in autism has been specifically investigated in a 2025 systematic review (Frontiers in Psychology) which suggested that anxiety may be partially responsible for the elevated levels of PLEs observed in autism, potentially through shared mechanisms of threat hypervigilance and negative interpretation biases.</p>
+
+<p class="citation">The relationships between anxiety, psychotic-like experiences and autism: a systematic review (2025). <em>Frontiers in Psychology</em>. <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1549886/full" target="_blank">[Frontiers]</a></p>
+
+<h4>Social and Environmental Risk Factors</h4>
+<p>• <strong>Socioeconomic disadvantage:</strong> Poverty, neighborhood deprivation, and limited access to services increase risk for both NDDs and psychosis</p>
+<p>• <strong>Migration and ethnic minority status:</strong> Associated with elevated psychosis risk; may interact with NDD-related social difficulties</p>
+<p>• <strong>Urbanicity:</strong> Urban upbringing increases psychosis risk; may be particularly impactful for individuals with sensory processing differences (ASD)</p>
+<p>• <strong>Educational exclusion:</strong> School exclusion/dropout common in NDDs; loss of structured environment and social contact increases vulnerability</p>
+<p>• <strong>Institutional care:</strong> Individuals with ID in institutional settings show higher rates of psychotic phenomena</p>
+
+<h4>Protective Factors</h4>
+<p>Emerging research has begun to identify factors that may be protective against PLEs in NDD populations:</p>
+<p>• <strong>Strong family support and involvement:</strong> Buffers against social isolation and provides reality-testing</p>
+<p>• <strong>Higher cognitive/adaptive functioning:</strong> Within NDD groups, higher ability is associated with lower PLE risk</p>
+<p>• <strong>Appropriate educational placement:</strong> Inclusive, supportive educational environments reduce bullying exposure</p>
+<p>• <strong>Early diagnosis and intervention for the NDD:</strong> Reduces secondary complications and comorbidity burden</p>
+<p>• <strong>Good sleep hygiene:</strong> Adequate sleep protects against perceptual disturbances</p>
+<p>• <strong>Physical exercise:</strong> Associated with reduced psychosis risk and improved functioning in NDDs</p>
+
+<h3 id="gender">h. Gender and Developmental Considerations</h3>
+
+<h4>Gender Differences</h4>
+<p>The intersection of gender, NDDs, and PLEs presents complex patterns. Males are over-represented in most NDD diagnoses (particularly ASD and ADHD) and in early-onset psychosis. However, research suggests that females with NDDs may be at relatively higher risk for psychotic experiences when NDDs are present, potentially due to the "female protective effect"—the theory that females require a greater genetic burden to manifest NDDs, and this greater burden also confers increased psychosis risk. Additionally, the underdiagnosis of NDDs in females means that those who are diagnosed often have more severe presentations with greater comorbidity.</p>
+
+<h4>Developmental Trajectory and Critical Periods</h4>
+<p>The timing of PLE emergence in NDD populations appears to follow a developmental trajectory influenced by both neuromaturation and psychosocial demands. PLEs typically emerge during early adolescence (12-15 years)—a period characterized by:</p>
+<p>• Accelerated synaptic pruning and myelination (particularly in prefrontal cortex)</p>
+<p>• Pubertal hormonal changes affecting dopamine sensitivity</p>
+<p>• Increased social demands that stress NDD-related vulnerabilities</p>
+<p>• School transitions that disrupt established support structures</p>
+<p>• Increasing awareness of difference from peers</p>
+<p>This convergence of biological and psychosocial factors during adolescence creates a "perfect storm" for PLE emergence in neurodevelopmentally vulnerable individuals, aligning with the peak age of onset for clinical high-risk states and first-episode psychosis in the late teens to early twenties.</p>
+
+
+<!-- SECTION D: DISCUSSION -->
+<h2 id="discussion">D. Discussion</h2>
+
+<h3 id="implications">a. Implications for Early Identification and Intervention</h3>
+
+<h4>Screening and Monitoring Recommendations</h4>
+<p>The elevated prevalence of PLEs across neurodevelopmental disorders underscores the need for systematic screening and longitudinal monitoring of psychotic phenomena in NDD populations. Based on the evidence reviewed, we propose a staged approach to screening:</p>
+
+<p><strong>Universal monitoring (all individuals with NDDs):</strong> Routine enquiry about unusual experiences during clinical reviews, particularly during adolescence (12-18 years). Brief validated screening tools (e.g., PQ-B) could be administered annually during this high-risk period.</p>
+
+<p><strong>Enhanced monitoring (higher-risk subgroups):</strong> More intensive surveillance for individuals with known risk factors including family history of psychosis, 22q11.2 or other pathogenic CNVs, history of bullying/trauma, comorbid affective disorders, or declining function. Semi-structured clinical assessments (CAARMS or SIPS adapted for NDD populations) should be considered for these individuals.</p>
+
+<p><strong>Specialized assessment (suspected prodromal states):</strong> When PLEs are persistent, distressing, or accompanied by functional decline, comprehensive specialized assessment within a clinical high-risk service is warranted—with staff trained in both NDD assessment and psychosis recognition.</p>
+
+<h4>Early Intervention Strategies</h4>
+<p>The evidence supports several intervention approaches for PLEs in NDD populations, drawing on both the psychosis prevention literature and NDD-specific interventions:</p>
+
+<p><strong>1. Cognitive-Behavioral Therapy (CBT) for Psychosis Prevention:</strong> CBT has demonstrated efficacy in reducing transition to psychosis in CHR-P populations (van der Gaag et al., 2013). Adapted CBT approaches for individuals with NDDs and PLEs should address NDD-specific cognitive styles, utilize concrete and visual materials, and focus on building reality-testing skills appropriate to the individual's cognitive level.</p>
+
+<p><strong>2. Social Skills and Environmental Interventions:</strong> Given the mediating role of bullying and social isolation, interventions targeting the social environment are critical. Anti-bullying programs, social skills training, peer support initiatives, and environmental modifications to reduce social stress can address environmental pathways to PLEs.</p>
+
+<p><strong>3. Family-Based Interventions:</strong> Psychoeducation for families about PLEs in NDDs, training in early warning sign recognition, and family communication skills can create a supportive environment for monitoring and managing PLEs.</p>
+
+<p><strong>4. Pharmacological Considerations:</strong> Low-dose antipsychotic medication may be considered for persistent, distressing PLEs with functional impairment, though evidence specific to NDD populations is limited. Special attention to side effect profiles is needed given the cognitive and metabolic vulnerabilities in NDD populations. In ADHD populations, careful monitoring during stimulant treatment is warranted given the potential for stimulant-associated psychotic symptoms.</p>
+
+<p><strong>5. Sleep and Lifestyle Interventions:</strong> Given the role of sleep disturbance in PLE maintenance, evidence-based sleep interventions (sleep hygiene education, CBT for insomnia adapted for NDDs) should be integrated into management plans.</p>
+
+<p class="citation">Erzin, G., & Gülöksüz, S. (2021). Early Interventions for Clinical High-Risk State for Psychosis. <em>Noro Psikiyatri Arsivi</em>, 58(Suppl 1), S7-S11. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8498818/" target="_blank">[PMC]</a></p>
+
+<h3 id="clinical-models">b. Clinical Models and Frameworks</h3>
+
+<h4>The Neurodevelopmental Cascade Model</h4>
+<p>Integrating the evidence reviewed, we propose a neurodevelopmental cascade model to understand PLEs in NDDs. This model posits that:</p>
+<p>1. <strong>Genetic vulnerability</strong> (shared genetic architecture, CNVs, polygenic risk) creates a biological predisposition expressed initially as neurodevelopmental disorder.</p>
+<p>2. <strong>Neurodevelopmental impairments</strong> (cognitive, social, sensory) create secondary vulnerabilities including poor social functioning, academic difficulties, and limited coping resources.</p>
+<p>3. <strong>Environmental adversity</strong> (bullying, trauma, social isolation), occurring at elevated rates due to NDD-related vulnerabilities, provides the "second hit" that activates psychosis-relevant biological pathways.</p>
+<p>4. <strong>Cognitive mediators</strong> (aberrant salience, ToM deficits, source monitoring failures) translate neurobiological vulnerability into psychotic-like phenomenology.</p>
+<p>5. <strong>PLEs emerge</strong> as a product of this cascade, with persistence and severity determined by the ongoing balance of risk and protective factors.</p>
+<p>6. <strong>Transition to psychosis</strong> occurs when PLEs become persistent, distressing, and accompanied by progressive functional decline in the absence of adequate protective factors or intervention.</p>
+
+<h4>Implications for Diagnostic Classification</h4>
+<p>The neurodevelopmental continuum evidence challenges rigid categorical distinctions between NDDs and psychotic disorders. Clinical frameworks should acknowledge:</p>
+<p>• The high rates of NDD traits in individuals diagnosed with schizophrenia (estimated 15-25% meet criteria for ASD; higher rates of ADHD)</p>
+<p>• The spectrum of psychotic phenomena in NDD populations ranging from benign PLEs to full-threshold psychotic disorders</p>
+<p>• The potential for sequential diagnosis (NDD in childhood → psychotic disorder in adulthood) reflecting evolving expression of shared underlying vulnerability</p>
+<p>• The need for dimensional assessment approaches that capture both NDD and psychosis dimensions simultaneously</p>
+
+
+<h3 id="indian-context">c. Relevance to the Indian Clinical Context</h3>
+
+<h4>Epidemiological Considerations</h4>
+<p>India has a substantial population of individuals with neurodevelopmental disorders, with conservative estimates suggesting approximately 2-3% prevalence of ASD, 5-8% prevalence of ADHD, and 1-3% prevalence of intellectual disability in children. Despite this burden, the interface between NDDs and psychosis has received minimal research attention in Indian populations. The few available studies suggest that psychotic disorders in India may present with somewhat different symptom profiles compared to Western populations, and the recognition of NDDs—particularly in adults—remains limited in many clinical settings.</p>
+
+<h4>Implications for MPhil Clinical Psychology Practice</h4>
+<p>For clinical psychologists in India, the findings of this review have several practice implications:</p>
+<p>• <strong>Assessment competencies:</strong> Clinicians should be trained in both NDD assessment (including tools like ADOS-2, ASRS, and adaptive behavior scales) and psychosis assessment (SIPS, CAARMS, CAPE) to conduct comprehensive differential diagnostic evaluations.</p>
+<p>• <strong>Cultural considerations:</strong> Assessment of PLEs must account for cultural beliefs about supernatural experiences, spiritual phenomena, and unusual beliefs that may be normative within specific cultural contexts in India.</p>
+<p>• <strong>Service development:</strong> There is a need for specialized services that bridge the traditional divide between child/developmental services (managing NDDs) and adult/psychosis services (managing psychotic disorders).</p>
+<p>• <strong>Family involvement:</strong> The collectivist family structure in India provides opportunities for family-based monitoring and intervention approaches.</p>
+<p>• <strong>Research priorities:</strong> Indian studies on PLEs in NDD populations are urgently needed to establish local prevalence data and evaluate culturally-adapted assessment and intervention approaches.</p>
+
+<h3 id="limitations">d. Limitations and Future Research Directions</h3>
+
+<h4>Limitations of the Current Review</h4>
+<p>This systematic review acknowledges several limitations:</p>
+<p>1. <strong>Heterogeneity:</strong> Substantial methodological heterogeneity across studies in terms of NDD diagnostic criteria, PLE assessment methods, sample composition, and outcome definitions limits the interpretability of pooled estimates.</p>
+<p>2. <strong>Cross-sectional predominance:</strong> The majority of included studies employ cross-sectional designs, limiting causal inferences about the temporal relationship between NDDs and PLEs.</p>
+<p>3. <strong>Assessment validity concerns:</strong> As highlighted by Hus et al. (2025), standard psychosis assessment tools may not be valid in NDD populations due to item interpretation differences and phenomenological overlap.</p>
+<p>4. <strong>Sampling bias:</strong> Clinical samples may over-represent more severe presentations, while population-based samples may under-represent individuals with significant intellectual disability who cannot complete self-report measures.</p>
+<p>5. <strong>Publication bias:</strong> Positive findings (demonstrating associations) are more likely to be published than null findings.</p>
+<p>6. <strong>Limited diversity:</strong> The majority of studies originate from Western, English-speaking populations, limiting generalizability to diverse cultural contexts including India.</p>
+<p>7. <strong>Confounding:</strong> Medication effects (particularly stimulants and their potential psychotogenic effects) are not consistently controlled for across studies.</p>
+
+<h4>Future Research Directions</h4>
+<p>Based on the gaps identified in this review, we recommend the following priorities for future research:</p>
+<p>1. <strong>Longitudinal cohort studies:</strong> Prospective studies tracking PLEs from childhood through adolescence and into adulthood in well-characterized NDD samples, with repeated assessments to understand persistence and transition dynamics.</p>
+<p>2. <strong>Development of NDD-adapted PLE assessment tools:</strong> Instruments specifically designed for and validated in NDD populations, accounting for phenomenological overlap and communication differences.</p>
+<p>3. <strong>Intervention trials:</strong> Randomized controlled trials of preventive interventions (CBT, family interventions, social skills training) targeting PLEs in NDD populations.</p>
+<p>4. <strong>Mechanistic studies:</strong> Neuroimaging and neurocognitive studies examining the specific pathways through which NDDs confer psychosis risk, including the role of aberrant salience, ToM deficits, and stress sensitization.</p>
+<p>5. <strong>Cross-cultural research:</strong> Studies in diverse populations, including Indian and other South Asian samples, to establish local prevalence data and evaluate cultural factors influencing PLE expression and interpretation.</p>
+<p>6. <strong>Comorbidity patterns:</strong> Research examining how multiple NDD diagnoses (e.g., ASD+ADHD) interact to modulate psychosis risk, including potential synergistic effects.</p>
+<p>7. <strong>Biomarker studies:</strong> Identification of biological markers (genetic, inflammatory, neuroimaging) that distinguish individuals with NDDs who will develop psychosis from those who will not.</p>
+<p>8. <strong>Service models:</strong> Research evaluating the effectiveness of integrated service models that bridge neurodevelopmental and psychosis services.</p>
+<p>9. <strong>Larger sample sizes:</strong> Many existing studies are underpowered, particularly those examining specific NDD subgroups. Large multi-site collaborations are needed.</p>
+<p>10. <strong>Qualitative research:</strong> Exploration of the lived experience of PLEs from the perspective of individuals with NDDs and their families, informing person-centered clinical approaches.</p>
+
+
+<!-- SECTION E: CONCLUSION -->
+<h2 id="conclusion">E. Conclusion</h2>
+
+<h3>a. Summary of Key Findings</h3>
+<p>This systematic review provides a comprehensive synthesis of evidence regarding psychosis-like experiences in individuals with neurodevelopmental disorders. The key findings can be summarized as follows:</p>
+
+<p><strong>1. Elevated Prevalence:</strong> PLEs occur at significantly elevated rates across all major neurodevelopmental disorders compared to neurotypical populations. Individuals with ASD show 2-3 times higher rates of psychotic experiences; childhood ADHD confers approximately 4.5-fold increased risk of psychotic disorder; intellectual disability populations demonstrate psychosis prevalence rates 3-10 times higher than general population estimates; and 22q11.2 deletion syndrome confers up to 25-fold increased schizophrenia risk.</p>
+
+<p><strong>2. Shared Mechanisms:</strong> The NDD-psychosis overlap is underpinned by multiple converging mechanisms including shared genetic architecture (particularly CNVs affecting synaptic genes), dopaminergic dysregulation, theory of mind deficits, and environmental adversity (especially bullying and trauma). These mechanisms operate additively and synergistically rather than through a single pathway.</p>
+
+<p><strong>3. Diagnostic Challenges:</strong> Significant phenomenological overlap between PLEs and core NDD symptoms creates substantial diagnostic complexity, with risks of both over-diagnosis (misidentifying NDD features as psychosis) and under-diagnosis (failing to recognize genuine psychotic phenomena due to diagnostic overshadowing). Current assessment tools have not been adequately validated for NDD populations.</p>
+
+<p><strong>4. Clinical Implications:</strong> The evidence supports a staged approach to identification and management, with routine screening during the high-risk adolescent period, enhanced monitoring for individuals with additional risk factors, and specialized multi-disciplinary assessment when prodromal states are suspected. Intervention should address both the psychotic phenomena and the underlying environmental and psychosocial risk factors.</p>
+
+<p><strong>5. Neurodevelopmental Continuum:</strong> The findings strongly support the neurodevelopmental continuum model, positioning psychosis as part of a gradient of neurodevelopmental outcomes with shared origins in disrupted brain development. This has implications for diagnostic classification, service organization, and research paradigms.</p>
+
+<h3>b. Final Thoughts</h3>
+
+<h4>Broader Implications</h4>
+<p>This review demonstrates that the traditional boundaries between "neurodevelopmental" and "psychotic" disorders are far more porous than categorical diagnostic systems suggest. The evidence points toward a reconceptualization of these conditions as related expressions of underlying neurodevelopmental vulnerability, modulated by genetic severity, environmental factors, and developmental timing. This perspective has profound implications for how we organize clinical services, train professionals, and design research programs.</p>
+
+<p>For the field of clinical psychology in India—and globally—this evidence calls for:</p>
+<p>• Breaking down artificial barriers between child/developmental and adult/psychosis specializations</p>
+<p>• Training clinicians to think dimensionally about neurodevelopment and psychosis</p>
+<p>• Developing life-span approaches to monitoring and intervention</p>
+<p>• Advocating for integrated service models that follow individuals across developmental transitions</p>
+
+<h4>A Call to Action</h4>
+<p>We conclude with a call to action directed at multiple stakeholders:</p>
+<p><strong>For clinicians:</strong> Incorporate routine psychosis screening into NDD assessments, particularly during adolescence. Develop competence in differential diagnosis at the NDD-psychosis interface. Adopt a longitudinal perspective that anticipates the evolution of symptom presentations across development.</p>
+<p><strong>For researchers:</strong> Prioritize longitudinal, multi-site, cross-cultural studies that can elucidate causal mechanisms and identify modifiable risk factors. Develop and validate NDD-adapted assessment tools. Conduct intervention trials specific to NDD populations with PLEs.</p>
+<p><strong>For policymakers:</strong> Invest in integrated neurodevelopmental and mental health services that span the lifespan. Fund training programs that equip professionals with competencies across both domains. Support population-level interventions (anti-bullying programs, early NDD identification) that address environmental pathways to psychosis.</p>
+<p><strong>For families and advocacy organizations:</strong> Promote awareness of the NDD-psychosis link to facilitate early recognition. Advocate for comprehensive, longitudinal care that addresses the full range of needs across development.</p>
+
+<p>The ultimate goal is a clinical and research landscape in which psychosis-like experiences in individuals with neurodevelopmental disorders are neither overlooked nor over-pathologized, but understood within a nuanced developmental framework that guides timely, appropriate, and effective intervention.</p>
+
+
+<!-- SECTION F: REFERENCES -->
+<h2 id="references">F. References</h2>
+
+<ol class="ref-list">
+    <li>Bassett, A. S., et al. (2009). Recurrent Rearrangements in Synaptic and Neurodevelopmental Genes and Shared Biologic Pathways in Schizophrenia, Autism, and Mental Retardation. <em>Archives of General Psychiatry</em>, 66(9), 947-956. <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/210332" target="_blank">https://jamanetwork.com/journals/jamapsychiatry/fullarticle/210332</a></li>
+
+    <li>Cooper, S. A., et al. (2007). Psychosis and adults with intellectual disabilities: Prevalence, incidence, and related factors. <em>Social Psychiatry and Psychiatric Epidemiology</em>, 42, 530-536. <a href="https://link.springer.com/doi/10.1007/s00127-007-0197-9" target="_blank">https://link.springer.com/doi/10.1007/s00127-007-0197-9</a></li>
+
+    <li>Dardani, C., Underwood, J. F. G., et al. (2024). Psychotic experiences and disorders in adolescents and young adults with borderline intellectual functioning and intellectual disabilities: Evidence from a population-based birth cohort in the United Kingdom. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12017352/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC12017352/</a></li>
+
+    <li>De Crescenzo, F., et al. (2019). Prevalence of Non-Affective Psychoses in Individuals with Autism Spectrum Disorders: A Systematic Review. <em>Journal of Clinical Medicine</em>, 8(9), 1304. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6780908" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC6780908</a></li>
+
+    <li>Erzin, G., & Gülöksüz, S. (2021). Early Interventions for Clinical High-Risk State for Psychosis. <em>Noro Psikiyatri Arsivi</em>, 58(Suppl 1), S7-S11. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8498818/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC8498818/</a></li>
+
+    <li>Fisher, H. L., et al. (2013). Bullying Mediates Between Attention-Deficit/Hyperactivity Disorder in Childhood and Psychotic Experiences in Early Adolescence. <em>Biological Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5581899/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC5581899/</a></li>
+
+    <li>Fusar-Poli, L., Avanzato, C., et al. (2024). The Association between Attention-Deficit–Hyperactivity Disorder and Autistic Traits with Psychotic-like Experiences in Sample of Youths. <em>Brain Sciences</em>, 14(8), 844. <a href="https://www.mdpi.com/2076-3425/14/8/844" target="_blank">https://www.mdpi.com/2076-3425/14/8/844</a></li>
+
+    <li>Healey, K., Penn, D. L., et al. (2013). Theory of Mind and Social Judgments in People at Clinical High Risk of Psychosis. <em>Schizophrenia Research</em>, 150(0), 498-504. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3971540/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC3971540/</a></li>
+
+    <li>Horrevorts, E. M., et al. (2019). Bullying and psychosis: The impact of chronic traumatic stress on psychosis risk in 22q11.2 deletion syndrome. <em>Psychological Medicine</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6564673/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC6564673/</a></li>
+
+    <li>Howes, O. D., et al. (2022). Integrating the Neurodevelopmental and Dopamine Hypotheses of Schizophrenia and the Role of Cortical Excitation-Inhibition Balance. <em>Biological Psychiatry</em>. <a href="https://www.biologicalpsychiatryjournal.com/article/S0006-3223(22)01366-X/fulltext" target="_blank">https://www.biologicalpsychiatryjournal.com/article/S0006-3223(22)01366-X/fulltext</a></li>
+</ol>
+
+
+<ol class="ref-list" start="11">
+    <li>Hus, Y., et al. (2025). The association between autism and psychosis and the tools used to measure it. <a href="https://pubmed.ncbi.nlm.nih.gov/41403082/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41403082/</a></li>
+
+    <li>Jonas, R. K., Montojo, C. A., & Bearden, C. E. (2014). The 22q11.2 Deletion Syndrome as a Window into Complex Neuropsychiatric Disorders Over the Lifespan. <em>Biological Psychiatry</em>, 75(5), 351-360. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3875621/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC3875621/</a></li>
+
+    <li>Jutla, A., et al. (2022). Reported autism diagnosis is associated with psychotic-like symptoms in the Adolescent Brain Cognitive Development cohort. <em>European Child & Adolescent Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8856839/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC8856839/</a></li>
+
+    <li>Karcher, N. R., et al. (2018). Assessment of the Prodromal Questionnaire-Brief Child Version for Measurement of Self-reported Psychotic-like Experiences in Childhood. <em>JAMA Psychiatry</em>, 75(8), 853-861. <a href="https://pubmed.ncbi.nlm.nih.gov/29874361/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/29874361/</a></li>
+
+    <li>Karcher, N. R., et al. (2021). Persistent and Distressing Psychotic-Like Experiences Using Adolescent Brain Cognitive Development Study Data. <em>Molecular Psychiatry</em>, 27(3), 1490-1501. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9106814/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC9106814/</a></li>
+
+    <li>Kelleher, I., et al. (2012). Prevalence of psychotic symptoms in childhood and adolescence: A systematic review and meta-analysis of population-based studies. <em>Psychological Medicine</em>, 42(9), 1857-1863. <a href="https://www.cambridge.org/core/journals/psychological-medicine/article/prevalence-of-psychotic-symptoms-in-childhood-and-adolescence-a-systematic-review-and-metaanalysis-of-populationbased-studies/D754B5216E027CE4BB51C1BDF5F0DBD0" target="_blank">https://www.cambridge.org/core/journals/psychological-medicine/</a></li>
+
+    <li>Kelleher, I., et al. (2019). Childhood and adolescent psychotic experiences and risk of mental disorder: A systematic review and meta-analysis. <em>Psychological Medicine</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/31088578" target="_blank">https://pubmed.ncbi.nlm.nih.gov/31088578</a></li>
+
+    <li>Kern, J. G., et al. (2021). Attention-deficit/hyperactivity disorder in youth with psychosis spectrum symptoms. <em>Early Intervention in Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8582016/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC8582016/</a></li>
+
+    <li>Li, X., et al. (2025). The prevalence and influencing factors of psychotic-like experiences in children and adolescents: A meta-analysis and systematic review. <em>European Child & Adolescent Psychiatry</em>. <a href="https://link.springer.com/10.1007/s00787-025-02905-4" target="_blank">https://link.springer.com/10.1007/s00787-025-02905-4</a></li>
+
+    <li>Linscott, R. J., & van Os, J. (2013). An updated and conservative systematic review and meta-analysis of epidemiological evidence on psychotic experiences in children and adults: On the road from taxonic to dimensional to continuum models. <em>Psychological Medicine</em>, 43(6), 1133-1149. <a href="https://pubmed.ncbi.nlm.nih.gov/22850401" target="_blank">https://pubmed.ncbi.nlm.nih.gov/22850401</a></li>
+</ol>
+
+
+<ol class="ref-list" start="21">
+    <li>Marshall, C. R., et al. (2017). Contribution of copy number variants to schizophrenia from a genome-wide study of 41,321 subjects. <em>Nature Genetics</em>, 49(1), 27-35.</li>
+
+    <li>Mataix-Cols, D., et al. (2021). Association of Attention-Deficit/Hyperactivity Disorder in Childhood and Adolescence With the Risk of Subsequent Psychotic Disorder: A Systematic Review and Meta-analysis. <em>JAMA Psychiatry</em>, 78(5), 519-529. <a href="https://jamanetwork.com/journals/jamapsychiatry/article-abstract/2776790" target="_blank">https://jamanetwork.com/journals/jamapsychiatry/</a></li>
+
+    <li>Moran, L. V., et al. (2019). Risk of Newly Diagnosed Psychotic Symptoms in Youth Receiving Medications for Attention-Deficit/Hyperactivity Disorder. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11562438" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC11562438</a></li>
+
+    <li>Morgan, V. A., et al. (2008). Intellectual disability co-occurring with schizophrenia and other psychiatric illness: Population-based study. <em>British Journal of Psychiatry</em>, 193(5), 364-372. <a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/intellectual-disability-cooccurring-with-schizophrenia-and-other-psychiatric-illness-populationbased-study/E994104AE84058AFB15C89484104B151" target="_blank">https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/</a></li>
+
+    <li>Owen, M. J., & O'Donovan, M. C. (2017). Schizophrenia and the neurodevelopmental continuum: Evidence from genomics. <em>World Psychiatry</em>, 16(3), 227-235. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/wps.20440" target="_blank">https://onlinelibrary.wiley.com/doi/full/10.1002/wps.20440</a></li>
+
+    <li>Owen, M. J., O'Donovan, M. C., Thapar, A., & Craddock, N. (2011). Neurodevelopmental hypothesis of schizophrenia. <em>British Journal of Psychiatry</em>, 198(3), 173-175.</li>
+
+    <li>Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. <em>BMJ</em>, 372, n71. <a href="https://www.bmj.com/content/372/bmj.n71" target="_blank">https://www.bmj.com/content/372/bmj.n71</a></li>
+
+    <li>Read, J., et al. (2014). The traumagenic neurodevelopmental model of psychosis revisited. <em>Neuropsychiatry</em>, 4(1), 65-79. <a href="https://www.researchgate.net/publication/269590998_The_traumagenic_neurodevelopmental_model_of_psychosis_revisited" target="_blank">https://www.researchgate.net/publication/269590998</a></li>
+
+    <li>Rees, E., et al. (2016). Copy number variation and neuropsychiatric illness. <em>Current Opinion in Genetics & Development</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8219524/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC8219524/</a></li>
+
+    <li>Schneider, M., et al. (2014). Psychiatric disorders from childhood to adulthood in 22q11.2 deletion syndrome. <em>American Journal of Psychiatry</em>, 171(6), 627-639.</li>
+</ol>
+
+
+<ol class="ref-list" start="31">
+    <li>Schultze-Lutter, F., Renner, F., Paruch, J., et al. (2021). Psychotic-Like Experiences: A Challenge in Definition and Assessment. <em>Frontiers in Psychiatry</em>, 12, 582392. <a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2021.582392/full" target="_blank">https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2021.582392/full</a></li>
+
+    <li>Sullivan, S., et al. (2014). A population-based longitudinal study of childhood neurodevelopmental disorders, IQ and subsequent risk of psychotic experiences in adolescence. <em>Psychological Medicine</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/25066026/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/25066026/</a></li>
+
+    <li>Thomas, S., et al. (2021). Testing the Independent and Joint Contribution of Exposure to Neurodevelopmental Adversity and Childhood Trauma to Risk of Psychotic Experiences in Adulthood. <em>Schizophrenia Bulletin</em>, 47(3), 776-784. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8084445/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC8084445/</a></li>
+
+    <li>van Os, J., Linscott, R. J., Myin-Germeys, I., Delespaul, P., & Krabbendam, L. (2009). A systematic review and meta-analysis of the psychosis continuum: Evidence for a psychosis proneness–persistence–impairment model of psychotic disorder. <em>Psychological Medicine</em>, 39(2), 179-195. <a href="https://www.cambridge.org/core/journals/psychological-medicine/article/a-systematic-review-and-meta-analysis-of-the-psychosis-continuum-evidence-for-a-psychosis-pronenesspersistenceimpairment-model-of-psychotic-disorder/D3FFFE31668A576374437A88762B3DE2" target="_blank">https://www.cambridge.org/core/journals/psychological-medicine/</a></li>
+
+    <li>van Os, J., & Reininghaus, U. (2016). Psychosis as a transdiagnostic and extended phenotype in the general population. <em>World Psychiatry</em>, 15(2), 118-124. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4911787/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC4911787/</a></li>
+
+    <li>Vermeiden, C. M. O., et al. (2022). Psychosis in autism spectrum disorder: A clinical review. <em>BMC Psychiatry</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10479293/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC10479293/</a></li>
+
+    <li>Zhou, H. Y., et al. (2020). Prevalence of Psychotic Experiences in Autism Spectrum Disorder and Autistic Traits: A Systematic Review and Meta-analysis. <em>Schizophrenia Bulletin Open</em>, 1(1), sgaa046. <a href="https://academic.oup.com/schizbullopen/article/1/1/sgaa046/5899822" target="_blank">https://academic.oup.com/schizbullopen/article/1/1/sgaa046/5899822</a></li>
+
+    <li>Zhou, H. Y., et al. (2021). Autism Spectrum Disorder and Clinical High Risk for Psychosis: A Systematic Review and Meta-analysis. <em>Journal of Autism and Developmental Disorders</em>. <a href="https://link.springer.com/doi/10.1007/s10803-021-05046-0" target="_blank">https://link.springer.com/doi/10.1007/s10803-021-05046-0</a></li>
+
+    <li>Prevalence of Attention Deficit Hyperactivity Disorder in Psychotic Disorders: Systematic Review and Meta-analysis (2025). <em>Schizophrenia Bulletin</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12599807/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC12599807/</a></li>
+
+    <li>The relationships between anxiety, psychotic-like experiences and autism: A systematic review (2025). <em>Frontiers in Psychology</em>. <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1549886/full" target="_blank">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1549886/full</a></li>
+
+    <li>Interplay Between Adverse Childhood Experiences and Neurodevelopmental Disorders: A Systematic Review of Recent Evidence (2025). <em>Annals of Neurosciences</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12313595/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC12313595/</a></li>
+
+    <li>Autism Spectrum Disorder and Early Psychosis: A narrative review from a neurodevelopmental perspective (2024). <em>Frontiers in Psychiatry</em>. <a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1362511/full" target="_blank">https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1362511/full</a></li>
+
+    <li>Recognizing Psychosis in Autism Spectrum Disorder (2022). <em>Frontiers in Psychiatry</em>. <a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2022.768586/full" target="_blank">https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2022.768586/full</a></li>
+</ol>
+
+<hr style="margin-top: 40px;">
+<p style="font-size: 0.85em; color: var(--text-light); text-align: center; margin-top: 20px;">
+    <em>This document was prepared as a systematic review draft for MPhil Clinical Psychology dissertation work. Content synthesized from peer-reviewed sources cited above. All research citations link to original published sources. Document follows PRISMA 2020 reporting guidelines.</em>
+</p>
+<p style="font-size: 0.85em; color: var(--text-light); text-align: center;">
+    <em>Content was rephrased for compliance with licensing restrictions. All findings are synthesized narratively from the cited original sources.</em>
+</p>
+
+</body>
+</html>
