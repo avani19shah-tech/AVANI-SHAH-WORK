@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 3: Evidence-Based Couple Therapies</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f2027; color: #eee; overflow: hidden; height: 100vh; }
+.slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; position: relative; overflow-y: auto; }
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+.slide-counter { position: fixed; bottom: 20px; right: 30px; font-size: 14px; color: #888; z-index: 100; }
+.timer-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #0891b2, #0d9488); z-index: 100; transition: width 0.3s; }
+.nav-hint { position: fixed; bottom: 20px; left: 30px; font-size: 12px; color: #666; z-index: 100; }
+
+
+/* Slide Types */
+.title-slide { background: linear-gradient(135deg, #0891b2 0%, #0d9488 100%); text-align: center; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.title-slide h2 { font-size: 1.6em; font-weight: 300; opacity: 0.9; margin-bottom: 30px; }
+.title-slide .meta { font-size: 1em; opacity: 0.7; margin-top: 30px; }
+
+.content-slide { background: #0f2027; }
+.content-slide h2 { font-size: 2.2em; color: #06b6d4; margin-bottom: 25px; border-bottom: 3px solid #0891b2; padding-bottom: 10px; }
+.content-slide h3 { font-size: 1.4em; color: #5eead4; margin: 20px 0 10px; }
+.content-slide ul, .content-slide ol { padding-left: 30px; margin: 10px 0; }
+.content-slide li { margin: 8px 0; font-size: 1.15em; line-height: 1.6; }
+.content-slide p { font-size: 1.15em; line-height: 1.7; margin: 10px 0; }
+
+
+.interactive-slide { background: linear-gradient(135deg, #0f2027 0%, #06b6d420 100%); border: 2px solid #06b6d4; }
+.interactive-slide h2 { color: #06b6d4; font-size: 2em; margin-bottom: 20px; }
+.interactive-slide .activity-badge { background: #06b6d4; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+
+.discussion-slide { background: linear-gradient(135deg, #0f2027 0%, #e9456010 100%); }
+.discussion-slide h2 { color: #e94560; font-size: 2em; }
+.discussion-slide .question { font-size: 1.5em; text-align: center; margin: 40px 0; padding: 30px; border: 2px dashed #e94560; border-radius: 15px; }
+
+.key-concept { background: rgba(8,145,178,0.15); border-left: 4px solid #0891b2; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-box { background: rgba(6,182,212,0.1); border: 1px solid #06b6d4; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.warning-box { background: rgba(233,69,96,0.1); border: 1px solid #e94560; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.evidence-box { background: rgba(13,148,136,0.15); border: 1px solid #0d9488; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.clinical-tip { background: rgba(94,234,212,0.1); border-left: 4px solid #5eead4; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+th { background: #0891b2; color: white; padding: 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid #1a3a4a; }
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 15px 0; }
+.col { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; }
+.col h4 { color: #5eead4; margin-bottom: 10px; }
+
+.timer-display { position: fixed; top: 15px; right: 30px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 20px; font-size: 1.1em; z-index: 200; display: none; }
+.timer-display.visible { display: block; }
+
+.poll-container { text-align: center; margin: 20px 0; }
+.poll-option { display: inline-block; background: rgba(8,145,178,0.2); border: 2px solid #0891b2; padding: 15px 25px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.1em; }
+.poll-option:hover, .poll-option.selected { background: #0891b2; color: white; transform: scale(1.05); }
+
+.reveal-content { opacity: 0; transition: opacity 0.5s; margin: 15px 0; }
+.reveal-content.shown { opacity: 1; }
+.reveal-btn { background: #0891b2; color: white; border: none; padding: 10px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; margin: 10px 0; }
+.reveal-btn:hover { background: #06b6d4; }
+
+.section-header { background: linear-gradient(135deg, #0891b2 0%, #0d9488 100%); text-align: center; }
+.section-header h2 { font-size: 2.8em; margin-bottom: 15px; }
+.section-header p { font-size: 1.3em; opacity: 0.8; }
+.time-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+
+.flow-diagram { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.flow-box { background: rgba(8,145,178,0.2); border: 2px solid #0891b2; padding: 12px 18px; border-radius: 8px; text-align: center; max-width: 200px; }
+.flow-arrow { font-size: 1.5em; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timerBar"></div>
+<div class="timer-display" id="timerDisplay">60:00</div>
+<div class="slide-counter" id="slideCounter"></div>
+<div class="nav-hint">← → Arrow Keys or Click to Navigate | Press 'T' for Timer | Press 'R' to Reveal</div>
+
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+    <h1>Couple &amp; Marriage Therapy</h1>
+    <h2>Hour 3: Evidence-Based Couple Therapies</h2>
+    <p style="font-size:1.2em; margin:20px 0;">Module 5 | Empirically Supported Approaches for Relationship Distress</p>
+    <div class="meta">
+        <p>Duration: 60 Minutes | Interactive Lecture + Role-Play</p>
+        <p>Gottman Method | EFT | CBCT | IBCT</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hour Plan / Roadmap -->
+<div class="slide content-slide">
+    <h2>Hour 3 Roadmap (60 Minutes)</h2>
+    <table>
+        <tr><th>Time</th><th>Topic</th><th>Format</th></tr>
+        <tr><td>0–5 min</td><td>Overview of Evidence-Based Models</td><td>Lecture</td></tr>
+        <tr><td>5–20 min</td><td>Gottman Method Couples Therapy (Sound Relationship House)</td><td>Lecture + Activity</td></tr>
+        <tr><td>20–35 min</td><td>Emotionally Focused Therapy (EFT)</td><td>Lecture + Demo</td></tr>
+        <tr><td>35–45 min</td><td>CBCT &amp; IBCT</td><td>Lecture + Comparison</td></tr>
+        <tr><td>45–55 min</td><td>Role-Play Activity</td><td>Experiential</td></tr>
+        <tr><td>55–60 min</td><td>Wrap-up &amp; Preview Hour 4</td><td>Discussion</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Learning Objectives:</strong> By the end of this hour, you will be able to describe the core mechanisms of 4 evidence-based couple therapies, identify which approach fits which couple, and demonstrate basic interventions.
+    </div>
+</div>
+
+
+<!-- SLIDE 3: Overview of Evidence-Based Models -->
+<div class="slide content-slide">
+    <h2>Overview: Evidence-Based Couple Therapies</h2>
+    <p>What does "evidence-based" mean in couple therapy? Approaches supported by <strong>randomized controlled trials (RCTs)</strong>, replicated findings, and long-term follow-up data.</p>
+    <h3>The Big Four Empirically Supported Approaches</h3>
+    <table>
+        <tr><th>Approach</th><th>Founders</th><th>Core Idea in One Sentence</th></tr>
+        <tr><td><strong>Gottman Method</strong></td><td>John &amp; Julie Gottman</td><td>Build friendship and manage conflict using research-based principles</td></tr>
+        <tr><td><strong>EFT</strong></td><td>Sue Johnson &amp; Les Greenberg</td><td>Restructure attachment bonds by accessing primary emotions</td></tr>
+        <tr><td><strong>CBCT</strong></td><td>Epstein &amp; Baucom</td><td>Change distorted cognitions and maladaptive behaviours</td></tr>
+        <tr><td><strong>IBCT</strong></td><td>Christensen &amp; Jacobson</td><td>Promote acceptance of differences before pushing for change</td></tr>
+    </table>
+    <div class="evidence-box">
+        <strong>Why This Matters:</strong> In India, much "couple therapy" is still advice-giving or problem-solving by untrained counsellors. As MPhil trainees, you will practice ONLY evidence-based approaches with documented efficacy.
+    </div>
+    <div class="warning-box">
+        <strong>Not Evidence-Based:</strong> Advice-giving, moralizing, taking sides, prescribing "compromise," couple prayer/religious counselling alone (though can supplement), astrology-based matching post-marriage.
+    </div>
+</div>
+
+<!-- SLIDE 4: Section Header - Gottman -->
+<div class="slide section-header">
+    <h2>Section 1</h2>
+    <p>Gottman Method Couples Therapy</p>
+    <div class="time-badge">15 Minutes (5–20 min)</div>
+</div>
+
+<!-- SLIDE 4: Sound Relationship House -->
+<div class="slide content-slide">
+    <h2>Sound Relationship House: 7 Levels</h2>
+    <p>John &amp; Julie Gottman's empirically-derived model of what makes relationships work:</p>
+    <div style="background: rgba(8,145,178,0.08); border: 1px solid #0891b2; border-radius: 12px; padding: 25px; margin: 15px 0;">
+        <p style="text-align:center; color:#5eead4; font-weight:bold; margin-bottom:10px;">🏠 THE SOUND RELATIONSHIP HOUSE</p>
+        <table style="margin:0;">
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>7. Shared Meaning</strong> – Creating rituals, roles, goals, symbols together</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>6. Make Life Dreams Come True</strong> – Supporting partner's aspirations</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>5. Manage Conflict</strong> – Dialogue about perpetual problems (69% unsolvable!)</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>4. Positive Perspective</strong> – Giving partner benefit of doubt</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>3. Turning Toward</strong> – Responding to emotional bids</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>2. Fondness &amp; Admiration</strong> – Expressing appreciation &amp; respect</td></tr>
+            <tr><td style="text-align:center; border:1px solid #0891b2; padding:8px;"><strong>1. Love Maps</strong> – Knowing partner's inner world (dreams, fears, preferences)</td></tr>
+        </table>
+        <p style="text-align:center; margin-top:12px; color:#06b6d4;"><strong>WALLS: Trust + Commitment</strong> (hold everything together)</p>
+    </div>
+    <div class="evidence-box">
+        <strong>Evidence:</strong> Built on 40+ years of longitudinal research with 3,000+ couples at the "Love Lab" (Gottman &amp; Gottman, 2015)
+    </div>
+</div>
+
+
+<!-- SLIDE 5: Four Horsemen + Antidotes -->
+<div class="slide content-slide">
+    <h2>The Four Horsemen &amp; Their Antidotes</h2>
+    <p>Four destructive patterns that predict relationship failure with 90%+ accuracy:</p>
+    <table>
+        <tr><th>Horseman</th><th>What It Looks Like</th><th>Antidote</th></tr>
+        <tr><td>🗡️ <strong>Criticism</strong></td><td>"You ALWAYS..." / "You NEVER..." (character attack vs. specific complaint)</td><td><strong>Gentle Startup:</strong> "I feel [emotion] about [situation]. I need [request]."</td></tr>
+        <tr><td>😤 <strong>Contempt</strong></td><td>Eye-rolling, mockery, sarcasm, name-calling, superiority</td><td><strong>Culture of Appreciation:</strong> Express fondness &amp; admiration daily (5:1 ratio)</td></tr>
+        <tr><td>🛡️ <strong>Defensiveness</strong></td><td>"It's not my fault!" / Counter-attack / Playing victim</td><td><strong>Accept Responsibility:</strong> "You're right, I did forget. Let me fix it."</td></tr>
+        <tr><td>🧱 <strong>Stonewalling</strong></td><td>Shutting down, leaving, silent treatment, glazed eyes</td><td><strong>Self-Soothe:</strong> Take 20-min break, return when HR &lt; 100 BPM</td></tr>
+    </table>
+    <div class="warning-box">
+        <strong>Clinical Alert:</strong> Contempt is the SINGLE strongest predictor of divorce. If present, prioritize building fondness &amp; admiration FIRST before any conflict work.
+    </div>
+</div>
+
+<!-- SLIDE 6: Gottman Session Protocol -->
+<div class="slide content-slide">
+    <h2>Gottman Method: Session Protocol</h2>
+    <table>
+        <tr><th>Phase</th><th>Sessions</th><th>Focus</th></tr>
+        <tr><td><strong>Assessment</strong></td><td>1–3</td><td>Conjoint interview + individual sessions + questionnaires (Gottman 66 questions, DAS, Oral History Interview)</td></tr>
+        <tr><td><strong>Feedback</strong></td><td>4</td><td>Share assessment findings; identify SRH strengths &amp; weaknesses; set goals; present treatment plan</td></tr>
+        <tr><td><strong>Friendship &amp; Intimacy</strong></td><td>5–8</td><td>Build Love Maps, Fondness &amp; Admiration, Turning Toward (Levels 1-3)</td></tr>
+        <tr><td><strong>Conflict Management</strong></td><td>9–14</td><td>Dreams-within-conflict, perpetual vs solvable problems, Four Horsemen antidotes, repair attempts</td></tr>
+        <tr><td><strong>Shared Meaning</strong></td><td>15–18</td><td>Creating rituals of connection, shared goals, roles, symbols, legacy</td></tr>
+        <tr><td><strong>Relapse Prevention</strong></td><td>19–20</td><td>Consolidation, relapse plan, "marital poop detector," follow-up scheduling</td></tr>
+    </table>
+    <div class="evidence-box">
+        <strong>Research Base:</strong> 40 years of research | 90%+ divorce prediction accuracy | Couples maintain gains at 2-year follow-up (Gottman &amp; Gottman, 2015)
+    </div>
+</div>
+
+
+<!-- SLIDE 7: Interactive - Emotional Bid Activity -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">🎯 ACTIVITY – Emotional Bids</span>
+    <h2>Turning Toward: Recognizing Emotional Bids</h2>
+    <p style="margin-bottom:15px;">An <strong>emotional bid</strong> is any attempt by a partner to connect – for attention, affection, humor, or support. Partners can: <strong>Turn Toward</strong> (engage), <strong>Turn Away</strong> (ignore), or <strong>Turn Against</strong> (reject).</p>
+    <p><strong>Scenario 1:</strong> Partner says "The sunset is beautiful tonight" while the other is scrolling their phone.</p>
+    <button class="reveal-btn" onclick="document.getElementById('bid1').classList.add('shown')">Is this a bid? Reveal</button>
+    <div class="reveal-content" id="bid1">
+        <div class="highlight-box"><strong>YES – This IS a bid for connection.</strong> The partner is inviting shared attention/experience. Turning toward: Put phone down, look up, say "It really is gorgeous." Research: Couples who divorce turn toward only 33% of the time. Happy couples: 86%.</div>
+    </div>
+    <p style="margin-top:15px;"><strong>Scenario 2:</strong> Husband sighs loudly after coming home and says "What a day..."</p>
+    <button class="reveal-btn" onclick="document.getElementById('bid2').classList.add('shown')">Is this a bid? Reveal</button>
+    <div class="reveal-content" id="bid2">
+        <div class="highlight-box"><strong>YES – A bid for attention &amp; support.</strong> Turning toward: "Tell me about it. What happened?" Turning away: Continue watching TV without responding. Turning against: "You think YOU had a bad day?"</div>
+    </div>
+    <p style="margin-top:15px;"><strong>Scenario 3:</strong> Wife shows husband a funny meme on her phone.</p>
+    <button class="reveal-btn" onclick="document.getElementById('bid3').classList.add('shown')">Is this a bid? Reveal</button>
+    <div class="reveal-content" id="bid3">
+        <div class="highlight-box"><strong>YES – A bid for humor &amp; shared enjoyment.</strong> Turning toward: Laugh together, share one back. Every small bid responded to = deposit in the "emotional bank account."</div>
+    </div>
+    <div class="clinical-tip">
+        <strong>Clinical Tip:</strong> In session, train couples to recognize bids. Assignment: Track bids for one week. Count how many you noticed and responded to.
+    </div>
+</div>
+
+
+<!-- SLIDE 8: Section Header - EFT -->
+<div class="slide section-header">
+    <h2>Section 2</h2>
+    <p>Emotionally Focused Therapy (EFT)</p>
+    <div class="time-badge">15 Minutes (20–35 min)</div>
+</div>
+
+<!-- SLIDE 9: EFT Overview -->
+<div class="slide content-slide">
+    <h2>EFT: Overview &amp; Foundation</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Key Facts</h4>
+            <ul>
+                <li><strong>Founders:</strong> Sue Johnson &amp; Les Greenberg (1988)</li>
+                <li><strong>Theory:</strong> Attachment-based (Bowlby)</li>
+                <li><strong>Success Rate:</strong> 70–73% recovery from distress (Wiebe et al., 2024 meta-analysis)</li>
+                <li><strong>Duration:</strong> 8–20 sessions typically</li>
+                <li><strong>Gold Standard:</strong> Most research-validated couple therapy</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>The Core Idea</h4>
+            <p style="font-size:1.05em; line-height:1.7;">Relationship distress = <strong>insecure attachment</strong></p>
+            <p>→ Partners cannot access each other as a safe haven/secure base</p>
+            <p>→ This triggers <strong>negative interaction cycles</strong></p>
+            <p>→ Cycles <strong>block access</strong> to attachment needs</p>
+            <p>→ Both partners feel alone, unloved, inadequate</p>
+            <p style="margin-top:10px; color:#06b6d4;"><strong>EFT Goal:</strong> Create new bonding events by accessing primary emotions and restructuring the interaction cycle</p>
+        </div>
+    </div>
+    <div class="evidence-box">
+        <strong>Evidence:</strong> 30+ RCTs | Effective across diverse populations | Gains maintained at 2-year follow-up | Effective for PTSD, depression, attachment injuries (Johnson, 2019)
+    </div>
+</div>
+
+
+<!-- SLIDE 10: Pursuer-Withdrawer Cycle -->
+<div class="slide content-slide">
+    <h2>The Pursuer-Withdrawer Cycle</h2>
+    <p>The most common negative interaction pattern in distressed couples (~80% of cases):</p>
+    <div class="flow-diagram">
+        <div class="flow-box"><strong>She PURSUES</strong><br>(criticizes, demands, escalates)<br><em style="color:#5eead4;">Secondary: Anger</em></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><strong>He WITHDRAWS</strong><br>(silence, avoidance, shuts down)<br><em style="color:#5eead4;">Secondary: Numbness</em></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><strong>She feels ABANDONED</strong><br>(pursues harder)<br><em style="color:#06b6d4;">Primary: Fear, loneliness</em></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><strong>He feels INADEQUATE</strong><br>(withdraws more)<br><em style="color:#06b6d4;">Primary: Shame, helplessness</em></div>
+    </div>
+    <div class="key-concept">
+        <strong>The EFT Reframe:</strong> "The enemy is NOT your partner – the enemy is the CYCLE. You are both trapped in this dance. She pursues because she cares so much. He withdraws because he feels he can never get it right. Underneath, both are saying: <em>'Do I matter to you? Are you there for me?'</em>"
+    </div>
+    <div class="clinical-tip">
+        <strong>Clinical Tip:</strong> In Indian context, withdrawer is often the husband (socialized to suppress emotion). Pursuer is often the wife, but may appear as "nagging" to family. Normalize BOTH positions as attachment responses.
+    </div>
+</div>
+
+<!-- SLIDE 11: 9 Steps of EFT -->
+<div class="slide content-slide">
+    <h2>9 Steps of EFT Across 3 Stages</h2>
+    <table>
+        <tr><th>Stage</th><th>Step</th><th>Sessions</th><th>Goal</th></tr>
+        <tr><td rowspan="4"><strong>Stage 1:<br>De-escalation</strong></td><td>1. Identify the conflict</td><td rowspan="4">1–7</td><td>Assessment &amp; alliance</td></tr>
+        <tr><td>2. Identify the negative cycle</td><td>Name the pursuer-withdrawer dance</td></tr>
+        <tr><td>3. Access underlying emotions</td><td>Reach primary attachment emotions</td></tr>
+        <tr><td>4. Reframe: The cycle is the problem</td><td>Externalize the enemy</td></tr>
+        <tr><td rowspan="3"><strong>Stage 2:<br>Restructuring</strong></td><td>5. Access deep needs &amp; fears</td><td rowspan="3">8–15</td><td>Withdrawer re-engagement</td></tr>
+        <tr><td>6. Promote acceptance of partner's experience</td><td>Empathic responsiveness</td></tr>
+        <tr><td>7. Facilitate bonding events</td><td>New cycle of reaching &amp; responding</td></tr>
+        <tr><td rowspan="2"><strong>Stage 3:<br>Consolidation</strong></td><td>8. New solutions to old problems</td><td rowspan="2">16–20</td><td>Problems shrink with secure bond</td></tr>
+        <tr><td>9. Consolidate new positions &amp; cycles</td><td>New narrative of the relationship</td></tr>
+    </table>
+    <div class="clinical-tip">
+        <strong>Key Moment:</strong> Steps 5 &amp; 7 are the "change events" – when the withdrawer re-engages and the pursuer softens. These are the transformational moments in EFT.
+    </div>
+</div>
+
+
+<!-- SLIDE 12: Key EFT Interventions -->
+<div class="slide content-slide">
+    <h2>Key EFT Interventions</h2>
+    <table>
+        <tr><th>Intervention</th><th>Description</th><th>Example</th></tr>
+        <tr><td><strong>Reflection</strong></td><td>Mirror back the emotion</td><td>"So when he goes quiet, something inside you panics..."</td></tr>
+        <tr><td><strong>Validation</strong></td><td>Normalize the emotional response</td><td>"Of course you shut down – you learned early that showing feelings wasn't safe."</td></tr>
+        <tr><td><strong>Evocative Responding</strong></td><td>Open up unexpressed emotion</td><td>"What happens inside when she turns away? What does that feel like in your body?"</td></tr>
+        <tr><td><strong>Heightening</strong></td><td>Amplify the key emotion</td><td>"Can you say that again? 'I am afraid I'm losing you.' Say it directly to her."</td></tr>
+        <tr><td><strong>Empathic Conjecture</strong></td><td>Guess at the deeper feeling</td><td>"I wonder if underneath the anger there's a part that says 'I'm not enough for him'?"</td></tr>
+        <tr><td><strong>Tracking the Cycle</strong></td><td>Name the pattern in real-time</td><td>"Here it is – right now. You're reaching and he's pulling back. The cycle is happening."</td></tr>
+        <tr><td><strong>Restructuring</strong></td><td>Facilitate new interaction</td><td>"Can you turn to him and tell him what you need right now?"</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>The RISSSC Principle:</strong> Repeat, use Images, make it Simple, Slow it down, use Soft voice, and Stay with the Client's experience.
+    </div>
+</div>
+
+<!-- SLIDE 13: Interactive EFT Demo -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">🎬 CASE VIGNETTE – EFT in Action</span>
+    <h2>EFT Demo: Identifying the Therapist's Move</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Meera (30) and Arjun (33), married 4 years. Meera says angrily: "You never talk to me! You come home, eat, watch cricket, and sleep. I don't exist for you!" Arjun looks away, crosses arms, goes silent.</p>
+        <p style="margin-top:10px;"><strong>Therapist says:</strong> "Arjun, I notice you've gone quiet right now. What's happening inside as you hear Meera say this? ... [pause] ... I'm wondering if part of you is thinking 'Nothing I do is ever enough for her' – is that close?"</p>
+    </div>
+    <p style="margin-top:15px;"><strong>Question:</strong> What EFT interventions is the therapist using? (Select all that apply)</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. Tracking the cycle</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. Evocative responding</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. Empathic conjecture</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">D. Heightening</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('eftrev1').classList.add('shown')">Reveal Answer</button>
+    <div class="reveal-content" id="eftrev1">
+        <div class="highlight-box">
+            <strong>Answer: A, B, and C.</strong><br>
+            <strong>A – Tracking:</strong> Therapist notices the withdrawal happening in real-time ("I notice you've gone quiet").<br>
+            <strong>B – Evocative Responding:</strong> "What's happening inside?" – inviting the withdrawer to access internal experience.<br>
+            <strong>C – Empathic Conjecture:</strong> "I'm wondering if part of you thinks..." – guessing at the primary emotion (inadequacy/shame) beneath the secondary (shutdown).<br>
+            NOT D – Heightening would be asking him to repeat/amplify the feeling directly to Meera.
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 14: Section Header - CBCT & IBCT -->
+<div class="slide section-header">
+    <h2>Section 3</h2>
+    <p>CBCT &amp; IBCT: Cognitive-Behavioral Approaches</p>
+    <div class="time-badge">10 Minutes (35–45 min)</div>
+</div>
+
+<!-- SLIDE 15: CBCT -->
+<div class="slide content-slide">
+    <h2>Cognitive Behavioral Couple Therapy (CBCT)</h2>
+    <p><strong>Founders:</strong> Norman Epstein &amp; Donald Baucom (2002)</p>
+    <h3>Three Domains of Intervention</h3>
+    <div class="two-col">
+        <div class="col">
+            <h4>1. Cognitions</h4>
+            <ul>
+                <li><strong>Attributions:</strong> "He's late because he doesn't care" vs. "Traffic was bad"</li>
+                <li><strong>Expectancies:</strong> "She'll never change"</li>
+                <li><strong>Assumptions:</strong> "If he loved me, he'd know what I need"</li>
+                <li><strong>Standards:</strong> "A good husband should always..."</li>
+            </ul>
+            <h4 style="margin-top:15px;">2. Behaviours</h4>
+            <ul>
+                <li>Positive behaviour exchange (caring days)</li>
+                <li>Communication skills training (speaker-listener)</li>
+                <li>Problem-solving training (5 steps)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>3. Emotions</h4>
+            <ul>
+                <li>Emotion identification &amp; labelling</li>
+                <li>Emotion regulation strategies</li>
+                <li>Expressing vulnerable emotions safely</li>
+                <li>Reducing emotional reactivity</li>
+            </ul>
+            <h4 style="margin-top:15px;">Session Structure</h4>
+            <ul>
+                <li>Psychoeducation on cognition-emotion-behaviour link</li>
+                <li>Structured exercises &amp; homework</li>
+                <li>Cognitive restructuring of relationship beliefs</li>
+                <li>Behavioural experiments</li>
+            </ul>
+        </div>
+    </div>
+    <div class="clinical-tip">
+        <strong>Indian Application:</strong> CBCT particularly useful for couples with rigid cultural standards ("A wife must..." / "A husband should...") that create unrealistic expectations and chronic disappointment.
+    </div>
+</div>
+
+
+<!-- SLIDE 16: IBCT -->
+<div class="slide content-slide">
+    <h2>Integrative Behavioral Couple Therapy (IBCT)</h2>
+    <p><strong>Founders:</strong> Andrew Christensen &amp; Neil Jacobson (1998)</p>
+    <h3>DEEP Analysis Framework</h3>
+    <table>
+        <tr><th>Component</th><th>Description</th><th>Example</th></tr>
+        <tr><td><strong>D</strong>ifferences</td><td>Incompatibilities that trigger conflict</td><td>She's social, he's introverted – fights about weekends</td></tr>
+        <tr><td><strong>E</strong>motional Sensitivities</td><td>Vulnerabilities from history/attachment</td><td>His father was critical → hypersensitive to any complaint</td></tr>
+        <tr><td><strong>E</strong>xternal Stressors</td><td>Life pressures that exacerbate conflict</td><td>Financial stress, in-laws, job loss, new baby</td></tr>
+        <tr><td><strong>P</strong>atterns</td><td>Repetitive interaction cycles</td><td>Demand-withdraw, mutual avoidance, mutual attack</td></tr>
+    </table>
+    <h3>Two Types of Strategies</h3>
+    <div class="two-col">
+        <div class="col">
+            <h4>Acceptance Strategies</h4>
+            <ul>
+                <li><strong>Empathic Joining:</strong> Seeing partner's pain beneath their behaviour</li>
+                <li><strong>Unified Detachment:</strong> Viewing the problem as "it" (external to both)</li>
+                <li><strong>Tolerance Building:</strong> Reducing reactivity through exposure, self-care, faking positives</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Change Strategies</h4>
+            <ul>
+                <li>Behaviour exchange</li>
+                <li>Communication training</li>
+                <li>Problem-solving skills</li>
+                <li>(Same as traditional BCT but used AFTER acceptance)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="evidence-box">
+        <strong>Evidence:</strong> Largest RCT in couple therapy (134 couples, 5-year follow-up). 69% clinically improved at termination. Adopted by U.S. Veterans Affairs since 2010 (Christensen et al., 2016).
+    </div>
+</div>
+
+<!-- SLIDE 17: Comparison Table -->
+<div class="slide content-slide">
+    <h2>Comparing Evidence-Based Approaches</h2>
+    <table style="font-size:0.85em;">
+        <tr><th>Dimension</th><th>EFT</th><th>Gottman</th><th>CBCT</th><th>IBCT</th></tr>
+        <tr><td><strong>Theoretical Basis</strong></td><td>Attachment theory</td><td>Empirical research on stable marriages</td><td>Cognitive-behavioral</td><td>Behavioral + acceptance</td></tr>
+        <tr><td><strong>Key Mechanism</strong></td><td>Access primary emotions → new bonding events</td><td>Build friendship + manage conflict</td><td>Change cognitions &amp; behaviors</td><td>Acceptance → natural change</td></tr>
+        <tr><td><strong>Typical Duration</strong></td><td>8–20 sessions</td><td>12–20 sessions</td><td>12–20 sessions</td><td>20–26 sessions</td></tr>
+        <tr><td><strong>Evidence Base</strong></td><td>30+ RCTs; 70-73% recovery</td><td>40 years longitudinal; less RCT data</td><td>Multiple RCTs; moderate effect</td><td>Largest couple therapy RCT</td></tr>
+        <tr><td><strong>Best Suited For</strong></td><td>Attachment injuries, emotional distance, affairs</td><td>Communication issues, friendship erosion</td><td>Cognitive distortions, skill deficits</td><td>Chronic differences, acceptance needed</td></tr>
+        <tr><td><strong>Therapist Stance</strong></td><td>Warm, empathic, process-focused</td><td>Structured, psychoeducational, coach-like</td><td>Directive, educational, structured</td><td>Validating, non-judgmental</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Integration Principle:</strong> In practice, many therapists integrate elements from multiple approaches. The best fit depends on the couple's presenting issues, readiness for emotional work, and cultural context.
+    </div>
+</div>
+
+
+<!-- SLIDE 18: Section Header - Role Play -->
+<div class="slide section-header">
+    <h2>Section 4</h2>
+    <p>Role-Play Practice</p>
+    <div class="time-badge">10 Minutes (45–55 min)</div>
+</div>
+
+<!-- SLIDE 19: Role Play Instructions -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">🎭 EXPERIENTIAL ACTIVITY – 10 Minutes</span>
+    <h2>Role-Play: Applying an Evidence-Based Approach</h2>
+    <h3>Setup (1 minute)</h3>
+    <ul>
+        <li>Form groups of <strong>3 people</strong>: Therapist + Partner A + Partner B</li>
+        <li>The Therapist chooses ONE approach to use (Gottman, EFT, CBCT, or IBCT)</li>
+        <li>Partners act out the scenario on the next slide</li>
+    </ul>
+    <h3>Process (5 minutes)</h3>
+    <ol>
+        <li>Partners begin the conflict scenario</li>
+        <li>Therapist intervenes using their chosen approach</li>
+        <li>Focus on 1–2 key interventions (don't try everything!)</li>
+    </ol>
+    <h3>Debrief (4 minutes)</h3>
+    <ul>
+        <li>What approach did the therapist use? What specific intervention?</li>
+        <li>How did it feel as the client? Did you feel heard/understood?</li>
+        <li>What was hardest for the therapist?</li>
+    </ul>
+    <div class="clinical-tip">
+        <strong>Tip for Therapists:</strong> You don't need to "fix" anything in 5 minutes. Just demonstrate ONE move – track the cycle, validate an emotion, identify a cognition, or reframe a difference as DEEP.
+    </div>
+</div>
+
+<!-- SLIDE 20: Role Play Scenario -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">📋 ROLE-PLAY SCENARIO</span>
+    <h2>Case: Neha &amp; Vikram – In-Law Conflict + Emotional Distance</h2>
+    <div class="highlight-box">
+        <p><strong>Context:</strong> Neha (28, teacher) &amp; Vikram (32, IT manager), arranged marriage, 3 years. Living in nuclear setup but mother-in-law visits every weekend and stays 2-3 days. Neha feels controlled and invisible. Vikram feels torn.</p>
+        <p style="margin-top:10px;"><strong>Neha (Partner A):</strong> "Every weekend your mother comes and takes over MY kitchen, MY house. She tells me I'm not cooking right, not keeping the house clean enough. And you just sit there! Last week she told me I should 'learn from her' how to be a good wife. I can't take this anymore!"</p>
+        <p style="margin-top:10px;"><strong>Vikram (Partner B):</strong> "Here we go again. My mother is old and alone. She just wants to help. You take everything as an insult. I can't tell her to stop coming – she's my MOTHER. What do you want me to do, choose between you?"</p>
+    </div>
+    <h3>Therapist Prompts (choose your approach):</h3>
+    <ul>
+        <li><strong>If EFT:</strong> What is Neha's primary emotion beneath the anger? What is Vikram afraid of? Track the cycle.</li>
+        <li><strong>If Gottman:</strong> Identify the Four Horsemen. Help with gentle startup. What bid is Neha making?</li>
+        <li><strong>If CBCT:</strong> What cognitive distortions are present? What standards are in conflict?</li>
+        <li><strong>If IBCT:</strong> Do a DEEP analysis. How might unified detachment help here?</li>
+    </ul>
+</div>
+
+
+<!-- SLIDE 21: Role-Play Debrief Poll -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">📊 DEBRIEF POLL</span>
+    <h2>Which Approach Did Your Group Find Most Natural?</h2>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">Gottman Method</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">EFT</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">CBCT</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">IBCT</div>
+    </div>
+    <h3 style="margin-top:20px;">Debrief Questions:</h3>
+    <ul>
+        <li>What felt most challenging as the therapist? (Most say: slowing down, not giving advice!)</li>
+        <li>Which approach seemed best-suited for this particular Indian couple scenario?</li>
+        <li>What would you do differently in a real session?</li>
+    </ul>
+    <div class="clinical-tip">
+        <strong>Reflection:</strong> With Indian couples, you may need to validate the cultural context (joint family expectations, duty to parents) while ALSO validating the individual partner's emotional needs. This is not either/or – it's both/and. All four approaches can accommodate this with cultural sensitivity.
+    </div>
+</div>
+
+<!-- SLIDE 22: Key Takeaways -->
+<div class="slide content-slide">
+    <h2>Hour 3: Key Takeaways</h2>
+    <div class="key-concept">
+        <strong>1. Gottman Method:</strong> Built on 40 years of research. Sound Relationship House = friendship + conflict management + shared meaning. Four Horsemen predict divorce. Focus on turning toward bids and building a culture of appreciation.
+    </div>
+    <div class="key-concept">
+        <strong>2. EFT:</strong> The gold standard. Attachment-based. 70-73% recovery. Focus on accessing primary emotions underneath the negative cycle. The cycle is the enemy, not the partner. Key moments: withdrawer re-engagement + pursuer softening.
+    </div>
+    <div class="key-concept">
+        <strong>3. CBCT:</strong> Targets cognitions (distorted attributions, rigid standards), behaviours (communication, problem-solving), and emotions. Structured, skill-building approach.
+    </div>
+    <div class="key-concept">
+        <strong>4. IBCT:</strong> Acceptance before change. DEEP analysis for formulation. Empathic joining + unified detachment + tolerance building. Largest RCT evidence base.
+    </div>
+    <div class="key-concept">
+        <strong>5. Integration:</strong> No one approach fits all couples. Match the approach to the couple's needs, readiness, and cultural context. In Indian practice, cultural adaptation of all models is essential.
+    </div>
+</div>
+
+<!-- SLIDE 22: References -->
+<div class="slide content-slide">
+    <h2>Key References (APA 7th Edition)</h2>
+    <ul style="font-size:0.9em; line-height:2;">
+        <li>Christensen, A., Atkins, D. C., Baucom, B., &amp; Yi, J. (2016). Couple and individual adjustment for 5 years following a randomized clinical trial comparing traditional versus integrative behavioral couple therapy. <em>Journal of Consulting and Clinical Psychology, 84</em>(10), 875–887.</li>
+        <li>Epstein, N. B., &amp; Baucom, D. H. (2002). <em>Enhanced cognitive-behavioral therapy for couples: A contextual approach</em>. American Psychological Association.</li>
+        <li>Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton.</li>
+        <li>Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown.</li>
+        <li>Johnson, S. M. (2019). <em>Attachment theory in practice: Emotionally focused therapy (EFT) with individuals, couples, and families</em>. Guilford Press.</li>
+        <li>Johnson, S. M., &amp; Greenberg, L. S. (1988). Relating process to outcome in marital therapy. <em>Journal of Marital and Family Therapy, 14</em>(2), 175–183.</li>
+        <li>Wiebe, S. A., Johnson, S. M., Burgess Moser, M., Dalgleish, T. L., &amp; Tasca, G. A. (2024). Predicting follow-up outcomes in emotionally focused couple therapy: A meta-analysis. <em>Couple and Family Psychology: Research and Practice, 13</em>(1), 45–63.</li>
+    </ul>
+</div>
+
+
+<!-- SLIDE 23: Next Hour Preview -->
+<div class="slide title-slide">
+    <h1>End of Hour 3</h1>
+    <h2>☕ 5-Minute Break</h2>
+    <p style="font-size:1.2em; margin:30px 0;">Coming Up Next → Hour 4:</p>
+    <p style="font-size:1.5em;"><strong>Clinical Skills &amp; Session Management</strong></p>
+    <p style="margin-top:20px; opacity:0.7;">How to structure sessions | Managing crises | Working with affairs | Domestic violence screening | Termination</p>
+</div>
+
+<script>
+// Slide Navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const timerBar = document.getElementById('timerBar');
+const timerDisplay = document.getElementById('timerDisplay');
+let timerInterval = null;
+let timeRemaining = 3600; // 60 minutes in seconds
+let timerRunning = false;
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    slides[currentSlide].classList.add('active');
+    counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    timerBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 't' || e.key === 'T') { toggleTimer(); }
+    else if (e.key === 'r' || e.key === 'R') { revealAll(); }
+});
+
+// Click navigation
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('poll-option') || e.target.classList.contains('reveal-btn')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+});
+
+// Timer
+function toggleTimer() {
+    timerDisplay.classList.toggle('visible');
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) { clearInterval(timerInterval); timerDisplay.textContent = "TIME!"; timerDisplay.style.color = '#e94560'; return; }
+            const min = Math.floor(timeRemaining / 60);
+            const sec = timeRemaining % 60;
+            timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            if (timeRemaining <= 300) timerDisplay.style.color = '#e94560';
+        }, 1000);
+    } else {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+// Reveal all hidden content on current slide
+function revealAll() {
+    const active = slides[currentSlide];
+    active.querySelectorAll('.reveal-content').forEach(el => el.classList.add('shown'));
+}
+
+// Initialize
+showSlide(0);
+</script>
+</body>
+</html>
