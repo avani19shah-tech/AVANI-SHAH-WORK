@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 4: Communication, Sexuality &amp; High Conflict Couples</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #eee; overflow: hidden; height: 100vh; }
+.slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; position: relative; overflow-y: auto; }
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+.slide-counter { position: fixed; bottom: 20px; right: 30px; font-size: 14px; color: #888; z-index: 100; }
+.timer-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #d97706, #ea580c); z-index: 100; transition: width 0.3s; }
+.nav-hint { position: fixed; bottom: 20px; left: 30px; font-size: 12px; color: #666; z-index: 100; }
+
+/* Slide Types */
+.title-slide { background: linear-gradient(135deg, #d97706 0%, #ea580c 100%); text-align: center; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.title-slide h2 { font-size: 1.6em; font-weight: 300; opacity: 0.9; margin-bottom: 30px; }
+.title-slide .meta { font-size: 1em; opacity: 0.7; margin-top: 30px; }
+
+.content-slide { background: #16213e; }
+.content-slide h2 { font-size: 2.2em; color: #d97706; margin-bottom: 25px; border-bottom: 3px solid #d97706; padding-bottom: 10px; }
+.content-slide h3 { font-size: 1.4em; color: #f59e0b; margin: 20px 0 10px; }
+.content-slide ul, .content-slide ol { padding-left: 30px; margin: 10px 0; }
+.content-slide li { margin: 8px 0; font-size: 1.15em; line-height: 1.6; }
+.content-slide p { font-size: 1.15em; line-height: 1.7; margin: 10px 0; }
+
+.interactive-slide { background: linear-gradient(135deg, #0f3443 0%, #34e89e20 100%); border: 2px solid #34e89e; }
+.interactive-slide h2 { color: #34e89e; font-size: 2em; margin-bottom: 20px; }
+.interactive-slide .activity-badge { background: #34e89e; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+
+.discussion-slide { background: linear-gradient(135deg, #1a1a2e 0%, #e94560 10%, #1a1a2e 100%); background-size: 200% 200%; }
+.discussion-slide h2 { color: #e94560; font-size: 2em; }
+.discussion-slide .question { font-size: 1.5em; text-align: center; margin: 40px 0; padding: 30px; border: 2px dashed #e94560; border-radius: 15px; }
+
+.key-concept { background: rgba(217,119,6,0.15); border-left: 4px solid #d97706; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-box { background: rgba(52,232,158,0.1); border: 1px solid #34e89e; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.warning-box { background: rgba(233,69,96,0.1); border: 1px solid #e94560; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.clinical-tip { background: rgba(245,158,11,0.1); border: 1px solid #f59e0b; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+th { background: #d97706; color: white; padding: 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid #333; }
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 15px 0; }
+.col { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; }
+.col h4 { color: #f59e0b; margin-bottom: 10px; }
+
+.timer-display { position: fixed; top: 15px; right: 30px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 20px; font-size: 1.1em; z-index: 200; display: none; }
+.timer-display.visible { display: block; }
+
+.poll-container { text-align: center; margin: 20px 0; }
+.poll-option { display: inline-block; background: rgba(217,119,6,0.2); border: 2px solid #d97706; padding: 15px 25px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.1em; }
+.poll-option:hover, .poll-option.selected { background: #d97706; color: white; transform: scale(1.05); }
+
+.reveal-content { opacity: 0; transition: opacity 0.5s; margin: 15px 0; }
+.reveal-content.shown { opacity: 1; }
+.reveal-btn { background: #ea580c; color: white; border: none; padding: 10px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; margin: 10px 0; }
+.reveal-btn:hover { background: #f59e0b; }
+
+.section-header { background: linear-gradient(135deg, #ea580c 0%, #d97706 100%); text-align: center; }
+.section-header h2 { font-size: 2.8em; margin-bottom: 15px; }
+.section-header p { font-size: 1.3em; opacity: 0.8; }
+.time-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timerBar"></div>
+<div class="timer-display" id="timerDisplay">60:00</div>
+<div class="slide-counter" id="slideCounter"></div>
+<div class="nav-hint">&larr; &rarr; Arrow Keys or Click to Navigate | Press 'T' for Timer | Press 'R' to Reveal</div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+    <h1>Couple &amp; Marriage Therapy</h1>
+    <h2>Hour 4: Communication, Sexuality &amp; High Conflict Couples</h2>
+    <p style="font-size:1.2em; margin:20px 0;">A Comprehensive Clinical Training for MPhil Trainees</p>
+    <div class="meta">
+        <p>Modules 6, 7 &amp; 8 | Duration: 60 Minutes</p>
+        <p>Interactive Lecture + Skills Practice + Clinical Activities</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hour Plan -->
+<div class="slide content-slide">
+    <h2>Hour 4 Roadmap (60 Minutes)</h2>
+    <table>
+        <tr><th>Time</th><th>Topic</th><th>Format</th></tr>
+        <tr><td>0&ndash;5 min</td><td>Communication Models Overview</td><td>Lecture</td></tr>
+        <tr><td>5&ndash;15 min</td><td>Core Communication Skills (Speaker-Listener, Active Listening, Repair)</td><td>Lecture + Demo</td></tr>
+        <tr><td>15&ndash;20 min</td><td>Communication Skills Practice Activity</td><td>Pair Practice</td></tr>
+        <tr><td>20&ndash;30 min</td><td>Sexual &amp; Intimacy Counselling</td><td>Lecture</td></tr>
+        <tr><td>30&ndash;40 min</td><td>Sensate Focus Protocol</td><td>Lecture + Clinical Tips</td></tr>
+        <tr><td>40&ndash;50 min</td><td>High Conflict: DV, Infidelity, In-Laws</td><td>Lecture + Activity</td></tr>
+        <tr><td>50&ndash;60 min</td><td>Safety Planning Activity + Wrap-up</td><td>Interactive</td></tr>
+    </table>
+</div>
+
+<!-- SLIDE 3: Section Header -->
+<div class="slide section-header">
+    <h2>Section 1</h2>
+    <p>Communication &amp; Conflict Resolution</p>
+    <div class="time-badge">20 Minutes</div>
+</div>
+
+<!-- SLIDE 4: Levels of Communication -->
+<div class="slide content-slide">
+    <h2>Levels of Communication in Couples</h2>
+    <h3>Three Levels of Every Message</h3>
+    <table>
+        <tr><th>Level</th><th>What It Is</th><th>Example</th></tr>
+        <tr><td><strong>Content</strong></td><td>The literal words / topic being discussed</td><td>"You didn't call me back."</td></tr>
+        <tr><td><strong>Process</strong></td><td>HOW the message is delivered (tone, timing, pattern)</td><td>Said with eye-roll at dinner table in front of in-laws</td></tr>
+        <tr><td><strong>Relational</strong></td><td>What it says about the relationship / attachment</td><td>"I don't matter to you. You don't prioritize me."</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Clinical Insight:</strong> Couples fight about content but are hurt at the relational level. Effective therapy addresses ALL three levels simultaneously.
+    </div>
+    <h3>The Speaker-Listener Technique</h3>
+    <div class="two-col">
+        <div class="col">
+            <h4>Rules for the Speaker (holds "the floor")</h4>
+            <ul>
+                <li>Use "I" statements ("I feel..." not "You always...")</li>
+                <li>Keep statements brief (1-2 sentences)</li>
+                <li>Pause after each statement for paraphrase</li>
+                <li>Stay on ONE topic at a time</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Rules for the Listener</h4>
+            <ul>
+                <li>Paraphrase what you heard (don't rebut)</li>
+                <li>Don't offer solutions yet</li>
+                <li>Ask: "Did I get that right?"</li>
+                <li>Request the "floor" to respond when ready</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: Active Listening -->
+<div class="slide content-slide">
+    <h2>Active Listening Components</h2>
+    <h3>Six Core Skills for Couples</h3>
+    <table>
+        <tr><th>Skill</th><th>What It Looks Like</th><th>Example</th></tr>
+        <tr><td><strong>Attending</strong></td><td>Eye contact, open posture, nodding</td><td>Putting phone down, turning toward partner</td></tr>
+        <tr><td><strong>Reflecting Content</strong></td><td>Paraphrasing the facts</td><td>"So you're saying the meeting went badly..."</td></tr>
+        <tr><td><strong>Reflecting Feelings</strong></td><td>Naming the emotion beneath words</td><td>"It sounds like you felt humiliated."</td></tr>
+        <tr><td><strong>Summarizing</strong></td><td>Pulling together key themes</td><td>"So overall you're feeling overwhelmed and unsupported."</td></tr>
+        <tr><td><strong>Validating</strong></td><td>Acknowledging the emotion makes sense</td><td>"Given what happened, of course you'd feel that way."</td></tr>
+        <tr><td><strong>Open Questions</strong></td><td>Inviting elaboration without judgment</td><td>"What was the hardest part for you?"</td></tr>
+    </table>
+    <div class="clinical-tip">
+        <strong>Clinical Tip:</strong> Validation ≠ Agreement. You can validate your partner's FEELING without agreeing with their INTERPRETATION. This distinction is crucial to teach couples.
+    </div>
+</div>
+
+<!-- SLIDE 6: Repair Attempts -->
+<div class="slide content-slide">
+    <h2>Gottman's Repair Attempts</h2>
+    <h3>The Secret Weapon of Successful Couples</h3>
+    <p>A repair attempt is ANY statement or action that prevents negativity from escalating out of control during conflict.</p>
+    <table>
+        <tr><th>Category</th><th>Examples</th></tr>
+        <tr><td><strong>Feelings</strong></td><td>"I'm getting scared." / "This is important to me."</td></tr>
+        <tr><td><strong>Responsibility</strong></td><td>"My part in this was..." / "I overreacted."</td></tr>
+        <tr><td><strong>De-escalation</strong></td><td>"Can we take a break?" / "Let me try again."</td></tr>
+        <tr><td><strong>Appreciation</strong></td><td>"I know this isn't easy for you either." / "Thank you for listening."</td></tr>
+        <tr><td><strong>Humor</strong></td><td>Inside joke, silly face, pet name (when appropriate)</td></tr>
+        <tr><td><strong>Physical</strong></td><td>Reaching for hand, hug offer, reducing physical distance</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Key Research Finding:</strong> The success of repair attempts is the PRIMARY difference between "masters" and "disasters" of relationships (Gottman, 1999). It's not that happy couples don't fight &mdash; it's that their repairs LAND.
+    </div>
+</div>
+
+<!-- SLIDE 7: Conflict Resolution -->
+<div class="slide content-slide">
+    <h2>Conflict Resolution: Solvable vs. Perpetual</h2>
+    <div class="key-concept">
+        <strong>Gottman's Discovery:</strong> 69% of all couple conflicts are PERPETUAL &mdash; they will never be fully resolved. Only 31% are solvable problems.
+    </div>
+    <div class="two-col">
+        <div class="col">
+            <h4>Solvable Problems</h4>
+            <ul>
+                <li>Situational, specific, addressable</li>
+                <li><strong>Strategy:</strong> Problem-solving steps</li>
+                <li>1. Softened startup</li>
+                <li>2. Accept influence</li>
+                <li>3. Repair &amp; de-escalate</li>
+                <li>4. Compromise</li>
+                <li>5. Process any injuries</li>
+            </ul>
+            <p><em>Example: "Who does the dishes tonight?"</em></p>
+        </div>
+        <div class="col">
+            <h4>Perpetual Problems</h4>
+            <ul>
+                <li>Rooted in personality or value differences</li>
+                <li><strong>Strategy:</strong> "Dreams Within Conflict"</li>
+                <li>1. Explore underlying dream/hope/value</li>
+                <li>2. Understand WHY it matters so deeply</li>
+                <li>3. Find areas of flexibility</li>
+                <li>4. Establish temporary compromise</li>
+                <li>5. Revisit periodically with dialogue</li>
+            </ul>
+            <p><em>Example: "One wants kids, the other doesn't"</em></p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 8: Softened Startup -->
+<div class="slide content-slide">
+    <h2>Softened Startup Formula</h2>
+    <h3>The Formula: "I feel... about... I need..."</h3>
+    <div class="key-concept">
+        <strong>Research:</strong> 96% of the time, the way a conversation STARTS determines how it will END (Gottman, 1999). Harsh startup = escalation guaranteed.
+    </div>
+    <h3>Before &amp; After Examples</h3>
+    <table>
+        <tr><th>Harsh Startup (Criticism)</th><th>Softened Startup</th></tr>
+        <tr><td>"You NEVER help with the kids! You're so selfish!"</td><td>"I feel overwhelmed with bedtime alone. I need us to share that responsibility."</td></tr>
+        <tr><td>"You always spend money on useless things!"</td><td>"I feel anxious about our finances. I need us to discuss a budget together."</td></tr>
+        <tr><td>"Your mother runs our life and you're too weak to stop it!"</td><td>"I feel unsupported when decisions are made without me. I need us to be a team."</td></tr>
+    </table>
+    <div class="clinical-tip">
+        <strong>Teaching Tip:</strong> Give couples a "formula card" to keep in their wallet:<br>
+        <strong>"I feel [emotion] about [specific situation]. I need [positive need]."</strong>
+    </div>
+</div>
+
+<!-- SLIDE 9: Interactive - Pair Practice -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">✋ PAIR PRACTICE &ndash; 3 Minutes</span>
+    <h2>Rewrite These Criticisms as Softened Startups</h2>
+    <p style="margin-bottom:15px;">With your partner, transform each harsh criticism into a softened startup using "I feel... about... I need..."</p>
+    <div class="highlight-box">
+        <p><strong>1.</strong> "You're always on your phone! You don't care about this family!"</p>
+        <p><strong>2.</strong> "You never stand up for me in front of your parents. You're a coward."</p>
+        <p><strong>3.</strong> "You only think about sex. You don't even ask how my day was!"</p>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('revSoftened').classList.add('shown')">Reveal Model Answers</button>
+    <div class="reveal-content" id="revSoftened">
+        <div class="key-concept">
+            <p><strong>1.</strong> "I feel lonely when we don't talk in the evenings. I need us to have 20 minutes of phone-free time together."</p>
+            <p><strong>2.</strong> "I feel hurt and unprotected when my concerns are dismissed. I need to know you'll speak up for us as a couple."</p>
+            <p><strong>3.</strong> "I feel disconnected when we don't check in emotionally. I need us to talk about our days before being intimate."</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 10: Section Header -->
+<div class="slide section-header">
+    <h2>Section 2</h2>
+    <p>Sexual &amp; Intimacy Counselling</p>
+    <div class="time-badge">20 Minutes</div>
+</div>
+
+<!-- SLIDE 11: Models of Sexual Response -->
+<div class="slide content-slide">
+    <h2>Models of Sexual Response</h2>
+    <h3>Three Key Models</h3>
+    <table>
+        <tr><th>Model</th><th>Phases</th><th>Key Feature</th></tr>
+        <tr><td><strong>Masters &amp; Johnson (1966)</strong></td><td>Excitement &rarr; Plateau &rarr; Orgasm &rarr; Resolution</td><td>Linear; based on physiological response; same for both sexes</td></tr>
+        <tr><td><strong>Kaplan (1979)</strong></td><td>Desire &rarr; Excitement &rarr; Orgasm</td><td>Added DESIRE as separate phase; 3-phase; allowed for desire disorders</td></tr>
+        <tr><td><strong>Basson (2000)</strong></td><td>Emotional intimacy &rarr; Responsive desire &rarr; Arousal &rarr; Satisfaction (circular)</td><td>CIRCULAR model; most clinically useful for women; desire can follow arousal</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Clinical Implication:</strong> Basson's circular model explains why many women (and some men) don't experience "spontaneous" desire. Responsive desire is NORMAL &mdash; educating couples about this reduces pathologizing.
+    </div>
+    <h3>WHO Components of Sexual Health</h3>
+    <ul>
+        <li>Physical capacity for sexual response</li>
+        <li>Freedom from organic disorders/diseases</li>
+        <li>Freedom from psychological issues that inhibit response</li>
+        <li>Ability to have pleasurable experiences without fear, shame, or guilt</li>
+    </ul>
+</div>
+
+<!-- SLIDE 12: Sexual Dysfunctions in Indian Couples -->
+<div class="slide content-slide">
+    <h2>Common Sexual Dysfunctions in Indian Couples</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Male Dysfunctions</h4>
+            <table>
+                <tr><th>Dysfunction</th><th>Prevalence</th></tr>
+                <tr><td>Erectile Dysfunction (ED)</td><td>High (performance anxiety)</td></tr>
+                <tr><td>Premature Ejaculation (PE)</td><td>Most common complaint</td></tr>
+                <tr><td>Delayed Ejaculation</td><td>Less common</td></tr>
+                <tr><td>Low Desire (Hypoactive)</td><td>Increasing (stress, screens)</td></tr>
+            </table>
+        </div>
+        <div class="col">
+            <h4>Female Dysfunctions</h4>
+            <table>
+                <tr><th>Dysfunction</th><th>Prevalence</th></tr>
+                <tr><td>Vaginismus</td><td>Very common post-arranged marriage</td></tr>
+                <tr><td>Dyspareunia (pain)</td><td>Common, underreported</td></tr>
+                <tr><td>Low Desire</td><td>Most common complaint</td></tr>
+                <tr><td>Orgasmic Disorder</td><td>High (lack of education)</td></tr>
+            </table>
+        </div>
+    </div>
+    <h3>Common Causes in Indian Context</h3>
+    <ul>
+        <li><strong>Arranged marriage anxiety:</strong> First night pressure, strangers expected to be intimate</li>
+        <li><strong>Lack of sex education:</strong> No school-based or family-based education for most</li>
+        <li><strong>Cultural shame:</strong> Sex = dirty/sinful; women not "supposed" to enjoy it</li>
+        <li><strong>Joint family/privacy issues:</strong> Thin walls, shared rooms, constant surveillance</li>
+        <li><strong>Porn-based expectations:</strong> Unrealistic standards from internet pornography</li>
+    </ul>
+</div>
+
+<!-- SLIDE 13: Sensate Focus -->
+<div class="slide content-slide">
+    <h2>Sensate Focus Protocol (Masters &amp; Johnson)</h2>
+    <h3>Four Progressive Stages</h3>
+    <table>
+        <tr><th>Stage</th><th>Activity</th><th>Key Principle</th></tr>
+        <tr><td><strong>Stage 1</strong></td><td>Non-genital touching (back, arms, legs, face)</td><td>Focus on sensation, NOT arousal; no breasts or genitals</td></tr>
+        <tr><td><strong>Stage 2</strong></td><td>Including genitals &amp; breasts (exploration only)</td><td>Still NO goal of arousal or orgasm; curiosity-driven</td></tr>
+        <tr><td><strong>Stage 3</strong></td><td>Mutual touching simultaneously</td><td>Communication about what feels good; give-and-receive</td></tr>
+        <tr><td><strong>Stage 4</strong></td><td>Non-demand intercourse (containment without thrusting)</td><td>Gradual; ONLY when both ready; no performance pressure</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Three Key Principles:</strong><br>
+        1. <strong>Curiosity over performance</strong> &mdash; "What does this feel like?" not "Am I doing it right?"<br>
+        2. <strong>Mindfulness</strong> &mdash; Stay present with sensation, not outcome<br>
+        3. <strong>No goal</strong> &mdash; Explicitly ban orgasm/intercourse in early stages to remove pressure
+    </div>
+</div>
+
+<!-- SLIDE 14: Clinical Tip - Indian Context -->
+<div class="slide content-slide">
+    <h2>Indian Context: Sexual Counselling Considerations</h2>
+    <div class="warning-box">
+        <strong>Important:</strong> Many Indian couples presenting with "sexual dysfunction" actually have NO sexual education. The first intervention is often psychoeducation, not therapy.
+    </div>
+    <h3>Key Considerations</h3>
+    <ul>
+        <li><strong>Consummation pressure:</strong> Family may ask "any good news?" within weeks of marriage; couple may feel defective</li>
+        <li><strong>Joint family privacy:</strong> Homework assignments (sensate focus) may be impossible if couple shares room or has no lock on door</li>
+        <li><strong>Cultural shame:</strong> Women may never have seen or touched their own genitalia; men may rely solely on pornography for "education"</li>
+        <li><strong>Language barriers:</strong> Many Indian languages lack non-vulgar words for genitals; develop comfortable vocabulary WITH the couple</li>
+        <li><strong>Gender role expectations:</strong> "Good women don't initiate"; men must "perform" or feel emasculated</li>
+    </ul>
+    <div class="clinical-tip">
+        <strong>Clinical Approach:</strong><br>
+        1. <strong>Permission-giving:</strong> "It's okay to talk about this. It's okay to enjoy this."<br>
+        2. <strong>Psychoeducation:</strong> Anatomy, arousal, responsive desire (normalize)<br>
+        3. <strong>Graduated exposure:</strong> Sensate focus adapted to available privacy<br>
+        4. <strong>Include both partners:</strong> Education must be joint to avoid blame
+    </div>
+</div>
+
+<!-- SLIDE 15: Section Header -->
+<div class="slide section-header">
+    <h2>Section 3</h2>
+    <p>High Conflict Couples: DV, Infidelity &amp; In-Laws</p>
+    <div class="time-badge">20 Minutes</div>
+</div>
+
+<!-- SLIDE 16: Emotional Abuse & Coercive Control -->
+<div class="slide content-slide">
+    <h2>Emotional Abuse &amp; Coercive Control</h2>
+    <div class="warning-box">
+        <strong>&#9888; SAFETY FIRST:</strong> Couple therapy is CONTRAINDICATED when there is ongoing violence, fear, or coercive control. Individual safety planning takes priority over relationship work.
+    </div>
+    <h3>Forms of Coercive Control</h3>
+    <div class="two-col">
+        <div class="col">
+            <ul>
+                <li><strong>Verbal abuse:</strong> Name-calling, humiliation, constant criticism</li>
+                <li><strong>Gaslighting:</strong> "That never happened" / "You're crazy"</li>
+                <li><strong>Isolation:</strong> Cutting off from family, friends, support</li>
+                <li><strong>Monitoring:</strong> Checking phone, tracking location, controlling movements</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li><strong>Economic abuse:</strong> Controlling finances, preventing employment</li>
+                <li><strong>Threats:</strong> To harm, leave, take children, involve family</li>
+                <li><strong>Using children:</strong> Alienation, using as messengers/spies</li>
+                <li><strong>Sexual coercion:</strong> Marital rape, forced acts, withholding</li>
+            </ul>
+        </div>
+    </div>
+    <h3>When Couple Therapy is CONTRAINDICATED</h3>
+    <ul>
+        <li>Ongoing physical or sexual violence</li>
+        <li>One partner expresses FEAR of the other</li>
+        <li>Pattern of coercive control (even without physical violence)</li>
+        <li>Active substance use with violent behaviour</li>
+        <li>Stalking or threats after separation</li>
+    </ul>
+</div>
+
+<!-- SLIDE 17: Infidelity -->
+<div class="slide content-slide">
+    <h2>Infidelity: Types &amp; Treatment</h2>
+    <h3>Types of Infidelity</h3>
+    <table>
+        <tr><th>Type</th><th>Definition</th><th>Key Features</th></tr>
+        <tr><td><strong>Sexual</strong></td><td>Physical/sexual contact outside relationship</td><td>May be one-time or ongoing affair</td></tr>
+        <tr><td><strong>Emotional</strong></td><td>Deep emotional bond with another (without sex)</td><td>Often perceived as greater betrayal by women</td></tr>
+        <tr><td><strong>Cyber/Online</strong></td><td>Sexting, porn use, dating apps, emotional online relationships</td><td>Increasingly common; boundary ambiguity</td></tr>
+    </table>
+    <h3>Gottman's Trust Revival Method (3 Phases)</h3>
+    <div class="key-concept">
+        <p><strong>Phase 1: Atonement</strong> &mdash; Unfaithful partner takes full responsibility. Answers ALL questions honestly (no trickle truth). Expresses genuine remorse. Cuts contact with affair partner.</p>
+        <p><strong>Phase 2: Attunement</strong> &mdash; Rebuild emotional connection. Address WHY the affair happened (not to excuse, but understand). Work on the A-T-T-U-N-E system (Awareness, Turning toward, Tolerance, Understanding, Non-defensive, Empathy).</p>
+        <p><strong>Phase 3: Attachment</strong> &mdash; Create new shared meaning. Build a new relationship narrative. Establish rituals of connection. Discuss "What did we learn about what we need?"</p>
+    </div>
+    <div class="clinical-tip">
+        <strong>Indian Context:</strong> In India, infidelity carries extreme shame. Family honour (izzat) is at stake. Couples may present with "adjustment problem" rather than disclosing affairs. Confidentiality is paramount.
+    </div>
+</div>
+
+<!-- SLIDE 18: In-Law Conflicts -->
+<div class="slide content-slide">
+    <h2>In-Law Conflicts (Indian-Specific)</h2>
+    <h3>Common Patterns in Indian Families</h3>
+    <ul>
+        <li><strong>Mother-in-law vs. daughter-in-law:</strong> Power struggle over son/husband's loyalty and household control</li>
+        <li><strong>Triangulation:</strong> Son caught between wife and mother; avoids taking sides</li>
+        <li><strong>Boundary diffusion:</strong> No clear marital subsystem boundary; elders override couple decisions</li>
+        <li><strong>Financial control:</strong> Joint family income managed by elders; young couple has no autonomy</li>
+        <li><strong>Comparison &amp; criticism:</strong> "My son could have married better" / constant complaints about bride</li>
+    </ul>
+    <h3>Therapeutic Strategies</h3>
+    <div class="two-col">
+        <div class="col">
+            <h4>Couple-Level Work</h4>
+            <ul>
+                <li><strong>United front rule:</strong> Decisions made together, presented together</li>
+                <li><strong>Blood-relative manages own family:</strong> He talks to his parents; she talks to hers</li>
+                <li><strong>Clarify expectations:</strong> What are non-negotiable boundaries?</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Structural Interventions</h4>
+            <ul>
+                <li><strong>Boundary strengthening:</strong> Physical space (lock on door), decision-making autonomy</li>
+                <li><strong>Hierarchy realignment:</strong> Couple = primary unit, not parent-child</li>
+                <li><strong>Graduated separation:</strong> Move to separate floor/house if possible</li>
+            </ul>
+        </div>
+    </div>
+    <div class="clinical-tip">
+        <strong>Cultural Sensitivity:</strong> Don't frame it as "choose wife over mother." Frame it as: "How can you be a good son AND a good husband? Both roles require different responses."
+    </div>
+</div>
+
+<!-- SLIDE 19: Safety Assessment Activity -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#9888; SAFETY ASSESSMENT PRACTICE &ndash; 5 Minutes</span>
+    <h2>Vignette: Is Couple Therapy Appropriate?</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Meera (29) and Vikram (34), married 4 years, one child (age 2). Meera says: "He controls everything &ndash; my phone, my money, who I can visit. Last month he pushed me against the wall during an argument. His parents say I provoke him. I'm here because my mother said to try counselling before doing anything drastic. I don't want to upset his family."</p>
+        <p>Vikram says: "She exaggerates. I just held her shoulders to calm her down. She's very dramatic. I check her phone because I don't trust her friend circle &ndash; they put ideas in her head."</p>
+    </div>
+    <h3>Quick Safety Screen (Answer Yes/No)</h3>
+    <ol>
+        <li>Is there physical violence (even "minor")? <strong>___</strong></li>
+        <li>Does one partner express FEAR of the other? <strong>___</strong></li>
+        <li>Is there a pattern of monitoring/control? <strong>___</strong></li>
+        <li>Is the "problem" being minimized or blamed on the victim? <strong>___</strong></li>
+        <li>Would honest disclosure in session PUT ONE PARTNER AT RISK? <strong>___</strong></li>
+    </ol>
+    <button class="reveal-btn" onclick="document.getElementById('revSafety').classList.add('shown')">Reveal Clinical Decision</button>
+    <div class="reveal-content" id="revSafety">
+        <div class="warning-box">
+            <strong>Clinical Decision: Couple therapy is CONTRAINDICATED.</strong><br><br>
+            <strong>Rationale:</strong> Physical violence (pushing = violence). Pattern of coercive control (phone monitoring, financial control, isolation). Minimization and blame-shifting by perpetrator. Victim cannot speak freely in joint session without risk.<br><br>
+            <strong>Appropriate Actions:</strong><br>
+            1. Individual session with Meera to assess safety &amp; create safety plan<br>
+            2. Referral to DV helpline (Women Helpline 181 / One Stop Centre)<br>
+            3. Individual therapy for Vikram (anger management, accountability group)<br>
+            4. Couple therapy ONLY after: violence stops, accountability established, Meera reports no fear
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 20: Poll - Knowledge Check -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#128202; QUICK POLL</span>
+    <h2>What percentage of couple conflicts are PERPETUAL (never fully resolved)?</h2>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. 25%</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. 50%</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. 69%</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">D. 85%</div>
+    </div>
+    <div class="reveal-content" id="revPoll1">
+        <div class="highlight-box">
+            <strong>Answer: C &ndash; 69%!</strong> Gottman's longitudinal research shows that approximately 69% of marital problems are perpetual &mdash; based on fundamental personality or value differences. The goal is not resolution but ongoing DIALOGUE.
+        </div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('revPoll1').classList.add('shown')">Reveal Answer</button>
+</div>
+
+<!-- SLIDE 21: Integration Activity -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#129504; INTEGRATION ACTIVITY &ndash; 3 Minutes</span>
+    <h2>Match the Intervention to the Problem</h2>
+    <p style="margin-bottom:15px;">For each scenario, identify the MOST appropriate intervention from today's content:</p>
+    <div class="highlight-box">
+        <p><strong>1.</strong> Couple argues about sex frequency. Wife says she "never feels in the mood." Husband feels rejected.</p>
+        <p><strong>2.</strong> Wife says husband's mother decides everything. Husband avoids the topic.</p>
+        <p><strong>3.</strong> During arguments, husband shuts down completely. Wife escalates by yelling louder.</p>
+        <p><strong>4.</strong> Husband had an emotional affair. Wife discovered texts. Both want to stay together.</p>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('revMatch').classList.add('shown')">Reveal Answers</button>
+    <div class="reveal-content" id="revMatch">
+        <div class="key-concept">
+            <p><strong>1.</strong> Psychoeducation on Basson's circular model (responsive desire is normal) + Sensate Focus to rebuild non-demand intimacy</p>
+            <p><strong>2.</strong> Structural boundary work: "blood-relative manages own family" + united front rule + graduated autonomy</p>
+            <p><strong>3.</strong> Teach repair attempts + self-soothing break protocol. Address pursuer-withdrawer cycle. He stonewalls (DPA flooding); she uses harsh startup.</p>
+            <p><strong>4.</strong> Gottman's Trust Revival Method: Atonement (full disclosure, cut contact) &rarr; Attunement (understand why) &rarr; Attachment (rebuild)</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 21: Key Takeaways -->
+<div class="slide content-slide">
+    <h2>Hour 4: Key Takeaways</h2>
+    <div class="key-concept">
+        <strong>1. Communication:</strong> The Speaker-Listener technique + softened startup formula are foundational skills. 96% of conflicts end the way they start &mdash; teach couples to start softly.
+    </div>
+    <div class="key-concept">
+        <strong>2. Repair is Everything:</strong> Successful repair attempts are the #1 difference between happy and unhappy couples. Teach couples multiple repair strategies.
+    </div>
+    <div class="key-concept">
+        <strong>3. Sexual Health:</strong> Basson's circular model is most clinically useful. Many Indian couples need psychoeducation before therapy. Sensate Focus removes performance pressure systematically.
+    </div>
+    <div class="key-concept">
+        <strong>4. Safety First:</strong> ALWAYS screen for DV/coercive control before starting couple therapy. Couple therapy with active violence = dangerous. Individual safety planning comes first.
+    </div>
+    <div class="key-concept">
+        <strong>5. In-Law Work:</strong> In India, couple therapy often means family-system therapy. "Blood-relative manages own family" + united front + boundary strengthening are core strategies.
+    </div>
+</div>
+
+<!-- SLIDE 22: References -->
+<div class="slide content-slide">
+    <h2>Key References (APA 7)</h2>
+    <ul style="font-size:0.9em; line-height:2;">
+        <li>Basson, R. (2000). The female sexual response: A different model. <em>Journal of Sex &amp; Marital Therapy, 26</em>(1), 51&ndash;65.</li>
+        <li>Gottman, J. M. (1999). <em>The marriage clinic: A scientifically-based marital therapy</em>. Norton.</li>
+        <li>Gottman, J. M., &amp; Silver, N. (2012). <em>What makes love last?</em> Simon &amp; Schuster.</li>
+        <li>Johnson, M. P. (2008). <em>A typology of domestic violence</em>. Northeastern University Press.</li>
+        <li>Kaplan, H. S. (1979). <em>Disorders of sexual desire</em>. Brunner/Mazel.</li>
+        <li>Markman, H. J., Stanley, S. M., &amp; Blumberg, S. L. (2010). <em>Fighting for your marriage</em> (3rd ed.). Jossey-Bass.</li>
+        <li>Masters, W. H., &amp; Johnson, V. E. (1966). <em>Human sexual response</em>. Little, Brown.</li>
+        <li>Sensate Focus in sex therapy (Weiner &amp; Avery-Clark, 2017). <em>Routledge</em>.</li>
+        <li>Spring, J. A. (2012). <em>After the affair</em> (2nd ed.). William Morrow.</li>
+        <li>Stark, E. (2007). <em>Coercive control: How men entrap women in personal life</em>. Oxford University Press.</li>
+    </ul>
+</div>
+
+<!-- SLIDE 23: Practical Resources -->
+<div class="slide content-slide">
+    <h2>Clinical Resources &amp; Helplines (India)</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>DV &amp; Safety Resources</h4>
+            <ul>
+                <li><strong>Women Helpline:</strong> 181 (24/7)</li>
+                <li><strong>National Commission for Women:</strong> 7827-170-170</li>
+                <li><strong>One Stop Centre (Sakhi):</strong> District-level</li>
+                <li><strong>Police:</strong> 100 / 112 (emergency)</li>
+                <li><strong>Protection of Women from DV Act, 2005</strong></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Sexual Health Resources</h4>
+            <ul>
+                <li><strong>CSMT (Council of Sex Education &amp; Parenthood):</strong> Mumbai</li>
+                <li><strong>Institute of Human Reproduction, Ahmedabad</strong></li>
+                <li><strong>Referral:</strong> Gynaecologist/Urologist for medical causes</li>
+                <li><strong>PLISSIT Model:</strong> Permission, Limited Information, Specific Suggestions, Intensive Therapy</li>
+            </ul>
+        </div>
+    </div>
+    <div class="clinical-tip">
+        <strong>Remember:</strong> Keep a local directory of DV shelters, legal aid, and crisis numbers. Update annually. Have them accessible during sessions.
+    </div>
+</div>
+
+<!-- SLIDE 24: End + Preview -->
+<div class="slide title-slide">
+    <h1>End of Hour 4</h1>
+    <h2>&#9749; 5-Minute Break</h2>
+    <p style="font-size:1.2em; margin:30px 0;">Coming Up Next &rarr; Hour 5:</p>
+    <p style="font-size:1.5em;"><strong>Special Populations, Ethics &amp; Integration</strong></p>
+    <p style="margin-top:20px; opacity:0.7;">LGBTQIA+ couples | Intercultural marriages | Premarital counselling | Ethics in couple work | Putting it all together</p>
+</div>
+
+<script>
+// Slide Navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const timerBar = document.getElementById('timerBar');
+const timerDisplay = document.getElementById('timerDisplay');
+let timerInterval = null;
+let timeRemaining = 3600; // 60 minutes in seconds
+let timerRunning = false;
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    slides[currentSlide].classList.add('active');
+    counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    timerBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 't' || e.key === 'T') { toggleTimer(); }
+    else if (e.key === 'r' || e.key === 'R') { revealAll(); }
+});
+
+// Click navigation
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('poll-option') || e.target.classList.contains('reveal-btn')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+});
+
+// Timer
+function toggleTimer() {
+    timerDisplay.classList.toggle('visible');
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) { clearInterval(timerInterval); timerDisplay.textContent = "TIME!"; timerDisplay.style.color = '#e94560'; return; }
+            const min = Math.floor(timeRemaining / 60);
+            const sec = timeRemaining % 60;
+            timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            if (timeRemaining <= 300) timerDisplay.style.color = '#e94560';
+        }, 1000);
+    } else {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+// Reveal all hidden content on current slide
+function revealAll() {
+    const active = slides[currentSlide];
+    active.querySelectorAll('.reveal-content').forEach(el => el.classList.add('shown'));
+}
+
+// Initialize
+showSlide(0);
+</script>
+
+</body>
+</html>
