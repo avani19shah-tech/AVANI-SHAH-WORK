@@ -9,406 +9,433 @@
             font-family: Arial, sans-serif;
             background: #fff;
             margin: 0;
-            padding: 30px;
+            padding: 40px 20px;
         }
-        .diagram-container {
-            width: 900px;
+        .diagram {
+            width: 780px;
             margin: 0 auto;
             position: relative;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        .top-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        .internal-factors {
-            width: 280px;
-        }
-        .external-factors {
-            width: 280px;
-        }
-        .section-title {
-            font-weight: bold;
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .box {
-            border: 2px solid #333;
-            padding: 12px;
-            margin-bottom: 10px;
-            font-size: 12px;
-            line-height: 1.5;
-            background: #fff;
-        }
-        .box-title {
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        .mediating-section {
-            text-align: center;
-            margin: 20px auto;
-            width: 600px;
-        }
-        .mediating-title {
-            font-weight: bold;
-            font-size: 14px;
-            border: 2px solid #333;
-            padding: 8px 20px;
-            display: inline-block;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        .mediating-title::before {
-            content: "\25B6";
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-        }
-        .mediating-title::after {
-            content: "\25C0";
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-        }
-        .mediating-processes {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 15px 0;
-        }
-        .mediating-box {
-            border: 1px solid #333;
-            padding: 10px;
-            font-size: 11px;
-            line-height: 1.5;
-            width: 200px;
-            text-align: center;
-        }
-        .double-arrow {
-            display: flex;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .psychotic-box {
-            border: 2px solid #333;
-            padding: 15px;
-            margin: 20px auto;
-            width: 400px;
-            text-align: center;
-            background: #e8e8e8;
-        }
-        .psychotic-box .main-title {
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-        .psychotic-box .sub-title {
-            font-size: 13px;
-            font-weight: bold;
-            margin-top: 4px;
-        }
-        .psychotic-box .details {
-            font-size: 12px;
-            margin-top: 6px;
-            font-style: italic;
-        }
-        .appraisal-box {
-            border: 2px solid #333;
-            padding: 12px;
-            margin: 20px auto;
-            width: 400px;
-            text-align: center;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-        .consequences-box {
-            border: 2px solid #333;
-            padding: 15px;
-            margin: 20px auto;
-            width: 400px;
-            text-align: center;
-        }
-        .consequences-box .title {
-            font-weight: bold;
-            font-size: 13px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .consequences-box ul {
-            list-style: disc;
-            text-align: left;
-            padding-left: 30px;
-            font-size: 12px;
-            line-height: 1.8;
-            margin: 0;
-        }
-        .arrow-down {
-            text-align: center;
-            font-size: 24px;
-            margin: 5px 0;
-        }
-        .feedback-section {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .feedback-left {
-            width: 200px;
-            font-size: 11px;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .feedback-right {
-            width: 200px;
-            font-size: 11px;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .feedback-box {
-            border: 1px solid #666;
-            padding: 8px;
-            margin-bottom: 10px;
-            font-size: 11px;
-        }
-        .arrow-up {
-            text-align: center;
-            font-size: 18px;
-            margin: 5px 0;
+            min-height: 1100px;
         }
 
-        /* SVG overlay for arrows */
-        .svg-overlay {
+        /* ===== TOP SECTION: INTERNAL & EXTERNAL ===== */
+        .internal-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+        .external-title {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .box {
+            border: 1.5px solid #333;
+            padding: 8px 10px;
+            font-size: 11px;
+            line-height: 1.4;
+            background: #fff;
+            text-align: center;
+        }
+
+        .bio-box {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            width: 180px;
+        }
+        .psych-box {
+            position: absolute;
+            top: 130px;
+            left: 0;
+            width: 180px;
+        }
+        .env-box {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 195px;
+        }
+
+        /* ===== MEDIATING PATHWAY ===== */
+        .mediating-box {
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1.5px solid #333;
+            padding: 8px 30px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: #fff;
+        }
+        .mediating-arrow-left {
+            position: absolute;
+            top: 262px;
+            left: 195px;
+            font-size: 18px;
+        }
+        .mediating-arrow-right {
+            position: absolute;
+            top: 262px;
+            right: 195px;
+            font-size: 18px;
+        }
+
+        /* Arousal and Information Processing boxes */
+        .arousal-box {
+            position: absolute;
+            top: 310px;
+            left: 220px;
+            width: 145px;
+            font-size: 11px;
+            text-align: center;
+            border: 1px solid #555;
+            padding: 8px;
+            background: #fff;
+        }
+        .info-box {
+            position: absolute;
+            top: 310px;
+            right: 220px;
+            width: 145px;
+            font-size: 11px;
+            text-align: center;
+            border: 1px solid #555;
+            padding: 8px;
+            background: #fff;
+        }
+        .double-arrow-mid {
+            position: absolute;
+            top: 335px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* ===== PSYCHOTIC EXPERIENCE BOX (shaded) ===== */
+        .psychotic-box {
+            position: absolute;
+            top: 420px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            border: 2px solid #333;
+            padding: 12px;
+            text-align: center;
+            background: #e0e0e0;
+        }
+        .psychotic-box .line1 {
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .psychotic-box .line2 {
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+        .psychotic-box .line3 {
+            font-size: 11px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* ===== APPRAISAL BOX ===== */
+        .appraisal-box {
+            position: absolute;
+            top: 545px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            border: 1.5px solid #333;
+            padding: 8px;
+            text-align: center;
+            font-size: 11px;
+            background: #fff;
+        }
+
+        /* ===== SHORT-TERM CONSEQUENCES ===== */
+        .short-term-box {
+            position: absolute;
+            top: 640px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            text-align: center;
+        }
+        .short-term-box .title {
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .short-term-box ul {
+            list-style: disc;
+            text-align: left;
+            padding-left: 25px;
+            font-size: 11px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== LONG-TERM CONSEQUENCES ===== */
+        .long-term-box {
+            position: absolute;
+            top: 780px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 310px;
+            text-align: center;
+        }
+        .long-term-box .title {
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .long-term-box ul {
+            list-style: disc;
+            text-align: left;
+            padding-left: 25px;
+            font-size: 11px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== LEFT FEEDBACK LOOP LABELS ===== */
+        .fb-left-1 {
+            position: absolute;
+            top: 395px;
+            left: 30px;
+            width: 120px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .fb-left-2 {
+            position: absolute;
+            top: 580px;
+            left: 30px;
+            width: 120px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* ===== RIGHT FEEDBACK LOOP LABELS ===== */
+        .fb-right-1 {
+            position: absolute;
+            top: 395px;
+            right: 30px;
+            width: 120px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .fb-right-2 {
+            position: absolute;
+            top: 175px;
+            right: 30px;
+            width: 120px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* ===== ARROWS (SVG) ===== */
+        .arrows-svg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
         }
 
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-        }
-
-        .full-layout {
-            display: grid;
-            grid-template-columns: 200px 1fr 200px;
-            grid-template-rows: auto;
-            gap: 0;
-            align-items: start;
-        }
-
-        .left-feedback {
-            grid-column: 1;
-            padding-top: 200px;
-        }
-
-        .center-content {
-            grid-column: 2;
-        }
-
-        .right-feedback {
-            grid-column: 3;
-            padding-top: 200px;
-        }
-
-        .figure-caption {
-            text-align: center;
-            font-size: 13px;
-            margin-top: 30px;
+        /* ===== FIGURE CAPTION ===== */
+        .caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            font-size: 12px;
             font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="diagram-container">
-        <h2>Case Formulation Diagram</h2>
+    <div class="diagram">
+        <!-- SVG ARROWS LAYER -->
+        <svg class="arrows-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                    <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+                </marker>
+                <marker id="arrowhead-rev" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+                    <polygon points="8 0, 0 3, 8 6" fill="#333"/>
+                </marker>
+            </defs>
 
-        <!-- TOP SECTION: Internal and External Factors -->
-        <div class="top-section">
-            <div class="internal-factors">
-                <div class="section-title">Inside Factors<br>(Things Within the Person)</div>
-                <div class="box">
-                    <div class="box-title">Body & Brain Factors (Born with + Developed later):</div>
-                    &bull; Father had alcohol habit and died of cancer<br>
-                    &bull; Brother also overthinks like her<br>
-                    &bull; Possible family tendency to worry and think too much<br>
-                    &bull; Born through C-section (no complications)
-                </div>
-                <div class="box">
-                    <div class="box-title">Thinking Patterns & Habits (Developed over time):</div>
-                    &bull; Tendency to overthink everything<br>
-                    &bull; Being overly suspicious of others<br>
-                    &bull; Childhood temper tantrums and stubborn nature<br>
-                    &bull; Low ability to handle stress (gets irritated quickly)<br>
-                    &bull; Reacts without thinking when upset
-                </div>
-            </div>
+            <!-- Internal Bio box → Mediating pathway (down-right) -->
+            <line x1="180" y1="100" x2="320" y2="260" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
 
-            <div class="external-factors">
-                <div class="section-title">Outside Factors<br>(Things Around the Person)</div>
-                <div class="box">
-                    <div class="box-title">Life Stresses & Surroundings:</div>
-                    &bull; Strained home atmosphere during childhood (frequent family fights)<br>
-                    &bull; Occasional fights with husband (1-2 times/month)<br>
-                    &bull; Problems related to neighbors<br>
-                    &bull; Issues with husband's brother's family<br>
-                    &bull; Managing multiple roles (beautician + trainer + homemaker)
-                </div>
-            </div>
+            <!-- Internal Psych box → Mediating pathway (right) -->
+            <line x1="180" y1="190" x2="320" y2="265" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- External Env box → Mediating pathway (down-left) -->
+            <line x1="590" y1="135" x2="470" y2="260" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- Mediating → Arousal (down-left) -->
+            <line x1="360" y1="280" x2="310" y2="310" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- Mediating → Info Processing (down-right) -->
+            <line x1="420" y1="280" x2="470" y2="310" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- Double arrow between arousal and info-processing -->
+            <line x1="370" y1="340" x2="410" y2="340" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-rev)"/>
+
+            <!-- Arousal → Psychotic Experience -->
+            <line x1="310" y1="380" x2="350" y2="420" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- Info Processing → Psychotic Experience -->
+            <line x1="470" y1="380" x2="430" y2="420" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+            <!-- Psychotic → Appraisal -->
+            <line x1="390" y1="510" x2="390" y2="545" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+            <!-- Appraisal → Short-term -->
+            <line x1="390" y1="590" x2="390" y2="640" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+            <!-- Short-term → Long-term -->
+            <line x1="390" y1="740" x2="390" y2="780" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+            <!-- LEFT FEEDBACK LOOP -->
+            <!-- Long-term → up left side -->
+            <polyline points="250,820 80,820 80,230" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+            <!-- Left loop branch into mediating pathway -->
+            <line x1="80" y1="430" x2="240" y2="430" stroke="#333" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+            <!-- RIGHT FEEDBACK LOOP -->
+            <!-- Long-term → up right side -->
+            <polyline points="530,820 700,820 700,165" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+            <!-- Right loop branch into appraisal -->
+            <line x1="700" y1="560" x2="540" y2="560" stroke="#333" stroke-width="1" marker-end="url(#arrowhead)"/>
+        </svg>
+
+        <!-- INTERNAL FACTORS TITLE -->
+        <div class="internal-title">INTERNAL<br>FACTORS</div>
+
+        <!-- EXTERNAL FACTORS TITLE -->
+        <div class="external-title">EXTERNAL<br>FACTORS</div>
+
+        <!-- Biological Box -->
+        <div class="box bio-box">
+            <strong>Body & brain factors</strong><br>
+            (born with + developed later)<br>
+            Father had alcohol habit, died of cancer; brother also overthinks
         </div>
 
-        <!-- ARROWS DOWN -->
-        <div style="display: flex; justify-content: space-between; padding: 0 140px;">
-            <div class="arrow-down">&darr;</div>
-            <div class="arrow-down">&darr;</div>
+        <!-- Psychological Box -->
+        <div class="box psych-box">
+            <strong>Thinking patterns</strong><br>
+            (developed over time)<br>
+            e.g. overthinking habit,<br>
+            suspicious beliefs,<br>
+            low stress tolerance
+        </div>
+
+        <!-- Environmental Box -->
+        <div class="box env-box">
+            <strong>Life stresses and surroundings</strong><br>
+            Childhood family conflicts, neighbor problems, issues with husband's brother's family, managing multiple roles
         </div>
 
         <!-- MEDIATING PATHWAY -->
-        <div class="mediating-section">
-            <div class="mediating-title">MIDDLE PATHWAY (Where Inside + Outside Meet)</div>
-            <div class="mediating-processes">
-                <div class="mediating-box">
-                    <strong>Difficulty Calming Down:</strong><br>
-                    &bull; Gets easily worked up emotionally<br>
-                    &bull; Hard to calm down once upset<br>
-                    &bull; Impulsive reactions to stress<br>
-                    &bull; Irritability builds quickly
-                </div>
-                <div class="double-arrow">&harr;</div>
-                <div class="mediating-box">
-                    <strong>Faulty Thinking Patterns:</strong><br>
-                    &bull; Jumps to conclusions about others' intentions<br>
-                    &bull; Sees threat where there may be none<br>
-                    &bull; Assumes the worst about neighbors/in-laws<br>
-                    &bull; Overthinks situations
-                </div>
-            </div>
+        <div class="mediating-box">MEDIATING PATHWAY</div>
+        <div class="mediating-arrow-left">&#9654;</div>
+        <div class="mediating-arrow-right">&#9664;</div>
+
+        <!-- Arousal box -->
+        <div class="arousal-box">
+            <strong>difficulty calming<br>down and<br>managing emotions</strong>
         </div>
 
-        <!-- ARROW DOWN -->
-        <div class="arrow-down">&darr;</div>
+        <!-- Info Processing box -->
+        <div class="info-box">
+            <strong>faulty thinking<br>and jumping<br>to conclusions</strong>
+        </div>
 
-        <!-- MAIN SYMPTOMS BOX (SHADED) -->
+        <!-- Double arrow between them -->
+        <div class="double-arrow-mid">&#8596;</div>
+
+        <!-- PSYCHOTIC EXPERIENCE (shaded) -->
         <div class="psychotic-box">
-            <div class="main-title">Main Problem Experiences</div>
-            <div class="sub-title">Suspicious Thinking & Overthinking</div>
-            <div class="details">
-                &bull; Being overly suspicious of others (neighbors, in-laws)<br>
-                &bull; Excessive thinking that won't stop<br>
-                &bull; Possibly believing others are against her or talking about her<br>
-                &bull; Difficulty trusting people around her
-            </div>
+            <div class="line1">MAIN PROBLEM EXPERIENCE</div>
+            <div class="line2">SUSPICIOUS THINKING & OVERTHINKING</div>
+            <div class="line3">believing others are against her, unable to stop worrying thoughts</div>
         </div>
 
-        <!-- ARROW DOWN -->
-        <div class="arrow-down">&darr;</div>
-
-        <!-- APPRAISAL BOX -->
+        <!-- APPRAISAL -->
         <div class="appraisal-box">
-            <strong>How She Makes Sense of Her Experiences:</strong><br><br>
-            <strong>First Reaction (What does this mean?):</strong><br>
-            "These people really are against me"<br>
-            "My suspicions are correct — I can see it"<br><br>
-            <strong>Second Reaction (Can I handle this?):</strong><br>
-            "I can't stop thinking about it"<br>
-            "I need to keep my guard up"<br>
-            "This is getting too much for me" (decreased interest in housework)
+            <strong>How she understands her experience<br>and what it means for her</strong><br>
+            "These people really are plotting against me"<br>
+            "I can't stop these thoughts"
         </div>
-
-        <!-- ARROW DOWN -->
-        <div class="arrow-down">&darr;</div>
 
         <!-- SHORT-TERM CONSEQUENCES -->
-        <div class="consequences-box">
-            <div class="title">Short-Term Effects (What Happens Right Away)</div>
+        <div class="short-term-box">
+            <div class="title">SHORT-TERM EFFECTS</div>
             <ul>
-                <li><strong>Feelings:</strong> Irritability, frustration, anxiety, distrust</li>
-                <li><strong>Actions:</strong> Arguments with husband about neighbors/in-laws, possibly avoiding certain people, being watchful</li>
-                <li><strong>Thoughts:</strong> Keeps replaying situations in mind, focuses only on "evidence" that supports suspicions</li>
-                <li><strong>Ways of Coping:</strong> Stays busy with work, talks to husband, but may also withdraw from housework</li>
+                <li>emotional (irritability, fear, distrust)</li>
+                <li>behavioural (arguments, avoidance, watchfulness)</li>
+                <li>cognitive (replaying events, looking for "proof")</li>
+                <li>coping (staying busy with work, talking to husband)</li>
             </ul>
         </div>
-
-        <!-- ARROW DOWN -->
-        <div class="arrow-down">&darr;</div>
 
         <!-- LONG-TERM CONSEQUENCES -->
-        <div class="consequences-box">
-            <div class="title">Long-Term Effects (What Happens Over Time)</div>
+        <div class="long-term-box">
+            <div class="title">LONG-TERM EFFECTS</div>
             <ul>
-                <li><strong>Pulling away from people:</strong> May avoid neighbors, reduce social contact, less interest in kitty parties</li>
-                <li><strong>Fewer chances to correct wrong beliefs:</strong> Less interaction means fewer chances to see that people may not actually be against her</li>
-                <li><strong>Daily life affected:</strong> Decreased interest in housework (past 2 months), may affect work motivation over time</li>
-                <li><strong>How others see her:</strong> Family sees her as "someone who thinks too much" — may feel misunderstood</li>
+                <li>pulling away from people and staying alone</li>
+                <li>fewer chances to see that beliefs may be wrong</li>
+                <li>reduced interest in daily tasks (housework declining since 2 months)</li>
+                <li>being seen as "the one who thinks too much"</li>
             </ul>
         </div>
 
-        <!-- FEEDBACK LOOPS -->
-        <div class="feedback-section">
-            <div class="feedback-left">
-                <div class="arrow-up">&uarr;</div>
-                <div class="feedback-box">
-                    <strong>Left Loop — Back to Inside Factors:</strong><br><br>
-                    &bull; Biased thinking becomes a habit (always looking for "proof" that others are against her)<br>
-                    &bull; Behaviour matches the biased thinking (avoids people, stays guarded)<br>
-                    <br>
-                    &uarr;<br><br>
-                    &bull; Emotional tension keeps building up over time<br>
-                    &bull; Becomes more easily upset and irritated
-                </div>
-                <div style="font-size: 11px; font-style: italic; margin-top: 5px;">
-                    (Feeds back into her thinking patterns and emotional state &uarr;)
-                </div>
-            </div>
-
-            <div class="feedback-right">
-                <div class="arrow-up">&uarr;</div>
-                <div class="feedback-box">
-                    <strong>Right Loop — Back to Outside Factors:</strong><br><br>
-                    &bull; Only notices information that fits her suspicions (ignores friendly gestures, remembers slights)<br>
-                    &bull; This feeds back into how she judges new situations<br>
-                    <br>
-                    &uarr;<br><br>
-                    &bull; Pulling away from people actually increases stress (more isolated, less support)<br>
-                    &bull; Conflicts may increase because of her suspicious behaviour
-                </div>
-                <div style="font-size: 11px; font-style: italic; margin-top: 5px;">
-                    (Feeds back into life stresses and surroundings &uarr;)
-                </div>
-            </div>
+        <!-- LEFT FEEDBACK LABELS -->
+        <div class="fb-left-1">
+            increased<br>emotional<br>tension
+        </div>
+        <div class="fb-left-2">
+            biased thinking<br>and behaviour<br>that matches<br>the biased thinking
         </div>
 
-        <!-- EXPLANATION -->
-        <div style="margin-top: 40px; border: 1px dashed #999; padding: 20px; font-size: 12px; line-height: 1.8;">
-            <strong>How to Read This Diagram:</strong><br><br>
-            This diagram shows how the patient's problems keep going in a cycle rather than getting better on their own:<br><br>
-            1. <strong>Inside factors</strong> (family tendency to overthink, her own suspicious thinking style, low stress tolerance) combine with <strong>outside factors</strong> (childhood conflicts, neighbor problems, multiple responsibilities).<br><br>
-            2. These come together in the <strong>middle pathway</strong> where she has trouble calming down AND starts thinking in biased ways (assuming the worst).<br><br>
-            3. This produces the <strong>main problems</strong> — excessive suspicion and overthinking.<br><br>
-            4. She then <strong>interprets</strong> these experiences as real ("people really are against me") and feels she can't control the thinking.<br><br>
-            5. This leads to <strong>short-term effects</strong> (irritability, arguments, selective attention to "threats") and then <strong>long-term effects</strong> (pulling away from people, fewer chances to correct wrong beliefs, less interest in daily tasks).<br><br>
-            6. The <strong>two feedback loops</strong> on the sides show how the long-term effects feed back into both her inside vulnerabilities (making her thinking more biased) and outside stresses (increasing isolation and conflict) — keeping the whole cycle going.
+        <!-- RIGHT FEEDBACK LABELS -->
+        <div class="fb-right-1">
+            only noticing<br>information that<br>fits suspicions
+        </div>
+        <div class="fb-right-2">
+            increased<br>exposure<br>to stressors
         </div>
 
-        <div class="figure-caption">
-            Figure: Case Formulation Diagram — Understanding How the Problems Stay in a Cycle<br>
-            (Based on the CBT model for understanding unusual beliefs and experiences)
+        <!-- CAPTION -->
+        <div class="caption">
+            Figure: A case formulation diagram — Understanding how the problems keep going in a cycle.
         </div>
     </div>
 </body>
