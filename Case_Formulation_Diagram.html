@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Formulation Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            margin: 0;
+            padding: 30px;
+        }
+        .diagram-container {
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .internal-factors {
+            width: 280px;
+        }
+        .external-factors {
+            width: 280px;
+        }
+        .section-title {
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .box {
+            border: 2px solid #333;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            background: #fff;
+        }
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .mediating-section {
+            text-align: center;
+            margin: 20px auto;
+            width: 600px;
+        }
+        .mediating-title {
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #333;
+            padding: 8px 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .mediating-title::before {
+            content: "\25B6";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+        .mediating-title::after {
+            content: "\25C0";
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+        .mediating-processes {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 15px 0;
+        }
+        .mediating-box {
+            border: 1px solid #333;
+            padding: 10px;
+            font-size: 11px;
+            line-height: 1.5;
+            width: 200px;
+            text-align: center;
+        }
+        .double-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .psychotic-box {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px auto;
+            width: 400px;
+            text-align: center;
+            background: #e8e8e8;
+        }
+        .psychotic-box .main-title {
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .psychotic-box .sub-title {
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .psychotic-box .details {
+            font-size: 12px;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        .appraisal-box {
+            border: 2px solid #333;
+            padding: 12px;
+            margin: 20px auto;
+            width: 400px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .consequences-box {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px auto;
+            width: 400px;
+            text-align: center;
+        }
+        .consequences-box .title {
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .consequences-box ul {
+            list-style: disc;
+            text-align: left;
+            padding-left: 30px;
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .arrow-down {
+            text-align: center;
+            font-size: 24px;
+            margin: 5px 0;
+        }
+        .feedback-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .feedback-left {
+            width: 200px;
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .feedback-right {
+            width: 200px;
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .feedback-box {
+            border: 1px solid #666;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+        .arrow-up {
+            text-align: center;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        /* SVG overlay for arrows */
+        .svg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .full-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto;
+            gap: 0;
+            align-items: start;
+        }
+
+        .left-feedback {
+            grid-column: 1;
+            padding-top: 200px;
+        }
+
+        .center-content {
+            grid-column: 2;
+        }
+
+        .right-feedback {
+            grid-column: 3;
+            padding-top: 200px;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h2>Case Formulation Diagram</h2>
+
+        <!-- TOP SECTION: Internal and External Factors -->
+        <div class="top-section">
+            <div class="internal-factors">
+                <div class="section-title">Inside Factors<br>(Things Within the Person)</div>
+                <div class="box">
+                    <div class="box-title">Body & Brain Factors (Born with + Developed later):</div>
+                    &bull; Father had alcohol habit and died of cancer<br>
+                    &bull; Brother also overthinks like her<br>
+                    &bull; Possible family tendency to worry and think too much<br>
+                    &bull; Born through C-section (no complications)
+                </div>
+                <div class="box">
+                    <div class="box-title">Thinking Patterns & Habits (Developed over time):</div>
+                    &bull; Tendency to overthink everything<br>
+                    &bull; Being overly suspicious of others<br>
+                    &bull; Childhood temper tantrums and stubborn nature<br>
+                    &bull; Low ability to handle stress (gets irritated quickly)<br>
+                    &bull; Reacts without thinking when upset
+                </div>
+            </div>
+
+            <div class="external-factors">
+                <div class="section-title">Outside Factors<br>(Things Around the Person)</div>
+                <div class="box">
+                    <div class="box-title">Life Stresses & Surroundings:</div>
+                    &bull; Strained home atmosphere during childhood (frequent family fights)<br>
+                    &bull; Occasional fights with husband (1-2 times/month)<br>
+                    &bull; Problems related to neighbors<br>
+                    &bull; Issues with husband's brother's family<br>
+                    &bull; Managing multiple roles (beautician + trainer + homemaker)
+                </div>
+            </div>
+        </div>
+
+        <!-- ARROWS DOWN -->
+        <div style="display: flex; justify-content: space-between; padding: 0 140px;">
+            <div class="arrow-down">&darr;</div>
+            <div class="arrow-down">&darr;</div>
+        </div>
+
+        <!-- MEDIATING PATHWAY -->
+        <div class="mediating-section">
+            <div class="mediating-title">MIDDLE PATHWAY (Where Inside + Outside Meet)</div>
+            <div class="mediating-processes">
+                <div class="mediating-box">
+                    <strong>Difficulty Calming Down:</strong><br>
+                    &bull; Gets easily worked up emotionally<br>
+                    &bull; Hard to calm down once upset<br>
+                    &bull; Impulsive reactions to stress<br>
+                    &bull; Irritability builds quickly
+                </div>
+                <div class="double-arrow">&harr;</div>
+                <div class="mediating-box">
+                    <strong>Faulty Thinking Patterns:</strong><br>
+                    &bull; Jumps to conclusions about others' intentions<br>
+                    &bull; Sees threat where there may be none<br>
+                    &bull; Assumes the worst about neighbors/in-laws<br>
+                    &bull; Overthinks situations
+                </div>
+            </div>
+        </div>
+
+        <!-- ARROW DOWN -->
+        <div class="arrow-down">&darr;</div>
+
+        <!-- MAIN SYMPTOMS BOX (SHADED) -->
+        <div class="psychotic-box">
+            <div class="main-title">Main Problem Experiences</div>
+            <div class="sub-title">Suspicious Thinking & Overthinking</div>
+            <div class="details">
+                &bull; Being overly suspicious of others (neighbors, in-laws)<br>
+                &bull; Excessive thinking that won't stop<br>
+                &bull; Possibly believing others are against her or talking about her<br>
+                &bull; Difficulty trusting people around her
+            </div>
+        </div>
+
+        <!-- ARROW DOWN -->
+        <div class="arrow-down">&darr;</div>
+
+        <!-- APPRAISAL BOX -->
+        <div class="appraisal-box">
+            <strong>How She Makes Sense of Her Experiences:</strong><br><br>
+            <strong>First Reaction (What does this mean?):</strong><br>
+            "These people really are against me"<br>
+            "My suspicions are correct — I can see it"<br><br>
+            <strong>Second Reaction (Can I handle this?):</strong><br>
+            "I can't stop thinking about it"<br>
+            "I need to keep my guard up"<br>
+            "This is getting too much for me" (decreased interest in housework)
+        </div>
+
+        <!-- ARROW DOWN -->
+        <div class="arrow-down">&darr;</div>
+
+        <!-- SHORT-TERM CONSEQUENCES -->
+        <div class="consequences-box">
+            <div class="title">Short-Term Effects (What Happens Right Away)</div>
+            <ul>
+                <li><strong>Feelings:</strong> Irritability, frustration, anxiety, distrust</li>
+                <li><strong>Actions:</strong> Arguments with husband about neighbors/in-laws, possibly avoiding certain people, being watchful</li>
+                <li><strong>Thoughts:</strong> Keeps replaying situations in mind, focuses only on "evidence" that supports suspicions</li>
+                <li><strong>Ways of Coping:</strong> Stays busy with work, talks to husband, but may also withdraw from housework</li>
+            </ul>
+        </div>
+
+        <!-- ARROW DOWN -->
+        <div class="arrow-down">&darr;</div>
+
+        <!-- LONG-TERM CONSEQUENCES -->
+        <div class="consequences-box">
+            <div class="title">Long-Term Effects (What Happens Over Time)</div>
+            <ul>
+                <li><strong>Pulling away from people:</strong> May avoid neighbors, reduce social contact, less interest in kitty parties</li>
+                <li><strong>Fewer chances to correct wrong beliefs:</strong> Less interaction means fewer chances to see that people may not actually be against her</li>
+                <li><strong>Daily life affected:</strong> Decreased interest in housework (past 2 months), may affect work motivation over time</li>
+                <li><strong>How others see her:</strong> Family sees her as "someone who thinks too much" — may feel misunderstood</li>
+            </ul>
+        </div>
+
+        <!-- FEEDBACK LOOPS -->
+        <div class="feedback-section">
+            <div class="feedback-left">
+                <div class="arrow-up">&uarr;</div>
+                <div class="feedback-box">
+                    <strong>Left Loop — Back to Inside Factors:</strong><br><br>
+                    &bull; Biased thinking becomes a habit (always looking for "proof" that others are against her)<br>
+                    &bull; Behaviour matches the biased thinking (avoids people, stays guarded)<br>
+                    <br>
+                    &uarr;<br><br>
+                    &bull; Emotional tension keeps building up over time<br>
+                    &bull; Becomes more easily upset and irritated
+                </div>
+                <div style="font-size: 11px; font-style: italic; margin-top: 5px;">
+                    (Feeds back into her thinking patterns and emotional state &uarr;)
+                </div>
+            </div>
+
+            <div class="feedback-right">
+                <div class="arrow-up">&uarr;</div>
+                <div class="feedback-box">
+                    <strong>Right Loop — Back to Outside Factors:</strong><br><br>
+                    &bull; Only notices information that fits her suspicions (ignores friendly gestures, remembers slights)<br>
+                    &bull; This feeds back into how she judges new situations<br>
+                    <br>
+                    &uarr;<br><br>
+                    &bull; Pulling away from people actually increases stress (more isolated, less support)<br>
+                    &bull; Conflicts may increase because of her suspicious behaviour
+                </div>
+                <div style="font-size: 11px; font-style: italic; margin-top: 5px;">
+                    (Feeds back into life stresses and surroundings &uarr;)
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPLANATION -->
+        <div style="margin-top: 40px; border: 1px dashed #999; padding: 20px; font-size: 12px; line-height: 1.8;">
+            <strong>How to Read This Diagram:</strong><br><br>
+            This diagram shows how the patient's problems keep going in a cycle rather than getting better on their own:<br><br>
+            1. <strong>Inside factors</strong> (family tendency to overthink, her own suspicious thinking style, low stress tolerance) combine with <strong>outside factors</strong> (childhood conflicts, neighbor problems, multiple responsibilities).<br><br>
+            2. These come together in the <strong>middle pathway</strong> where she has trouble calming down AND starts thinking in biased ways (assuming the worst).<br><br>
+            3. This produces the <strong>main problems</strong> — excessive suspicion and overthinking.<br><br>
+            4. She then <strong>interprets</strong> these experiences as real ("people really are against me") and feels she can't control the thinking.<br><br>
+            5. This leads to <strong>short-term effects</strong> (irritability, arguments, selective attention to "threats") and then <strong>long-term effects</strong> (pulling away from people, fewer chances to correct wrong beliefs, less interest in daily tasks).<br><br>
+            6. The <strong>two feedback loops</strong> on the sides show how the long-term effects feed back into both her inside vulnerabilities (making her thinking more biased) and outside stresses (increasing isolation and conflict) — keeping the whole cycle going.
+        </div>
+
+        <div class="figure-caption">
+            Figure: Case Formulation Diagram — Understanding How the Problems Stay in a Cycle<br>
+            (Based on the CBT model for understanding unusual beliefs and experiences)
+        </div>
+    </div>
+</body>
+</html>
