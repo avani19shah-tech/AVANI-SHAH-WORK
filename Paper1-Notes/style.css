@@ -1,0 +1,26 @@
+:root{--ink:#1f2733;--muted:#5b6675;--accent:#2b6cb0;--accent2:#1a936f;--line:#dfe5ee;--chip:#eef3fb;--warn:#fff7ed;--warnl:#fed7aa;}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f4f6fb;color:var(--ink);line-height:1.65}
+header{background:linear-gradient(135deg,#1a365d,#2b6cb0);color:#fff;padding:28px 22px}
+header .tag{font-size:.74rem;letter-spacing:1px;text-transform:uppercase;opacity:.9}
+header h1{margin:6px 0 0;font-size:1.42rem}
+.wrap{max-width:940px;margin:0 auto;padding:24px 18px}
+.marks{display:inline-block;background:#e6fffa;color:#1a936f;border:1px solid #b2f5ea;border-radius:20px;padding:3px 12px;font-size:.78rem;font-weight:700;margin-bottom:10px}
+h2{color:#1a365d;border-left:5px solid var(--accent2);padding-left:12px;margin-top:30px;font-size:1.16rem}
+h3{color:var(--accent);margin-top:20px;font-size:1.02rem}
+p{margin:10px 0}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:18px 0;text-align:center}
+.figure figcaption{color:var(--muted);font-size:.86rem;margin-top:8px;font-style:italic}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--chip);color:#1a365d}
+.key{background:var(--warn);border:1px solid var(--warnl);border-radius:12px;padding:14px 16px;margin:18px 0;color:#7c2d12}
+.clin{background:#eefaf3;border:1px solid #c6f0d8;border-radius:12px;padding:14px 16px;margin:18px 0}
+.clin strong{color:#1a936f}
+.mnem{background:#f0f4ff;border-left:4px solid var(--accent);padding:8px 12px;border-radius:6px;margin:12px 0;font-size:.92rem}
+ul,ol.body{margin:10px 0 10px 4px;padding-left:20px}
+li{margin:5px 0}
+.nav{display:flex;justify-content:space-between;margin-top:28px;gap:10px;flex-wrap:wrap}
+.nav a{color:var(--accent);text-decoration:none;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px}
+.nav a:hover{border-color:var(--accent)}
+svg{max-width:100%;height:auto}
