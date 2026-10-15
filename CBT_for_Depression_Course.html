@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBT for Depression — A Structured Clinical Training Course</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --panel:#ffffff; --ink:#1f2430; --muted:#5b6472;
+    --brand:#2f5d8a; --brand-2:#3d7ab5; --accent:#0f766e; --line:#e2e6ee;
+    --warn-bg:#fff6e5; --warn-line:#e0a100; --danger-bg:#fdecec; --danger-line:#c0392b;
+    --ok-bg:#eaf6ef; --ok-line:#1f8a4c; --info-bg:#eef3fb; --info-line:#2f5d8a;
+    --tip-bg:#f0f0fb; --tip-line:#5b52b5; --code-bg:#f2f4f8;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;font-size:16.5px;}
+  a{color:var(--brand-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* layout */
+  .wrap{display:flex;min-height:100vh}
+  nav.side{width:310px;flex:0 0 310px;background:var(--panel);border-right:1px solid var(--line);
+    height:100vh;position:sticky;top:0;overflow-y:auto;padding:0 0 40px}
+  nav.side .brand{padding:20px 22px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+  nav.side .brand h1{font-size:16px;margin:0 0 4px;color:var(--brand)}
+  nav.side .brand p{margin:0;font-size:12px;color:var(--muted)}
+  nav.side ol{list-style:none;margin:0;padding:8px 0}
+  nav.side li a{display:block;padding:7px 22px;font-size:13.5px;color:var(--muted);border-left:3px solid transparent}
+  nav.side li a:hover{background:var(--info-bg);color:var(--brand);text-decoration:none}
+  nav.side li a.grp{margin-top:8px;font-weight:700;color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.04em;border:0;cursor:default}
+  main{flex:1 1 auto;max-width:100%;padding:0}
+  .inner{max-width:var(--maxw);margin:0 auto;padding:32px 26px 120px}
+  /* headings */
+  h2.part{font-size:26px;color:var(--brand);border-bottom:3px solid var(--brand);padding-bottom:8px;margin:54px 0 10px;scroll-margin-top:14px}
+  h3{font-size:20px;color:var(--brand-2);margin:34px 0 8px}
+  h4{font-size:16.5px;color:var(--accent);margin:22px 0 6px;text-transform:uppercase;letter-spacing:.02em}
+  h5{font-size:15px;margin:16px 0 4px;color:var(--ink)}
+  p{margin:10px 0}
+  ul,ol{margin:8px 0 12px;padding-left:24px}
+  li{margin:4px 0}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  /* hero */
+  header.hero{background:linear-gradient(135deg,#2f5d8a,#0f766e);color:#fff;padding:46px 26px}
+  header.hero .inner{padding-bottom:20px}
+  header.hero h1{margin:0 0 8px;font-size:30px}
+  header.hero p{margin:6px 0;opacity:.95;font-size:15px;max-width:760px}
+  .pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+    padding:3px 11px;border-radius:20px;font-size:12px;margin:4px 6px 0 0}
+  /* callouts */
+  .box{border-radius:8px;padding:14px 16px;margin:16px 0;border-left:5px solid var(--info-line);background:var(--info-bg)}
+  .box p:first-child{margin-top:0}.box p:last-child{margin-bottom:0}
+  .box .lab{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+  .warn{background:var(--warn-bg);border-left-color:var(--warn-line)}
+  .danger{background:var(--danger-bg);border-left-color:var(--danger-line)}
+  .ok{background:var(--ok-bg);border-left-color:var(--ok-line)}
+  .tip{background:var(--tip-bg);border-left-color:var(--tip-line)}
+  .goal{background:var(--info-bg);border-left-color:var(--accent)}
+  /* dialogue */
+  .dlg{background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:6px 16px;margin:14px 0}
+  .dlg p{margin:9px 0;padding-left:74px;position:relative;font-size:15px}
+  .dlg p .sp{position:absolute;left:0;top:0;font-weight:700;font-size:12px;width:66px}
+  .dlg p.t .sp{color:var(--brand)}
+  .dlg p.c .sp{color:var(--accent)}
+  .dlg p.note{padding-left:16px;font-style:italic;color:var(--muted);font-size:13px}
+  .dlg .eff{border-left:4px solid var(--ok-line);padding-left:10px;margin-left:-2px}
+  .dlg .ineff{border-left:4px solid var(--danger-line);padding-left:10px;margin-left:-2px}
+  /* tables */
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--info-bg);color:var(--brand);font-size:13px}
+  tr:nth-child(even) td{background:#fafbfd}
+  /* worksheet */
+  .ws{border:1px dashed var(--brand-2);border-radius:10px;padding:16px 18px;margin:18px 0;background:#fdfefe}
+  .ws .wt{font-weight:700;color:var(--brand);margin:0 0 6px;font-size:15px}
+  .ws table th{background:#eef3fb}
+  .fill{color:var(--accent);font-style:italic}
+  /* code / inline */
+  code{background:var(--code-bg);padding:1px 6px;border-radius:4px;font-size:14px;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .ev{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;margin-left:6px;vertical-align:middle}
+  .ev.strong{background:var(--ok-bg);color:var(--ok-line);border:1px solid var(--ok-line)}
+  .ev.mod{background:var(--info-bg);color:var(--info-line);border:1px solid var(--info-line)}
+  .ev.emerg{background:var(--warn-bg);color:#a06a00;border:1px solid var(--warn-line)}
+  .ev.lim{background:#f0f0f0;color:#555;border:1px solid #aaa}
+  details{border:1px solid var(--line);border-radius:8px;margin:12px 0;padding:6px 14px;background:var(--panel)}
+  details summary{cursor:pointer;font-weight:600;color:var(--brand)}
+  details[open] summary{margin-bottom:8px}
+  .quiz li{margin:8px 0}
+  .toc-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:18px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card h5{margin-top:0;color:var(--brand)}
+  .backtop{font-size:12px;color:var(--muted);margin-top:6px}
+  @media(max-width:900px){
+    nav.side{display:none}
+    .grid2{grid-template-columns:1fr}
+  }
+  .disclaimer{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="side">
+  <div class="brand">
+    <h1>CBT for Depression</h1>
+    <p>A structured clinical training course<br>for postgraduate psychology trainees</p>
+  </div>
+  <ol>
+    <li><a class="grp">Orientation</a></li>
+    <li><a href="#map">Curriculum Map &amp; How to Use</a></li>
+    <li><a href="#hierarchy">Evidence Hierarchy</a></li>
+    <li><a class="grp">Foundations</a></li>
+    <li><a href="#p1">1 · Understanding Depression</a></li>
+    <li><a href="#p2">2 · Psychological Assessment</a></li>
+    <li><a href="#p3">3 · Case Formulation</a></li>
+    <li><a class="grp">Core CBT</a></li>
+    <li><a href="#p4">4 · Complete CBT &amp; the Relationship</a></li>
+    <li><a href="#p5">5 · Behavioural Activation</a></li>
+    <li><a href="#p6">6 · Cognitive Techniques</a></li>
+    <li><a href="#p7">7 · Core &amp; Intermediate Beliefs</a></li>
+    <li><a href="#p8">8 · Behavioural Experiments</a></li>
+    <li><a href="#p9">9 · Problem-Solving Therapy</a></li>
+    <li><a class="grp">Targeted &amp; Adjacent</a></li>
+    <li><a href="#p10">10 · Self-Criticism, Guilt, Esteem</a></li>
+    <li><a href="#p11">11 · Rumination &amp; Avoidance</a></li>
+    <li><a href="#p12">12 · Interpersonal Techniques (IPT)</a></li>
+    <li><a href="#p13">13 · Other Evidence-Based Therapies</a></li>
+    <li><a class="grp">Delivery</a></li>
+    <li><a href="#p14">14 · Session-by-Session CBT</a></li>
+    <li><a href="#p15">15 · Worksheet Library</a></li>
+    <li><a href="#p16">16 · Therapist Micro-Skills</a></li>
+    <li><a href="#p17">17 · Difficult Clinical Situations</a></li>
+    <li><a href="#p18">18 · Cultural &amp; Indian Context</a></li>
+    <li><a class="grp">Practice &amp; Ethics</a></li>
+    <li><a href="#p19">19 · Formulation → Treatment Plan</a></li>
+    <li><a href="#p20">20 · Supervised Practice</a></li>
+    <li><a href="#p21">21 · Ethics &amp; Scope</a></li>
+    <li><a href="#p22">22 · Final Clinical Toolkit</a></li>
+    <li><a class="grp">Reference</a></li>
+    <li><a href="#refs">Tiered References &amp; Links</a></li>
+  </ol>
+</nav>
+<main>
+<header class="hero">
+  <div class="inner">
+    <h1>Cognitive Behavioural Therapy for Depression</h1>
+    <p><strong>A structured, clinically-oriented training course</strong> that teaches you how therapy for depression is conceptualised, planned, delivered, monitored and reviewed — module by module, the way a supervisor would teach it.</p>
+    <p>Built around evidence-based sources: NICE NG222, the 2022 VA/DoD MDD guideline, the Beck cognitive model, Centre for Clinical Interventions (CCI) therapist &amp; consumer manuals, Cochrane/meta-analytic evidence, and India-specific research (the Healthy Activity Program).</p>
+    <div>
+      <span class="pill">22 Parts</span>
+      <span class="pill">Worksheets &amp; blank templates</span>
+      <span class="pill">Therapist–client dialogues</span>
+      <span class="pill">Worked cases</span>
+      <span class="pill">Session-by-session plan</span>
+      <span class="pill">Indian clinical context</span>
+    </div>
+  </div>
+</header>
+<div class="inner">
+
+<div class="disclaimer">
+<strong>Educational use &amp; scope.</strong> This document is a <em>learning resource for a psychology trainee</em>. It is not a substitute for formal supervised training, clinical judgement, or the primary manuals it points to. Nothing here authorises independent treatment of real patients without appropriate qualifications and supervision. Clinical decisions — especially about risk — must always involve a qualified supervisor and, where indicated, psychiatric/medical services. Worksheets provided here are original, generic templates written for this course; where a validated proprietary instrument exists (e.g. BDI-II, HAM-D) this document explains it but does <em>not</em> reproduce it, and directs you to the legitimate source.
+</div>
+
+
+<h2 class="part" id="map">Orientation — Curriculum Map &amp; How to Use This Course</h2>
+
+<p>You told me: <em>"right now I don't know what to do with depression clients and how to deal with them."</em> That is exactly the right place to start, and it is more common among trainees than you might think. The aim of this course is to move you from that uncertainty to a position where you can sit with a depressed client and know — at each moment — <strong>what you are trying to accomplish, why you are doing it now, how you will know if it is working, and what to do if it is not.</strong> Those four questions run through every module.</p>
+
+<div class="box tip">
+<span class="lab">How I will teach</span>
+<p>Each module follows the same rhythm so it becomes a habit: <strong>concept → rationale → evidence → indications/contraindications → how to introduce it → how to run it → common mistakes → troubleshooting → worksheet → worked example → dialogue → homework → review.</strong> At the end of each module you get: key concepts, clinical pearls, mistakes to avoid, a practical exercise, a fictional case, a short quiz, suggested reading, and a "you should now be able to…" checklist.</p>
+</div>
+
+<h3>The map — everything we will cover</h3>
+<div class="toc-card">
+<table>
+<tr><th>Block</th><th>Parts</th><th>What you will be able to do</th></tr>
+<tr><td><strong>Foundations</strong></td><td>1 Understanding depression · 2 Assessment · 3 Formulation</td><td>Diagnose and differentiate depression, run a structured assessment including risk, and build a case formulation that drives treatment.</td></tr>
+<tr><td><strong>Core CBT</strong></td><td>4 The therapy &amp; relationship · 5 Behavioural activation · 6 Cognitive techniques · 7 Beliefs · 8 Behavioural experiments · 9 Problem-solving</td><td>Deliver the engine of CBT for depression from session structure through to schema-level work.</td></tr>
+<tr><td><strong>Targeted &amp; adjacent</strong></td><td>10 Self-criticism/guilt · 11 Rumination/avoidance · 12 IPT · 13 Other therapies (MBCT, ACT, CFT, MCT, PST)</td><td>Match technique to presentation, and know when a different evidence-based therapy is a better fit.</td></tr>
+<tr><td><strong>Delivery</strong></td><td>14 Session-by-session · 15 Worksheets · 16 Micro-skills · 17 Difficult situations · 18 Cultural/Indian context</td><td>Run a full 12–16 session course, use the right worksheet at the right time, and adapt to real, messy presentations.</td></tr>
+<tr><td><strong>Practice &amp; ethics</strong></td><td>19 Case practice · 20 Supervised role-play · 21 Ethics · 22 Toolkit</td><td>Practise formulating and conducting therapy, and stay within safe, ethical, trainee-appropriate boundaries.</td></tr>
+</table>
+</div>
+
+<h3>Recommended prerequisite knowledge</h3>
+<ul>
+<li>Basic abnormal psychology and the DSM-5-TR / ICD-11 criteria for mood disorders.</li>
+<li>Fundamentals of the clinical interview and mental status examination (MSE).</li>
+<li>Basic learning theory (operant/classical conditioning) and basic cognitive psychology — CBT rests on both.</li>
+<li>Awareness of your own professional and legal scope of practice as a trainee in India (working <em>under supervision</em>).</li>
+</ul>
+
+<h3>Recommended core textbooks &amp; manuals</h3>
+<p>These are the primary sources this course leans on. Where a resource is freely and legally available online, a link is given in the <a href="#refs">References</a> section. Copyrighted books are cited so you can obtain them legitimately.</p>
+<ul>
+<li><strong>Beck, J. S. — <em>Cognitive Behavior Therapy: Basics and Beyond</em> (3rd ed., 2021).</strong> The standard modern CBT text; the structure of sessions and belief work in this course maps onto it.</li>
+<li><strong>Beck, A. T., Rush, Shaw &amp; Emery — <em>Cognitive Therapy of Depression</em> (1979).</strong> The original treatment manual for CBT of depression.</li>
+<li><strong>Hawton, Salkovskis, Kirk &amp; Clark — <em>Cognitive Behaviour Therapy for Psychiatric Problems: A Practical Guide</em> (1989, Oxford).</strong> This is the manual you supplied in your repository. <em>Note:</em> the PDF in the repo is password-protected, so I could not read its internal pages; I therefore cite it bibliographically and reproduce none of its text. It remains an excellent chapter-by-chapter practical guide for you to read directly.</li>
+<li><strong>Martell, Dimidjian &amp; Herman-Dunn — <em>Behavioral Activation for Depression: A Clinician's Guide</em> (2010).</strong> Primary BA manual (Part 5).</li>
+<li><strong>Weissman, Markowitz &amp; Klerman — <em>Comprehensive Guide to Interpersonal Psychotherapy</em>.</strong> Primary IPT source (Part 12). Klerman &amp; Weissman (1993) is in your reference list.</li>
+<li><strong>Greenberger &amp; Padesky — <em>Mind Over Mood</em> (2nd ed., 2016).</strong> The best client-facing workbook; thought records here are modelled on it.</li>
+<li><strong>Segal, Williams &amp; Teasdale — <em>Mindfulness-Based Cognitive Therapy for Depression</em> (2nd ed.).</strong> Primary MBCT source (Part 13).</li>
+<li><strong>Free therapist manuals:</strong> the Centre for Clinical Interventions (CCI, Government of Western Australia) publishes free, high-quality therapist manuals and client modules used throughout this course.</li>
+</ul>
+
+<h2 class="part" id="hierarchy">Orientation — The Evidence-Based Hierarchy of Interventions</h2>
+<p>Not every therapy is equally supported for depression. A responsible clinician chooses interventions in roughly this order, then individualises. Throughout the course I mark evidence strength with tags: <span class="ev strong">Strong</span> <span class="ev mod">Moderate</span> <span class="ev emerg">Emerging</span> <span class="ev lim">Limited</span>.</p>
+
+<table>
+<tr><th>Tier</th><th>Interventions</th><th>Evidence &amp; guideline status</th></tr>
+<tr><td><strong>First-line, best-established</strong></td><td>CBT (incl. cognitive therapy), Behavioural Activation, Interpersonal Psychotherapy (IPT)</td><td><span class="ev strong">Strong</span> Recommended across NICE NG222 and the 2022 VA/DoD MDD guideline; large meta-analytic base. BA is non-inferior to full CBT and simpler to deliver.</td></tr>
+<tr><td><strong>Well-supported</strong></td><td>Problem-Solving Therapy (PST), Mindfulness-Based Cognitive Therapy (MBCT — especially relapse prevention in recurrent depression)</td><td><span class="ev mod">Moderate–Strong</span> PST has good meta-analytic support; MBCT has strong evidence specifically for preventing relapse in people with ≥3 prior episodes.</td></tr>
+<tr><td><strong>Supported / third-wave</strong></td><td>Acceptance &amp; Commitment Therapy (ACT), short-term psychodynamic therapy, counselling</td><td><span class="ev mod">Moderate</span> Included as options in guidelines; evidence base smaller than CBT/BA/IPT.</td></tr>
+<tr><td><strong>Targeted / adjunctive</strong></td><td>Compassion-Focused Therapy (CFT) &amp; self-compassion approaches (self-criticism/shame), Metacognitive Therapy (rumination)</td><td><span class="ev emerg">Emerging</span> Promising for specific mechanisms (shame, rumination); fewer large trials in primary MDD.</td></tr>
+</table>
+
+<div class="box">
+<span class="lab">The single most useful clinical rule of thumb</span>
+<p><strong>Severity and complexity guide intensity.</strong> For less severe depression, lower-intensity, more behavioural options (guided self-help, BA, brief CBT) are appropriate first. For moderate-to-severe depression, offer a full course of an evidence-based psychological therapy (CBT/BA/IPT), consider combining with medication, and coordinate with a psychiatrist. This mirrors the stepped-care logic in NICE NG222 and the VA/DoD guideline (see <a href="#refs">References</a>).</p>
+</div>
+
+<h3>A realistic learning sequence</h3>
+<ol>
+<li>Get the <strong>foundations</strong> solid (Parts 1–3). Do not touch technique until you can formulate.</li>
+<li>Learn <strong>structure + behavioural activation</strong> (Parts 4–5). BA alone helps many clients and is the safest place for a trainee to begin.</li>
+<li>Add <strong>cognitive work</strong> (Parts 6–8), then <strong>problem-solving</strong> (Part 9).</li>
+<li>Learn to <strong>target specific presentations</strong> (Parts 10–11) and to recognise when another therapy fits better (Parts 12–13).</li>
+<li>Integrate everything into a <strong>whole course of therapy</strong> (Part 14) and rehearse (Parts 19–20) within your <strong>ethical scope</strong> (Part 21).</li>
+</ol>
+<p class="backtop">▲ <a href="#map">Back to map</a></p>
+
+
+<h2 class="part" id="p1">Part 1 — Understanding Depression</h2>
+<p class="backtop">Foundations · Module 1</p>
+
+<div class="box goal">
+<span class="lab">What is the therapist trying to accomplish here?</span>
+<p>Before you can treat depression you must be able to recognise it accurately, distinguish it from things that look like it, and identify what is <em>keeping it going</em> right now. Treatment targets maintaining factors — so this module is not academic; it is where your treatment plan is born.</p>
+</div>
+
+<h3>A · Clinical understanding</h3>
+
+<h4>Definition</h4>
+<p>Depression is a clinical syndrome — a persistent cluster of mood, cognitive, behavioural, physiological and interpersonal changes that together impair functioning — not simply sadness. The two "gateway" symptoms are <strong>persistently low mood</strong> and/or <strong>loss of interest or pleasure (anhedonia)</strong> most of the day, nearly every day, for at least two weeks (DSM-5-TR / ICD-11).</p>
+
+<h4>Major Depressive Disorder (MDD)</h4>
+<p>Diagnosed when, over the same 2-week period, the person has ≥5 of the following (at least one being depressed mood or anhedonia), representing a change from before, causing distress/impairment, and not better explained by substances, a medical condition, or another disorder:</p>
+<ul>
+<li>Depressed mood most of the day</li>
+<li>Markedly diminished interest/pleasure (anhedonia)</li>
+<li>Significant weight/appetite change</li>
+<li>Insomnia or hypersomnia</li>
+<li>Psychomotor agitation or retardation (observable by others)</li>
+<li>Fatigue / loss of energy</li>
+<li>Feelings of worthlessness or excessive/inappropriate guilt</li>
+<li>Reduced concentration or indecisiveness</li>
+<li>Recurrent thoughts of death, suicidal ideation, plan or attempt</li>
+</ul>
+<p>Specify severity (mild/moderate/severe), with/without psychotic features, single vs recurrent episode. Roughly the same nine-symptom architecture underlies the PHQ-9 (Part 2).</p>
+
+<h4>Persistent Depressive Disorder (PDD / dysthymia)</h4>
+<p>Chronic depressed mood for <strong>most of the day, more days than not, for ≥2 years</strong> (≥1 year in children/adolescents), with ≥2 additional symptoms (appetite, sleep, energy, self-esteem, concentration, hopelessness). It is often less intense than MDD but more grinding and long-standing; "double depression" describes an MDD episode superimposed on PDD. PDD tends to respond more slowly and often benefits from combined psychotherapy + medication.</p>
+
+<h4>Other depressive presentations</h4>
+<ul>
+<li><strong>Premenstrual dysphoric disorder (PMDD)</strong> — mood symptoms tied to the luteal phase.</li>
+<li><strong>Disruptive mood dysregulation disorder</strong> — chronic irritability in children.</li>
+<li><strong>Depression with seasonal pattern</strong>, <strong>peripartum onset</strong> (antenatal/postnatal), <strong>with anxious distress</strong>, <strong>with melancholic features</strong> (profound anhedonia, early waking, marked psychomotor change), <strong>with atypical features</strong> (mood reactivity, hypersomnia, leaden paralysis, rejection sensitivity).</li>
+<li><strong>Substance/medication-induced</strong> and <strong>due to another medical condition</strong> (see differential).</li>
+</ul>
+
+<h4>Typical symptom clusters (learn to hear them in five domains)</h4>
+<table>
+<tr><th>Domain</th><th>Common features</th><th>What a client might actually say</th></tr>
+<tr><td>Emotional</td><td>Sadness, emptiness, irritability, anhedonia, guilt, anxiety</td><td>"I just feel flat / nothing gives me joy / I snap at everyone."</td></tr>
+<tr><td>Cognitive</td><td>Negative view of self, world, future (Beck's cognitive triad); hopelessness; poor concentration; indecision; rumination; self-criticism</td><td>"I'm useless. Nothing will get better. I can't even decide what to eat."</td></tr>
+<tr><td>Behavioural</td><td>Withdrawal, reduced activity, avoidance, procrastination, neglect of self-care, agitation</td><td>"I've stopped going out. I lie in bed. I can't get anything done."</td></tr>
+<tr><td>Physiological</td><td>Sleep &amp; appetite change, fatigue, aches, psychomotor change, low libido</td><td>"I'm exhausted all the time. My body feels heavy. I wake at 4am."</td></tr>
+<tr><td>Interpersonal</td><td>Isolation, conflict, reduced communication, dependency or withdrawal</td><td>"I've cut people off. My marriage feels distant."</td></tr>
+</table>
+<div class="box tip"><span class="lab">Indian clinical note</span><p>In many Indian settings clients present the <em>physiological/somatic</em> cluster first — "body pain," "gas," "weakness," "heaviness in the head" — rather than naming sadness. This is not denial or poor insight; it is a culturally shaped idiom of distress. We return to this in Part 18.</p></div>
+
+<h4>Course and prognosis</h4>
+<ul>
+<li>MDD is typically <strong>episodic and recurrent</strong>: a majority who have one episode have another. Risk of recurrence rises with each episode.</li>
+<li>Untreated episodes commonly last months; treatment shortens episodes and reduces recurrence.</li>
+<li>Residual symptoms and incomplete recovery strongly predict relapse — which is why <strong>relapse prevention</strong> (Part 14, session end) matters.</li>
+<li>Good prognostic signs: acute onset, clear precipitant, good premorbid functioning, engagement, social support. Poorer: chronicity, comorbidity, severe hopelessness, ongoing psychosocial adversity.</li>
+</ul>
+
+<h4>Risk factors</h4>
+<p>Female sex, prior episodes, family history, early adversity/trauma, chronic stress, chronic physical illness and pain, substance use, certain personality features (e.g. high self-criticism, dependency), and socio-economic adversity. Think of these as <em>predisposing</em> and <em>precipitating</em> factors in your formulation (Part 3).</p>
+
+<h4>Maintaining factors — the therapist's primary target</h4>
+<div class="box">
+<p>Depression is kept going by self-reinforcing cycles. The most treatable are:</p>
+<ul>
+<li><strong>Behavioural:</strong> withdrawal &amp; avoidance → loss of positive reinforcement &amp; mastery → lower mood → more withdrawal. (Targeted by <a href="#p5">BA</a>.)</li>
+<li><strong>Cognitive:</strong> negative automatic thoughts, biased attention/memory, rumination → sustained low mood. (Targeted by <a href="#p6">cognitive techniques</a>, <a href="#p11">rumination work</a>.)</li>
+<li><strong>Physiological:</strong> disrupted sleep &amp; inactivity → fatigue → less activity.</li>
+<li><strong>Interpersonal:</strong> withdrawal &amp; irritability → conflict/isolation → less support. (Targeted by <a href="#p12">IPT</a>.)</li>
+</ul>
+<p><strong>Clinical pearl:</strong> you treat <em>maintaining cycles</em>, not "the past." History explains vulnerability; the cycles explain why the person is stuck <em>today</em>, and cycles are where change happens.</p>
+</div>
+
+<h4>Common comorbidities</h4>
+<p>Anxiety disorders (very common), substance use, PTSD, OCD, personality difficulties, chronic pain and physical illness. Comorbidity affects sequencing (what you treat first) and risk — covered in Part 17.</p>
+
+<h3>B · Differential diagnosis</h3>
+<p><strong>What is the therapist trying to accomplish?</strong> To make sure you are treating the right thing. The single most important differential — because it changes everything — is bipolar disorder.</p>
+
+<table>
+<tr><th>Distinguish depression from…</th><th>Key discriminating questions / features</th></tr>
+<tr><td><strong>Bipolar disorder</strong></td><td>Ever a period of unusually elevated/irritable mood + increased energy lasting days, with reduced need for sleep, racing thoughts, overspending, risk-taking? Family history of bipolar? Antidepressant-induced "highs"? <em>Missing a bipolar history and treating with antidepressant monotherapy can precipitate mania — always screen.</em></td></tr>
+<tr><td><strong>Adjustment disorder</strong></td><td>Clear stressor within 3 months, symptoms not meeting full MDD criteria, expected to resolve as person adapts.</td></tr>
+<tr><td><strong>Grief / bereavement</strong></td><td>Loss-focused; waves of sadness with preserved self-worth; capacity for positive emotion between waves. Worthlessness, global hopelessness, and persistent suicidal ideation point toward depression. Consider prolonged grief disorder if severe/persistent.</td></tr>
+<tr><td><strong>Anxiety disorders</strong></td><td>Primary worry/fear/avoidance; often comorbid. Which came first and which dominates functioning?</td></tr>
+<tr><td><strong>OCD</strong></td><td>Ego-dystonic obsessions + compulsions; depression often secondary to OCD burden.</td></tr>
+<tr><td><strong>PTSD</strong></td><td>Trauma history, re-experiencing, hyperarousal, avoidance; low mood may be part of PTSD.</td></tr>
+<tr><td><strong>Substance-induced</strong></td><td>Onset/course tracks substance use or withdrawal (alcohol, sedatives, stimulants). Does mood improve with abstinence?</td></tr>
+<tr><td><strong>Personality-related</strong></td><td>Long-standing, pervasive patterns; chronic emptiness. Depression can be superimposed.</td></tr>
+<tr><td><strong>Medical / neurological</strong></td><td>Hypothyroidism, anaemia, B12 deficiency, diabetes, Parkinson's, stroke, medications (steroids, some antihypertensives). <em>Ensure medical work-up; refer.</em></td></tr>
+<tr><td><strong>Normal sadness</strong></td><td>Proportionate, self-limiting, does not impair functioning, preserved self-worth and pleasure capacity. <em>Do not pathologise.</em></td></tr>
+</table>
+
+<div class="box warn"><span class="lab">Assessment questions every therapist should ask</span>
+<p>"Over the last two weeks, how has your mood been most days?" · "Have you lost interest or pleasure in things you used to enjoy?" · "Tell me about your sleep, appetite and energy." · "How are you seeing yourself, the future?" · "Have there ever been times you felt the <em>opposite</em> — unusually high energy, not needing sleep, doing things others found excessive?" (bipolar screen) · "What was happening in your life when this started?" · "How is this affecting work/family?" · and always, sensitively, the risk questions below.</p>
+</div>
+
+<h3>C · Risk assessment</h3>
+<div class="box danger"><span class="lab">Non-negotiable</span><p>Every depression assessment and, at appropriate points, every session must include risk. As a trainee you <strong>always</strong> discuss any significant risk with your supervisor the same day, and follow your service's protocol. The techniques below support clinical judgement; they never replace it or replace escalation.</p></div>
+
+<p>Assess, using a calm, direct, normalising manner (asking about suicide does <em>not</em> plant the idea):</p>
+<ul>
+<li><strong>Suicidal ideation</strong> — passive ("I wish I wouldn't wake up") vs active ("I want to end my life"); frequency, intensity, controllability.</li>
+<li><strong>Plan, means, preparation, intent</strong> — the more specific and available, the higher the concern.</li>
+<li><strong>Self-harm</strong> — methods, frequency, function, whether escalating.</li>
+<li><strong>Hopelessness</strong> — one of the strongest predictors of suicide; ask directly about the future.</li>
+<li><strong>Previous attempts</strong> — strongest single historical predictor; ask what happened, how they were saved, current view of it.</li>
+<li><strong>Psychosis</strong> — command hallucinations, nihilistic/guilt delusions markedly raise risk.</li>
+<li><strong>Severe functional deterioration</strong> — not eating, not self-caring, unable to work/parent.</li>
+<li><strong>Risk to others</strong> — including, rarely, extended suicide involving dependents.</li>
+<li><strong>Protective factors</strong> — reasons for living, responsibilities (children, parents), religious/moral objections, help-seeking, supportive relationships, future orientation. Protective factors reduce but never nullify risk.</li>
+</ul>
+
+<div class="box"><span class="lab">Tools you should know (Part 2 &amp; Part 17 expand these)</span>
+<p><strong>C-SSRS (Columbia-Suicide Severity Rating Scale)</strong> — a free, plain-language, clinician-administered set of questions that graduates ideation and behaviour; explicitly <em>not</em> a substitute for full clinical evaluation. <strong>Safety Planning Intervention (Stanley &amp; Brown)</strong> — a brief, collaborative, prioritised list of coping strategies and contacts. Both are covered practically in Part 17. Links in <a href="#refs">References</a>.</p>
+</div>
+
+<h4>What should happen when significant risk is identified</h4>
+<ol>
+<li><strong>Stay with the person and the topic</strong> — do not rush past it. Assess systematically.</li>
+<li><strong>Match response to level of risk</strong>: for high/imminent risk (clear intent, plan, means, little protection) — do not leave them alone, involve family/support with consent where possible, arrange urgent psychiatric assessment / emergency services / hospital as per protocol.</li>
+<li><strong>Collaborative safety plan</strong> (not a "no-suicide contract," which is ineffective): warning signs, internal coping, people/places for distraction, people to ask for help, professionals/agencies, and means restriction.</li>
+<li><strong>Means restriction</strong> — reduce access to lethal means (medications, pesticides — highly relevant in India, ligatures, firearms), engaging family.</li>
+<li><strong>Document</strong> assessment, reasoning, plan, and consultation.</li>
+<li><strong>Escalate &amp; consult</strong> — supervisor and psychiatrist the same day; know your local crisis pathways.</li>
+</ol>
+<div class="box tip"><span class="lab">India — crisis resources to know</span><p>Keep locally verified numbers to hand (e.g. the national Tele-MANAS helpline <strong>14416 / 1-800-891-4416</strong>, and hospital emergency services). Verify current local crisis lines for your setting; availability changes. If someone is in immediate danger, emergency medical services and the nearest hospital are the priority.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Depression is a syndrome of maintaining cycles across five domains · MDD vs PDD vs other presentations · always screen for bipolarity and medical causes · risk assessment is continuous, systematic and supervised.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Treat cycles, not history. · Somatic presentation is common and legitimate. · Hopelessness and prior attempts are your loudest risk signals. · Asking about suicide reduces, not increases, risk.</p></div>
+<div class="box warn"><span class="lab">Therapist mistakes to avoid</span><p>Diagnosing MDD without a bipolar/medical screen · pathologising normal sadness or grief · skimming risk when rapport feels fragile · treating symptoms without a maintaining-cycle map.</p></div>
+
+<details><summary>Practical exercise · Fictional case · Quiz · Reading · Can-do checklist</summary>
+<h5>Practical exercise</h5>
+<p>For the next three low-mood presentations you observe (or read about), write one sentence for each domain (emotional/cognitive/behavioural/physiological/interpersonal) and one maintaining cycle. Do it in under five minutes.</p>
+<h5>Fictional case (mild)</h5>
+<p><em>Meera, 24</em>, software trainee, "not myself for a month" after being moved off a project. Low mood ~4/10, still enjoys occasional time with a friend, sleeping a little more, procrastinating, calling herself "a failure," but working. No suicidal ideation, no elevated-mood history, no medical issues. <strong>Formulate:</strong> is this MDD, adjustment disorder, or normal distress? What tips you one way? (Discussion: symptom count, duration, impairment, preserved pleasure — points toward mild MDD vs adjustment; the moved-off-project precipitant and preserved function keep adjustment disorder on the table. Either way, monitor and begin behavioural work.)</p>
+<h5>Short quiz</h5>
+<ol class="quiz">
+<li>Name the two "gateway" symptoms of MDD.</li>
+<li>What one screen must you always do before assuming unipolar depression, and why?</li>
+<li>Give two behavioural and two cognitive maintaining factors.</li>
+<li>Which single historical factor most strongly predicts future suicide?</li>
+<li>How does bereavement typically differ from MDD?</li>
+</ol>
+<h5>Suggested reading</h5>
+<p>NICE NG222 (overview); VA/DoD 2022 MDD CPG (diagnosis &amp; screening); CCI <em>Back from the Bluez</em> Module 1 (client-level overview). Links in <a href="#refs">References</a>.</p>
+<h5>Before moving on you should be able to…</h5>
+<p>State MDD/PDD criteria from memory · list five-domain symptom clusters · run a differential including bipolar and medical causes · conduct a structured suicide risk assessment and describe the escalation steps.</p>
+</details>
+
+
+<h2 class="part" id="p2">Part 2 — Psychological Assessment Before Therapy</h2>
+<p class="backtop">Foundations · Module 2</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>A good assessment does three jobs at once: it (1) establishes diagnosis and risk, (2) gathers exactly what you need to <em>formulate</em>, and (3) begins building the therapeutic relationship. You are not collecting facts for a file — you are building the map you will treat from.</p></div>
+
+<h3>The clinical interview — structure</h3>
+<p>Assessment usually spans 1–2 sessions. Move from open to focused, from present to past, and weave risk throughout.</p>
+<table>
+<tr><th>Section</th><th>What you gather</th><th>Formulation-critical? </th></tr>
+<tr><td><strong>Presenting complaints</strong></td><td>The problems in the client's own words; main concern; why now</td><td>Yes — defines targets</td></tr>
+<tr><td><strong>History of presenting illness</strong></td><td>Onset, precipitants, course, severity, current symptoms across five domains, what's tried, what helps/worsens</td><td>Yes — precipitating &amp; maintaining factors</td></tr>
+<tr><td><strong>Psychiatric history</strong></td><td>Previous episodes, treatments, response, admissions, self-harm/attempts, current medication</td><td>Yes — recurrence, risk, what worked</td></tr>
+<tr><td><strong>Personal / developmental history</strong></td><td>Early life, attachment, education, relationships, work, key events, adversity/trauma</td><td>Partly — predisposing factors &amp; core beliefs; keep it focused</td></tr>
+<tr><td><strong>Family history</strong></td><td>Mental illness, suicide, "how emotions were handled at home"</td><td>Partly — vulnerability &amp; belief origins</td></tr>
+<tr><td><strong>Psychosocial history</strong></td><td>Current relationships, family system, finances, housing, work stress, supports</td><td>Yes — precipitating/maintaining &amp; protective</td></tr>
+<tr><td><strong>Substance use</strong></td><td>Alcohol, tobacco, cannabis, others; pattern, function, dependence</td><td>Yes — differential, risk, maintaining</td></tr>
+<tr><td><strong>Medical history</strong></td><td>Conditions, pain, thyroid, medications, recent investigations</td><td>Yes — differential, medical referral</td></tr>
+<tr><td><strong>Mental status examination</strong></td><td>Appearance, behaviour, speech, mood/affect, thought form/content, perception, cognition, insight, judgement, risk</td><td>Yes — severity, psychosis, risk</td></tr>
+<tr><td><strong>Functional assessment</strong></td><td>Typical day; work, self-care, relationships, roles; what depression stops them doing</td><td>Yes — BA targets &amp; outcome measure</td></tr>
+<tr><td><strong>Strengths &amp; protective factors</strong></td><td>Coping, values, relationships, past resilience, reasons for living</td><td>Yes — resources &amp; risk buffer</td></tr>
+<tr><td><strong>Treatment goals</strong></td><td>What the client wants to be different; specific, meaningful, measurable</td><td>Yes — direction &amp; collaboration</td></tr>
+<tr><td><strong>Risk assessment</strong></td><td>As Part 1C, continuously</td><td>Yes — safety first</td></tr>
+</table>
+
+<div class="box"><span class="lab">Formulation-critical vs background</span><p>A trap for trainees is exhaustive history-taking that never converts into a plan. Ask: <em>"Does this information change my hypothesis about what is maintaining the depression or what will help?"</em> If yes, it is formulation-critical. If it is simply context (e.g. the exact name of a primary school), it is background — note it, move on.</p></div>
+
+<h3>Measures for depression — appropriate use &amp; interpretation</h3>
+<div class="box warn"><p><strong>A scale is never a substitute for clinical assessment.</strong> Measures quantify severity and <em>track change</em>; they do not diagnose on their own and they miss context. Use them to complement the interview and to make progress visible (measurement-based care).</p></div>
+
+<h4>PHQ-9 <span class="ev strong">Strong</span></h4>
+<ul>
+<li><strong>What it assesses:</strong> the nine DSM depression symptoms over the past two weeks; self-report; free/public-domain (Kroenke, Spitzer &amp; Williams, 2001).</li>
+<li><strong>Administration:</strong> ~2–5 minutes, client-completed; 9 items rated 0 (not at all) → 3 (nearly every day). A 10th item rates functional difficulty (not scored in the total).</li>
+<li><strong>Scoring:</strong> total 0–27. Bands: <strong>5</strong> mild, <strong>10</strong> moderate, <strong>15</strong> moderately severe, <strong>20</strong> severe. A cut-off of ≥10 has ~88% sensitivity and ~88% specificity for major depression.</li>
+<li><strong>Interpretation:</strong> use bands to gauge severity and to guide intensity of care; a ≥5-point drop is a common marker of meaningful change; aim for remission (often &lt;5).</li>
+<li><strong>Item 9</strong> (thoughts of being better off dead / self-harm) is a <strong>trigger for immediate risk assessment</strong> — never let a positive item 9 pass unexplored.</li>
+<li><strong>Limitations:</strong> self-report bias; somatic items overlap with physical illness; not diagnostic alone.</li>
+</ul>
+
+<h4>BDI-II (Beck Depression Inventory-II) <span class="ev strong">Strong</span></h4>
+<ul>
+<li><strong>What it assesses:</strong> 21 items, severity of cognitive/affective/somatic symptoms over two weeks; strong emphasis on cognitive symptoms.</li>
+<li><strong>Administration/scoring:</strong> self-report; total 0–63; typical bands 0–13 minimal, 14–19 mild, 20–28 moderate, 29–63 severe.</li>
+<li><strong>Copyright:</strong> proprietary (Pearson) — you must obtain it legitimately; this course does <em>not</em> reproduce items. Item on suicide triggers risk assessment.</li>
+<li><strong>Limitations:</strong> cost/licensing; somatic overlap; self-report.</li>
+</ul>
+
+<h4>HAM-D / HDRS (Hamilton Depression Rating Scale) <span class="ev mod">Moderate–Strong</span></h4>
+<ul>
+<li><strong>What it assesses:</strong> clinician-rated severity (commonly 17 items); heavier on somatic/sleep items; widely used in research.</li>
+<li><strong>Administration:</strong> semi-structured clinician interview; requires training for reliable rating.</li>
+<li><strong>Limitations:</strong> rater variability; somatic weighting can inflate scores in medically ill patients; less suited to quick session-by-session tracking than PHQ-9.</li>
+</ul>
+
+<h4>Other measures worth knowing</h4>
+<p>QIDS/IDS (self- or clinician-rated), MADRS (clinician-rated, good sensitivity to change), K10/K6 (general distress screening — used in Indian community research), WHO-5 wellbeing. For <strong>risk</strong>, the C-SSRS (clinician-administered). For <strong>process/mechanism</strong>, activity records and thought records (Parts 5–6) function as clinical measures too.</p>
+
+<h4>Using scores to monitor progress</h4>
+<p>Administer a brief measure (usually PHQ-9) at intake and at regular intervals (e.g. each session or every 2–3). Plot the trajectory; discuss it collaboratively ("your PHQ-9 has gone from 18 to 11 — what do you make of that?"). Flag <strong>non-response</strong> (no meaningful change by ~4–6 sessions → review formulation, adherence, comorbidity, and consult supervisor about stepping up or adding medication). Watch item 9 every time.</p>
+
+<div class="ws">
+<p class="wt">Worksheet 2.1 — Intake &amp; Formulation-Data Summary (original template)</p>
+<table>
+<tr><th>Field</th><th>Notes</th></tr>
+<tr><td>Presenting problem (client's words)</td><td class="fill">"…"</td></tr>
+<tr><td>Onset / precipitant / "why now"</td><td></td></tr>
+<tr><td>Five-domain symptoms</td><td>Emo: / Cog: / Beh: / Phys: / Interp:</td></tr>
+<tr><td>Severity (PHQ-9 today = ___ ; band = ___)</td><td></td></tr>
+<tr><td>Risk (SI / plan / means / prior attempts / hopelessness / protective)</td><td></td></tr>
+<tr><td>Bipolar / psychosis / substance / medical screen</td><td></td></tr>
+<tr><td>Predisposing (early life, family, temperament)</td><td></td></tr>
+<tr><td>Maintaining cycles (behavioural / cognitive / interpersonal / physiological)</td><td></td></tr>
+<tr><td>Strengths &amp; protective factors</td><td></td></tr>
+<tr><td>Client's goals</td><td></td></tr>
+<tr><td>Provisional diagnosis / differential</td><td></td></tr>
+<tr><td>Initial plan &amp; supervision points</td><td></td></tr>
+</table>
+</div>
+
+<div class="dlg">
+<p class="note">Introducing a measure — effective vs ineffective</p>
+<p class="t eff"><span class="sp">Therapist</span>"I'd like us to use a short questionnaire called the PHQ-9 at the start of most sessions. It takes two minutes and helps <em>both</em> of us see how things are shifting week to week — like a thermometer for mood. Would that be okay?"</p>
+<p class="c"><span class="sp">Client</span>"Sure."</p>
+<p class="t ineff"><span class="sp">Therapist</span>"Fill this form. I need it for the file." <em>(transactional; no rationale; misses the collaboration and the chance to explain measurement-based care)</em></p>
+</div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Assessment = diagnosis + risk + formulation data + relationship · distinguish formulation-critical from background · PHQ-9 for tracking, BDI-II cognitive-heavy but proprietary, HAM-D clinician-rated · scores support, never replace, judgement · item 9 always triggers risk work.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Ask "how does depression stop you doing what matters?" — it yields BA targets <em>and</em> goals. · Always get the typical-day narrative. · Re-score and show the client the trajectory.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>Endless history with no plan · using a cut-off as a diagnosis · ignoring somatic-illness overlap in scores · letting a positive item 9 slide.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Take Worksheet 2.1 and complete it for the "Meera" case from Part 1 using only what you were told; mark each row formulation-critical or background.</p>
+<h5>Case (moderate)</h5><p><em>Rahul, 38</em>, shopkeeper, 3 months of low mood, early-morning waking, weight loss, "I've failed my family," withdrawing from friends, PHQ-9 = 17, passive thoughts "family would be better off without me" but no plan/intent, no bipolar/psychosis, drinks nightly "to sleep." <strong>Task:</strong> what are the two most urgent things to clarify before therapy planning? (Risk — explore the passive ideation fully today; and the alcohol — differential + maintaining factor + risk amplifier.)</p>
+<h5>Quiz</h5><ol class="quiz"><li>PHQ-9 bands and the ≥10 cut-off properties?</li><li>Why is a scale never diagnostic on its own?</li><li>Which item on PHQ-9/BDI-II always triggers risk assessment?</li><li>Name three formulation-critical vs three background pieces of history.</li></ol>
+<h5>Reading</h5><p>Kroenke et al. 2001 (PHQ-9 validation); VA/DoD 2022 (measurement-based care). Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Run a structured intake, choose and interpret a measure, and produce a completed formulation-data summary that leads to a plan.</p>
+</details>
+
+<h2 class="part" id="p3">Part 3 — Case Formulation</h2>
+<p class="backtop">Foundations · Module 3</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>A formulation is a shared, testable hypothesis about <em>how this person's depression developed and — crucially — what keeps it going now</em>. It converts assessment into a plan and gives both of you a rationale for every technique. "Formulation drives treatment" is the sentence to tattoo on your clinical mind.</p></div>
+
+<h3>The CBT (maintenance) formulation — the "hot cross bun"</h3>
+<p>For a specific recent situation, map the interactions between four elements — they feed each other:</p>
+<table>
+<tr><th>Element</th><th>Example (client "Rahul", see below)</th></tr>
+<tr><td><strong>Situation / trigger</strong></td><td>Friend messages to meet for tea</td></tr>
+<tr><td><strong>Automatic thoughts</strong></td><td>"I'm boring now. He's just being polite. I'll ruin his evening."</td></tr>
+<tr><td><strong>Emotions</strong></td><td>Sad, anxious, ashamed</td></tr>
+<tr><td><strong>Physiology</strong></td><td>Heavy, tired, tight chest</td></tr>
+<tr><td><strong>Behaviour</strong></td><td>Makes an excuse, stays home</td></tr>
+</table>
+<p>The behaviour (avoidance) → confirms "I'm boring/alone" → deepens mood → next invitation feels harder. That loop is the treatment target.</p>
+
+<h3>The longitudinal (developmental) formulation</h3>
+<p>Beneath the moment sit deeper cognitive structures (Part 7). The longitudinal formulation links them:</p>
+<ul>
+<li><strong>Early experiences</strong> (predisposing) → </li>
+<li><strong>Core beliefs</strong> ("I'm worthless / unlovable / a failure") → </li>
+<li><strong>Intermediate beliefs / rules / assumptions</strong> ("If I don't succeed at everything, I'm nothing"; "I must never burden others") → </li>
+<li><strong>Critical incident(s)</strong> (precipitant) activates the beliefs → </li>
+<li><strong>Automatic thoughts</strong> → emotions, physiology, behaviour → <strong>maintaining cycles</strong>.</li>
+</ul>
+
+<h3>The 5 Ps summary (a practical scaffold)</h3>
+<table>
+<tr><th>P</th><th>Question</th><th>Rahul</th></tr>
+<tr><td>Presenting</td><td>What are the problems?</td><td>Low mood, withdrawal, insomnia, guilt, drinking</td></tr>
+<tr><td>Predisposing</td><td>What made them vulnerable?</td><td>Critical father; belief "worth = providing"; family history of depression</td></tr>
+<tr><td>Precipitating</td><td>What triggered this episode?</td><td>Shop revenue fell sharply 4 months ago</td></tr>
+<tr><td>Perpetuating</td><td>What keeps it going?</td><td>Avoidance/withdrawal, rumination on "failure", alcohol, disrupted sleep, marital distance</td></tr>
+<tr><td>Protective</td><td>What are the strengths?</td><td>Devoted to children, values honesty, wants help, wife supportive</td></tr>
+</table>
+
+<h3>Other major evidence-based conceptualisations</h3>
+<div class="grid2">
+<div class="card"><h5>Beck's cognitive model <span class="ev strong">Strong</span></h5><p>Depression is characterised by the <strong>negative cognitive triad</strong> (negative view of self, world, future), maintained by <strong>negative automatic thoughts</strong>, <strong>cognitive distortions</strong>, and underlying <strong>dysfunctional attitudes/schemas</strong>. Evidence: robust cross-cultural associations between negative cognition and depressive symptoms; the model has strong empirical support as a framework for the <em>maintenance</em> of episodes.</p></div>
+<div class="card"><h5>Behavioural model <span class="ev strong">Strong</span></h5><p>Depression follows a <strong>loss of response-contingent positive reinforcement</strong> (Lewinsohn): fewer rewarding person–environment interactions → low mood → withdrawal → still fewer rewards. Explains anhedonia and inactivity; leads directly to activity scheduling.</p></div>
+<div class="card"><h5>Behavioural activation model <span class="ev strong">Strong</span></h5><p>Refines the behavioural model: depression is maintained by <strong>avoidance</strong> and by behaviour that is negatively reinforced (short-term relief) but reduces contact with reward and mastery. Treatment = re-engagement guided by <em>function</em>, not mood. (Martell et al.)</p></div>
+<div class="card"><h5>Interpersonal model <span class="ev strong">Strong</span></h5><p>Depression arises and is maintained in the context of current <strong>interpersonal problems</strong> — grief, role transitions, disputes, deficits. Improving these relationships/roles improves mood. (Klerman &amp; Weissman; see Part 12.)</p></div>
+<div class="card"><h5>Problem-solving model <span class="ev mod">Moderate</span></h5><p>Depression is worsened by <strong>ineffective problem orientation and skills</strong> under life stress; teaching structured problem-solving reduces symptoms. (D'Zurilla &amp; Nezu; see Part 9.)</p></div>
+<div class="card"><h5>Rumination / metacognitive <span class="ev emerg">Emerging</span></h5><p>Repetitive negative thinking (rumination) maintained by positive/negative <strong>metacognitive beliefs</strong> about worrying/thinking; treatment targets the <em>process</em>, not content. (Wells; Nolen-Hoeksema.)</p></div>
+</div>
+
+<div class="box"><span class="lab">Choosing a model</span><p>These are lenses, not rivals. Start with a <strong>CBT maintenance formulation</strong> for almost everyone; lean <strong>behavioural</strong> when inactivity/avoidance dominate and cognitive engagement is low (severe depression), <strong>cognitive</strong> when negative thinking is prominent, <strong>interpersonal</strong> when a relationship/role problem is central, and add <strong>rumination</strong>-focused work when repetitive thinking is the engine.</p></div>
+
+<h3>Worked examples — formulation → plan</h3>
+<details open><summary>Example A — Rahul (moderate MDD)</summary>
+<p><strong>Formulation:</strong> long-standing belief "my worth = providing for my family" (predisposing) activated by a business downturn (precipitating); maintained by withdrawal, rumination on failure, alcohol-disrupted sleep, and growing marital distance.</p>
+<p><strong>Plan that follows directly:</strong> (1) risk monitoring + reduce alcohol/means; (2) <em>start</em> with behavioural activation to reverse withdrawal and rebuild mastery/pleasure and routine; (3) add cognitive work on "failure/worthlessness" automatic thoughts, then the underlying assumption; (4) sleep &amp; alcohol as behavioural targets; (5) later, an interpersonal/couple focus on marital distance; (6) relapse-prevention plan. Notice how each element maps to a maintaining factor.</p>
+</details>
+<details><summary>Example B — Priya (recurrent MDD, high self-criticism)</summary>
+<p><strong>Formulation:</strong> core belief "I'm not good enough" from a high-achieving, critical home; rule "I must be perfect or I'm a failure"; third episode, precipitated by a missed promotion; maintained by rumination, self-attacking thoughts, social withdrawal, and perfectionistic avoidance (not starting tasks she can't do perfectly).</p>
+<p><strong>Plan:</strong> BA + behavioural experiments on perfectionistic rules; cognitive work on self-critical thoughts; given prominent shame/self-attack, integrate <em>self-compassion/CFT</em> techniques (Part 10); MBCT-style relapse prevention (recurrent course). </p>
+</details>
+<details><summary>Example C — Anand (severe MDD, low engagement)</summary>
+<p><strong>Formulation:</strong> severe episode, barely leaving bed, PHQ-9 = 23, profound anhedonia and fatigue, passive suicidal ideation; cognitively too slowed for much thought work yet.</p>
+<p><strong>Plan:</strong> safety first + psychiatric coordination (consider medication); <em>behavioural activation only</em> to begin (tiny, scheduled activities), defer cognitive restructuring until activation and engagement improve. This is a deliberate sequencing decision the formulation makes obvious.</p>
+</details>
+
+<div class="ws"><p class="wt">Worksheet 3.1 — CBT Formulation Template (original)</p>
+<p><strong>Maintenance (recent situation):</strong> Situation → Automatic thoughts → Emotions → Physiology → Behaviour → (how the behaviour feeds back)</p>
+<p><strong>Longitudinal:</strong> Early experiences → Core belief(s) → Rules/assumptions → Precipitant → Current cycles</p>
+<p><strong>5 Ps:</strong> Presenting / Predisposing / Precipitating / Perpetuating / Protective</p>
+<p><strong>Treatment implications:</strong> for each perpetuating factor, name the technique that targets it and roughly when in therapy.</p>
+</div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Formulation = shared testable hypothesis · maintenance (hot-cross-bun) + longitudinal + 5 Ps · models are lenses matched to presentation · every perpetuating factor should map to a technique.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Share the formulation <em>with</em> the client on paper — it is itself therapeutic and de-shaming. · Revise it as new data arrive. · If you can't name what a technique targets in the formulation, don't use it yet.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>A tidy formulation you never use · over-loading the developmental history and under-specifying current cycles · imposing one model regardless of presentation · never sharing it with the client.</p></div>
+
+<details><summary>Exercise · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Using Worksheet 3.1, formulate "Priya" fully and draw arrows showing at least two maintaining cycles. Then write the first three treatment steps that follow.</p>
+<h5>Quiz</h5><ol class="quiz"><li>State the five elements of the maintenance formulation.</li><li>What are the 5 Ps?</li><li>Why might you choose a behavioural over a cognitive lens for a severely depressed, cognitively slowed client?</li><li>What is the negative cognitive triad?</li></ol>
+<h5>Reading</h5><p>J. Beck, <em>CBT: Basics and Beyond</em>, ch. on formulation; Persons' <em>Case Formulation</em> approach; Eells (2007), in your reference list.</p>
+<h5>Can-do</h5><p>Produce a written CBT formulation for a case and derive a sequenced treatment plan from it, choosing an appropriate model.</p>
+</details>
+
+
+<h2 class="part" id="p4">Part 4 — Complete CBT for Depression: The Therapy &amp; the Relationship</h2>
+<p class="backtop">Core CBT · Module 4</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>CBT is not a bag of techniques applied at random; it is a <strong>structured, collaborative, time-limited</strong> therapy delivered inside a warm relationship. This module teaches the <em>container</em> — the relationship and the session structure — into which every later technique is poured. Treatment is <strong>individualised</strong>, but the usual arc is: engage &amp; assess → behavioural activation → cognitive work → belief-level work → relapse prevention.</p></div>
+
+<h3>The therapeutic relationship in CBT</h3>
+<p>Evidence is clear that the alliance predicts outcome across therapies; in CBT the relationship is necessary but works <em>with</em> the techniques, not instead of them.</p>
+<table>
+<tr><th>Ingredient</th><th>What it means in practice</th></tr>
+<tr><td><strong>Rapport</strong></td><td>Warmth, genuine interest, remembering details, matching pace; especially important with slowed, hopeless clients.</td></tr>
+<tr><td><strong>Collaboration</strong></td><td>"We" language; shared decisions; the client is the expert on their life, you on the method. Therapy is <em>done with</em>, not <em>to</em>.</td></tr>
+<tr><td><strong>Empathy &amp; validation</strong></td><td>Communicating that the distress makes sense given their situation and beliefs — <em>before</em> any change work.</td></tr>
+<tr><td><strong>Collaborative empiricism</strong></td><td>Therapist and client act like co-scientists testing the client's thoughts/predictions against evidence and experiments.</td></tr>
+<tr><td><strong>Guided discovery &amp; Socratic questioning</strong></td><td>Helping the client reach new perspectives through questions, not lectures (detailed in Part 16).</td></tr>
+<tr><td><strong>Therapist stance</strong></td><td>Curious, non-judgemental, transparent (shares the model &amp; rationale), hopeful without being falsely reassuring.</td></tr>
+</table>
+
+<h3>Anatomy of a standard CBT session</h3>
+<ol>
+<li><strong>Mood check &amp; brief measure</strong> (e.g. PHQ-9). Note item 9.</li>
+<li><strong>Bridge from last session</strong> ("what stood out from last time?").</li>
+<li><strong>Set the agenda collaboratively</strong> — 2–3 items, prioritised.</li>
+<li><strong>Review homework</strong> — always; it signals it matters (see below).</li>
+<li><strong>Work the agenda</strong> — the main therapeutic tasks.</li>
+<li><strong>Set new homework</strong> collaboratively, linked to today's work.</li>
+<li><strong>Summarise &amp; take feedback</strong> — "what was helpful/unhelpful today?"</li>
+</ol>
+
+<div class="dlg">
+<p class="note">Agenda setting — effective</p>
+<p class="t eff"><span class="sp">Therapist</span>"Let's decide together what's most useful to focus on today. I'd like to review the activity diary and check on sleep. What would you like to add or put first?"</p>
+<p class="c"><span class="sp">Client</span>"The fight with my brother is on my mind."</p>
+<p class="t eff"><span class="sp">Therapist</span>"Let's make that our first item, then the diary. Does that work?"</p>
+<p class="note">Ineffective</p>
+<p class="t ineff"><span class="sp">Therapist</span>"So… how was your week?" <em>(no agenda → session drifts, homework never reviewed, no clear task)</em></p>
+</div>
+
+<div class="box tip"><span class="lab">Reviewing homework — why it matters &amp; how</span><p>Homework (better framed as "between-session practice" or "experiments") is where change consolidates; skipping the review teaches the client it's optional. Always ask what they <em>learned</em>, not just whether they "did it." If not done, treat that as data (a behavioural experiment about barriers), not a failing.</p></div>
+
+<h3>Psychoeducation</h3>
+
+<h4>Explaining depression to a client (normalising without minimising)</h4>
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"Depression isn't weakness or a character flaw — it's a common, treatable condition that affects mood, thinking, the body and behaviour. When people are depressed, they naturally do less and pull back, which feels sensible but tends to lower mood further. And depression acts like a filter that makes thoughts more negative and more believable. The good news is that we can work on both the doing and the thinking, and mood tends to follow."</p>
+<p class="c"><span class="sp">Client</span>"So it's not just me being lazy?"</p>
+<p class="t"><span class="sp">Therapist</span>"Not at all. What looks like laziness is usually depression's low energy and loss of reward. That's exactly what we'll target — gently and step by step."</p>
+</div>
+
+<h4>Explaining the CBT model &amp; the thought–feeling–behaviour link</h4>
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"Here's the idea we'll use. In any situation, what we <em>think</em>, how we <em>feel</em>, what our <em>body</em> does, and how we <em>behave</em> all influence each other. Say you're low and a friend texts. The thought 'he's only being polite' leads to feeling ashamed, staying home, and then feeling more alone — which 'proves' the thought. We can step into that cycle at the thinking <em>and</em> the behaviour, and break it. Shall we map one of your recent examples like this?"</p>
+</div>
+<p>Draw the hot-cross-bun with the client's own example. Handing them the drawing is itself de-shaming — the problem becomes an external cycle to tackle together, not a personal defect.</p>
+
+<div class="box"><span class="lab">Normalising without minimising — the balance</span><p>"Many people with depression feel this" (normalise) must be paired with "and I can see how heavy this is for you" (validate) — never "everyone feels down sometimes" (minimise). The first builds hope; the last breaks trust.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>CBT = structured + collaborative + time-limited inside a warm alliance · standard session anatomy (mood → bridge → agenda → homework review → work → new homework → feedback) · collaborative empiricism &amp; guided discovery · psychoeducation externalises the problem into a cycle.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Set an agenda every session, even in crisis (adjust it). · Always review homework. · Take feedback at the end — it models the collaborative stance and catches ruptures early.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>Free-floating "supportive chats" with no structure · lecturing the model instead of drawing the client's own example · reassurance instead of validation · never eliciting feedback.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Write out, in your own words, a 90-second psychoeducation script explaining the CBT model to a client, ending with a collaborative invitation to map their own example.</p>
+<h5>Case</h5><p>A client says "I don't see how talking about my thoughts will help — I need my job back, not therapy." Draft a validating, collaborative reply that keeps the alliance and gently offers the model. (Hint: validate the reality of the job stress, agree it's central, and offer to use CBT to tackle the impact <em>and</em> problem-solve the job situation — Part 9.)</p>
+<h5>Quiz</h5><ol class="quiz"><li>List the seven components of a standard CBT session.</li><li>Define collaborative empiricism and guided discovery.</li><li>Why review homework even when it wasn't done?</li><li>Contrast validating and minimising statements.</li></ol>
+<h5>Reading</h5><p>J. Beck, <em>CBT: Basics and Beyond</em> (session structure); Sanders &amp; Wills, <em>Cognitive Therapy: An Introduction</em> (in your list).</p>
+<h5>Can-do</h5><p>Structure a full session, deliver clear psychoeducation using the client's own example, and maintain a collaborative stance.</p>
+</details>
+
+<h2 class="part" id="p5">Part 5 — Behavioural Activation (BA)</h2>
+<p class="backtop">Core CBT · Module 5</p>
+
+<div class="box goal"><span class="lab">Why start here?</span><p>Behavioural activation is often the <strong>first and safest engine of change</strong>, especially in moderate-to-severe depression where clients are too slowed or hopeless for cognitive work. It is powerful, learnable, and — as a trainee — a superb place to begin. It can be delivered as a complete stand-alone therapy.</p></div>
+
+<h4>What BA is · Rationale · Evidence · Indications</h4>
+<p><strong>What:</strong> a structured approach that reverses the depressive spiral of withdrawal and avoidance by systematically increasing contact with activities that provide <strong>pleasure, mastery, and meaning (values)</strong>, chosen by <em>function</em> rather than mood ("act according to a plan, not according to how you feel").</p>
+<p><strong>Rationale:</strong> depression reduces rewarding person–environment interactions (Lewinsohn); avoidance gives short-term relief but deepens depression (Martell). Re-engagement restores reinforcement, mastery and routine, and mood follows behaviour.</p>
+<p><strong>Evidence <span class="ev strong">Strong</span>:</strong> BA is recommended in NICE NG222 and the VA/DoD 2022 guideline; meta-analyses show large effects vs controls (e.g. Hedges' g ≈ 0.8 vs inactive controls) and it is broadly comparable to full CBT — while being simpler to train and deliver. In India, the <strong>Healthy Activity Program (HAP)</strong> — a BA-based brief treatment delivered by lay counsellors — was effective for moderate-to-severe depression in primary care (Patel et al., <em>Lancet</em> 2017).</p>
+<p><strong>Indications:</strong> most depressed clients; particularly first-line when inactivity, anhedonia, withdrawal and low energy dominate, and in severe depression. <strong>Less appropriate / adapt:</strong> when a medical condition limits activity (adapt goals), in acute mania (not depression), or where activity itself is unsafe — and never as a substitute for risk management.</p>
+
+<h3>Core components (with the full teaching cycle for each)</h3>
+
+<h4>1 · Activity &amp; mood monitoring</h4>
+<p><strong>Therapist explanation:</strong> "Before we change anything, let's understand your week. I'd like you to note, hour by hour, what you did and rate your mood 0–10. We're looking for the link between what you do and how you feel." <strong>Rationale:</strong> builds the client's own evidence for the activity–mood link and reveals avoidance patterns.</p>
+<div class="ws"><p class="wt">Worksheet 5.1 — Activity &amp; Mood Diary (original)</p>
+<table>
+<tr><th>Time</th><th>Mon — activity / mood 0–10</th><th>Tue</th><th>…</th></tr>
+<tr><td>6–9am</td><td class="fill">Lay in bed / 2</td><td></td><td></td></tr>
+<tr><td>9–12</td><td class="fill">Scrolled phone / 2</td><td></td><td></td></tr>
+<tr><td>12–3pm</td><td class="fill">Walked to shop / 5</td><td></td><td></td></tr>
+<tr><td>3–6</td><td></td><td></td><td></td></tr>
+<tr><td>6–9</td><td></td><td></td><td></td></tr>
+</table>
+<p>Optional columns: <strong>P</strong> = pleasure (0–10), <strong>M</strong> = mastery/achievement (0–10).</p></div>
+<div class="dlg">
+<p class="note">Reviewing the diary next session</p>
+<p class="t"><span class="sp">Therapist</span>"Looking at your week, I notice mood was 5 after the walk and 2 during the morning scrolling. What do you make of that?"</p>
+<p class="c"><span class="sp">Client</span>"I suppose doing something got me a bit up."</p>
+<p class="t"><span class="sp">Therapist</span>"Exactly — your own data. That's the lever we'll use."</p>
+</div>
+
+<h4>2 · Identifying avoidance, withdrawal &amp; behavioural patterns</h4>
+<p>From the diary, name what the client has <em>stopped</em> doing (withdrawal) and what they do to escape distress (avoidance — including subtle avoidance like oversleeping, endless scrolling, "I'll do it when I feel better"). Introduce the <strong>TRAP → TRAC</strong> idea: <em>Trigger–Response–Avoidance Pattern</em> replaced by <em>Trigger–Response–Alternative Coping</em>.</p>
+
+<h4>3 · Activity scheduling, graded tasks &amp; breaking tasks down</h4>
+<p><strong>Explanation:</strong> "We'll plan a few specific activities into your week — small, doable, and scheduled at a time, not left to mood." <strong>Graded task assignment:</strong> break avoided/overwhelming tasks into small steps and start with the smallest ("clear one shelf," not "clean the house"). <strong>Match difficulty to current capacity</strong> to build success experiences.</p>
+<div class="ws"><p class="wt">Worksheet 5.2 — Weekly Activity Schedule + Pleasure/Mastery/Values (original)</p>
+<table>
+<tr><th>Day/time</th><th>Planned activity</th><th>Type (P/M/V)</th><th>Predicted mood</th><th>Actual mood + P/M</th></tr>
+<tr><td class="fill">Wed 10am</td><td class="fill">10-min walk in park</td><td class="fill">P/V</td><td class="fill">3</td><td class="fill">5 (P6 M4)</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<p>P = pleasure, M = mastery/achievement, V = values/meaning. Include at least one of each across the week.</p></div>
+
+<h4>4 · Pleasure, mastery &amp; values-based activity</h4>
+<p>Depression strips both enjoyment (pleasure) and sense of achievement (mastery). Deliberately schedule <em>both</em>, plus activities tied to the client's <strong>values</strong> (being a good parent, learning, faith, health). Values give activation meaning when pleasure is still numbed — crucial early on when anhedonia means "nothing feels good yet."</p>
+
+<h4>5 · Routine building &amp; reducing avoidance</h4>
+<p>Regularise sleep/wake, meals and activity anchors — depression thrives on disorganised days. Progressively schedule previously avoided activities (approach, don't escape), reviewing outcomes.</p>
+
+<h4>6 · Problem-solving barriers &amp; maintaining gains</h4>
+<p>When a planned activity doesn't happen, treat it as information: was it too big? badly timed? blocked by a thought ("no point")? Then adjust (smaller step, better time, or address the thought with Part 6 tools). Maintain gains by building activities into a durable routine and into the relapse-prevention plan (Part 14).</p>
+
+<div class="box"><span class="lab">Worked example — Anand (severe, from Part 3)</span>
+<p>Week 1 goal was not "exercise" but "sit up in bed and open the curtains at 9am, then walk to the gate." Predicted mood 2; actual 3, mastery 4. That tiny success — and the gap between predicted and actual — became the evidence that "doing helps even when I don't feel like it," and the platform for the next step.</p></div>
+
+<div class="dlg">
+<p class="note">Introducing BA — effective</p>
+<p class="t eff"><span class="sp">Therapist</span>"Depression tells you to wait until you feel like doing things. But usually the feeling comes <em>after</em> the doing, not before. So we're going to experiment with acting from a plan rather than from motivation. We'll start absurdly small — small enough that it's almost impossible to fail. Are you willing to test that idea?"</p>
+<p class="note">Ineffective</p>
+<p class="t ineff"><span class="sp">Therapist</span>"You just need to get out more and stay busy." <em>(no rationale, no grading, no function, sets up failure and shame)</em></p>
+</div>
+
+<h4>Common mistakes &amp; troubleshooting</h4>
+<table>
+<tr><th>Problem</th><th>Troubleshooting</th></tr>
+<tr><td>Tasks too big → "failure"</td><td>Grade down until success is near-guaranteed; celebrate small steps.</td></tr>
+<tr><td>Scheduling only pleasure, ignoring mastery/values</td><td>Balance all three; use values when anhedonia blunts pleasure.</td></tr>
+<tr><td>Waiting for motivation</td><td>Re-teach "action first, motivation follows"; use it as a behavioural experiment.</td></tr>
+<tr><td>"I did it but still feel bad"</td><td>Track mood/mastery over the whole week, not one instant; mood lags behaviour.</td></tr>
+<tr><td>Activity that is actually avoidance (e.g. all-day gaming)</td><td>Judge by <em>function</em>: does it move toward life or away from distress?</td></tr>
+<tr><td>Homework not done</td><td>Explore barriers collaboratively as data; shrink the step; problem-solve timing.</td></tr>
+</table>
+
+<div class="box tip"><span class="lab">Free BA worksheets &amp; manuals (legal)</span><p>CCI "Behavioural Strategies for Depression" module and CCI therapist Mood Management manual; the Healthy Activity Program is described in open-access <em>Lancet</em> reports. Links in <a href="#refs">References</a>.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Act from a plan, not mood · monitor → identify avoidance → schedule graded pleasure/mastery/values activities → problem-solve barriers → maintain · strong evidence, stand-alone capable, works in Indian primary care (HAP).</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Start smaller than you think. · Use the predicted-vs-actual mood gap as evidence. · Values carry activation when pleasure is still numb.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>"Just keep busy" advice · only pleasant events, no mastery/values · big ungraded tasks · abandoning BA the moment cognitive work starts.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Take one avoided task from your own week, grade it into five steps, and schedule the first step at a specific time. Predict mood/mastery, then rate actual. Notice the gap.</p>
+<h5>Case</h5><p><em>Rahul</em> agrees to BA but returns having done nothing: "There was no point." Plan next session: (1) validate + normalise; (2) treat "no point" as a testable prediction (behavioural experiment, Part 8); (3) grade the smallest possible step; (4) schedule it and identify the barrier.</p>
+<h5>Quiz</h5><ol class="quiz"><li>Why act "according to a plan, not mood"?</li><li>Define pleasure vs mastery vs values activities.</li><li>What is TRAP → TRAC?</li><li>State the evidence status of BA and one Indian trial.</li></ol>
+<h5>Reading</h5><p>Martell et al., <em>Behavioral Activation for Depression</em>; Patel et al. 2017 (HAP, <em>Lancet</em>); CCI behavioural module. Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Set up an activity diary, identify avoidance, and design a graded, balanced weekly schedule with predicted/actual monitoring and barrier problem-solving.</p>
+</details>
+
+
+<h2 class="part" id="p6">Part 6 — Cognitive Techniques</h2>
+<p class="backtop">Core CBT · Module 6</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>To help the client notice the automatic negative thinking depression generates, and to <strong>relate to those thoughts differently</strong> — examining them as hypotheses rather than facts. The aim is not "positive thinking"; it is <em>accurate, balanced, and flexible</em> thinking. <span class="ev strong">Cognitive restructuring has strong evidence as a component of CBT.</span></p></div>
+
+<div class="box warn"><span class="lab">Read this before you "challenge" any thought</span><p>Do <strong>not</strong> treat cognitive work as proving the client wrong. Many depressive thoughts contain real truth (a job <em>was</em> lost; a relationship <em>did</em> end). The therapist's job is to test whether the thought is <em>accurate and helpful</em>, and to loosen distortion — <strong>never to invalidate a legitimate negative experience.</strong> If a thought is largely true, you move to problem-solving (Part 9), acceptance, or coping — not disputation. Sequencing note: usually begin cognitive work <em>after</em> some behavioural activation, and in less severe/cognitively-able states.</p></div>
+
+<h3>Stage 1 · Identifying automatic thoughts (ATs)</h3>
+<p>ATs are the quick, involuntary appraisals that pop up in situations. Teach the client to catch them by anchoring to <strong>emotion shifts</strong>: "When your mood dropped, what went through your mind?"</p>
+<ul>
+<li><strong>Situation identification</strong> — when/where/who; be specific.</li>
+<li><strong>Emotion identification</strong> — name it and rate intensity 0–100%.</li>
+<li><strong>Automatic thought identification</strong> — words/images at the moment; rate belief 0–100%.</li>
+</ul>
+<div class="ws"><p class="wt">Worksheet 6.1 — 3-Column Thought Record (original; teaching version)</p>
+<table><tr><th>Situation</th><th>Emotion (0–100%)</th><th>Automatic thought (belief 0–100%)</th></tr>
+<tr><td class="fill">Boss didn't reply to email</td><td class="fill">Anxious 70, sad 60</td><td class="fill">"He thinks my work is useless." (85%)</td></tr>
+<tr><td></td><td></td><td></td></tr></table></div>
+
+<h3>Stage 2 · Examining thoughts</h3>
+<p>Once the client can catch thoughts, help them evaluate the "hot" one (the thought most linked to the strong emotion) using <strong>guided discovery / Socratic questioning</strong>. Techniques (choose to fit the thought):</p>
+<table>
+<tr><th>Technique</th><th>Core question / method</th><th>Best for</th></tr>
+<tr><td>Evidence for / against</td><td>"What supports this thought? What doesn't fit it?"</td><td>Over-general negative conclusions</td></tr>
+<tr><td>Alternative explanations</td><td>"What other explanations are there for the boss not replying?"</td><td>Mind-reading, personalisation</td></tr>
+<tr><td>Continuum technique</td><td>Rate on a 0–100 line rather than all-or-nothing</td><td>Black-and-white "failure/success"</td></tr>
+<tr><td>Decatastrophising</td><td>"If it were true, what's the worst, best, and most likely? Could you cope?"</td><td>Catastrophic predictions</td></tr>
+<tr><td>Reattribution</td><td>Pie chart of all contributing causes</td><td>Excessive self-blame</td></tr>
+<tr><td>Double-standard</td><td>"What would you say to a friend who thought this?"</td><td>Harsh self-criticism</td></tr>
+<tr><td>Cost–benefit</td><td>"What does holding this thought cost you / give you?"</td><td>Sticky, "useful" negative beliefs</td></tr>
+<tr><td>Probability estimation</td><td>"Realistically, how likely is that, 0–100%?"</td><td>Fortune-telling</td></tr>
+<tr><td>Thought vs fact</td><td>"Is that a fact, or a thought <em>about</em> the facts?"</td><td>Emotional reasoning</td></tr>
+</table>
+
+<div class="ws"><p class="wt">Worksheet 6.2 — 7-Column Thought Record with balanced alternative (original)</p>
+<table>
+<tr><th>Situation</th><th>Emotion %</th><th>Automatic thought %</th><th>Evidence for</th><th>Evidence against</th><th>Balanced/alternative thought</th><th>Re-rate emotion &amp; belief %</th></tr>
+<tr><td class="fill">No reply from boss</td><td class="fill">Anx 70</td><td class="fill">"He thinks my work is useless" 85</td><td class="fill">He was curt on Monday</td><td class="fill">He praised last report; he's travelling; he replies late often; other work is fine</td><td class="fill">"He's probably busy/travelling; one late reply doesn't mean my work is useless." 60</td><td class="fill">Anx 35; original belief 30</td></tr>
+</table></div>
+
+<div class="dlg">
+<p class="note">Socratic examination — effective (guided discovery, not lecturing)</p>
+<p class="t eff"><span class="sp">Therapist</span>"You concluded he thinks your work is useless. I'm curious — what actually happened?"</p>
+<p class="c"><span class="sp">Client</span>"He didn't reply to my email for a day."</p>
+<p class="t eff"><span class="sp">Therapist</span>"What are some reasons — other than your work being useless — that someone might not reply for a day?"</p>
+<p class="c"><span class="sp">Client</span>"…He's actually travelling this week."</p>
+<p class="t eff"><span class="sp">Therapist</span>"How does the thought hold up against that?"</p>
+<p class="c"><span class="sp">Client</span>"Weaker, I guess. Maybe 40%."</p>
+<p class="note">Ineffective (disputation / invalidation)</p>
+<p class="t ineff"><span class="sp">Therapist</span>"That's irrational — of course he doesn't think that. You're catastrophising." <em>(tells rather than discovers; labels; invalidates; breaks alliance)</em></p>
+</div>
+
+<h3>Cognitive distortions — teach as patterns, not a checklist to police</h3>
+<div class="box"><p>Naming patterns helps clients gain distance, but <strong>the goal is accuracy, not labelling</strong>. A therapist decides a thought is <em>problematic</em> only if it is (a) distorted/inaccurate given the evidence, <em>and</em> (b) unhelpful (worsens mood/function). If a negative thought is accurate and the situation is genuinely bad, you validate and move to problem-solving/coping — you do <em>not</em> slap a "distortion" label on real pain.</p></div>
+<table>
+<tr><th>Pattern</th><th>Example</th></tr>
+<tr><td>All-or-nothing</td><td>"If it's not perfect, it's a total failure."</td></tr>
+<tr><td>Overgeneralisation</td><td>"I always mess everything up."</td></tr>
+<tr><td>Mental filter</td><td>Focusing only on the one criticism among ten praises.</td></tr>
+<tr><td>Discounting the positive</td><td>"That success doesn't count — anyone could do it."</td></tr>
+<tr><td>Mind reading</td><td>"They think I'm boring."</td></tr>
+<tr><td>Fortune telling</td><td>"This will definitely go wrong."</td></tr>
+<tr><td>Catastrophising</td><td>"If I fail this, my life is over."</td></tr>
+<tr><td>Emotional reasoning</td><td>"I feel worthless, so I must be."</td></tr>
+<tr><td>Should statements</td><td>"I should always cope alone."</td></tr>
+<tr><td>Labelling</td><td>"I'm a loser" (vs "I made a mistake").</td></tr>
+<tr><td>Personalisation</td><td>"The team lost because of me."</td></tr>
+<tr><td>Unfair comparisons</td><td>Comparing self only with the most successful others.</td></tr>
+</table>
+
+<h4>Common mistakes &amp; troubleshooting</h4>
+<table>
+<tr><th>Mistake</th><th>Fix</th></tr>
+<tr><td>Debating / trying to "win"</td><td>Return to guided discovery; you're co-investigating, not persuading.</td></tr>
+<tr><td>Restructuring a true thought</td><td>Check accuracy first; if true, switch to problem-solving/acceptance.</td></tr>
+<tr><td>Doing cognitive work too early (severe, slowed client)</td><td>Do more BA first; keep it simple.</td></tr>
+<tr><td>Client "agrees" intellectually but doesn't believe it</td><td>Use behavioural experiments (Part 8) — experiential evidence beats verbal.</td></tr>
+<tr><td>Turning it into "just think positive"</td><td>Emphasise <em>balanced/realistic</em>, evidence-based thoughts, not cheerleading.</td></tr>
+</table>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Catch ATs via emotion shifts · examine the "hot" thought with fitted Socratic techniques · aim for balanced/accurate, not positive · distortions are patterns to gain distance, judged by accuracy + helpfulness · validate legitimate negatives.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>The double-standard question ("what would you tell a friend?") is your workhorse. · Re-rate emotion/belief before and after — visible change builds credibility. · When verbal work stalls, test it behaviourally.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>Disputation/invalidation · "positive thinking" · labelling real distress a "distortion" · cognitive work before the client can engage.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Complete a 7-column record on one of your own recent low-mood moments. Notice whether the balanced thought is genuinely more <em>accurate</em>, not just nicer.</p>
+<h5>Case</h5><p><em>Priya</em>: "I got 92% but I'm a total failure because I didn't top the class." Which distortions? Which technique fits best? (All-or-nothing, discounting positives, unfair comparison; continuum technique + double-standard.) Draft three Socratic questions.</p>
+<h5>Quiz</h5><ol class="quiz"><li>What two conditions make a thought a legitimate target?</li><li>Name the technique for excessive self-blame; for catastrophic predictions.</li><li>Why is guided discovery preferred over telling the client the thought is wrong?</li><li>What do you do if the negative thought turns out to be accurate?</li></ol>
+<h5>Reading</h5><p>Greenberger &amp; Padesky, <em>Mind Over Mood</em>; J. Beck (cognitive techniques); CCI "Unhelpful Thinking Styles". Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Teach thought-catching, run a Socratic examination of a hot thought, and complete a balanced thought record without invalidating.</p>
+</details>
+
+<h2 class="part" id="p7">Part 7 — Core Beliefs and Intermediate Beliefs</h2>
+<p class="backtop">Core CBT · Module 7</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>To reach the <strong>deeper cognitive structures</strong> that generate the recurring automatic thoughts — and to modify them so gains last and relapse risk falls. This is usually <em>later-stage</em> work, once the client can catch and examine ATs and has some behavioural momentum.</p></div>
+
+<h3>The cognitive levels</h3>
+<table>
+<tr><th>Level</th><th>Definition</th><th>Example</th></tr>
+<tr><td><strong>Automatic thoughts</strong></td><td>Situation-specific, surface</td><td>"He thinks my work is useless."</td></tr>
+<tr><td><strong>Intermediate beliefs</strong> (rules, attitudes, assumptions)</td><td>Cross-situational conditional rules</td><td>Rule: "I must always perform perfectly." Assumption: "If I fail, people will reject me." Attitude: "Failure is unbearable."</td></tr>
+<tr><td><strong>Core beliefs / schemas</strong></td><td>Global, absolute beliefs about self/others/world</td><td>"I'm worthless" · "I'm unlovable" · "I'm helpless."</td></tr>
+</table>
+<p>Beck grouped depressive core beliefs broadly into <strong>helplessness</strong> ("I'm incompetent/weak") and <strong>unlovability</strong> ("I'm undesirable/will be abandoned"); a third cluster is <strong>worthlessness/badness</strong>.</p>
+
+<h3>When to do this — and when it's premature</h3>
+<div class="box warn"><p><strong>Premature belief work is a classic trainee error.</strong> Going for "I'm worthless" in session 2, with a severely depressed, hopeless client who can barely get out of bed, can amplify shame and confirm the belief. Do belief work when: the client can identify/examine ATs, has some behavioural gains and stability, risk is managed, and there is a solid alliance. In brief therapy you may only <em>identify</em> beliefs and do light work; deep schema change needs time.</p></div>
+
+<h3>Techniques</h3>
+
+<h4>Downward arrow (identifying beliefs)</h4>
+<p>Take a believable AT and repeatedly ask, in effect, "If that were true, what would it mean about you?" until you reach the core belief.</p>
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"You thought 'my boss thinks my work is useless.' If that were true, what would it mean to you?"</p>
+<p class="c"><span class="sp">Client</span>"That I'm not good at my job."</p>
+<p class="t"><span class="sp">Therapist</span>"And if you're not good at your job, what would that mean?"</p>
+<p class="c"><span class="sp">Client</span>"That I'm failing at everything."</p>
+<p class="t"><span class="sp">Therapist</span>"And if that were true, what would it say about you as a person?"</p>
+<p class="c"><span class="sp">Client</span>"…That I'm worthless."</p>
+<p class="t"><span class="sp">Therapist</span>"Thank you — that took courage. That belief, 'I'm worthless', is what we can start to examine together."</p>
+</div>
+
+<h4>Modifying beliefs — a toolkit</h4>
+<ul>
+<li><strong>Historical exploration:</strong> where did this belief come from? "Made sense as a child in that home, but is it true of you as an adult now?" — separates origin from present truth.</li>
+<li><strong>Evidence examination:</strong> gather evidence for/against the belief across life, not just the depressive lens.</li>
+<li><strong>Continuum technique:</strong> replace binary "worthless vs worthy" with a graded scale; define what points mean; locate self realistically.</li>
+<li><strong>Positive data log:</strong> a daily log of evidence <em>for</em> a new, balanced belief (e.g. "I have worth/value") — because depressed clients filter out disconfirming data, they must actively collect it.</li>
+<li><strong>Behavioural experiments</strong> (Part 8): test rules ("If I ask for help, I'll be rejected") in real life.</li>
+<li><strong>Alternative balanced belief:</strong> craft a credible new belief ("I'm a worthwhile person who, like everyone, has strengths and struggles") and build evidence for it over weeks.</li>
+<li><strong>Schema modification (advanced):</strong> for entrenched, early beliefs — imagery rescripting, chair-work, and schema-therapy methods — typically beyond brief CBT and requiring specific training/supervision.</li>
+</ul>
+
+<div class="ws"><p class="wt">Worksheet 7.1 — Core Belief Worksheet (original)</p>
+<p><strong>Old core belief:</strong> <span class="fill">"I'm worthless"</span> — believe now ___% </p>
+<p><strong>New/balanced belief:</strong> <span class="fill">"I'm a worthwhile person with strengths and difficulties, like anyone"</span> — believe now ___%</p>
+<table><tr><th>Evidence that supported the OLD belief</th><th>Reframe / does it really prove it?</th><th>Evidence for the NEW belief (positive data log)</th></tr>
+<tr><td class="fill">"I lost the contract"</td><td class="fill">A setback ≠ being worthless; many factors involved</td><td class="fill">"Helped my daughter with homework"; "a friend confided in me"; "kept the shop open through a hard year"</td></tr></table></div>
+
+<div class="ws"><p class="wt">Worksheet 7.2 — Intermediate Belief / Rule Restructuring (original)</p>
+<p><strong>Old rule:</strong> "I must succeed at everything or I'm a failure." → <strong>Cost of the rule:</strong> <span class="fill">anxiety, procrastination, never satisfied</span> → <strong>Where it came from:</strong> <span class="fill">critical parent</span> → <strong>New, flexible rule:</strong> <span class="fill">"Doing my best is enough; everyone has strengths and limits; setbacks are normal and survivable."</span></p></div>
+
+<h4>Common mistakes &amp; troubleshooting</h4>
+<table>
+<tr><th>Mistake</th><th>Fix</th></tr>
+<tr><td>Belief work too early / with high-risk client</td><td>Stabilise, activate, manage risk first; ensure alliance.</td></tr>
+<tr><td>Downward arrow becomes an interrogation</td><td>Slow, warm, validating; watch affect; stop if overwhelming.</td></tr>
+<tr><td>Trying to "delete" a core belief in one session</td><td>Belief change is gradual, evidence-based, over weeks; use logs &amp; experiments.</td></tr>
+<tr><td>New belief too rosy / not credible</td><td>Make it balanced and believable, not aspirational cheerleading.</td></tr>
+</table>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Three levels: ATs → intermediate beliefs (rules/assumptions/attitudes) → core beliefs/schemas · downward arrow to identify · modify with historical work, evidence, continuum, positive data logs, experiments, balanced beliefs · usually later-stage; premature work harms.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Separate the belief's <em>origin</em> ("understandable then") from its <em>current accuracy</em> ("but is it true now?"). · Positive data logs counter the depressive attention bias. · Credible &gt; rosy.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>Schema-diving with an unstable client · interrogative downward arrows · expecting instant belief change · implausible new beliefs.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Run a downward arrow on a believable AT of your own (or a case) until you reach a plausible core belief. Then draft a balanced alternative and three items for a positive data log.</p>
+<h5>Case</h5><p><em>Priya's</em> rule: "If I'm not the best, I'm nothing." Design an intermediate-belief restructuring and one behavioural experiment to test it (see Part 8).</p>
+<h5>Quiz</h5><ol class="quiz"><li>Name the three cognitive levels with an example of each.</li><li>What signals that belief work is premature?</li><li>What does a positive data log correct for?</li><li>Why separate a belief's origin from its current truth?</li></ol>
+<h5>Reading</h5><p>J. Beck (core &amp; intermediate beliefs); Padesky (schema change &amp; continuum); Young (schema therapy, advanced). Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Identify a core belief via downward arrow and begin structured, gradual belief modification safely and appropriately.</p>
+</details>
+
+
+<h2 class="part" id="p8">Part 8 — Behavioural Experiments</h2>
+<p class="backtop">Core CBT · Module 8</p>
+
+<div class="box goal"><span class="lab">What is the therapist trying to accomplish?</span><p>To let the client <strong>test a belief or prediction in real life and learn from experience</strong>. Experiential learning changes beliefs far more powerfully than verbal disputation — this is often the most potent technique in CBT. It also unites the behavioural and cognitive strands.</p></div>
+
+<h3>The structure of a behavioural experiment</h3>
+<ol>
+<li><strong>Purpose &amp; target belief:</strong> which thought/rule are we testing? (e.g. "Nobody cares about me.")</li>
+<li><strong>Specific prediction:</strong> operationalise it — what exactly do you predict will happen, and how likely (0–100%)? ("If I text two friends, none will reply within a day" — 90%.)</li>
+<li><strong>Design the experiment:</strong> what will you do, when, where, how will you record the outcome? Include an alternative belief to test <em>against</em> ("some people do care").</li>
+<li><strong>Anticipate obstacles &amp; safety behaviours</strong> (things that would rig the result).</li>
+<li><strong>Do it &amp; collect data.</strong></li>
+<li><strong>Review outcome vs prediction.</strong></li>
+<li><strong>Draw the learning &amp; update the belief</strong> (re-rate).</li>
+</ol>
+
+<div class="ws"><p class="wt">Worksheet 8.1 — Behavioural Experiment Record (original)</p>
+<table>
+<tr><th>Belief to test (%)</th><th>Specific prediction (%)</th><th>Experiment (what/when/where)</th><th>Safety behaviours to drop</th><th>Outcome (what actually happened)</th><th>What I learned; re-rate belief (%)</th></tr>
+<tr><td class="fill">"Nobody cares about me" 80</td><td class="fill">"If I text 2 friends, 0 reply in a day" 85</td><td class="fill">Text Aisha &amp; Sam today, note replies</td><td class="fill">Don't pre-apologise; don't say 'ignore me'</td><td class="fill">Both replied; Sam called</td><td class="fill">"Some people do care and respond." Belief 40</td></tr>
+</table></div>
+
+<h3>Worked examples with common depressive beliefs</h3>
+<table>
+<tr><th>Belief</th><th>Prediction</th><th>Experiment</th><th>Likely learning</th></tr>
+<tr><td>"Nobody cares about me."</td><td>No one will reply/help.</td><td>Reach out to 2–3 people; ask for a small thing.</td><td>Some people respond; connection is possible.</td></tr>
+<tr><td>"If I fail once, I am a failure."</td><td>One mistake = catastrophe/rejection.</td><td>Deliberately do a task imperfectly and observe others' reactions.</td><td>Imperfection is survivable; identity ≠ one outcome.</td></tr>
+<tr><td>"I can't do anything anymore."</td><td>Won't manage even a small task.</td><td>Attempt one graded activity and rate mastery.</td><td>Capability is greater than depression predicts.</td></tr>
+<tr><td>"People will reject me."</td><td>They'll be cold/leave.</td><td>Attend one social event without a safety behaviour.</td><td>Rejection is less frequent/less catastrophic than feared.</td></tr>
+<tr><td>"Nothing I do will make a difference."</td><td>Effort changes nothing.</td><td>Do one 'active' vs one 'passive' day; compare mood/mastery.</td><td>Action does affect mood — client's own data.</td></tr>
+</table>
+
+<div class="box danger"><span class="lab">Do not let experiments become reassurance</span><p>A behavioural experiment tests reality and lets the client update their <em>own</em> belief; <strong>reassurance</strong> hands the client relief supplied by the therapist and keeps them dependent. Signs you've slipped into reassurance: the client repeatedly asks "but will it be okay?" and you keep answering; the "experiment" is really you promising a good outcome. Instead: "What's your prediction? Let's find out — and <em>you</em> record what actually happens." Drop safety behaviours (over-preparing, seeking reassurance, escape routes) or the test is rigged.</p></div>
+
+<div class="dlg">
+<p class="note">Setting up an experiment — effective</p>
+<p class="t eff"><span class="sp">Therapist</span>"You believe 'nobody cares.' Rather than me trying to talk you out of it, shall we test it? What's your honest prediction if you text two friends?"</p>
+<p class="c"><span class="sp">Client</span>"Neither will reply. Maybe 85% sure."</p>
+<p class="t eff"><span class="sp">Therapist</span>"Great — a clear prediction. Text them today exactly as you would, no pre-apologising, and note what happens. We'll look at the results next week and see how the belief holds up."</p>
+</div>
+
+<h4>Common mistakes &amp; troubleshooting</h4>
+<table>
+<tr><th>Mistake</th><th>Fix</th></tr>
+<tr><td>Vague prediction ("it'll go badly")</td><td>Operationalise: what, measured how, by when.</td></tr>
+<tr><td>Experiment too risky/big</td><td>Grade it; ensure a "no-lose" design where any outcome yields learning.</td></tr>
+<tr><td>Client discounts a positive result ("fluke")</td><td>Repeat, gather more data, explore the discounting itself.</td></tr>
+<tr><td>Safety behaviours rig it</td><td>Identify and drop them explicitly.</td></tr>
+<tr><td>Bad outcome (e.g. a friend didn't reply)</td><td>Still learning: examine meaning, alternatives, and coping — models resilience.</td></tr>
+</table>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Test beliefs experientially · specific prediction → design → drop safety behaviours → do → review → update · experiential change &gt; verbal · never reassurance.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Design "no-lose" experiments where every result teaches something. · Have the client (not you) record the data. · Re-rate the belief before and after.</p></div>
+<div class="box warn"><span class="lab">Mistakes to avoid</span><p>Reassurance disguised as experiment · vague predictions · rigged tests (safety behaviours) · abandoning the belief after a "bad" outcome instead of learning from it.</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Design a "no-lose" experiment for the belief "I can't enjoy anything anymore," specifying prediction, activity, data to record, and possible learnings for both outcomes.</p>
+<h5>Case</h5><p><em>Rahul's</em> "there's no point" (from Part 5). Turn it into a behavioural experiment: prediction ("if I do a 10-min walk, my mood won't change" — 80%), design, and review plan.</p>
+<h5>Quiz</h5><ol class="quiz"><li>List the seven steps of a behavioural experiment.</li><li>How do you tell an experiment from reassurance?</li><li>What is a safety behaviour and why remove it?</li><li>What makes an experiment "no-lose"?</li></ol>
+<h5>Reading</h5><p>Bennett-Levy et al., <em>Oxford Guide to Behavioural Experiments in CBT</em>; J. Beck (experiments). Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Collaboratively design, run, and review a behavioural experiment that produces belief change without reassurance.</p>
+</details>
+
+<h2 class="part" id="p9">Part 9 — Problem-Solving Therapy (PST)</h2>
+<p class="backtop">Core CBT · Module 9</p>
+
+<div class="box goal"><span class="lab">What &amp; why</span><p>Depression frequently coexists with <strong>real, unsolved life problems</strong> (debt, conflict, workload) and with a <strong>demoralised problem orientation</strong> ("nothing will help; why try?"). PST teaches a structured method to tackle solvable problems, restoring agency. <span class="ev mod">Moderate–Strong</span> evidence (Cuijpers et al. meta-analysis; D'Zurilla &amp; Nezu). It pairs naturally with BA and is well-suited to Indian primary-care and time-limited settings.</p></div>
+
+<h3>The steps</h3>
+<ol>
+<li><strong>Positive problem orientation:</strong> reframe problems as normal and (often) solvable; "a problem is a challenge, not proof I'm useless."</li>
+<li><strong>Problem identification &amp; definition:</strong> state the problem concretely and specifically ("I owe ₹40,000 and can't meet this month's payment"), separate facts from assumptions, and set a realistic goal.</li>
+<li><strong>Break large problems down:</strong> divide into smaller, workable sub-problems.</li>
+<li><strong>Brainstorming:</strong> generate many options without judging (quantity first; even "silly" ideas).</li>
+<li><strong>Evaluate options:</strong> weigh pros/cons, effort, likely effectiveness, and impact on self/others.</li>
+<li><strong>Decision-making:</strong> choose one or a combination.</li>
+<li><strong>Action planning:</strong> concrete steps, who/what/when.</li>
+<li><strong>Implementation.</strong></li>
+<li><strong>Review outcomes:</strong> did it work? refine or pick the next option — reinforcing that effort matters.</li>
+</ol>
+
+<div class="ws"><p class="wt">Worksheet 9.1 — Problem-Solving Sheet (original)</p>
+<table>
+<tr><th>Step</th><th>Entry</th></tr>
+<tr><td>1. Problem (specific, factual)</td><td class="fill">"Can't pay this month's ₹8,000 loan instalment."</td></tr>
+<tr><td>2. Goal</td><td class="fill">"Arrange the payment / a workable plan within 2 weeks."</td></tr>
+<tr><td>3. Options (brainstorm all)</td><td class="fill">Ask lender for extension · borrow from brother · sell unused stock · part-payment now · reduce an expense</td></tr>
+<tr><td>4. Evaluate (pros/cons)</td><td class="fill">Extension: likely, low cost · Brother: possible but pride · Sell stock: quick cash…</td></tr>
+<tr><td>5. Chosen action</td><td class="fill">Request extension + sell surplus stock</td></tr>
+<tr><td>6. Steps (who/what/when)</td><td class="fill">Call lender Mon 11am; list stock tonight; post for sale Tue</td></tr>
+<tr><td>7. Review date &amp; outcome</td><td class="fill">Next session</td></tr>
+</table></div>
+
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"When you're low, problems can blur into one giant impossible lump. Let's take just one, define it clearly, and generate options — even wild ones — before we judge any of them. What's the one problem weighing most this week?"</p>
+</div>
+
+<h4>Common mistakes &amp; troubleshooting</h4>
+<table>
+<tr><th>Mistake</th><th>Fix</th></tr>
+<tr><td>Applying PST to an unsolvable/emotional problem (e.g. grief)</td><td>Distinguish problem-focused vs emotion-focused coping; use acceptance/IPT/BA instead.</td></tr>
+<tr><td>Evaluating during brainstorming</td><td>Keep steps separate; generate first, judge later.</td></tr>
+<tr><td>Vague problem definition</td><td>Make it concrete, factual, measurable.</td></tr>
+<tr><td>Skipping the review</td><td>Always review — reinforces agency; refine or try next option.</td></tr>
+</table>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Orientation → define → break down → brainstorm → evaluate → decide → plan → do → review · restores agency · for <em>solvable</em> problems; use other tools for the unsolvable.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Separate brainstorming from evaluation. · One problem at a time. · The review step is where "effort matters" gets learned.</p></div>
+
+<details><summary>Exercise · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Take a current real problem of your own and run it fully through Worksheet 9.1, keeping brainstorming judgement-free.</p>
+<h5>Quiz</h5><ol class="quiz"><li>List the PST steps.</li><li>Why keep brainstorming and evaluation separate?</li><li>When is PST the wrong tool?</li></ol>
+<h5>Reading</h5><p>Nezu, Nezu &amp; D'Zurilla, <em>Problem-Solving Therapy: A Treatment Manual</em>; Cuijpers et al. 2009 meta-analysis. Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Guide a client through structured problem-solving for a defined, solvable problem and review the outcome.</p>
+</details>
+
+<h2 class="part" id="p10">Part 10 — Self-Criticism, Low Self-Esteem, Guilt &amp; Shame</h2>
+<p class="backtop">Targeted · Module 10</p>
+
+<div class="box goal"><span class="lab">Why this needs its own module</span><p>Self-attack, worthlessness, shame and guilt are among the most painful and treatment-resistant features of depression, and standard cognitive disputation sometimes <em>backfires</em> (the self-critic argues back, or the client feels invalidated). This module blends CBT with <strong>self-compassion / compassion-focused</strong> methods. <span class="ev emerg">Emerging–Moderate</span> evidence: self-compassion interventions and CFT reduce self-criticism, shame and depressive symptoms (meta-analyses).</p></div>
+
+<h3>Presentations &amp; matched techniques</h3>
+<table>
+<tr><th>Presentation</th><th>Helpful approaches</th></tr>
+<tr><td>Excessive self-criticism</td><td>Double-standard technique; compassionate-self imagery; noticing the "inner critic" as a habit, not truth.</td></tr>
+<tr><td>Worthlessness</td><td>Core-belief work (Part 7); positive data log; continuum of "worth".</td></tr>
+<tr><td>Shame (global "I am bad")</td><td>Compassion-focused therapy (CFT): understanding the "tricky brain", the three-circles model (threat/drive/soothing), building the soothing system.</td></tr>
+<tr><td>Guilt (specific "I did bad")</td><td>Responsibility pie chart (reattribution); test the "should"; repair where realistic; distinguish guilt (behaviour) from shame (self).</td></tr>
+<tr><td>Low self-esteem</td><td>CCI "Improving Self-Esteem" model: challenge negative self-evaluations, adjust unhelpful rules/assumptions, positive self-acknowledgement.</td></tr>
+<tr><td>Perfectionism</td><td>Behavioural experiments on "good enough"; cost–benefit of rigid standards; graded imperfection.</td></tr>
+<tr><td>Excessive responsibility</td><td>Reattribution; responsibility pie; test "it's all my fault".</td></tr>
+</table>
+
+<h3>Key techniques in practice</h3>
+<h4>Responsibility pie (for guilt / self-blame)</h4>
+<p>List <em>all</em> factors that contributed to a bad outcome, allot each a slice of a 100% pie, and add the client's share <strong>last</strong>. Clients are routinely startled that their slice is small once all causes are visible.</p>
+<div class="ws"><p class="wt">Worksheet 10.1 — Responsibility Pie (original)</p><p>Outcome: <span class="fill">"My team missed the deadline."</span> Factors &amp; % — <span class="fill">unrealistic timeline 30% · two colleagues off sick 25% · client changed brief 20% · tool failure 10% · my errors 15%.</span> → "So realistically, how much was <em>all</em> your fault?"</p></div>
+
+<h4>Compassionate-self &amp; double standard (for self-criticism/shame)</h4>
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"You said 'I'm pathetic for struggling.' If your closest friend were this depressed and said that about themselves, what would you say to them?"</p>
+<p class="c"><span class="sp">Client</span>"I'd say they're ill, not pathetic, and they're doing their best."</p>
+<p class="t"><span class="sp">Therapist</span>"What's it like to consider offering yourself the same understanding you'd give them?"</p>
+</div>
+<p>CFT explains that self-criticism often <em>feels</em> protective ("it keeps me from getting lazy/rejected") but keeps the threat system inflamed; the work is to build the <strong>soothing/affiliative system</strong> (soothing rhythm breathing, compassionate imagery, compassionate letter-writing) — not to "win" an argument with the critic.</p>
+
+<h4>Guilt vs shame — a crucial distinction</h4>
+<p><strong>Guilt</strong> = "I did something bad" (about behaviour; can motivate repair). <strong>Shame</strong> = "I <em>am</em> bad" (about the self; corrosive, drives hiding). Convert global shame into specific, addressable guilt where appropriate, and treat shame with compassion-based methods.</p>
+
+<div class="box warn"><span class="lab">Watch-outs</span><p>With high self-critics, going straight for compassion can trigger "fear of self-compassion" ("I don't deserve it / it's weak"). Name and normalise this; go gently and gradually. Don't argue with the critic; change the client's <em>relationship</em> to it.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Blend CBT with self-compassion/CFT · guilt (behaviour) vs shame (self) · responsibility pie for blame · build the soothing system, don't debate the critic · watch for fear of self-compassion.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Add the client's slice to the pie last. · "What would you say to a friend?" is your bridge to self-compassion. · Perfectionism yields best to behavioural experiments on "good enough".</p></div>
+
+<details><summary>Exercise · Case · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Do a responsibility pie for a time you blamed yourself. Notice your slice once all factors are listed.</p>
+<h5>Case</h5><p><em>Priya</em> (self-critical perfectionist): sequence three interventions across sessions (double-standard → behavioural experiment on "good enough" → compassionate-self imagery) and note the rationale for the order.</p>
+<h5>Quiz</h5><ol class="quiz"><li>Differentiate guilt and shame and their treatment implications.</li><li>Why can disputation backfire with strong self-critics?</li><li>What are CFT's three circles?</li><li>What is "fear of self-compassion"?</li></ol>
+<h5>Reading</h5><p>Gilbert, <em>Compassion Focused Therapy</em>; Neff (self-compassion); CCI "Improving Self-Esteem" &amp; "Perfectionism" modules. Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Assess self-criticism/shame and deliver an integrated CBT + compassion-based plan without invalidation.</p>
+</details>
+
+<h2 class="part" id="p11">Part 11 — Rumination &amp; Avoidance</h2>
+<p class="backtop">Targeted · Module 11</p>
+
+<div class="box goal"><span class="lab">Why this matters</span><p>Rumination (repetitive, passive dwelling on problems, causes and feelings) is a core <em>engine</em> that prolongs and deepens depression and predicts relapse (Nolen-Hoeksema). Avoidance (behavioural and cognitive) is its behavioural twin. Both are <strong>processes</strong>, so we target the <em>how</em> of thinking, not only its content.</p></div>
+
+<h3>Productive processing vs unproductive rumination</h3>
+<table>
+<tr><th>Unproductive rumination</th><th>Productive/problem-solving thinking</th></tr>
+<tr><td>"Why am I like this? What's wrong with me?" (abstract, evaluative)</td><td>"What specifically can I do about X, and how?" (concrete, action-focused)</td></tr>
+<tr><td>Focus on causes/meanings, feelings; no action</td><td>Focus on process/next steps; leads to a plan</td></tr>
+<tr><td>Worsens mood, increases hopelessness</td><td>Reduces distress, restores agency</td></tr>
+</table>
+<p>A key move (Rumination-Focused CBT, Watkins): shift the client from an <strong>abstract "why"</strong> mode to a <strong>concrete "how/what-next"</strong> mode.</p>
+
+<h3>Presentations &amp; interventions</h3>
+<table>
+<tr><th>Process</th><th>Interventions</th></tr>
+<tr><td>Rumination</td><td>Rumination diary (triggers, warning signs); shift abstract→concrete; attention/refocusing to absorbing activity; scheduled "worry/rumination time"; behavioural experiments comparing ruminating vs engaging; mindfulness/decentering (MBCT-style — see Part 13).</td></tr>
+<tr><td>Worry</td><td>Distinguish solvable (→ problem-solving, Part 9) from hypothetical (→ let-go/acceptance); postpone to worry period.</td></tr>
+<tr><td>Behavioural avoidance</td><td>BA: graded approach of avoided activities (Part 5).</td></tr>
+<tr><td>Cognitive avoidance (not thinking about it, distraction as escape)</td><td>Gentle approach/exposure; values-based engagement.</td></tr>
+<tr><td>Social withdrawal</td><td>Scheduled graded social contact; behavioural experiments on "people will reject me".</td></tr>
+<tr><td>Excessive reassurance-seeking</td><td>Reduce gradually; family psychoeducation to stop over-reassuring; tolerate uncertainty.</td></tr>
+<tr><td>Procrastination</td><td>Break down + "just start for 5 minutes" experiments; address perfectionistic thoughts.</td></tr>
+<tr><td>Passive coping</td><td>Build active coping repertoire; PST + BA.</td></tr>
+</table>
+
+<div class="ws"><p class="wt">Worksheet 11.1 — Rumination Log &amp; Redirection (original)</p>
+<table><tr><th>Trigger &amp; early warning sign</th><th>What I ruminated on</th><th>Was it solvable?</th><th>Concrete next step OR redirection used</th><th>Effect on mood</th></tr>
+<tr><td class="fill">Lying in bed, 6am</td><td class="fill">"Why did I ruin my career?"</td><td class="fill">No (abstract past)</td><td class="fill">Got up, made tea, 10-min walk (engagement)</td><td class="fill">Mood 3→5</td></tr></table></div>
+
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"When you notice you're asking 'why am I like this?', that's the rumination habit switching on. It feels like problem-solving but it doesn't lead anywhere. Could we experiment: next time, ask instead 'what's one small thing I can do right now?' and note what happens to your mood?"</p>
+</div>
+
+<div class="box warn"><span class="lab">Watch-out</span><p>Don't confuse rumination with useful reflection or with grief processing. And avoid framing distraction as pure avoidance — <em>functional</em> engagement that reconnects the person with life differs from escape. Judge by function and outcome.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Rumination is a process engine of depression · shift abstract "why" → concrete "how/next" · solvable worry → problem-solving; hypothetical → acceptance · avoidance (behavioural &amp; cognitive) treated by graded approach · mindfulness/decentering helps.</p></div>
+
+<details><summary>Exercise · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Keep a 3-day rumination log; for each episode, label solvable vs not, and record one redirection and its mood effect.</p>
+<h5>Quiz</h5><ol class="quiz"><li>Contrast unproductive rumination with productive processing.</li><li>What's the abstract→concrete shift?</li><li>How do you route solvable vs hypothetical worry?</li><li>How do you tell functional engagement from cognitive avoidance?</li></ol>
+<h5>Reading</h5><p>Watkins, <em>Rumination-Focused CBT for Depression</em>; Nolen-Hoeksema (rumination); Segal et al. (MBCT). Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Identify rumination/avoidance and apply process-focused interventions plus graded approach.</p>
+</details>
+
+
+<h2 class="part" id="p12">Part 12 — Interpersonal Techniques &amp; IPT</h2>
+<p class="backtop">Targeted · Module 12</p>
+
+<div class="box goal"><span class="lab">What &amp; why</span><p>Interpersonal Psychotherapy (IPT) is a <strong>first-line, well-established</strong> therapy for depression that works on the link between <em>current relationships/roles</em> and mood. You don't have to be a full CBT therapist to recognise when a client's depression is chiefly interpersonal — and IPT techniques enrich any therapist's repertoire. <span class="ev strong">Strong</span> evidence (Cuijpers et al. comprehensive meta-analysis, 2016; effective acutely and in relapse prevention; comparable to CBT).</p></div>
+
+<h3>Theory, structure &amp; course</h3>
+<p><strong>Theoretical basis:</strong> depression is understood in an interpersonal context — not "caused by" personality but occurring in relation to current life events and relationships. Improve the interpersonal situation and communication, and depression lifts. Rooted in attachment and interpersonal theory (Klerman &amp; Weissman).</p>
+<p><strong>Structure:</strong> time-limited (typically ~12–16 sessions), in three phases:</p>
+<ul>
+<li><strong>Initial (1–3):</strong> assess depression &amp; give the "sick role", take an <em>interpersonal inventory</em> (key relationships), and select <strong>one (or two) focal problem area(s)</strong>.</li>
+<li><strong>Middle:</strong> work the chosen focal area with IPT techniques.</li>
+<li><strong>Termination:</strong> consolidate gains, review, anticipate future, address ending (itself a role transition).</li>
+</ul>
+
+<h3>The four focal problem areas</h3>
+<table>
+<tr><th>Area</th><th>When chosen</th><th>Focus</th></tr>
+<tr><td><strong>Grief</strong> (complicated bereavement)</td><td>Depression linked to a death/loss</td><td>Facilitate mourning; reconstruct the relationship; re-engage with life/relationships.</td></tr>
+<tr><td><strong>Role transitions</strong></td><td>Depression around a life change (job loss, migration, marriage, parenthood, retirement, illness)</td><td>Mourn the old role, develop the new one, build mastery and support in it.</td></tr>
+<tr><td><strong>Interpersonal disputes</strong></td><td>Conflict with partner/family/colleague</td><td>Clarify the dispute stage, expectations, communication; renegotiate or resolve.</td></tr>
+<tr><td><strong>Interpersonal deficits / sensitivities</strong></td><td>Longstanding social isolation, few relationships</td><td>Reduce isolation; build social skills and new connections (uses the therapy relationship as practice).</td></tr>
+</table>
+
+<h3>Major techniques</h3>
+<ul>
+<li><strong>Communication analysis:</strong> examine a specific recent conversation in detail — what was said, meant, heard — to spot unhelpful patterns.</li>
+<li><strong>Role-play:</strong> rehearse difficult conversations (e.g. expressing a need to a spouse).</li>
+<li><strong>Decision analysis:</strong> weigh interpersonal options.</li>
+<li><strong>Encouragement of affect:</strong> help the client access and express feelings appropriately.</li>
+<li><strong>Assertiveness &amp; expression of needs.</strong></li>
+<li><strong>Interpersonal inventory &amp; relationship patterns:</strong> mapping supports and recurring dynamics.</li>
+<li><strong>Mobilising social support.</strong></li>
+</ul>
+
+<div class="dlg">
+<p class="t"><span class="sp">Therapist</span>"Your low mood began around the time you moved cities for marriage — a big role transition. In IPT we'd look at what you lost in that change (your job, your friends, your independence) and how to build a satisfying new role here, with support. Would it help to focus there?"</p>
+</div>
+
+<div class="box"><span class="lab">How IPT differs from CBT</span><p>IPT does not primarily target automatic thoughts or run thought records; it targets <strong>relationships, roles and communication</strong> in the here-and-now. Both are structured and time-limited; both are first-line. Choose IPT when an interpersonal problem area is the clear driver, when the client is more relationally than cognitively oriented, or per preference/availability.</p></div>
+
+<h4>Therapist skills &amp; common mistakes</h4>
+<p><strong>Skills:</strong> maintaining the interpersonal focus, linking mood to interpersonal events week to week, and staying warm but structured. <strong>Mistakes:</strong> drifting into open-ended exploration without an interpersonal focus; choosing too many focal areas; neglecting the mood–event link; treating IPT as "just support".</p>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Mood ↔ current relationships/roles · time-limited, 3 phases, interpersonal inventory · four focal areas (grief, transitions, disputes, deficits) · communication analysis + role-play · strong evidence; differs from CBT by focusing on relationships not cognitions.</p></div>
+
+<details><summary>Exercise · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>For a case of your choice, take a brief interpersonal inventory and argue which of the four focal areas best fits and why.</p>
+<h5>Quiz</h5><ol class="quiz"><li>Name IPT's three phases and four focal areas.</li><li>What is communication analysis?</li><li>How does IPT differ from CBT in target and technique?</li><li>State IPT's evidence status.</li></ol>
+<h5>Reading</h5><p>Weissman, Markowitz &amp; Klerman, <em>Comprehensive Guide to IPT</em>; Cuijpers et al. 2016 meta-analysis. Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Identify when depression is primarily interpersonal, select a focal area, and apply core IPT techniques.</p>
+</details>
+
+<h2 class="part" id="p13">Part 13 — Other Evidence-Based Therapies (Structured Overview)</h2>
+<p class="backtop">Targeted · Module 13</p>
+
+<div class="box goal"><span class="lab">Purpose</span><p>To give you a map of the therapies with evidence for depression, so you can recognise their logic, know when a clinician might choose one over CBT, and — importantly — <strong>not assume all are equally supported</strong>. Each card answers: theory · evidence · indications · structure · techniques · therapist skills · materials · limitations · how it differs from CBT · when to choose.</p></div>
+
+<div class="grid2">
+<div class="card"><h5>CBT / Cognitive Therapy <span class="ev strong">Strong</span></h5><p><strong>Theory:</strong> cognition &amp; behaviour maintain depression. <strong>Evidence:</strong> the most extensively researched; first-line in NICE &amp; VA/DoD. <strong>Structure:</strong> ~12–20 sessions, structured. <strong>Techniques:</strong> Parts 4–8. <strong>Differs:</strong> the reference standard here. <strong>Choose:</strong> default first-line, esp. with prominent negative cognition.</p></div>
+
+<div class="card"><h5>Behavioural Activation <span class="ev strong">Strong</span></h5><p><strong>Theory:</strong> loss of reinforcement + avoidance. <strong>Evidence:</strong> strong; non-inferior to CBT; works in Indian primary care (HAP). <strong>Structure:</strong> ~8–16 sessions, simple. <strong>Techniques:</strong> Part 5. <strong>Differs from CBT:</strong> minimal cognitive work. <strong>Choose:</strong> severe/low-engagement clients, non-specialist/low-resource settings, trainee-friendly.</p></div>
+
+<div class="card"><h5>Interpersonal Psychotherapy <span class="ev strong">Strong</span></h5><p><strong>Theory:</strong> relationships/roles &amp; mood. <strong>Evidence:</strong> strong; comparable to CBT. <strong>Structure:</strong> ~12–16 sessions, 3 phases. <strong>Techniques:</strong> Part 12. <strong>Differs:</strong> targets relationships not cognitions. <strong>Choose:</strong> interpersonal driver (grief, transition, dispute, isolation).</p></div>
+
+<div class="card"><h5>Problem-Solving Therapy <span class="ev mod">Moderate–Strong</span></h5><p><strong>Theory:</strong> problem orientation &amp; skills. <strong>Evidence:</strong> good meta-analytic support; brief. <strong>Structure:</strong> ~4–12 sessions. <strong>Techniques:</strong> Part 9. <strong>Differs:</strong> narrower, skills-focused. <strong>Choose:</strong> depression tied to concrete life problems; primary care; time-limited.</p></div>
+
+<div class="card"><h5>Mindfulness-Based Cognitive Therapy <span class="ev mod">Strong (relapse prevention)</span></h5><p><strong>Theory:</strong> relapse involves reactivation of ruminative/avoidant modes; <em>decentering</em> from thoughts prevents this. <strong>Evidence:</strong> strong for preventing relapse in recurrent depression (≥3 episodes; IPD meta-analysis, Kuyken 2016); less for acute severe episodes. <strong>Structure:</strong> 8-week group. <strong>Techniques:</strong> mindfulness practices, decentering, relapse-signature work. <strong>Differs:</strong> changes <em>relationship</em> to thoughts, not their content. <strong>Choose:</strong> recurrent depression in remission, prominent rumination.</p></div>
+
+<div class="card"><h5>Acceptance &amp; Commitment Therapy <span class="ev mod">Moderate</span></h5><p><strong>Theory:</strong> psychological inflexibility &amp; experiential avoidance; increase acceptance, defusion, values-based action. <strong>Evidence:</strong> moderate; recognised option. <strong>Structure:</strong> flexible. <strong>Techniques:</strong> defusion, acceptance, values, committed action, mindfulness. <strong>Differs:</strong> doesn't dispute thoughts; changes relationship to them &amp; emphasises values. <strong>Choose:</strong> stuck in struggle with thoughts/feelings; values-driven clients.</p></div>
+
+<div class="card"><h5>Metacognitive Therapy <span class="ev emerg">Emerging</span></h5><p><strong>Theory:</strong> the Cognitive-Attentional Syndrome (worry/rumination) driven by metacognitive beliefs. <strong>Evidence:</strong> promising, fewer large trials. <strong>Techniques:</strong> attention training, detached mindfulness, challenging metacognitions. <strong>Differs:</strong> targets thinking <em>process</em>, ignores content. <strong>Choose:</strong> rumination-dominated presentations.</p></div>
+
+<div class="card"><h5>Self-Compassion &amp; Compassion-Focused Therapy <span class="ev emerg">Emerging</span></h5><p><strong>Theory:</strong> over-active threat system + weak soothing system; shame/self-criticism. <strong>Evidence:</strong> meta-analyses show reduced self-criticism, shame, depressive symptoms; smaller base in primary MDD. <strong>Techniques:</strong> Part 10. <strong>Differs:</strong> builds affiliative/soothing system. <strong>Choose:</strong> high shame/self-criticism.</p></div>
+
+<div class="card"><h5>Short-term psychodynamic therapy <span class="ev mod">Moderate</span></h5><p><strong>Theory:</strong> unconscious conflict, relational patterns. <strong>Evidence:</strong> moderate; a guideline option. <strong>Differs:</strong> less structured, insight-oriented. <strong>Choose:</strong> preference; unresolved relational/developmental themes.</p></div>
+
+<div class="card"><h5>Brief therapies &amp; counselling <span class="ev mod">Moderate</span></h5><p><strong>Evidence:</strong> counselling has some support for less severe/subthreshold depression; brief structured therapies useful in stepped care. <strong>Choose:</strong> mild presentations, first step in stepped care, access constraints.</p></div>
+</div>
+
+<div class="box warn"><span class="lab">Do not flatten the evidence</span><p>CBT, BA and IPT have the largest, most consistent evidence base for depression. Third-wave and compassion/metacognitive approaches are promising and valuable for specific mechanisms, but their evidence for <em>primary MDD</em> is smaller. Choose transparently, per formulation, severity, client preference, your competence, and availability.</p></div>
+
+<details><summary>Quiz · Reading · Can-do</summary>
+<h5>Quiz</h5><ol class="quiz"><li>Which three therapies have the strongest evidence for depression?</li><li>For which population is MBCT best supported, and for what outcome?</li><li>How does ACT's stance toward negative thoughts differ from CBT's?</li><li>When would you choose CFT?</li></ol>
+<h5>Reading</h5><p>NICE NG222 &amp; VA/DoD 2022 (comparative recommendations); Segal et al. (MBCT); Hayes et al. (ACT); Wells (MCT); Gilbert (CFT). Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Match presentation to an appropriate evidence-based therapy and justify the choice on evidence and formulation.</p>
+</details>
+
+<h2 class="part" id="p14">Part 14 — Session-by-Session CBT for Depression</h2>
+<p class="backtop">Delivery · Module 14</p>
+
+<div class="box goal"><span class="lab">How to read this</span><p>Below is a worked <strong>example</strong> of a ~14-session course, following our running client <strong>Rahul</strong> (moderate MDD, from Parts 2–3). <strong>Real therapy varies</strong>: length, order and emphasis are individualised from the formulation and the client's response. Notice how the plan <em>changes</em> when Rahul responds — that responsiveness is the skill. Every session runs the standard structure (Part 4): mood/measure → bridge → agenda → homework review → work → new homework → summary/feedback → risk check.</p></div>
+
+<h3>Phase 1 — Engagement, assessment, activation (Sessions 1–4)</h3>
+
+<div class="card"><h5>Session 1 — Assessment &amp; engagement</h5>
+<ul>
+<li><strong>Objectives:</strong> build rapport, begin assessment, instil hope, assess risk, orient to CBT.</li>
+<li><strong>Assess:</strong> presenting problem, five-domain symptoms, PHQ-9 (=17), risk (passive ideation, no plan/intent; explore fully), alcohol.</li>
+<li><strong>Questions:</strong> "What brought you here now?" · "What would you like to be different?" · risk questions.</li>
+<li><strong>Psychoeducation:</strong> depression as treatable; the CBT model with his own example.</li>
+<li><strong>In-session:</strong> draw a hot-cross-bun of a recent day.</li>
+<li><strong>Worksheet/Homework:</strong> Activity &amp; Mood Diary (5.1).</li>
+<li><strong>Common responses:</strong> hopelessness ("will this even work?") → validate + normalise + present the plan.</li>
+<li><strong>Risk/monitoring:</strong> document risk + supervision; PHQ-9 baseline.</li>
+<li><strong>Summary:</strong> "Today we understood the picture and started tracking your week; next time we'll use it to plan small changes."</li>
+</ul></div>
+
+<div class="card"><h5>Session 2 — Formulation &amp; starting BA</h5>
+<ul>
+<li><strong>Objectives:</strong> share the formulation, begin behavioural activation.</li>
+<li><strong>Review homework:</strong> diary reveals morning inactivity → low mood; a walk lifted mood.</li>
+<li><strong>Work:</strong> present the shared 5-P/maintenance formulation on paper; introduce "act from a plan, not mood"; schedule 2–3 small graded activities balancing pleasure/mastery/values (5.2).</li>
+<li><strong>Homework:</strong> the schedule + continue diary.</li>
+<li><strong>Troubleshooting:</strong> "I won't feel like it" → set as a prediction to test.</li>
+<li><strong>Risk:</strong> PHQ-9, item 9.</li>
+</ul></div>
+
+<div class="card"><h5>Session 3 — Consolidate BA, sleep &amp; alcohol</h5>
+<ul>
+<li><strong>Review:</strong> did the activities happen? mood/mastery? He did one of three; validate + problem-solve barriers (grade smaller, better time).</li>
+<li><strong>Work:</strong> add routine-building; brief sleep hygiene; collaborative plan to reduce nightly alcohol (a maintaining factor &amp; risk amplifier) — coordinate with GP/psychiatrist.</li>
+<li><strong>Homework:</strong> revised schedule, sleep/wake anchor, alcohol log.</li>
+</ul></div>
+
+<div class="card"><h5>Session 4 — Review progress; decide direction</h5>
+<ul>
+<li><strong>Assess:</strong> PHQ-9 trend (say 17→14). Partial response — activation helping.</li>
+<li><strong>Decision point:</strong> because he's now more active and engaged, introduce catching automatic thoughts. <em>(If he had NOT responded, you'd review formulation, adherence, comorbidity, alcohol, and consult re: medication — see below.)</em></li>
+<li><strong>Homework:</strong> 3-column thought record (6.1).</li>
+</ul></div>
+
+<h3>Phase 2 — Cognitive work (Sessions 5–9)</h3>
+<div class="card"><h5>Sessions 5–6 — Identifying &amp; examining thoughts</h5>
+<ul>
+<li>Teach catching ATs via emotion shifts; examine the "hot" thought ("I've failed my family") with evidence-for/against and the double-standard question; complete 7-column records (6.2).</li>
+<li><strong>Dialogue snippet:</strong> "If your brother's shop had a hard year, would you call <em>him</em> a failure?" → "No, I'd say it was the economy." → guided discovery loosens the thought.</li>
+<li><strong>Homework:</strong> daily thought records on "failure" thoughts.</li>
+</ul></div>
+<div class="card"><h5>Sessions 7–8 — Behavioural experiments</h5>
+<ul>
+<li>Test "there's no point reaching out — nobody cares" and "if I go to the shopkeepers' meeting, they'll look down on me." Design predictions, drop safety behaviours, review (8.1).</li>
+<li>Outcome typically disconfirms the catastrophic prediction → belief re-rated down.</li>
+</ul></div>
+<div class="card"><h5>Session 9 — Progress review &amp; adjust</h5>
+<ul>
+<li>PHQ-9 (say 14→9). Good response. Collaboratively decide to move toward beliefs and the marital/interpersonal strand.</li>
+<li><em>Responsiveness illustrated:</em> if rumination had emerged as the main blocker, you'd insert Part 11 process-work here instead.</li>
+</ul></div>
+
+<h3>Phase 3 — Beliefs, interpersonal, relapse prevention (Sessions 10–14)</h3>
+<div class="card"><h5>Sessions 10–11 — Core/intermediate beliefs</h5>
+<ul>
+<li>Downward arrow → belief "my worth = providing". Historical exploration, continuum, positive data log, and restructure the rule to "I contribute to my family in many ways; my worth isn't only money" (7.1, 7.2).</li>
+</ul></div>
+<div class="card"><h5>Session 12 — Interpersonal focus</h5>
+<ul>
+<li>Marital distance addressed with communication analysis + role-play of expressing needs to his wife (IPT techniques, Part 12); homework: one planned conversation.</li>
+</ul></div>
+<div class="card"><h5>Sessions 13–14 — Consolidation &amp; relapse prevention</h5>
+<ul>
+<li><strong>Objectives:</strong> consolidate gains, prepare for ending, build a relapse-prevention plan.</li>
+<li><strong>Work:</strong> review what helped (a "therapy blueprint"); identify early warning signs; write a coping plan; schedule "booster" self-sessions; plan how to maintain activities and thought skills.</li>
+<li><strong>Worksheet:</strong> Relapse-Prevention Plan (15/22).</li>
+<li><strong>Ending:</strong> frame ending as a role transition; normalise fluctuations; agree follow-up/relapse pathway with supervisor/psychiatrist.</li>
+</ul></div>
+
+<div class="box"><span class="lab">How treatment changes with response</span>
+<table>
+<tr><th>Scenario at session ~4–6</th><th>Adjustment</th></tr>
+<tr><td>Good response to BA</td><td>Proceed to cognitive work as above.</td></tr>
+<tr><td>No/partial response</td><td>Review formulation &amp; adherence; check comorbidity (anxiety, alcohol, undiagnosed bipolarity), attend to alliance; consult supervisor re: <strong>stepping up</strong> intensity or <strong>adding medication</strong>; reconsider whether IPT/PST fits better.</td></tr>
+<tr><td>Risk rises</td><td>Pause the agenda; do risk assessment + safety plan; escalate/consult same day (Parts 1C, 17).</td></tr>
+<tr><td>Rumination dominates</td><td>Insert rumination-focused process work (Part 11) / consider MBCT elements.</td></tr>
+<tr><td>Prominent shame/self-attack</td><td>Integrate compassion-focused methods (Part 10).</td></tr>
+</table></div>
+
+<div class="box ok"><span class="lab">Key concepts</span><p>Three phases: engage/activate → cognitive → beliefs/interpersonal/relapse-prevention · standard session structure throughout · plan is individualised and responsive · relapse prevention is essential, not optional.</p></div>
+<div class="box tip"><span class="lab">Clinical pearls</span><p>Front-load behavioural work in moderate-severe cases. · Re-decide direction at each progress review using the measure + formulation. · End well: a therapy blueprint + relapse plan predicts durability.</p></div>
+
+<details><summary>Exercise · Quiz · Reading · Can-do</summary>
+<h5>Exercise</h5><p>Sketch a 12-session plan for <em>Priya</em> (recurrent, self-critical perfectionist), showing where you'd insert compassion work and MBCT-style relapse prevention, and one decision point where the plan could branch.</p>
+<h5>Quiz</h5><ol class="quiz"><li>Name the three phases and their typical goals.</li><li>What do you do if there's no response by session ~5?</li><li>What belongs in a relapse-prevention plan?</li><li>Why front-load behavioural work in severe depression?</li></ol>
+<h5>Reading</h5><p>Beck et al., <em>Cognitive Therapy of Depression</em>; J. Beck (course structure); Hawton et al. (1989) — your repo manual. Links in <a href="#refs">References</a>.</p>
+<h5>Can-do</h5><p>Plan and adapt a full course of CBT for depression, making evidence-based decisions at progress reviews.</p>
+</details>
+
+
+<h2 class="part" id="p15">Part 15 — Worksheet Library</h2>
+<p class="backtop">Delivery · Module 15</p>
+
+<div class="box goal"><span class="lab">How to use this library</span><p>These are <strong>original, generic, therapist-friendly templates</strong> written for this course — safe to copy and adapt. For each: purpose, when to introduce, how to complete, a completed fictional example, common mistakes, and (in <a href="#refs">References</a>) a link to a free authoritative equivalent (mostly CCI). Validated proprietary tools (BDI-II, HAM-D) are described in Part 2 but not reproduced — obtain them legitimately.</p></div>
+
+<h3>A · Assessment &amp; monitoring</h3>
+<div class="ws"><p class="wt">15.1 Mood &amp; PHQ-9 tracking log</p>
+<p><strong>Purpose:</strong> make progress visible; catch item-9 risk. <strong>Introduce:</strong> session 1. <strong>Complete:</strong> score PHQ-9 each session, plot the total.</p>
+<table><tr><th>Date</th><th>PHQ-9</th><th>Band</th><th>Item 9?</th><th>Note</th></tr><tr><td class="fill">2 Jun</td><td class="fill">17</td><td class="fill">Mod-severe</td><td class="fill">1 (assessed)</td><td class="fill">Baseline</td></tr><tr><td class="fill">30 Jun</td><td class="fill">9</td><td class="fill">Mild</td><td class="fill">0</td><td class="fill">BA+CT working</td></tr></table>
+<p><strong>Mistakes:</strong> scoring but never discussing the trend; ignoring item 9.</p></div>
+
+<div class="ws"><p class="wt">15.2 Goal-setting sheet (SMART)</p>
+<p><strong>Purpose:</strong> direction &amp; collaboration. <strong>Introduce:</strong> session 1–2.</p>
+<table><tr><th>Goal</th><th>Specific &amp; measurable</th><th>By when</th><th>First step</th></tr><tr><td class="fill">Reconnect socially</td><td class="fill">Meet a friend once/week</td><td class="fill">4 weeks</td><td class="fill">Text one friend this week</td></tr></table></div>
+
+<h3>B · Behavioural activation</h3>
+<p>Templates provided earlier: <strong>Activity &amp; Mood Diary (5.1)</strong>, <strong>Weekly Schedule + Pleasure/Mastery/Values (5.2)</strong>.</p>
+<div class="ws"><p class="wt">15.3 Avoidance / TRAP–TRAC monitor</p>
+<table><tr><th>Trigger</th><th>Response (feeling)</th><th>Avoidance pattern</th><th>Alternative coping (TRAC)</th></tr><tr><td class="fill">Bills arrived</td><td class="fill">Anxious</td><td class="fill">Put them in a drawer, slept</td><td class="fill">Open one bill, list options (PST)</td></tr></table></div>
+<div class="ws"><p class="wt">15.4 Graded task ladder</p><p>Break one avoided task into 5 steps, easiest first. <span class="fill">"Tidy house" → 1 clear one surface · 2 one drawer · 3 one room · 4 …</span></p></div>
+
+<h3>C · Cognitive work</h3>
+<p>Provided earlier: <strong>3-column (6.1)</strong> and <strong>7-column thought records (6.2)</strong>, <strong>Core Belief (7.1)</strong>, <strong>Rule Restructuring (7.2)</strong>.</p>
+<div class="ws"><p class="wt">15.5 Thinking-pattern identification card</p><p>Tick the patterns you notice (Part 6): all-or-nothing · overgeneralisation · mental filter · discounting positives · mind-reading · fortune-telling · catastrophising · emotional reasoning · shoulds · labelling · personalisation · unfair comparison. <em>Purpose:</em> gain distance. <em>Mistake:</em> using it to self-attack ("I'm doing it wrong again").</p></div>
+<div class="ws"><p class="wt">15.6 Downward-arrow sheet</p><p>AT → "If true, what does it mean?" → … → core belief. (See Part 7 dialogue.)</p></div>
+<div class="ws"><p class="wt">15.7 Positive data log</p><p>New belief: <span class="fill">"I have worth."</span> Daily evidence, however small. <em>Purpose:</em> correct the depressive attention bias.</p></div>
+
+<h3>D · Behavioural experiments</h3>
+<p>Provided: <strong>Behavioural Experiment Record (8.1)</strong> — prediction → design → drop safety behaviours → outcome → learning/re-rate.</p>
+
+<h3>E · Problem-solving</h3>
+<p>Provided: <strong>Problem-Solving Sheet (9.1)</strong> — define → goal → brainstorm → evaluate → choose → steps → review.</p>
+
+<h3>F · Relapse prevention</h3>
+<div class="ws"><p class="wt">15.8 Early warning signs</p><table><tr><th>Domain</th><th>My early signs</th></tr><tr><td>Thoughts</td><td class="fill">"What's the point" returns</td></tr><tr><td>Feelings</td><td class="fill">Flat, irritable</td></tr><tr><td>Behaviour</td><td class="fill">Skipping the walk, isolating</td></tr><tr><td>Body</td><td class="fill">Waking at 4am</td></tr></table></div>
+<div class="ws"><p class="wt">15.9 Coping / staying-well plan &amp; therapy blueprint</p><p><strong>What helped me:</strong> <span class="fill">activity scheduling, thought records, reaching out.</span> <strong>If warning signs appear I will:</strong> <span class="fill">restart the diary, do one thought record, contact a friend, book a booster session.</span> <strong>Who I'll tell:</strong> <span class="fill">wife, GP.</span> <strong>Crisis contacts:</strong> <span class="fill">supervisor/psychiatrist, Tele-MANAS 14416, nearest hospital.</span></p></div>
+
+<div class="box tip"><span class="lab">Free authoritative equivalents</span><p>The Centre for Clinical Interventions (CCI) provides free, high-quality client workbooks and therapist manuals covering all of the above (activity scheduling, thought records, self-esteem, relapse prevention). Links in <a href="#refs">References</a>. Prefer directing clients to these validated resources where possible.</p></div>
+
+<h2 class="part" id="p16">Part 16 — Therapist Language &amp; Micro-Skills</h2>
+<p class="backtop">Delivery · Module 16</p>
+
+<div class="box goal"><span class="lab">Why micro-skills matter</span><p>Technique is delivered through <em>language</em>. The same intervention lands very differently depending on wording, timing and tone. Below are effective vs ineffective examples — study the <em>why</em>.</p></div>
+
+<table>
+<tr><th>Skill</th><th>Effective example</th><th>Ineffective &amp; why</th></tr>
+<tr><td><strong>Open-ended questions</strong></td><td>"What was that like for you?"</td><td>"Were you sad?" — closed, leads.</td></tr>
+<tr><td><strong>Socratic questions</strong></td><td>"What might be another way to see that?"</td><td>"Don't you think you're overreacting?" — leading, judgemental.</td></tr>
+<tr><td><strong>Reflection</strong></td><td>"It sounds like you felt let down and then blamed yourself."</td><td>"So you were upset." — flat, misses meaning.</td></tr>
+<tr><td><strong>Validation</strong></td><td>"Given what you believed, it makes complete sense you stayed home."</td><td>"Everyone feels like that sometimes." — minimising.</td></tr>
+<tr><td><strong>Summarising</strong></td><td>"Let me check I've understood: three things stood out today…"</td><td>(none) — session drifts, no consolidation.</td></tr>
+<tr><td><strong>Gentle challenging</strong></td><td>"I notice a gap — you say you're useless, yet you cared for your father all year. How do those fit?"</td><td>"That's just your depression talking." — dismissive.</td></tr>
+<tr><td><strong>Normalising</strong></td><td>"Many people with depression withdraw — it's part of the illness, not a flaw."</td><td>"It's not a big deal." — invalidating.</td></tr>
+<tr><td><strong>Agenda setting</strong></td><td>"What shall we prioritise together today?"</td><td>"So, how's things?" — no structure.</td></tr>
+<tr><td><strong>Transitioning</strong></td><td>"Can we hold that and come back to it? I want to make sure we cover the diary."</td><td>Abruptly changing topic without signposting.</td></tr>
+<tr><td><strong>Introducing homework</strong></td><td>"What would be a useful experiment to try before next week? How confident are you, 0–100?"</td><td>"Your homework is to do a thought record." — imposed, no buy-in.</td></tr>
+<tr><td><strong>Reviewing homework</strong></td><td>"What did you learn from trying it?"</td><td>Forgetting to review — signals it doesn't matter.</td></tr>
+<tr><td><strong>Handling silence</strong></td><td>Wait; then "Take your time — what's going through your mind?"</td><td>Rushing to fill it / interrogating.</td></tr>
+<tr><td><strong>Handling crying</strong></td><td>Pause, soften, "It's okay to feel this here. Take the time you need."</td><td>"Let's move on." — shames the emotion.</td></tr>
+<tr><td><strong>Handling resistance</strong></td><td>"You seem unsure about this — tell me your reservations." (curiosity)</td><td>Pushing harder — deepens the rupture.</td></tr>
+<tr><td><strong>Correcting misunderstanding</strong></td><td>"I may not have explained that well — let me try again."</td><td>"No, you've got it wrong." — blaming.</td></tr>
+<tr><td><strong>Giving feedback</strong></td><td>"You did the diary three days — that's a real start; what got in the way on the others?"</td><td>"You only did three days." — critical.</td></tr>
+<tr><td><strong>Ending a session</strong></td><td>"To summarise… your homework is… what was helpful/unhelpful today?"</td><td>"Time's up, see you next week." — no closure/feedback.</td></tr>
+</table>
+
+<div class="box"><span class="lab">Socratic questioning — the four levels (Padesky)</span><p>1) <strong>Informational</strong> questions (gather what the client knows), 2) <strong>empathic listening</strong>, 3) <strong>summarising</strong>, 4) <strong>analytical/synthesising</strong> questions ("How does this new information fit with your belief that…?"). Guided discovery ≠ leading the client to your answer; it uncovers <em>their</em> new perspective.</p></div>
+
+<h2 class="part" id="p17">Part 17 — Difficult Clinical Situations</h2>
+<p class="backtop">Delivery · Module 17</p>
+
+<div class="box danger"><span class="lab">Trainee scope — read first</span><p>Several situations below are <strong>beyond routine trainee outpatient work</strong> and require urgent escalation, psychiatric involvement, or a higher level of care. As a trainee, your rule is: <strong>recognise, keep safe, consult your supervisor the same day, and refer.</strong> The table's right column flags this explicitly.</p></div>
+
+<table>
+<tr><th>Situation</th><th>Adaptation / action &amp; level of care</th></tr>
+<tr><td><strong>Severe hopelessness</strong></td><td>Strong suicide-risk marker. Assess fully; instil realistic hope via small BA successes; safety plan; <strong>consult + consider psychiatric referral</strong>.</td></tr>
+<tr><td><strong>Suicidal ideation</strong></td><td>Systematic risk assessment (Part 1C); C-SSRS to structure; collaborative Safety Planning Intervention (Stanley &amp; Brown); means restriction (in India, secure pesticides &amp; medications); <strong>same-day supervisor + psychiatry; emergency services if imminent</strong>. <span class="ev strong">Safety planning has strong support</span>; "no-suicide contracts" do not — don't use them.</td></tr>
+<tr><td><strong>Self-harm</strong></td><td>Assess function, frequency, escalation, intent; harm-reduction + skills; distinguish from suicidal intent; involve supervisor.</td></tr>
+<tr><td><strong>Psychotic symptoms</strong></td><td><strong>Beyond routine outpatient CBT alone</strong>; urgent psychiatric assessment; antipsychotic/medication typically needed; CBTp is specialist.</td></tr>
+<tr><td><strong>Severe anxiety / OCD / PTSD comorbid</strong></td><td>Formulate what's primary; sequence treatment; may need trauma- or OCD-specific protocols (specialist).</td></tr>
+<tr><td><strong>Substance use</strong></td><td>Assess dependence &amp; risk; may need concurrent/first substance treatment; alcohol worsens mood &amp; risk; coordinate care.</td></tr>
+<tr><td><strong>Chronic pain / physical illness</strong></td><td>Adapt BA to capacity; coordinate with medical team; CBT for depression in physical illness has evidence.</td></tr>
+<tr><td><strong>Bereavement</strong></td><td>Distinguish grief from MDD (Part 1); consider grief-focused/IPT-grief; don't pathologise normal mourning.</td></tr>
+<tr><td><strong>Trauma history</strong></td><td>Stabilise &amp; build safety first; specific trauma work is specialist; watch for destabilisation.</td></tr>
+<tr><td><strong>Personality difficulties</strong></td><td>Longer, relationally-attuned work; clear boundaries; supervision; watch alliance ruptures.</td></tr>
+<tr><td><strong>Cognitive impairment</strong></td><td>Simplify; more behavioural, less abstract cognitive work; involve carers; rule out medical cause.</td></tr>
+<tr><td><strong>Low motivation / poor insight</strong></td><td>Motivational stance; tiny graded steps; behavioural experiments to build buy-in; psychoeducation.</td></tr>
+<tr><td><strong>Treatment resistance</strong></td><td>Review diagnosis (bipolarity? medical?), adherence, dose/intensity, comorbidity, alliance; <strong>consult re: medication/step-up/referral</strong>.</td></tr>
+<tr><td><strong>Poor homework adherence</strong></td><td>Treat as data: barriers, beliefs ("no point"), too hard, collaboration issue; shrink &amp; re-collaborate — don't scold.</td></tr>
+<tr><td><strong>Repeated missed sessions</strong></td><td>Explore hopelessness/ambivalence/practical barriers; outreach per policy; reassess risk &amp; suitability with supervisor.</td></tr>
+<tr><td><strong>Family conflict</strong></td><td>Consider interpersonal/couple/family focus (Part 12); family psychoeducation (esp. in India, Part 18).</td></tr>
+</table>
+
+<div class="box"><span class="lab">Safety Planning Intervention — the six steps (Stanley &amp; Brown)</span>
+<ol><li>Recognise personal <strong>warning signs</strong>.</li><li><strong>Internal coping</strong> strategies (things I can do alone).</li><li><strong>Social contacts/settings</strong> for distraction.</li><li><strong>People</strong> I can ask for help.</li><li><strong>Professionals/agencies</strong> &amp; crisis lines.</li><li><strong>Means restriction</strong> — making the environment safer.</li></ol>
+<p>Collaborative, written, kept accessible; reviewed and updated. Do this <em>with</em> the client, in their words.</p></div>
+
+<div class="box warn"><span class="lab">The line between outpatient therapy and higher care</span><p><strong>Routine outpatient (with supervision):</strong> mild–moderate depression, manageable/low risk, no psychosis, engaged, stable. <strong>Needs urgent psychiatric/medical or higher care:</strong> active suicidal intent/plan/means, psychosis, severe self-neglect, mania, severe substance withdrawal, rapid deterioration. When in doubt, escalate — safety over completeness.</p></div>
+
+<h2 class="part" id="p18">Part 18 — Cultural &amp; Indian Context</h2>
+<p class="backtop">Delivery · Module 18</p>
+
+<div class="box goal"><span class="lab">Why &amp; the anti-stereotype rule</span><p>Culturally responsive therapy improves engagement and outcomes — but "culture" is <strong>individualised</strong>, never assumed. India is enormously diverse; use a <em>cultural formulation</em> (ask this client about their beliefs, family, language) rather than applying blanket assumptions. Evidence: culturally adapted CBT and the India-developed <strong>Healthy Activity Program</strong> (BA, lay-counsellor delivered) show good outcomes (Patel et al., <em>Lancet</em> 2017); adaptation reviews support tailoring content, language and delivery.</p></div>
+
+<h3>Culturally salient themes to explore (not assume)</h3>
+<table>
+<tr><th>Theme</th><th>Clinical implication</th></tr>
+<tr><td><strong>Family involvement</strong></td><td>Family is often central to decisions &amp; care; with consent, involve family in psychoeducation &amp; support. Balance against the client's autonomy &amp; confidentiality.</td></tr>
+<tr><td><strong>Stigma</strong></td><td>Fear of being labelled "mad"; frame in de-stigmatising, functional terms; normalise; consider language like "stress"/"tension" if that aids engagement, without minimising.</td></tr>
+<tr><td><strong>Somatic presentations &amp; idioms of distress</strong></td><td>Distress often expressed as body symptoms ("gas", "weakness", "heaviness", "tension") — legitimate cultural idioms, not evasion. Work <em>with</em> the idiom, then bridge to the mood–body link.</td></tr>
+<tr><td><strong>Religious/spiritual beliefs</strong></td><td>Can be a major protective/coping resource (faith, prayer, community); integrate respectfully; watch for guilt framed as "punishment/karma".</td></tr>
+<tr><td><strong>Gender roles</strong></td><td>Expectations around marriage, dowry pressures, in-law dynamics, women's autonomy, men's "provider" role (cf. Rahul); explore, don't presume.</td></tr>
+<tr><td><strong>Socio-economic barriers</strong></td><td>Cost, travel, time off work → favour brief, low-intensity, session-efficient approaches (BA, PST); flexible scheduling.</td></tr>
+<tr><td><strong>Joint-family systems</strong></td><td>Both support and stressor; privacy for sessions may be limited; problem-solve confidentiality.</td></tr>
+<tr><td><strong>Privacy/confidentiality</strong></td><td>Family may expect information; clarify limits early and sensitively.</td></tr>
+<tr><td><strong>Treatment access &amp; task-shifting</strong></td><td>Shortage of specialists; lay-counsellor-delivered brief treatments (HAP model) are evidence-based and scalable.</td></tr>
+<tr><td><strong>Language</strong></td><td>Deliver in the client's preferred language/register; explain concepts in everyday words, not jargon.</td></tr>
+</table>
+
+<h3>Explaining CBT concepts in simple English and Hindi/Hinglish</h3>
+<div class="box tip"><p>These are illustrative; adapt to the client's dialect and literacy. Always check understanding.</p></div>
+<table>
+<tr><th>Concept</th><th>Simple English</th><th>Hindi / Hinglish (illustrative)</th></tr>
+<tr><td>Thought–feeling–behaviour link</td><td>"What we think changes how we feel and what we do."</td><td>"Hum jo <em>sochte</em> hain, usse humari <em>feelings</em> aur humare <em>kaam</em> badalte hain."</td></tr>
+<tr><td>Behavioural activation</td><td>"When we do a little, mood slowly lifts — action first, mood follows."</td><td>"Mann na kare tab bhi thoda kaam karenge — pehle kaam, phir mann apne aap thoda theek hota hai."</td></tr>
+<tr><td>Automatic thoughts</td><td>"Quick thoughts that pop up and feel true, but aren't always facts."</td><td>"Achanak aane wale vichaar — lagte sach hain, par har baar fact nahi hote."</td></tr>
+<tr><td>Examining a thought</td><td>"Let's check the evidence, like a detective."</td><td>"Chaliye is soch ke <em>proof</em> dekhte hain — jaise ek jasoos (detective)."</td></tr>
+<tr><td>Somatic bridge</td><td>"When the mind is under stress, the body also feels it — heaviness, aches, tiredness."</td><td>"Jab mann par tension hoti hai, toh sharir bhi mehsoos karta hai — bhaari-pan, dard, thakaan."</td></tr>
+<tr><td>Normalising</td><td>"This is a common, treatable problem — not weakness."</td><td>"Yeh ek aam aur theek hone waali samasya hai — kamzori nahi."</td></tr>
+</table>
+
+<div class="box"><span class="lab">Cultural formulation — do this, don't stereotype</span><p>Ask: "What do you think is causing this?" · "What do you call it?" · "Who in your family knows / should be involved?" · "What has helped others you know?" · "What role does faith/community play for you?" Then <em>build the therapy around the answers</em>. The DSM-5 Cultural Formulation Interview is a useful structure.</p></div>
+
+<div class="box ok"><span class="lab">Key concepts (Parts 15–18)</span><p>Use free CCI templates; deliver technique through skilful language; recognise which presentations exceed trainee scope and escalate; individualise cultural adaptation using a cultural formulation, not stereotypes; BA/PST fit low-resource Indian settings (HAP evidence).</p></div>
+
+
+<h2 class="part" id="p19">Part 19 — From Case Formulation to Treatment Plan (Practice)</h2>
+<p class="backtop">Practice · Module 19</p>
+
+<div class="box goal"><span class="lab">How to use these cases</span><p>For each fictional case: <strong>first formulate it yourself</strong> using Worksheet 3.1, working through the 12 steps below. Then open the "model answer" and note what you missed. This is how clinical reasoning is trained — attempt, compare, refine.</p>
+<p>The 12 steps: 1 Assessment · 2 Risk · 3 Diagnosis/differential · 4 Formulation · 5 Goals · 6 Treatment hierarchy · 7 Choice of intervention · 8 Session planning · 9 Worksheet selection · 10 Homework · 11 Progress monitoring · 12 Relapse prevention.</p></div>
+
+<h3>Case 1 — Mild (Sunita, 29)</h3>
+<p>Teacher; 6 weeks of low mood after a miscarriage; tearful, guilty ("my fault"), sleeping poorly, still working and seeing family. PHQ-9 = 9. No suicidal ideation. No bipolar/psychosis/substance issues.</p>
+<details><summary>Try it yourself, then open the model answer</summary>
+<p><strong>Risk:</strong> low but assess guilt/hopelessness &amp; monitor. <strong>Dx/differential:</strong> mild MDD vs adjustment vs grief — the miscarriage is a real loss; watch the guilt theme. <strong>Formulation:</strong> loss (precipitant) activating "I failed / it's my fault" (guilt/self-blame); maintained by rumination and mild withdrawal; protective: supportive family, working, help-seeking. <strong>Goals:</strong> reduce self-blame, restore sleep &amp; enjoyment, process the loss. <strong>Hierarchy/intervention:</strong> low-intensity — psychoeducation, light BA (pleasure/values), grief-sensitive cognitive work on guilt (responsibility pie), consider IPT-grief. <strong>Worksheets:</strong> mood log, activity schedule, responsibility pie, thought record. <strong>Monitoring:</strong> PHQ-9 fortnightly. <strong>Relapse prevention:</strong> brief. <strong>What trainees often miss:</strong> mislabelling normal grief as MDD (or vice versa), and not addressing the guilt attribution directly.</p></details>
+
+<h3>Case 2 — Moderate (Imran, 45)</h3>
+<p>Accountant; 4 months low mood, anhedonia, poor concentration threatening his job, withdrawn from friends, "burden to everyone", occasional passive thoughts of death, no plan. PHQ-9 = 18. Drinks more than before. Third low period in his life.</p>
+<details><summary>Model answer</summary>
+<p><strong>Risk:</strong> assess passive ideation fully, hopelessness, protective factors; monitor closely; supervision. <strong>Dx:</strong> recurrent MDD, moderate; screen bipolar &amp; medical; note alcohol. <strong>Formulation:</strong> recurrent vulnerability + work stress (precipitant) → withdrawal, rumination, alcohol, "burden" belief → maintaining cycle. <strong>Hierarchy:</strong> (1) risk + reduce alcohol; (2) BA; (3) cognitive work on "burden/worthlessness"; (4) beliefs; (5) relapse prevention (recurrent). <strong>Intervention:</strong> full CBT; coordinate re: medication given severity/recurrence. <strong>Worksheets:</strong> BA suite, 7-column records, behavioural experiments, positive data log, relapse plan. <strong>Monitoring:</strong> PHQ-9 each session. <strong>Missed by trainees:</strong> under-weighting alcohol as maintaining + risk factor; not planning relapse prevention despite recurrence.</p></details>
+
+<h3>Case 3 — Severe (Lakshmi, 34)</h3>
+<p>Homemaker; 2 months, barely leaving bed, not eating well, profound anhedonia, believes she has "ruined her children's lives", says "they'd be better off without me", poor sleep, no energy. PHQ-9 = 24. Item 9 positive. Possible guilt of near-delusional intensity.</p>
+<details><summary>Model answer</summary>
+<p><strong>Risk:</strong> HIGH — active-passing ideation + severe hopelessness + possible near-delusional guilt + dependants. <strong>Immediate action:</strong> full risk assessment, do not leave alone, involve family with consent, <strong>urgent psychiatric assessment same day</strong>, safety plan, means restriction; assess for psychotic features. <strong>Level of care:</strong> likely needs psychiatric input ± medication ± higher care — <em>beyond routine trainee outpatient CBT alone</em>. <strong>Formulation:</strong> severe episode with guilt/worthlessness; too slowed for cognitive work initially. <strong>Intervention once safe:</strong> begin with <em>minimal BA</em> + coordinate medication; defer cognitive restructuring. <strong>Missed by trainees:</strong> proceeding with routine CBT instead of escalating; missing possible psychotic-level guilt; not involving psychiatry/family.</p></details>
+
+<div class="box tip"><span class="lab">The reasoning habit</span><p>Notice the pattern: <em>severity + risk + formulation</em> jointly determine <em>level of care</em> and <em>sequencing</em>. Mild → low-intensity, cognitive/grief work fine. Severe → safety and psychiatry first, behavioural before cognitive, escalation over ambition.</p></div>
+
+<h2 class="part" id="p20">Part 20 — Supervised Practice (Role-Play &amp; Feedback)</h2>
+<p class="backtop">Practice · Module 20</p>
+
+<div class="box goal"><span class="lab">How this works (and its limits)</span><p>In a live session I can play a fictional client while you practise as therapist, then give you structured feedback. In this static document I've written a <strong>worked role-play</strong> so you can see the format, plus the feedback framework to use. To actually rehearse interactively, bring these into a live session or your supervision group. <strong>This never replaces real supervised practice with a qualified supervisor.</strong></p></div>
+
+<h3>Worked role-play excerpt — client "Deepak" (moderate MDD, session 2)</h3>
+<div class="dlg">
+<p class="c"><span class="sp">Deepak</span>"Honestly I don't know why I'm here. Nothing's going to change."</p>
+<p class="t"><span class="sp">Trainee</span>"You're feeling pretty hopeless about this. That makes sense — depression itself makes everything look pointless. Can I ask: if things <em>could</em> shift even a little, what would you want to be different?"</p>
+<p class="c"><span class="sp">Deepak</span>"…I'd want to not dread every morning."</p>
+<p class="t"><span class="sp">Trainee</span>"That's a real, workable goal. Last week you noticed mornings were worst and a short walk helped a bit. Could we build on that?"</p>
+</div>
+
+<h3>Structured feedback framework (use after every practice session)</h3>
+<table>
+<tr><th>Domain</th><th>Prompt</th></tr>
+<tr><td>Rapport</td><td>Warmth, pace, collaboration — did the client feel understood?</td></tr>
+<tr><td>Empathy &amp; validation</td><td>Was distress validated before change work?</td></tr>
+<tr><td>Questioning</td><td>Open vs closed; Socratic vs leading.</td></tr>
+<tr><td>Assessment</td><td>Adequate breadth; formulation-relevant.</td></tr>
+<tr><td>Formulation</td><td>Was a shared, testable hypothesis used to guide the session?</td></tr>
+<tr><td>CBT technique</td><td>Right technique, right time, done well.</td></tr>
+<tr><td>Socratic questioning</td><td>Guided discovery vs telling.</td></tr>
+<tr><td>Therapist language</td><td>Clear, non-jargon, non-judgemental.</td></tr>
+<tr><td>Timing / structure</td><td>Agenda, homework review, summary, feedback.</td></tr>
+<tr><td>Missed opportunities</td><td>Cues not followed; teachable moments.</td></tr>
+<tr><td>Risk assessment</td><td>Assessed &amp; responded appropriately?</td></tr>
+<tr><td>Homework</td><td>Collaboratively set, linked, confidence-checked.</td></tr>
+<tr><td>Ethics</td><td>Consent, confidentiality, boundaries, scope.</td></tr>
+</table>
+
+<div class="box"><span class="lab">"How a more experienced therapist might handle it"</span><p>Where the trainee above said "Could we build on that?", an experienced therapist might first <em>sit a beat longer</em> with the hopelessness ("dreading every morning sounds exhausting — how long has that been?") to deepen validation before pivoting to action, and would gently <em>check risk</em> given the hopelessness before agenda-setting. Small timing choices like these are what supervision hones.</p></div>
+
+<h2 class="part" id="p21">Part 21 — Ethics &amp; Scope of Practice</h2>
+<p class="backtop">Practice · Module 21</p>
+
+<div class="box goal"><span class="lab">Frame</span><p>Ethical practice is not an add-on; it is the container for everything else. As a trainee, the recurring principle is: <strong>practise within your competence, under supervision, and refer/escalate when a situation exceeds your scope.</strong></p></div>
+
+<table>
+<tr><th>Domain</th><th>What it requires · trainee note</th></tr>
+<tr><td><strong>Informed consent</strong></td><td>Explain the approach, likely course, risks/benefits, confidentiality limits, that you are a trainee under supervision, and voluntariness. Ongoing, not one-off.</td></tr>
+<tr><td><strong>Confidentiality &amp; its limits</strong></td><td>Protect information; explain limits (risk to self/others, legal, supervision) at the start. In family-oriented settings (Part 18), clarify what is shared.</td></tr>
+<tr><td><strong>Documentation</strong></td><td>Accurate, timely, objective notes; risk assessments &amp; decisions recorded; store securely.</td></tr>
+<tr><td><strong>Risk management</strong></td><td>Assess, respond, document, escalate; know local crisis pathways; never manage serious risk alone as a trainee.</td></tr>
+<tr><td><strong>Boundaries &amp; dual relationships</strong></td><td>Maintain professional boundaries; avoid dual roles; manage gifts/social contact thoughtfully (culturally aware but boundaried).</td></tr>
+<tr><td><strong>Competence</strong></td><td>Practise only what you're trained/supervised for; specialist presentations (psychosis, trauma, personality) → refer/co-work.</td></tr>
+<tr><td><strong>Supervision</strong></td><td>Central to trainee practice; bring risk, ruptures, stuck cases, and your own reactions. Non-negotiable.</td></tr>
+<tr><td><strong>Referral</strong></td><td>Know when &amp; how — severity, risk, non-response, out-of-scope.</td></tr>
+<tr><td><strong>Psychiatric consultation &amp; medication coordination</strong></td><td>Coordinate for moderate-severe/recurrent/high-risk depression; you don't prescribe, but you liaise and monitor.</td></tr>
+<tr><td><strong>Emergencies</strong></td><td>Have a plan &amp; contacts ready before you need them.</td></tr>
+<tr><td><strong>Cultural competence</strong></td><td>Individualised, humble, curious (Part 18); avoid stereotyping; use interpreters properly when needed.</td></tr>
+</table>
+
+<div class="box warn"><span class="lab">Appropriate for a trainee (under supervision) vs not</span><p><strong>Appropriate under supervision:</strong> assessment, formulation, delivering CBT/BA/PST/IPT techniques for mild–moderate depression, measurement-based monitoring, safety planning as part of a supervised plan. <strong>Not for independent trainee practice:</strong> managing high/imminent suicide risk alone, treating psychosis, standalone trauma processing, complex personality work, prescribing, or making sole decisions about level of care. Escalate these.</p></div>
+
+<h2 class="part" id="p22">Part 22 — Final Clinical Toolkit</h2>
+<p class="backtop">Reference · Module 22</p>
+<p>Concise, printable checklists distilling the course. Use them as prompts, not scripts — clinical judgement and supervision always apply.</p>
+
+<div class="grid2">
+<div class="card"><h5>A · Assessment checklist</h5><p>Presenting problem · 5-domain symptoms · onset/precipitant · psychiatric &amp; medical history · <strong>bipolar screen</strong> · substance · MSE · functioning · strengths/protective · goals · <strong>risk</strong> · measure (PHQ-9).</p></div>
+<div class="card"><h5>B · First-session checklist</h5><p>Rapport · consent + confidentiality limits + trainee status · brief assessment · risk · PHQ-9 baseline · psychoeducation + CBT model (their example) · instil hope · set 1 goal · homework (activity diary) · feedback.</p></div>
+<div class="card"><h5>C · CBT formulation template</h5><p>Situation→AT→emotion→physiology→behaviour (maintenance) · early experience→core belief→rules→precipitant→cycles (longitudinal) · 5 Ps · each perpetuating factor → matched technique.</p></div>
+<div class="card"><h5>D · Treatment planning template</h5><p>Problem list · goals (SMART) · treatment hierarchy (safety first) · chosen interventions + rationale · sequence/phases · outcome measure · review points · relapse-prevention plan · supervision/psychiatry points.</p></div>
+<div class="card"><h5>E · Session structure template</h5><p>Mood + measure (item 9!) · bridge · agenda · homework review · agenda work · new homework · summary + feedback · risk check.</p></div>
+<div class="card"><h5>F · Behavioural activation toolkit</h5><p>Activity/mood diary · identify avoidance (TRAP→TRAC) · schedule pleasure/mastery/values · grade tasks · problem-solve barriers · act from plan not mood · maintain.</p></div>
+<div class="card"><h5>G · Cognitive restructuring toolkit</h5><p>Catch AT via emotion shift · pick hot thought · evidence for/against · alternatives · continuum · double-standard · decatastrophise · balanced thought · re-rate. Aim: accurate, not positive.</p></div>
+<div class="card"><h5>H · Behavioural experiment toolkit</h5><p>Belief → specific prediction (%) → design → drop safety behaviours → do → outcome vs prediction → learning → re-rate. No-lose design; not reassurance.</p></div>
+<div class="card"><h5>I · Problem-solving toolkit</h5><p>Orientation · define (specific) · break down · brainstorm (no judging) · evaluate · decide · action steps · do · review.</p></div>
+<div class="card"><h5>J · Relapse-prevention toolkit</h5><p>Therapy blueprint (what helped) · early warning signs · coping/staying-well plan · booster sessions · maintain activities/skills · crisis contacts.</p></div>
+<div class="card"><h5>K · Risk-assessment reminders</h5><p>Ideation (passive/active) · plan/means/intent · prior attempts · hopelessness · psychosis · protective factors · safety plan · means restriction · <strong>consult supervisor + psychiatry same day; emergency if imminent.</strong></p></div>
+<div class="card"><h5>L · Micro-skills cheat sheet</h5><p>Open questions · reflect · validate (not minimise) · summarise · Socratic (not leading) · normalise · collaborative homework · handle silence/tears with space · take feedback.</p></div>
+<div class="card"><h5>M · Worksheet index</h5><p>Mood/PHQ-9 log · goals · activity diary/schedule · avoidance monitor · thought records (3 &amp; 7 col) · downward arrow · core belief · positive data log · experiment record · problem-solving sheet · early-warning &amp; relapse plan. (Part 15.)</p></div>
+<div class="card"><h5>N · Recommended books/manuals</h5><p>J. Beck <em>CBT: Basics &amp; Beyond</em> · Beck et al. <em>Cognitive Therapy of Depression</em> · Hawton et al. (1989, your repo) · Martell et al. (BA) · Greenberger &amp; Padesky <em>Mind Over Mood</em> · Weissman et al. (IPT) · Segal et al. (MBCT). (Part refs.)</p></div>
+<div class="card"><h5>O · Free online therapist resources</h5><p>CCI therapist manuals &amp; client modules · NICE NG222 · VA/DoD 2022 MDD CPG · PHQ-9 (public domain) · C-SSRS · HAP (open-access). Links in <a href="#refs">References</a>.</p></div>
+</div>
+
+
+<h2 class="part" id="refs">Tiered References &amp; Links</h2>
+<p class="backtop">Reference</p>
+
+<div class="box warn"><span class="lab">Honesty about sources &amp; a caution</span>
+<p>All links below were located via web search while building this course; <strong>always click through and verify currency yourself</strong>, as guidelines are updated and URLs change. A few notes on integrity:</p>
+<ul>
+<li>The <strong>Hawton, Salkovskis, Kirk &amp; Clark (1989)</strong> manual you provided is cited bibliographically only — the PDF in your repository is <em>password-protected</em>, so I could not read or quote its contents. Please read it directly.</li>
+<li>Book manuals (J. Beck, Martell, Weissman, Segal, Greenberger &amp; Padesky, Gilbert, Nezu, Watkins, Wells) are <strong>copyrighted</strong>; obtain them legitimately. I have not reproduced their text.</li>
+<li>Effect sizes and cut-offs quoted (e.g. PHQ-9 ≥10 sensitivity/specificity ~88%; BA g≈0.8) come from the specific studies cited; treat single figures as indicative, not definitive.</li>
+</ul></div>
+
+<h3>Tier 1 — Clinical guidelines</h3>
+<ul>
+<li><a href="https://www.nice.org.uk/guidance/ng222" target="_blank" rel="noopener">NICE NG222 — Depression in adults: treatment and management (2022)</a> · full text also at <a href="https://www.ncbi.nlm.nih.gov/books/NBK583074/" target="_blank" rel="noopener">NCBI Bookshelf NBK583074</a>. <span class="ev strong">Strong</span></li>
+<li><a href="https://www.healthquality.va.gov/guidelines/MH/mdd/" target="_blank" rel="noopener">VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022)</a> · <a href="https://www.healthquality.va.gov/guidelines/MH/mdd/VADODMDDCPGFinal508.pdf" target="_blank" rel="noopener">full PDF</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/36122380/" target="_blank" rel="noopener">synopsis (Ann Intern Med)</a>. <span class="ev strong">Strong</span></li>
+<li><a href="https://www.who.int/news-room/fact-sheets/detail/depression" target="_blank" rel="noopener">WHO — Depressive disorder (depression) fact sheet</a> · <a href="https://www.who.int/teams/mental-health-and-substance-use/treatment-care/mental-health-gap-action-programme/evidence-centre/depression/brief-structured-psychological-treatment" target="_blank" rel="noopener">WHO mhGAP — brief structured psychological treatment (recommends BA, CBT, IPT, PST, psychodynamic, third-wave)</a>.</li>
+<li>APA — <em>Clinical Practice Guideline for the Treatment of Depression Across Three Age Cohorts</em> (search apa.org/depression-guideline).</li>
+</ul>
+
+<h3>Tier 2 — Treatment manuals (obtain legitimately)</h3>
+<ul>
+<li>Beck, A. T., Rush, A. J., Shaw, B. F., &amp; Emery, G. (1979). <em>Cognitive Therapy of Depression.</em> Guilford.</li>
+<li>Beck, J. S. (2021). <em>Cognitive Behavior Therapy: Basics and Beyond</em> (3rd ed.). Guilford.</li>
+<li>Hawton, K., Salkovskis, P. M., Kirk, J., &amp; Clark, D. M. (1989). <em>Cognitive Behaviour Therapy for Psychiatric Problems: A Practical Guide.</em> Oxford University Press. <em>(The manual in your repository — read directly; not reproduced here.)</em></li>
+<li>Martell, C. R., Dimidjian, S., &amp; Herman-Dunn, R. (2010). <em>Behavioral Activation for Depression: A Clinician's Guide.</em> Guilford.</li>
+<li>Weissman, M. M., Markowitz, J. C., &amp; Klerman, G. L. <em>Comprehensive Guide to Interpersonal Psychotherapy</em> (and Klerman &amp; Weissman, 1993, in your reference list).</li>
+<li>Greenberger, D., &amp; Padesky, C. A. (2016). <em>Mind Over Mood</em> (2nd ed.). Guilford.</li>
+<li>Segal, Z. V., Williams, J. M. G., &amp; Teasdale, J. D. <em>Mindfulness-Based Cognitive Therapy for Depression</em> (2nd ed.). Guilford.</li>
+<li>Nezu, A. M., Nezu, C. M., &amp; D'Zurilla, T. J. <em>Problem-Solving Therapy: A Treatment Manual.</em> Springer.</li>
+<li>Gilbert, P. <em>Compassion Focused Therapy.</em> · Watkins, E. <em>Rumination-Focused CBT for Depression.</em> · Wells, A. <em>Metacognitive Therapy.</em></li>
+<li>Bennett-Levy, J. et al. <em>Oxford Guide to Behavioural Experiments in Cognitive Therapy.</em></li>
+</ul>
+
+<h3>Tier 3 — Research evidence (systematic reviews, meta-analyses, key studies)</h3>
+<ul>
+<li>Kroenke, K., Spitzer, R. L., &amp; Williams, J. B. W. (2001). The PHQ-9: validity of a brief depression severity measure. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1495268/" target="_blank" rel="noopener">PMC1495268</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/11556941/" target="_blank" rel="noopener">PubMed</a>.</li>
+<li>Behavioural activation meta-analyses: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4061095/" target="_blank" rel="noopener">Ekers et al. update (PMC4061095)</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32138802/" target="_blank" rel="noopener">Stein et al., 2021 (g≈0.83 vs inactive controls)</a>. <span class="ev strong">Strong</span></li>
+<li>Cuijpers, P. et al. (2016). Interpersonal Psychotherapy for Mental Health Problems: a comprehensive meta-analysis. <a href="https://psychiatryonline.org/doi/10.1176/appi.ajp.2015.15091141" target="_blank" rel="noopener">Am J Psychiatry</a>. <span class="ev strong">Strong</span></li>
+<li>Kuyken, W. et al. (2016). Efficacy of MBCT in prevention of depressive relapse — individual patient data meta-analysis. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6640038/" target="_blank" rel="noopener">PMC6640038</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/27119968/" target="_blank" rel="noopener">JAMA Psychiatry</a>. <span class="ev mod">Strong for relapse prevention</span></li>
+<li>Cuijpers, P. et al. (2009). Problem-solving therapy for depression: a meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/19299058/" target="_blank" rel="noopener">PubMed 19299058</a>. <span class="ev mod">Moderate–Strong</span></li>
+<li>Beck cognitive model &amp; CBT overview: <a href="https://www.ncbi.nlm.nih.gov/books/NBK470241/" target="_blank" rel="noopener">StatPearls: Cognitive Behavior Therapy (NBK470241)</a> · Disner, Beevers, Haigh &amp; Beck (2011), neuroscience of the cognitive model.</li>
+<li>Self-compassion &amp; CFT: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10239723/" target="_blank" rel="noopener">Meta-analysis of self-compassion interventions (PMC10239723)</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10087030/" target="_blank" rel="noopener">CFT effect on self-criticism (PMC10087030)</a>. <span class="ev emerg">Emerging–Moderate</span></li>
+<li>India / cultural: Patel, V. et al. (2017). Healthy Activity Program (BA) delivered by lay counsellors — RCT, <em>Lancet</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5236064/" target="_blank" rel="noopener">PMC5236064</a> · Idioms of distress: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5602270/" target="_blank" rel="noopener">PMC5602270</a> · Cultural adaptation of psychological treatments for depression: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3943384/" target="_blank" rel="noopener">PMC3943384</a>.</li>
+<li>Suicide risk &amp; safety: C-SSRS supporting evidence — <a href="https://cssrs.columbia.edu/the-columbia-scale-c-ssrs/about-the-scale/" target="_blank" rel="noopener">Columbia Lighthouse Project</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7974826/" target="_blank" rel="noopener">C-SSRS overview (PMC7974826)</a> · Stanley &amp; Brown (2012) Safety Planning Intervention.</li>
+</ul>
+
+<h3>Tier 4 — Free clinical resources (therapist manuals, worksheets, handouts)</h3>
+<ul>
+<li><strong>Centre for Clinical Interventions (CCI), Government of Western Australia</strong> — free consumer modules &amp; therapist manuals:
+  <ul>
+    <li><a href="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Depression" target="_blank" rel="noopener">CCI Depression self-help ("Back from the Bluez") — module index</a> (overview, behavioural strategies, unhelpful thinking styles, core beliefs).</li>
+    <li><a href="https://www.cci.health.wa.gov.au/Resources/For-Clinicians/Depression" target="_blank" rel="noopener">CCI clinician resources — Depression (Mood Management CBT therapist manuals &amp; handouts)</a>.</li>
+    <li>CCI also has free modules on <em>Improving Self-Esteem</em> and <em>Perfectionism</em> (relevant to Part 10).</li>
+  </ul>
+</li>
+<li><strong>PHQ-9</strong> — public domain, free to use/translate/reproduce (Pfizer/authors); available via <a href="https://www.phqscreeners.com/" target="_blank" rel="noopener">phqscreeners.com</a> and many health services (e.g. UCLA Health PDF).</li>
+<li><strong>C-SSRS</strong> — free with training via the <a href="https://cssrs.columbia.edu/" target="_blank" rel="noopener">Columbia Lighthouse Project</a>.</li>
+<li><strong>Stanley-Brown Safety Planning</strong> — <a href="https://suicidesafetyplan.com/" target="_blank" rel="noopener">suicidesafetyplan.com</a> · VA Safety Planning manual: <a href="https://www.mirecc.va.gov/MIRECC/visn19/safety-planning/docs/VA-Safety-Planning-Intervention-Manual_508.pdf" target="_blank" rel="noopener">MIRECC PDF</a>. <em>(The template is copyrighted by Stanley &amp; Brown; use the official version.)</em></li>
+<li><strong>WHO mhGAP Intervention Guide</strong> — free download for non-specialist settings (search who.int/publications mhGAP-IG).</li>
+<li><strong>Healthy Activity Program</strong> materials described in open-access <em>Lancet</em> reports (Patel et al., 2017; Sangath, India).</li>
+<li><strong>India crisis support:</strong> Tele-MANAS national mental health helpline <strong>14416 / 1-800-891-4416</strong> (verify current details for your region).</li>
+</ul>
+
+<h3>From your provided reference list</h3>
+<p>Several texts you supplied are used or relevant here: Clark &amp; Fairburn (2001) <em>Science and Practice of CBT</em>; Dobson &amp; Craig (1996) <em>Advances in Cognitive Behavior Therapy</em>; Dryden (2002) <em>Handbook of Individual Therapy</em>; Eells (2007) <em>Handbook of Psychotherapy Case Formulation</em>; Freeman et al. (1988) <em>Comprehensive Handbook of Cognitive Therapy</em>; Hawton et al. (1989); Klerman &amp; Weissman (1993) <em>New Approach of Interpersonal Psychotherapy</em>; Sanders &amp; Wills (2005) <em>Cognitive Therapy: An Introduction</em>; Rimm &amp; Masters (1979) and Bellack &amp; Hersen (behaviour therapy references) for behavioural foundations.</p>
+
+<div class="box goal">
+<span class="lab">Final word from your "supervisor"</span>
+<p>You began by saying you didn't know what to do with depressed clients. If you work through these modules — <em>formulate before you intervene, start behavioural, add cognitive, target the specific presentation, and always hold safety and supervision above ambition</em> — you will know not just <em>what</em> to do, but <em>why</em>, <em>when</em>, and <em>what to do when it isn't working</em>. Take it slowly, practise the exercises, and bring every real case to your supervisor. That is how a therapist is actually made.</p>
+</div>
+
+<hr>
+<p style="font-size:13px;color:var(--muted)">Prepared as an educational training resource. Not a substitute for formal supervised clinical training or professional judgement. Verify all external links and current guideline versions before clinical use. © Original explanatory text and worksheets created for this course; validated proprietary instruments are described, not reproduced.</p>
+
+</div><!-- /inner -->
+</main>
+</div><!-- /wrap -->
+</body>
+</html>
