@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 2: Assessment &amp; Theoretical Approaches in Couple Therapy</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #eee; overflow: hidden; height: 100vh; }
+.slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; position: relative; overflow-y: auto; }
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+.slide-counter { position: fixed; bottom: 20px; right: 30px; font-size: 14px; color: #888; z-index: 100; }
+.timer-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #f093fb, #f5576c); z-index: 100; transition: width 0.3s; }
+.nav-hint { position: fixed; bottom: 20px; left: 30px; font-size: 12px; color: #666; z-index: 100; }
+
+/* Slide Types */
+.title-slide { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); text-align: center; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.title-slide h2 { font-size: 1.6em; font-weight: 300; opacity: 0.9; margin-bottom: 30px; }
+.title-slide .meta { font-size: 1em; opacity: 0.7; margin-top: 30px; }
+
+.content-slide { background: #16213e; }
+.content-slide h2 { font-size: 2.2em; color: #f093fb; margin-bottom: 25px; border-bottom: 3px solid #f093fb; padding-bottom: 10px; }
+.content-slide h3 { font-size: 1.4em; color: #f9a8d4; margin: 20px 0 10px; }
+.content-slide ul, .content-slide ol { padding-left: 30px; margin: 10px 0; }
+.content-slide li { margin: 8px 0; font-size: 1.15em; line-height: 1.6; }
+.content-slide p { font-size: 1.15em; line-height: 1.7; margin: 10px 0; }
+.interactive-slide { background: linear-gradient(135deg, #0f3443 0%, #34e89e20 100%); border: 2px solid #34e89e; }
+.interactive-slide h2 { color: #34e89e; font-size: 2em; margin-bottom: 20px; }
+.interactive-slide .activity-badge { background: #34e89e; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+
+.discussion-slide { background: linear-gradient(135deg, #1a1a2e 0%, #e94560 10%, #1a1a2e 100%); background-size: 200% 200%; }
+.discussion-slide h2 { color: #e94560; font-size: 2em; }
+.discussion-slide .question { font-size: 1.5em; text-align: center; margin: 40px 0; padding: 30px; border: 2px dashed #e94560; border-radius: 15px; }
+
+.key-concept { background: rgba(240,147,251,0.15); border-left: 4px solid #f093fb; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-box { background: rgba(52,232,158,0.1); border: 1px solid #34e89e; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.warning-box { background: rgba(233,69,96,0.1); border: 1px solid #e94560; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+th { background: #f5576c; color: white; padding: 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid #333; }
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 15px 0; }
+.col { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; }
+.col h4 { color: #f9a8d4; margin-bottom: 10px; }
+
+.timer-display { position: fixed; top: 15px; right: 30px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 20px; font-size: 1.1em; z-index: 200; display: none; }
+.timer-display.visible { display: block; }
+
+.poll-container { text-align: center; margin: 20px 0; }
+.poll-option { display: inline-block; background: rgba(240,147,251,0.2); border: 2px solid #f093fb; padding: 15px 25px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.1em; }
+.poll-option:hover, .poll-option.selected { background: #f093fb; color: white; transform: scale(1.05); }
+
+.reveal-content { opacity: 0; transition: opacity 0.5s; margin: 15px 0; }
+.reveal-content.shown { opacity: 1; }
+.reveal-btn { background: #f5576c; color: white; border: none; padding: 10px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; margin: 10px 0; }
+.reveal-btn:hover { background: #f093fb; }
+
+.section-header { background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); text-align: center; }
+.section-header h2 { font-size: 2.8em; margin-bottom: 15px; }
+.section-header p { font-size: 1.3em; opacity: 0.8; }
+.time-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timerBar"></div>
+<div class="timer-display" id="timerDisplay">60:00</div>
+<div class="slide-counter" id="slideCounter"></div>
+<div class="nav-hint">&larr; &rarr; Arrow Keys or Click to Navigate | Press 'T' for Timer | Press 'R' to Reveal</div>
+
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+    <h1>Couple &amp; Marriage Therapy</h1>
+    <h2>Hour 2: Assessment &amp; Theoretical Approaches in Couple Therapy</h2>
+    <p style="font-size:1.2em; margin:20px 0;">A Comprehensive Clinical Training for MPhil Trainees</p>
+    <div class="meta">
+        <p>Modules 3 &amp; 4 | Duration: 60 Minutes</p>
+        <p>Interactive Lecture + Activities + Discussion</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Roadmap -->
+<div class="slide content-slide">
+    <h2>Hour 2 Roadmap (60 Minutes)</h2>
+    <table>
+        <tr><th>Time</th><th>Topic</th><th>Format</th></tr>
+        <tr><td>0&ndash;5 min</td><td>The Assessment Process Overview</td><td>Lecture</td></tr>
+        <tr><td>5&ndash;15 min</td><td>Conducting a Couple Intake</td><td>Lecture + Demo</td></tr>
+        <tr><td>15&ndash;25 min</td><td>Standardized Assessment Tools</td><td>Lecture + Activity</td></tr>
+        <tr><td>25&ndash;35 min</td><td>Case Formulation</td><td>Interactive</td></tr>
+        <tr><td>35&ndash;50 min</td><td>Theoretical Foundations &ndash; Systems, Bowen, Structural, Narrative</td><td>Lecture</td></tr>
+        <tr><td>50&ndash;60 min</td><td>Theory Application Activity + Wrap-up</td><td>Interactive</td></tr>
+    </table>
+</div>
+
+
+<!-- SLIDE 3: Section Header - Assessment -->
+<div class="slide section-header">
+    <h2>Module 3</h2>
+    <p>The Assessment Process in Couple Therapy</p>
+    <div class="time-badge">25 Minutes</div>
+</div>
+
+<!-- SLIDE 4: Assessment Structure -->
+<div class="slide content-slide">
+    <h2>Assessment Structure: The Three-Session Model</h2>
+    <table>
+        <tr><th>Session</th><th>Format</th><th>Focus</th><th>Duration</th></tr>
+        <tr><td>Session 1</td><td>Conjoint (Both partners)</td><td>Presenting concerns, observe interaction, relationship history, goals</td><td>60&ndash;90 min</td></tr>
+        <tr><td>Session 2</td><td>Individual (Partner A)</td><td>Personal history, attachment, secrets, violence screening, individual goals</td><td>45&ndash;60 min</td></tr>
+        <tr><td>Session 3</td><td>Individual (Partner B)</td><td>Same as above for other partner</td><td>45&ndash;60 min</td></tr>
+        <tr><td>Session 4</td><td>Feedback (Conjoint)</td><td>Share formulation, recommend treatment plan, discuss goals &amp; approach</td><td>60 min</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Key Point:</strong> NEVER skip individual sessions. They are essential for violence screening, secret-keeping assessment, and understanding each partner's attachment history.
+    </div>
+</div>
+
+
+<!-- SLIDE 5: What to Assess -->
+<div class="slide content-slide">
+    <h2>What to Assess in the First Interview</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Essential Areas</h4>
+            <ul>
+                <li><strong>Presenting concerns</strong> &ndash; What brings you here today?</li>
+                <li><strong>Observe interaction</strong> &ndash; How do they talk to each other? Who speaks? Who interrupts?</li>
+                <li><strong>Safety</strong> &ndash; Any violence, threats, coercion?</li>
+                <li><strong>Who wants what</strong> &ndash; Are both motivated? Is one coerced?</li>
+                <li><strong>Precipitating event</strong> &ndash; Why NOW? What triggered help-seeking?</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Additional Areas</h4>
+            <ul>
+                <li>Relationship timeline &amp; history</li>
+                <li>Previous therapy attempts</li>
+                <li>Strengths &amp; protective factors</li>
+                <li>Individual mental health concerns</li>
+                <li>Family involvement &amp; cultural factors</li>
+                <li>Expectations from therapy</li>
+            </ul>
+        </div>
+    </div>
+    <div class="highlight-box">
+        <strong>Clinical Tip:</strong> Watch the PROCESS more than the content. How they tell their story reveals the cycle.
+    </div>
+</div>
+
+<!-- SLIDE 6: Violence Screening -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#9888;&#65039; CRITICAL SAFETY PROTOCOL</span>
+    <h2>Violence Screening &ndash; NEVER Skip This</h2>
+    <div class="warning-box" style="border-width:3px; background: rgba(233,69,96,0.2);">
+        <p style="font-size:1.3em; font-weight:bold; color:#e94560;">&#128680; ALWAYS conduct individual sessions for violence screening</p>
+        <p style="margin-top:10px;">Couple therapy is <strong>CONTRAINDICATED</strong> if there is ongoing intimate partner violence (IPV).</p>
+    </div>
+    <h3 style="color:#34e89e; margin-top:20px;">Screen For:</h3>
+    <ul>
+        <li><strong>Physical violence</strong> &ndash; hitting, slapping, pushing, choking</li>
+        <li><strong>Fear</strong> &ndash; "Are you afraid of your partner?"</li>
+        <li><strong>Coercive control</strong> &ndash; financial control, isolation, monitoring</li>
+        <li><strong>Dowry harassment</strong> &ndash; specific to Indian context (IPC 498A)</li>
+        <li><strong>Sexual coercion</strong> &ndash; marital rape (not criminalized in India)</li>
+    </ul>
+    <div class="key-concept" style="margin-top:15px;">
+        <strong>Tool:</strong> Use CTS-2 (Conflict Tactics Scale &ndash; Revised; Straus et al., 1996) for systematic screening. Ask in individual sessions ONLY.
+    </div>
+</div>
+
+
+<!-- SLIDE 7: Standardized Assessment Tools -->
+<div class="slide content-slide">
+    <h2>Standardized Assessment Tools for Couples</h2>
+    <table>
+        <tr><th>Tool</th><th>Author</th><th>Items</th><th>Scores / Notes</th></tr>
+        <tr><td><strong>DAS</strong> (Dyadic Adjustment Scale)</td><td>Spanier (1976)</td><td>32</td><td>0&ndash;151; &lt;100 = distress</td></tr>
+        <tr><td><strong>RDAS</strong> (Revised DAS)</td><td>Busby et al. (1995)</td><td>14</td><td>Briefer version; good for screening</td></tr>
+        <tr><td><strong>CSI</strong> (Couples Satisfaction Index)</td><td>Funk &amp; Rogge (2007)</td><td>4/16/32</td><td>FREE; excellent psychometrics</td></tr>
+        <tr><td><strong>MSI-R</strong> (Marital Satisfaction Inventory)</td><td>Snyder (1997)</td><td>150</td><td>Comprehensive; 13 subscales</td></tr>
+        <tr><td><strong>ENRICH</strong></td><td>Olson (1989)</td><td>125</td><td>Widely used in India; premarital &amp; marital</td></tr>
+        <tr><td><strong>ECR</strong> (Experiences in Close Relationships)</td><td>Brennan et al. (1998)</td><td>36</td><td>Measures attachment anxiety &amp; avoidance</td></tr>
+        <tr><td><strong>CTS-2</strong> (Conflict Tactics Scale)</td><td>Straus et al. (1996)</td><td>78</td><td>Violence screening; individual admin only</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Practical Tip:</strong> Start with CSI (free, quick) + ECR (attachment) + CTS-2 (safety). Add MSI-R or ENRICH for comprehensive assessment.
+    </div>
+</div>
+
+<!-- SLIDE 8: Pair Practice - Mock Intake -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#128101; PAIR PRACTICE &ndash; 3 Minutes</span>
+    <h2>Mock Intake: Circular Questions</h2>
+    <p style="margin-bottom:15px;">With your partner, practice asking <strong>circular questions</strong> (questions that illuminate the relational pattern, not just individual experience):</p>
+    <div class="two-col">
+        <div class="col">
+            <h4>Example Circular Questions</h4>
+            <ul>
+                <li>"When your wife becomes quiet, what do you do?"</li>
+                <li>"When he walks away, what happens inside you?"</li>
+                <li>"If your mother-in-law could see this argument, what would she say?"</li>
+                <li>"On a scale of 1&ndash;10, how close do you feel right now? What about your partner?"</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Instructions</h4>
+            <ol>
+                <li>One person plays "therapist," one plays "client"</li>
+                <li>Therapist asks 3&ndash;4 circular questions</li>
+                <li>Notice: How does it feel different from "What's wrong?"</li>
+                <li>Switch roles after 90 seconds</li>
+            </ol>
+        </div>
+    </div>
+    <div class="highlight-box">
+        <strong>Why Circular Questions?</strong> They shift from linear causality ("She causes my anger") to circular patterns ("We co-create this cycle"). This IS systems thinking in action.
+    </div>
+</div>
+
+
+<!-- SLIDE 9: Section Header - Case Formulation -->
+<div class="slide section-header">
+    <h2>Case Formulation</h2>
+    <p>Putting It All Together: From Assessment to Treatment Plan</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 10: Case Formulation Template -->
+<div class="slide content-slide">
+    <h2>Case Formulation Template (12 Components)</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Description &amp; Pattern</h4>
+            <ol>
+                <li><strong>Presenting problems</strong> &ndash; What each partner reports</li>
+                <li><strong>Negative cycle</strong> &ndash; The pursuer-withdrawer (or other) pattern</li>
+                <li><strong>Attachment needs</strong> &ndash; What each partner needs but can't ask for</li>
+                <li><strong>Predisposing factors</strong> &ndash; Family of origin, attachment history</li>
+                <li><strong>Precipitating factors</strong> &ndash; What triggered the current crisis</li>
+                <li><strong>Perpetuating factors</strong> &ndash; What maintains the cycle</li>
+            </ol>
+        </div>
+        <div class="col">
+            <h4>Resources &amp; Plan</h4>
+            <ol start="7">
+                <li><strong>Protective factors</strong> &ndash; Strengths, commitment, shared values</li>
+                <li><strong>Cultural factors</strong> &ndash; Religion, caste, family system, migration</li>
+                <li><strong>Goals</strong> &ndash; Shared + individual goals for therapy</li>
+                <li><strong>Approach</strong> &ndash; Which model (EFT, CBCT, Structural, etc.)</li>
+                <li><strong>Duration</strong> &ndash; Estimated sessions (typically 12&ndash;20)</li>
+                <li><strong>Risks</strong> &ndash; Violence, suicide, separation, dropout</li>
+            </ol>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Remember:</strong> A good formulation is a shared hypothesis, not a fixed diagnosis. Update it as therapy progresses.
+    </div>
+</div>
+
+
+<!-- SLIDE 11: Case Formulation Exercise -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#129504; CASE FORMULATION EXERCISE &ndash; 5 Minutes</span>
+    <h2>Practice: Formulate This Case</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Meera (34, teacher) and Suresh (38, IT professional). Love marriage, 8 years, one child (5 years). Living nuclear. Meera reports: "After our son was born, he became distant. He works 14-hour days, comes home and goes on his phone. I feel like a single mother. When I complain, he says I'm nagging." Suresh reports: "She doesn't understand the pressure I'm under. Everything I do is wrong. I provide well but she only notices what I don't do. I avoid coming home because it's just fights."</p>
+    </div>
+    <p style="margin-top:15px;"><strong>Identify with your neighbor (3 min):</strong></p>
+    <ol>
+        <li>What is the negative cycle?</li>
+        <li>What are the underlying attachment needs?</li>
+        <li>What systemic/contextual factors are at play?</li>
+    </ol>
+    <button class="reveal-btn" onclick="document.getElementById('revCase1').classList.add('shown')">Reveal Formulation</button>
+    <div class="reveal-content" id="revCase1">
+        <div class="key-concept">
+            <strong>Cycle:</strong> Meera pursues (criticism, complaints) &rarr; Suresh withdraws (avoidance, phone, long hours) &rarr; Meera feels abandoned, pursues harder &rarr; Suresh feels inadequate, withdraws more.<br><br>
+            <strong>Attachment:</strong> Meera &ndash; "Am I important to you? Are you here with me?" (need for connection, presence). Suresh &ndash; "Can I ever be enough for you?" (need for acceptance, approval).<br><br>
+            <strong>Systemic:</strong> Transition to parenthood disrupted the dyad. Work-life imbalance. Gender role expectations (provider vs. emotional partner). No extended family support (nuclear). Perpetuating: his avoidance confirms her fear; her criticism confirms his inadequacy.
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 12: Section Header - Theoretical Foundations -->
+<div class="slide section-header">
+    <h2>Module 4</h2>
+    <p>Theoretical Foundations of Couple Therapy</p>
+    <div class="time-badge">15 Minutes</div>
+</div>
+
+<!-- SLIDE 13: General Systems Theory -->
+<div class="slide content-slide">
+    <h2>General Systems Theory</h2>
+    <p>The foundational paradigm shift: from linear to circular thinking</p>
+    <div class="two-col">
+        <div class="col">
+            <h4>Core Concepts</h4>
+            <ul>
+                <li><strong>Circular causality</strong> &ndash; A affects B, B affects A (not just A causes B)</li>
+                <li><strong>Homeostasis</strong> &ndash; System resists change to maintain stability</li>
+                <li><strong>Boundaries</strong> &ndash; Who is in/out? Clear, diffuse, or rigid?</li>
+                <li><strong>Triangulation</strong> &ndash; Two-person tension recruits a third</li>
+                <li><strong>Feedback loops</strong> &ndash; Positive (escalating) vs. negative (stabilizing)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Clinical Application</h4>
+            <ul>
+                <li>Stop asking "Who started it?" &ndash; it's circular</li>
+                <li>Symptoms serve a function in the system</li>
+                <li>Change one part &rarr; whole system shifts</li>
+                <li>The "identified patient" carries the family's distress</li>
+                <li>Look for patterns, not pathology</li>
+            </ul>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Key Shift:</strong> "What's wrong with this person?" &rarr; "What's happening in this system?" This is the fundamental paradigm of couple &amp; family therapy.
+    </div>
+</div>
+
+
+<!-- SLIDE 14: Bowen Family Systems -->
+<div class="slide content-slide">
+    <h2>Bowen Family Systems Theory</h2>
+    <p>Murray Bowen (1913&ndash;1990): The family as a multi-generational emotional unit</p>
+    <h3>8 Interlocking Concepts</h3>
+    <table>
+        <tr><th>#</th><th>Concept</th><th>Key Idea</th></tr>
+        <tr><td>1</td><td><strong>Differentiation of Self</strong></td><td>Ability to maintain "I" while in emotional contact with others. LOW = reactive, fused</td></tr>
+        <tr><td>2</td><td><strong>Triangles</strong></td><td>Two-person system is unstable; under stress it triangulates a third (child, in-law, affair)</td></tr>
+        <tr><td>3</td><td><strong>Nuclear Family Emotional Process</strong></td><td>Four patterns: conflict, distance, over/underfunctioning, child focus</td></tr>
+        <tr><td>4</td><td><strong>Family Projection Process</strong></td><td>Parents project anxiety onto most vulnerable child</td></tr>
+        <tr><td>5</td><td><strong>Multigenerational Transmission</strong></td><td>Patterns repeat across generations (genogram reveals this)</td></tr>
+        <tr><td>6</td><td><strong>Emotional Cutoff</strong></td><td>Managing anxiety by severing contact (not true differentiation)</td></tr>
+        <tr><td>7</td><td><strong>Sibling Position</strong></td><td>Birth order affects relational patterns (Toman's profiles)</td></tr>
+        <tr><td>8</td><td><strong>Societal Emotional Process</strong></td><td>Society mirrors family &ndash; regression under anxiety</td></tr>
+    </table>
+    <div class="warning-box">
+        <strong>Indian Context:</strong> Differentiation is especially challenging in collectivist cultures where "family first" is the norm. Low differentiation ≠ pathology in all contexts &ndash; but when it causes distress, it's treatable.
+    </div>
+</div>
+
+
+<!-- SLIDE 15: Genogram -->
+<div class="slide content-slide">
+    <h2>The Genogram: Mapping Family Patterns</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>What It Maps (3+ Generations)</h4>
+            <ul>
+                <li>Family structure (births, deaths, marriages, divorces)</li>
+                <li>Relationship quality (close, conflictual, cutoff, enmeshed)</li>
+                <li>Patterns (mental illness, substance use, violence, affairs)</li>
+                <li>Triangles and coalitions</li>
+                <li>Emotional cutoffs and fusion</li>
+            </ul>
+            <h4 style="margin-top:15px;">Standard Symbols</h4>
+            <ul>
+                <li>&#9633; = Male | &#9675; = Female</li>
+                <li>&#9866;&#9866; = Marriage | /&#9866;&#9866; = Divorce</li>
+                <li>~~~ = Conflict | &#9552;&#9552; = Enmeshed</li>
+                <li>X = Deceased | &#8230;&#8230; = Cutoff</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>What to Look For</h4>
+            <ul>
+                <li>Repeating patterns across generations</li>
+                <li>Triangles (who gets pulled in during conflict?)</li>
+                <li>Cutoffs (unresolved relationships)</li>
+                <li>Role assignments (caretaker, scapegoat)</li>
+            </ul>
+            <h4 style="margin-top:15px;">Indian Context Additions</h4>
+            <ul>
+                <li>Arranged marriage patterns &amp; matchmaking</li>
+                <li>Caste &amp; inter-caste marriages</li>
+                <li>Migration patterns (rural &rarr; urban, NRI)</li>
+                <li>In-law relationships &amp; joint family dynamics</li>
+                <li>Dowry history</li>
+                <li>Gender preference patterns (son preference)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 16: Genogram Exercise -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#9997;&#65039; QUICK EXERCISE &ndash; 2 Minutes</span>
+    <h2>Sketch YOUR Family Genogram</h2>
+    <div class="highlight-box" style="text-align:center; font-size:1.2em;">
+        <p><strong>On a piece of paper, draw your genogram (3 generations):</strong></p>
+        <p>Grandparents &rarr; Parents &rarr; You &amp; siblings</p>
+    </div>
+    <p style="margin-top:20px; font-size:1.1em;">As you draw, notice:</p>
+    <div class="two-col">
+        <div class="col">
+            <h4>Ask Yourself:</h4>
+            <ul>
+                <li>What patterns do you see repeating?</li>
+                <li>Any triangles? (Who gets pulled in during conflict?)</li>
+                <li>Any cutoffs? (Family members who don't speak?)</li>
+                <li>What was the model of marriage in your family?</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Why This Matters:</h4>
+            <ul>
+                <li>Therapists carry their own family patterns into the room</li>
+                <li>Self-awareness prevents counter-transference blind spots</li>
+                <li>Bowen believed therapist's own differentiation is THE key tool</li>
+                <li>"You can only take clients as far as you've gone yourself"</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 17: Structural Family Therapy -->
+<div class="slide content-slide">
+    <h2>Structural Family Therapy (Minuchin, 1974)</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Core Concepts</h4>
+            <ul>
+                <li><strong>Structure</strong> &ndash; Invisible rules organizing family interactions</li>
+                <li><strong>Boundaries:</strong>
+                    <ul>
+                        <li><em>Clear</em> &ndash; healthy (flexible, appropriate)</li>
+                        <li><em>Diffuse</em> &ndash; enmeshed (no privacy, over-involvement)</li>
+                        <li><em>Rigid</em> &ndash; disengaged (no connection, isolation)</li>
+                    </ul>
+                </li>
+                <li><strong>Hierarchy</strong> &ndash; Parents in executive position; children below</li>
+                <li><strong>Subsystems</strong> &ndash; Marital, parental, sibling subsystems</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Therapeutic Techniques</h4>
+            <ul>
+                <li><strong>Joining</strong> &ndash; Accommodate to family's style to enter system</li>
+                <li><strong>Enactments</strong> &ndash; "Show me, don't tell me" (have couple interact in session)</li>
+                <li><strong>Restructuring</strong> &ndash; Realign boundaries, clarify hierarchy</li>
+                <li><strong>Unbalancing</strong> &ndash; Temporarily side with one member to shift power</li>
+            </ul>
+            <h4 style="margin-top:15px;">Indian Context &#127470;&#127475;</h4>
+            <ul>
+                <li>Joint family: Mother-in-law often in executive subsystem</li>
+                <li>Diffuse boundaries between marital &amp; in-law subsystem</li>
+                <li>Goal: Strengthen couple boundary WITHOUT cutting off family</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 18: Other Theories -->
+<div class="slide content-slide">
+    <h2>Other Theoretical Approaches (Brief Overview)</h2>
+    <table>
+        <tr><th>Approach</th><th>Key Figures</th><th>Core Ideas</th><th>Signature Techniques</th></tr>
+        <tr><td><strong>Strategic</strong></td><td>Haley, Madanes</td><td>Problems maintained by failed solutions; therapist as active director</td><td>Directives, paradoxical interventions, reframing</td></tr>
+        <tr><td><strong>Satir (Experiential)</strong></td><td>Virginia Satir</td><td>Communication stances reflect self-worth; congruence is the goal</td><td>Communication stances, family sculpting, parts party</td></tr>
+        <tr><td><strong>Narrative</strong></td><td>White &amp; Epston</td><td>Problems are NOT people; dominant stories constrain identity</td><td>Externalization, unique outcomes, re-authoring, definitional ceremonies</td></tr>
+        <tr><td><strong>SFBT</strong></td><td>de Shazer, Berg</td><td>Focus on solutions, not problems; clients are the experts</td><td>Miracle question, scaling questions, exception finding</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Integration:</strong> Most experienced couple therapists use an integrative approach &ndash; drawing techniques from multiple models based on the couple's needs.
+    </div>
+</div>
+
+
+<!-- SLIDE 19: Satir Communication Stances Poll -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#128202; INTERACTIVE POLL</span>
+    <h2>Which Satir Communication Stance Do YOU Default To Under Stress?</h2>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">&#128591; Placating<br><small>"Whatever you say, it's my fault"</small></div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">&#128548; Blaming<br><small>"It's YOUR fault, never mine"</small></div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">&#129504; Super-Reasonable<br><small>"Let's be logical about this"</small></div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">&#129322; Irrelevant<br><small>"Hey, did you see that movie?"</small></div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">&#127775; Congruent<br><small>"I feel hurt and I want to understand"</small></div>
+    </div>
+    <div class="reveal-content" id="revSatir">
+        <div class="highlight-box">
+            <strong>Satir's Insight:</strong> Only congruence allows genuine connection. The other four stances are survival strategies that protect self-worth but block intimacy. In couples, mismatched stances (e.g., Blamer + Placater) create fixed roles that therapy aims to unlock.
+        </div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('revSatir').classList.add('shown')">Reveal Discussion Points</button>
+</div>
+
+<!-- SLIDE 20: Theory Application Exercise -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">&#128101; GROUP ACTIVITY &ndash; 5 Minutes</span>
+    <h2>Theory Application: Which Lens Would You Use?</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Anita (42) and Vikram (45), married 18 years, 2 teenagers. Presenting issue: Anita discovered Vikram's emotional affair (WhatsApp messages). Vikram says: "She's been so focused on the children for years, I felt invisible." Anita says: "I gave everything to this family and this is my reward?" Vikram's mother sides with him openly: "If you'd been a better wife, he wouldn't have looked elsewhere."</p>
+    </div>
+    <p style="margin-top:15px;"><strong>In groups of 3, discuss (2 min):</strong></p>
+    <ul>
+        <li>Through an <strong>EFT/Attachment</strong> lens &ndash; what do you see?</li>
+        <li>Through a <strong>Structural</strong> lens &ndash; what do you see?</li>
+        <li>Through a <strong>Narrative</strong> lens &ndash; what do you see?</li>
+    </ul>
+    <button class="reveal-btn" onclick="document.getElementById('revTheory').classList.add('shown')">Reveal Multi-Lens Analysis</button>
+    <div class="reveal-content" id="revTheory">
+        <div class="key-concept">
+            <strong>EFT:</strong> Both have unmet attachment needs. Anita: "Do you see me? Value my sacrifice?" Vikram: "Am I enough? Do you desire me?" The affair = protest behaviour from withdrawal.<br><br>
+            <strong>Structural:</strong> Mother-in-law in the marital subsystem (boundary violation). Parental subsystem has overtaken marital subsystem. Need to restructure hierarchy and strengthen couple boundary.<br><br>
+            <strong>Narrative:</strong> Dominant story: "good wife/bad wife" narrative from MIL. Externalize the problem: "The disconnection" came between them. Find unique outcomes: times they DID feel close.<br><br>
+            <strong>Takeaway:</strong> Multiple lenses enrich formulation. Most therapists integrate.
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 21: Key Takeaways -->
+<div class="slide content-slide">
+    <h2>Hour 2: Key Takeaways</h2>
+    <div class="key-concept">
+        <strong>1. Assessment is Systematic:</strong> Use the 3-session model (conjoint &rarr; individual &times; 2 &rarr; feedback). NEVER skip individual sessions &ndash; violence screening is non-negotiable.
+    </div>
+    <div class="key-concept">
+        <strong>2. Use Standardized Tools:</strong> CSI for satisfaction, ECR for attachment, CTS-2 for safety. Let data complement clinical observation.
+    </div>
+    <div class="key-concept">
+        <strong>3. Case Formulation is Your Map:</strong> 12 components give you a comprehensive picture. Include the cycle, attachment needs, systemic factors, and cultural context.
+    </div>
+    <div class="key-concept">
+        <strong>4. Systems Thinking is Foundational:</strong> Circular causality, homeostasis, boundaries, triangles. The couple is a system within systems (family, culture, society).
+    </div>
+    <div class="key-concept">
+        <strong>5. Multiple Theories Enrich Practice:</strong> Bowen (differentiation, genogram), Structural (boundaries, hierarchy), Narrative (externalization), Strategic (directives). Integration is key.
+    </div>
+</div>
+
+<!-- SLIDE 22: References -->
+<div class="slide content-slide">
+    <h2>Key References (APA 7)</h2>
+    <ul style="font-size:0.85em; line-height:2;">
+        <li>Bowen, M. (1978). <em>Family therapy in clinical practice</em>. Jason Aronson.</li>
+        <li>Busby, D. M., Christensen, C., Crane, D. R., &amp; Larson, J. H. (1995). A revision of the DAS. <em>Journal of Marital and Family Therapy, 21</em>(3), 289&ndash;308.</li>
+        <li>Funk, J. L., &amp; Rogge, R. D. (2007). Testing the ruler with IRT: The CSI. <em>Journal of Family Psychology, 21</em>(4), 572&ndash;583.</li>
+        <li>McGoldrick, M., Gerson, R., &amp; Petry, S. (2020). <em>Genograms: Assessment and treatment</em> (4th ed.). Norton.</li>
+        <li>Minuchin, S. (1974). <em>Families and family therapy</em>. Harvard University Press.</li>
+        <li>Olson, D. H. (1989). Circumplex model and ENRICH. In R. M. Galvin (Ed.), <em>Advances in family assessment</em>.</li>
+        <li>Satir, V. (1972). <em>Peoplemaking</em>. Science and Behavior Books.</li>
+        <li>Snyder, D. K. (1997). <em>MSI-R manual</em>. Western Psychological Services.</li>
+        <li>Spanier, G. B. (1976). Measuring dyadic adjustment. <em>Journal of Marriage and the Family, 38</em>(1), 15&ndash;28.</li>
+        <li>Straus, M. A., Hamby, S. L., Boney-McCoy, S., &amp; Sugarman, D. B. (1996). The revised CTS. <em>Journal of Family Issues, 17</em>(3), 283&ndash;316.</li>
+        <li>White, M., &amp; Epston, D. (1990). <em>Narrative means to therapeutic ends</em>. Norton.</li>
+    </ul>
+</div>
+
+
+<!-- SLIDE 23: End / Next Hour Preview -->
+<div class="slide title-slide">
+    <h1>End of Hour 2</h1>
+    <h2>&#9749; 5-Minute Break</h2>
+    <p style="font-size:1.2em; margin:30px 0;">Coming Up Next &rarr; Hour 3:</p>
+    <p style="font-size:1.5em;"><strong>Evidence-Based Models: EFT &amp; Gottman Method</strong></p>
+    <p style="margin-top:20px; opacity:0.7;">Emotionally Focused Therapy | Gottman Method | Treatment stages | Live demonstration</p>
+</div>
+
+<script>
+// Slide Navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const timerBar = document.getElementById('timerBar');
+const timerDisplay = document.getElementById('timerDisplay');
+let timerInterval = null;
+let timeRemaining = 3600; // 60 minutes in seconds
+let timerRunning = false;
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    slides[currentSlide].classList.add('active');
+    counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    timerBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 't' || e.key === 'T') { toggleTimer(); }
+    else if (e.key === 'r' || e.key === 'R') { revealAll(); }
+});
+
+// Click navigation
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('poll-option') || e.target.classList.contains('reveal-btn')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+});
+
+// Timer
+function toggleTimer() {
+    timerDisplay.classList.toggle('visible');
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) { clearInterval(timerInterval); timerDisplay.textContent = "TIME!"; timerDisplay.style.color = '#e94560'; return; }
+            const min = Math.floor(timeRemaining / 60);
+            const sec = timeRemaining % 60;
+            timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            if (timeRemaining <= 300) timerDisplay.style.color = '#e94560';
+        }, 1000);
+    } else {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+// Reveal all hidden content on current slide
+function revealAll() {
+    const active = slides[currentSlide];
+    active.querySelectorAll('.reveal-content').forEach(el => el.classList.add('shown'));
+}
+
+// Initialize
+showSlide(0);
+</script>
+</body>
+</html>

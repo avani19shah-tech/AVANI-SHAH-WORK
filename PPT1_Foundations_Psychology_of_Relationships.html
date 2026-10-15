@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 1: Foundations &amp; Psychology of Romantic Relationships</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #eee; overflow: hidden; height: 100vh; }
+.slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; position: relative; overflow-y: auto; }
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+.slide-counter { position: fixed; bottom: 20px; right: 30px; font-size: 14px; color: #888; z-index: 100; }
+.timer-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); z-index: 100; transition: width 0.3s; }
+.nav-hint { position: fixed; bottom: 20px; left: 30px; font-size: 12px; color: #666; z-index: 100; }
+
+/* Slide Types */
+.title-slide { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-align: center; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.title-slide h2 { font-size: 1.6em; font-weight: 300; opacity: 0.9; margin-bottom: 30px; }
+.title-slide .meta { font-size: 1em; opacity: 0.7; margin-top: 30px; }
+
+.content-slide { background: #16213e; }
+.content-slide h2 { font-size: 2.2em; color: #667eea; margin-bottom: 25px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+.content-slide h3 { font-size: 1.4em; color: #a78bfa; margin: 20px 0 10px; }
+.content-slide ul, .content-slide ol { padding-left: 30px; margin: 10px 0; }
+.content-slide li { margin: 8px 0; font-size: 1.15em; line-height: 1.6; }
+.content-slide p { font-size: 1.15em; line-height: 1.7; margin: 10px 0; }
+
+.interactive-slide { background: linear-gradient(135deg, #0f3443 0%, #34e89e20 100%); border: 2px solid #34e89e; }
+.interactive-slide h2 { color: #34e89e; font-size: 2em; margin-bottom: 20px; }
+.interactive-slide .activity-badge { background: #34e89e; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+
+.discussion-slide { background: linear-gradient(135deg, #1a1a2e 0%, #e94560 10%, #1a1a2e 100%); background-size: 200% 200%; }
+.discussion-slide h2 { color: #e94560; font-size: 2em; }
+.discussion-slide .question { font-size: 1.5em; text-align: center; margin: 40px 0; padding: 30px; border: 2px dashed #e94560; border-radius: 15px; }
+
+.key-concept { background: rgba(102,126,234,0.15); border-left: 4px solid #667eea; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-box { background: rgba(52,232,158,0.1); border: 1px solid #34e89e; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.warning-box { background: rgba(233,69,96,0.1); border: 1px solid #e94560; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+th { background: #667eea; color: white; padding: 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid #333; }
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 15px 0; }
+.col { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; }
+.col h4 { color: #a78bfa; margin-bottom: 10px; }
+
+.timer-display { position: fixed; top: 15px; right: 30px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 20px; font-size: 1.1em; z-index: 200; display: none; }
+.timer-display.visible { display: block; }
+
+.poll-container { text-align: center; margin: 20px 0; }
+.poll-option { display: inline-block; background: rgba(102,126,234,0.2); border: 2px solid #667eea; padding: 15px 25px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.1em; }
+.poll-option:hover, .poll-option.selected { background: #667eea; color: white; transform: scale(1.05); }
+
+.reveal-content { opacity: 0; transition: opacity 0.5s; margin: 15px 0; }
+.reveal-content.shown { opacity: 1; }
+.reveal-btn { background: #764ba2; color: white; border: none; padding: 10px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; margin: 10px 0; }
+.reveal-btn:hover { background: #8b5cf6; }
+
+.section-header { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); text-align: center; }
+.section-header h2 { font-size: 2.8em; margin-bottom: 15px; }
+.section-header p { font-size: 1.3em; opacity: 0.8; }
+.time-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timerBar"></div>
+<div class="timer-display" id="timerDisplay">60:00</div>
+<div class="slide-counter" id="slideCounter"></div>
+<div class="nav-hint">← → Arrow Keys or Click to Navigate | Press 'T' for Timer | Press 'R' to Reveal</div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+    <h1>Couple &amp; Marriage Therapy</h1>
+    <h2>Hour 1: Foundations &amp; Psychology of Romantic Relationships</h2>
+    <p style="font-size:1.2em; margin:20px 0;">A Comprehensive Clinical Training for MPhil Trainees</p>
+    <div class="meta">
+        <p>Modules 1 &amp; 2 | Duration: 60 Minutes</p>
+        <p>Interactive Lecture + Activities + Discussion</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hour Plan -->
+<div class="slide content-slide">
+    <h2>Hour 1 Roadmap (60 Minutes)</h2>
+    <table>
+        <tr><th>Time</th><th>Topic</th><th>Format</th></tr>
+        <tr><td>0–5 min</td><td>Introduction &amp; Why Couple Therapy?</td><td>Lecture</td></tr>
+        <tr><td>5–15 min</td><td>Evolution of Couple Therapy + Indian Context</td><td>Lecture + Discussion</td></tr>
+        <tr><td>15–25 min</td><td>Relationship Science: What Works &amp; What Fails</td><td>Lecture + Poll</td></tr>
+        <tr><td>25–35 min</td><td>Attachment Theory in Adult Relationships</td><td>Lecture + Activity</td></tr>
+        <tr><td>35–45 min</td><td>Sternberg, Personality &amp; Emotion in Marriage</td><td>Lecture</td></tr>
+        <tr><td>45–55 min</td><td>Indian Marriage Systems + Case Discussion</td><td>Interactive</td></tr>
+        <tr><td>55–60 min</td><td>Wrap-up &amp; Q&A</td><td>Discussion</td></tr>
+    </table>
+</div>
+
+<!-- SLIDE 3: Section Header -->
+<div class="slide section-header">
+    <h2>Section 1</h2>
+    <p>Why Couple Therapy? The Evolution of the Field</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 4: Why Couple Therapy -->
+<div class="slide content-slide">
+    <h2>Why Couple Therapy Matters</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>The Problem</h4>
+            <ul>
+                <li>Relationship distress → depression, anxiety, physical illness</li>
+                <li>Divorce rates rising in India (1.1% → trending upward)</li>
+                <li>Children of conflicted marriages show poorer outcomes</li>
+                <li>DV affects 30% of Indian married women (NFHS-5)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>The Solution</h4>
+            <ul>
+                <li>Couple therapy is effective (EFT: 70-73% recovery rate)</li>
+                <li>Can treat individual disorders through relational work</li>
+                <li>Prevention possible through premarital counselling</li>
+                <li>Growing demand in India – few trained professionals</li>
+            </ul>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Key Point:</strong> You are training for one of the most needed and least available specialties in Indian mental health.
+    </div>
+</div>
+
+<!-- SLIDE 5: Evolution Timeline -->
+<div class="slide content-slide">
+    <h2>Historical Evolution of Couple Therapy</h2>
+    <table>
+        <tr><th>Era</th><th>Development</th><th>Key Figures</th></tr>
+        <tr><td>1930s–40s</td><td>Marriage counselling by clergy/social workers</td><td>AAMFC founded (1942)</td></tr>
+        <tr><td>1950s–60s</td><td>Systems revolution; MRI; family therapy emerges</td><td>Bateson, Jackson, Haley</td></tr>
+        <tr><td>1970s–80s</td><td>Behavioral Marital Therapy (BMT)</td><td>Jacobson &amp; Margolin</td></tr>
+        <tr><td>1980s–90s</td><td>EFT + Gottman's research on marital stability</td><td>Johnson, Greenberg, Gottman</td></tr>
+        <tr><td>1990s–00s</td><td>Integrative approaches (IBCT, CBCT)</td><td>Christensen, Epstein, Baucom</td></tr>
+        <tr><td>2010s–now</td><td>Neuroscience-informed; technology; cultural adaptations</td><td>Jhamb et al. (India, 2024)</td></tr>
+    </table>
+    <p style="margin-top:15px; color:#a78bfa;"><em>"We moved from fixing individuals to understanding systems to accessing emotions"</em></p>
+</div>
+
+<!-- SLIDE 6: Indian Context Discussion -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">💬 CLASS DISCUSSION – 3 Minutes</span>
+    <h2>Indian Marriage: What Makes It Different?</h2>
+    <div class="question" style="border-color:#34e89e;">
+        "How is marriage in India fundamentally different from the Western model that most textbooks describe?"
+    </div>
+    <p>Think about:</p>
+    <ul>
+        <li>Who decides? (Family vs. individual choice)</li>
+        <li>Who lives together? (Joint family vs. nuclear)</li>
+        <li>What is the purpose? (Individual happiness vs. family alliance/dharma)</li>
+        <li>What is the exit option? (Stigma of divorce)</li>
+    </ul>
+</div>
+
+<!-- SLIDE 7: Indian vs Western -->
+<div class="slide content-slide">
+    <h2>Indian vs. Western Concepts of Marriage</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Western Model</h4>
+            <ul>
+                <li>Individual choice (love-based)</li>
+                <li>Nuclear family unit</li>
+                <li>Egalitarian partnership ideal</li>
+                <li>Emotional fulfillment as purpose</li>
+                <li>Divorce as valid option</li>
+                <li>Therapist works with the couple alone</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Indian Model</h4>
+            <ul>
+                <li>Family involvement (90% arranged)</li>
+                <li>Extended/joint family system</li>
+                <li>Hierarchical (age, gender roles)</li>
+                <li>Dharma, duty, family honour</li>
+                <li>Divorce = social failure/stigma</li>
+                <li>In-laws, community are stakeholders</li>
+            </ul>
+        </div>
+    </div>
+    <div class="warning-box">
+        <strong>Clinical Implication:</strong> Western therapy models must be culturally adapted. The "couple" in Indian therapy is often embedded in a multi-generational system. (Jhamb et al., 2024)
+    </div>
+</div>
+
+<!-- SLIDE 8: Section Header -->
+<div class="slide section-header">
+    <h2>Section 2</h2>
+    <p>Relationship Science: What Predicts Success &amp; Failure?</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 9: Poll -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">📊 QUICK POLL</span>
+    <h2>What do you think is the #1 predictor of divorce?</h2>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. Frequent arguments</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. Lack of sex</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. Contempt</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">D. Financial stress</div>
+    </div>
+    <div class="reveal-content" id="reveal1">
+        <div class="highlight-box">
+            <strong>Answer: C – Contempt!</strong> Gottman's research shows contempt (disrespect, mockery, superiority) is the single strongest predictor of divorce. He can predict divorce with 90%+ accuracy from just minutes of observation.
+        </div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('reveal1').classList.add('shown')">Reveal Answer</button>
+</div>
+
+<!-- SLIDE 10: Gottman's Four Horsemen -->
+<div class="slide content-slide">
+    <h2>Gottman's Four Horsemen of the Apocalypse</h2>
+    <p>Four destructive communication patterns that predict relationship failure:</p>
+    <table>
+        <tr><th>Horseman</th><th>What It Looks Like</th><th>Antidote</th></tr>
+        <tr><td>🗡️ <strong>Criticism</strong></td><td>"You ALWAYS..." / "You NEVER..." (character attack)</td><td>Gentle Startup: "I feel... about... I need..."</td></tr>
+        <tr><td>😤 <strong>Contempt</strong></td><td>Eye-rolling, mockery, sarcasm, name-calling</td><td>Build culture of appreciation</td></tr>
+        <tr><td>🛡️ <strong>Defensiveness</strong></td><td>"It's not my fault!" / counter-attack / playing victim</td><td>Accept responsibility (even 2%)</td></tr>
+        <tr><td>🧱 <strong>Stonewalling</strong></td><td>Shutting down, walking away, silent treatment</td><td>Self-soothe → return to conversation</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>The Magic Ratio:</strong> Stable couples have 5:1 ratio of positive to negative interactions. Below 5:1 = relationship in danger.
+    </div>
+</div>
+
+<!-- SLIDE 11: What Predicts Success -->
+<div class="slide content-slide">
+    <h2>What Makes Relationships Succeed? (Evidence-Based)</h2>
+    <h3>Gottman's Sound Relationship House</h3>
+    <ol>
+        <li><strong>Love Maps</strong> – Knowing partner's inner world</li>
+        <li><strong>Fondness &amp; Admiration</strong> – Expressing appreciation</li>
+        <li><strong>Turning Toward</strong> – Responding to emotional bids</li>
+        <li><strong>Positive Perspective</strong> – Giving benefit of doubt</li>
+        <li><strong>Manage Conflict</strong> – Not resolve ALL conflict (69% is perpetual!)</li>
+        <li><strong>Make Life Dreams Come True</strong> – Support partner's aspirations</li>
+        <li><strong>Shared Meaning</strong> – Rituals, goals, values together</li>
+    </ol>
+    <p style="margin-top:15px;"><strong>Walls:</strong> Trust + Commitment hold everything together</p>
+    <div class="highlight-box">
+        <strong>Research:</strong> Built on 40+ years of longitudinal research with 3,000+ couples (Gottman &amp; Gottman, 2015)
+    </div>
+</div>
+
+<!-- SLIDE 12: Section Header -->
+<div class="slide section-header">
+    <h2>Section 3</h2>
+    <p>Attachment Theory in Adult Romantic Relationships</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 13: Attachment Theory -->
+<div class="slide content-slide">
+    <h2>Attachment Theory: From Cradle to Couple</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Bowlby's Core Ideas (1969)</h4>
+            <ul>
+                <li>Humans have innate need for close bonds</li>
+                <li>Early caregiver experiences → Internal Working Models</li>
+                <li>Models guide adult relationship behaviour</li>
+                <li>Attachment system activated by threat/stress</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Hazan &amp; Shaver (1987)</h4>
+            <ul>
+                <li>Applied attachment theory to adult romance</li>
+                <li>Same system that bonds infant-caregiver bonds adult partners</li>
+                <li>Partner serves as "safe haven" + "secure base"</li>
+                <li>Three (later four) adult attachment styles</li>
+            </ul>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Clinical Insight:</strong> Attachment theory is the foundation of EFT – the most research-validated couple therapy approach (70-73% success rate; Wiebe et al., 2024)
+    </div>
+</div>
+
+<!-- SLIDE 14: Attachment Styles Table -->
+<div class="slide content-slide">
+    <h2>Adult Attachment Styles</h2>
+    <table>
+        <tr><th>Style</th><th>View of Self</th><th>View of Other</th><th>In Relationship</th></tr>
+        <tr><td><strong>Secure</strong> (~55%)</td><td>Worthy of love</td><td>Reliable, responsive</td><td>Comfortable with closeness &amp; independence</td></tr>
+        <tr><td><strong>Anxious</strong> (~20%)</td><td>Unworthy</td><td>Desired but unreliable</td><td>Pursuer: clingy, jealous, hypervigilant</td></tr>
+        <tr><td><strong>Avoidant</strong> (~20%)</td><td>Self-sufficient</td><td>Unreliable</td><td>Withdrawer: distances, suppresses emotion</td></tr>
+        <tr><td><strong>Disorganized</strong> (~5%)</td><td>Unworthy</td><td>Dangerous</td><td>Desires closeness but fears it; chaotic</td></tr>
+    </table>
+    <div class="warning-box">
+        <strong>The Most Common Distressed Pattern:</strong> Anxious-Avoidant pairing → Pursuer-Withdrawer cycle. She pursues with criticism → He withdraws → She pursues harder → He shuts down further. THIS IS THE CYCLE WE TREAT IN EFT.
+    </div>
+</div>
+
+<!-- SLIDE 15: Interactive Activity -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">✋ PAIR ACTIVITY – 5 Minutes</span>
+    <h2>Identify the Attachment Style</h2>
+    <p style="margin-bottom:20px;">In pairs, identify the likely attachment style for each vignette:</p>
+    <div class="two-col">
+        <div class="col">
+            <h4>Vignette 1</h4>
+            <p>"When my husband works late, I keep calling him. If he doesn't pick up, I imagine the worst. I need constant reassurance that he loves me."</p>
+            <button class="reveal-btn" onclick="document.getElementById('rev2').classList.add('shown')">Reveal</button>
+            <div class="reveal-content" id="rev2"><strong>→ Anxious-Preoccupied</strong></div>
+        </div>
+        <div class="col">
+            <h4>Vignette 2</h4>
+            <p>"I don't see why my wife needs to talk about feelings all the time. I show love by providing. When she gets emotional, I feel like leaving the room."</p>
+            <button class="reveal-btn" onclick="document.getElementById('rev3').classList.add('shown')">Reveal</button>
+            <div class="reveal-content" id="rev3"><strong>→ Dismissive-Avoidant</strong></div>
+        </div>
+    </div>
+    <div style="margin-top:20px;">
+        <h4>Vignette 3 (Indian context)</h4>
+        <p>"After marriage, I moved to his joint family. His mother controls everything. When I try to talk to him, he says 'Don't create drama.' I feel invisible."</p>
+        <button class="reveal-btn" onclick="document.getElementById('rev4').classList.add('shown')">Reveal</button>
+        <div class="reveal-content" id="rev4"><strong>→ Wife: Anxious pursuit (attachment need unmet). Husband: Avoidant withdrawal + triangulation with mother. Classic pursuer-withdrawer in Indian joint family context.</strong></div>
+    </div>
+</div>
+
+<!-- SLIDE 16: Section Header -->
+<div class="slide section-header">
+    <h2>Section 4</h2>
+    <p>Love, Personality &amp; Emotion in Marriage</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 17: Sternberg's Theory -->
+<div class="slide content-slide">
+    <h2>Sternberg's Triangular Theory of Love (1986)</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Three Components</h4>
+            <ul>
+                <li><strong>Intimacy</strong> – Emotional closeness, warmth, sharing</li>
+                <li><strong>Passion</strong> – Physical attraction, sexual desire, arousal</li>
+                <li><strong>Commitment</strong> – Decision to love + maintain relationship</li>
+            </ul>
+            <p style="margin-top:15px;"><strong>Consummate Love</strong> = All three present (the ideal)</p>
+        </div>
+        <div class="col">
+            <h4>Clinical Application 🇮🇳</h4>
+            <ul>
+                <li><strong>Arranged marriage:</strong> Often starts with Commitment only → builds Intimacy → Passion may/may not develop</li>
+                <li><strong>Love marriage:</strong> Often starts with Passion → needs to build Commitment + deeper Intimacy</li>
+                <li><strong>Empty Love:</strong> Commitment only – common in long-term distressed Indian marriages</li>
+            </ul>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Ask couples:</strong> "Which component is strongest? Which needs attention?" – Instant formulation tool.
+    </div>
+</div>
+
+<!-- SLIDE 18: Personality -->
+<div class="slide content-slide">
+    <h2>Personality Factors in Marriage</h2>
+    <h3>Big Five &amp; Relationship Outcomes</h3>
+    <table>
+        <tr><th>Trait</th><th>Impact on Marriage</th></tr>
+        <tr><td><strong>Neuroticism ⚠️</strong></td><td>STRONGEST predictor of marital dissatisfaction (Karney &amp; Bradbury, 1995)</td></tr>
+        <tr><td>Agreeableness</td><td>Better conflict resolution, more accommodation</td></tr>
+        <tr><td>Conscientiousness</td><td>Reliability, follow-through, commitment maintenance</td></tr>
+        <tr><td>Extraversion</td><td>Social engagement but also potential for conflict</td></tr>
+        <tr><td>Openness</td><td>Growth together vs. divergence over time</td></tr>
+    </table>
+    <h3 style="margin-top:20px;">Personality Disorders in Marriage (High Difficulty Cases)</h3>
+    <ul>
+        <li><strong>Narcissistic:</strong> Lack of empathy, entitlement, exploitation</li>
+        <li><strong>Borderline:</strong> Fear of abandonment, idealization-devaluation</li>
+        <li><strong>OCPD:</strong> Rigidity, control, emotional constriction</li>
+        <li><strong>Dependent:</strong> Over-reliance, unable to function independently</li>
+    </ul>
+</div>
+
+<!-- SLIDE 19: Emotion Regulation -->
+<div class="slide content-slide">
+    <h2>Emotion Regulation in Couples</h2>
+    <h3>Why It Matters</h3>
+    <ul>
+        <li><strong>Gottman's finding:</strong> When heart rate exceeds 100 BPM during conflict → constructive problem-solving becomes IMPOSSIBLE (Diffuse Physiological Arousal)</li>
+        <li>Flooded partners can't listen, empathize, or problem-solve</li>
+        <li>Co-regulation: Partners either calm each other (healthy) or escalate each other (unhealthy)</li>
+    </ul>
+    <h3>Clinical Implication</h3>
+    <div class="highlight-box">
+        <strong>Teach couples:</strong> "When you feel flooded, STOP. Take a 20-minute break. Do something self-soothing (walk, breathe, music). Return when calm. This is NOT stonewalling – it's strategic self-regulation."
+    </div>
+    <h3>Emotion Theory Key Concepts</h3>
+    <ul>
+        <li><strong>Primary emotions:</strong> Fear, sadness, vulnerability (often hidden)</li>
+        <li><strong>Secondary emotions:</strong> Anger, contempt, indifference (what we show)</li>
+        <li><strong>EFT goal:</strong> Access the primary emotions underneath the secondary reactions</li>
+    </ul>
+</div>
+
+<!-- SLIDE 20: Section Header -->
+<div class="slide section-header">
+    <h2>Section 5</h2>
+    <p>Indian Marriage Systems + Case Discussion</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 21: Indian Marriage Types -->
+<div class="slide content-slide">
+    <h2>Indian Marriage Systems: What You'll See in Practice</h2>
+    <table>
+        <tr><th>Type</th><th>Key Features</th><th>Common Clinical Issues</th></tr>
+        <tr><td>Joint Family</td><td>Multiple generations; shared resources; hierarchy</td><td>Boundary issues; in-law conflict; privacy; role confusion</td></tr>
+        <tr><td>Nuclear Family</td><td>Couple + children; urban; independent</td><td>Isolation; no support; all pressure on dyad</td></tr>
+        <tr><td>Interfaith</td><td>Different religions (Hindu-Muslim, Hindu-Christian)</td><td>Ritual conflicts; naming children; family rejection</td></tr>
+        <tr><td>Inter-caste</td><td>Different castes; often love marriages</td><td>Honour-based threats; social ostracism; family cutoff</td></tr>
+        <tr><td>LGBTQIA+</td><td>Same-sex; post-Section 377 (2018)</td><td>No legal recognition; stigma; family pressure to marry opposite sex</td></tr>
+        <tr><td>NRI</td><td>One/both in diaspora</td><td>Cultural adjustment; long-distance; in-law expectations</td></tr>
+    </table>
+</div>
+
+<!-- SLIDE 22: Case Discussion -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">🧠 CASE DISCUSSION – 5 Minutes</span>
+    <h2>Quick Case Formulation Practice</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Priya (27, software engineer) and Rahul (31, business family), arranged marriage, 2 years. Living with Rahul's parents (joint family). Priya reports: "He never takes my side. His mother decides everything – what I cook, what I wear, when we go out. When I try to talk to Rahul, he says 'She's my mother, what can I do?' I feel like a servant, not a wife." Rahul reports: "She's always complaining. I'm caught in the middle. If I support her, my mother cries. If I support my mother, Priya threatens to leave."</p>
+    </div>
+    <p style="margin-top:15px;"><strong>Discuss with your neighbor (2 min):</strong></p>
+    <ol>
+        <li>What is the negative interaction cycle?</li>
+        <li>What attachment needs are unmet?</li>
+        <li>What systemic issue is central? (Think Bowen: triangulation, differentiation)</li>
+    </ol>
+    <button class="reveal-btn" onclick="document.getElementById('rev5').classList.add('shown')">Reveal Formulation</button>
+    <div class="reveal-content" id="rev5">
+        <div class="key-concept">
+            <strong>Cycle:</strong> Priya pursues (complaints, ultimatums) → Rahul withdraws (avoids, defers to mother) → Priya escalates.<br>
+            <strong>Attachment:</strong> Priya – "Do I matter to you?" (unmet need for prioritization). Rahul – "I can't please anyone" (inadequacy, avoidance).<br>
+            <strong>Systemic:</strong> Triangulation (Rahul-Priya-Mother). Low differentiation in Rahul. Diffuse boundary between marital and parental subsystem. Structural goal: Strengthen the couple boundary.
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 23: Key Takeaways -->
+<div class="slide content-slide">
+    <h2>Hour 1: Key Takeaways</h2>
+    <div class="key-concept">
+        <strong>1. The Field:</strong> Couple therapy evolved from advice-giving → systems thinking → emotion-focused work. Evidence base is strong.
+    </div>
+    <div class="key-concept">
+        <strong>2. Indian Context:</strong> Marriage in India = family alliance, not just individual partnership. Joint families, arranged marriages, caste, religion all shape the therapy.
+    </div>
+    <div class="key-concept">
+        <strong>3. Gottman's Research:</strong> Contempt is the #1 predictor of divorce. 5:1 ratio. 69% of problems are perpetual. Friendship is the foundation.
+    </div>
+    <div class="key-concept">
+        <strong>4. Attachment:</strong> Adult romantic love IS attachment. Pursuer-withdrawer is the most common distress pattern. Understanding attachment = understanding the WHY beneath behaviour.
+    </div>
+    <div class="key-concept">
+        <strong>5. Love &amp; Personality:</strong> Sternberg helps map what's missing. Neuroticism is the key personality risk factor. Emotion regulation is the engine of change.
+    </div>
+</div>
+
+<!-- SLIDE 24: References -->
+<div class="slide content-slide">
+    <h2>Key References (APA 7)</h2>
+    <ul style="font-size:0.9em; line-height:2;">
+        <li>Bowlby, J. (1969). <em>Attachment and loss: Vol. 1</em>. Basic Books.</li>
+        <li>Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. Norton.</li>
+        <li>Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown.</li>
+        <li>Harway, M. (Ed.). (2005). <em>Handbook of couples therapy</em>. Wiley.</li>
+        <li>Hazan, C., &amp; Shaver, P. (1987). Romantic love as attachment. <em>JPSP, 52</em>(3), 511–524.</li>
+        <li>Jhamb, S., et al. (2024). Family therapy in India. <em>The Family Journal, 32</em>(4), 512–528.</li>
+        <li>Karney, B. R., &amp; Bradbury, T. N. (1995). Longitudinal course of marital quality. <em>Psych Bulletin, 118</em>(1), 3–34.</li>
+        <li>Sternberg, R. J. (1986). A triangular theory of love. <em>Psych Review, 93</em>(2), 119–135.</li>
+        <li>Wiebe, S. A., et al. (2024). Meta-analysis on EFT efficacy. <em>Couple &amp; Family Psychology, 13</em>(1), 45–63.</li>
+    </ul>
+</div>
+
+<!-- SLIDE 25: Next Hour Preview -->
+<div class="slide title-slide">
+    <h1>End of Hour 1</h1>
+    <h2>☕ 5-Minute Break</h2>
+    <p style="font-size:1.2em; margin:30px 0;">Coming Up Next → Hour 2:</p>
+    <p style="font-size:1.5em;"><strong>Assessment &amp; Theoretical Approaches</strong></p>
+    <p style="margin-top:20px; opacity:0.7;">How to assess a couple | Standardized tools | Systems theory | Bowen | Structural | Narrative</p>
+</div>
+
+<script>
+// Slide Navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const timerBar = document.getElementById('timerBar');
+const timerDisplay = document.getElementById('timerDisplay');
+let timerInterval = null;
+let timeRemaining = 3600; // 60 minutes in seconds
+let timerRunning = false;
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    slides[currentSlide].classList.add('active');
+    counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    timerBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 't' || e.key === 'T') { toggleTimer(); }
+    else if (e.key === 'r' || e.key === 'R') { revealAll(); }
+});
+
+// Click navigation
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('poll-option') || e.target.classList.contains('reveal-btn')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+});
+
+// Timer
+function toggleTimer() {
+    timerDisplay.classList.toggle('visible');
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) { clearInterval(timerInterval); timerDisplay.textContent = "TIME!"; timerDisplay.style.color = '#e94560'; return; }
+            const min = Math.floor(timeRemaining / 60);
+            const sec = timeRemaining % 60;
+            timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            if (timeRemaining <= 300) timerDisplay.style.color = '#e94560';
+        }, 1000);
+    } else {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+// Reveal all hidden content on current slide
+function revealAll() {
+    const active = slides[currentSlide];
+    active.querySelectorAll('.reveal-content').forEach(el => el.classList.add('shown'));
+}
+
+// Initialize
+showSlide(0);
+</script>
+</body>
+</html>

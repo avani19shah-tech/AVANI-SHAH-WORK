@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour 5: Special Populations, Legal Framework, Clinical Skills &amp; Practice</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #eee; overflow: hidden; height: 100vh; }
+.slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; position: relative; overflow-y: auto; }
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+.slide-counter { position: fixed; bottom: 20px; right: 30px; font-size: 14px; color: #888; z-index: 100; }
+.timer-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #059669, #10b981); z-index: 100; transition: width 0.3s; }
+.nav-hint { position: fixed; bottom: 20px; left: 30px; font-size: 12px; color: #666; z-index: 100; }
+
+
+/* Slide Types */
+.title-slide { background: linear-gradient(135deg, #059669 0%, #047857 100%); text-align: center; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+.title-slide h2 { font-size: 1.6em; font-weight: 300; opacity: 0.9; margin-bottom: 30px; }
+.title-slide .meta { font-size: 1em; opacity: 0.7; margin-top: 30px; }
+
+.content-slide { background: #16213e; }
+.content-slide h2 { font-size: 2.2em; color: #10b981; margin-bottom: 25px; border-bottom: 3px solid #059669; padding-bottom: 10px; }
+.content-slide h3 { font-size: 1.4em; color: #6ee7b7; margin: 20px 0 10px; }
+.content-slide ul, .content-slide ol { padding-left: 30px; margin: 10px 0; }
+.content-slide li { margin: 8px 0; font-size: 1.15em; line-height: 1.6; }
+.content-slide p { font-size: 1.15em; line-height: 1.7; margin: 10px 0; }
+
+
+.interactive-slide { background: linear-gradient(135deg, #0f3443 0%, #10b98120 100%); border: 2px solid #10b981; }
+.interactive-slide h2 { color: #10b981; font-size: 2em; margin-bottom: 20px; }
+.interactive-slide .activity-badge { background: #10b981; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+
+.discussion-slide { background: linear-gradient(135deg, #1a1a2e 0%, #e94560 10%, #1a1a2e 100%); background-size: 200% 200%; }
+.discussion-slide h2 { color: #e94560; font-size: 2em; }
+.discussion-slide .question { font-size: 1.5em; text-align: center; margin: 40px 0; padding: 30px; border: 2px dashed #e94560; border-radius: 15px; }
+
+.key-concept { background: rgba(16,185,129,0.15); border-left: 4px solid #10b981; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-box { background: rgba(16,185,129,0.1); border: 1px solid #10b981; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.warning-box { background: rgba(233,69,96,0.1); border: 1px solid #e94560; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+.clinical-tip { background: rgba(6,182,212,0.1); border: 1px solid #06b6d4; padding: 15px 20px; margin: 15px 0; border-radius: 8px; }
+
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+th { background: #059669; color: white; padding: 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid #333; }
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 15px 0; }
+.col { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; }
+.col h4 { color: #6ee7b7; margin-bottom: 10px; }
+
+.timer-display { position: fixed; top: 15px; right: 30px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 20px; font-size: 1.1em; z-index: 200; display: none; }
+.timer-display.visible { display: block; }
+
+.poll-container { text-align: center; margin: 20px 0; }
+.poll-option { display: inline-block; background: rgba(5,150,105,0.2); border: 2px solid #059669; padding: 15px 25px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.1em; }
+.poll-option:hover, .poll-option.selected { background: #059669; color: white; transform: scale(1.05); }
+
+
+.reveal-content { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.5s, max-height 0.5s; margin: 15px 0; }
+.reveal-content.shown { opacity: 1; max-height: 2000px; }
+.reveal-btn { background: #059669; color: white; border: none; padding: 10px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; margin: 10px 0; }
+.reveal-btn:hover { background: #10b981; }
+
+.section-header { background: linear-gradient(135deg, #059669 0%, #047857 100%); text-align: center; }
+.section-header h2 { font-size: 2.8em; margin-bottom: 15px; }
+.section-header p { font-size: 1.3em; opacity: 0.8; }
+.time-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+
+.commandment { background: rgba(16,185,129,0.1); border: 1px solid #10b981; padding: 12px 20px; margin: 8px 0; border-radius: 8px; font-size: 1.1em; }
+.commandment strong { color: #10b981; }
+</style>
+</head>
+<body>
+<div class="timer-bar" id="timerBar"></div>
+<div class="timer-display" id="timerDisplay">60:00</div>
+<div class="slide-counter" id="slideCounter"></div>
+<div class="nav-hint">← → Arrow Keys or Click to Navigate | Press 'T' for Timer | Press 'R' to Reveal</div>
+
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+    <h1>Couple &amp; Marriage Therapy</h1>
+    <h2>Hour 5: Indian Legal Framework, Special Populations &amp; Clinical Practice</h2>
+    <p style="font-size:1.2em; margin:20px 0;">Final Hour – Integrating Knowledge into Practice</p>
+    <div class="meta">
+        <p>Modules 9–16 (Condensed) | Duration: 60 Minutes</p>
+        <p>Legal Framework • Special Populations • Clinical Skills • Final Case Study</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hour Plan -->
+<div class="slide content-slide">
+    <h2>Hour 5 Roadmap (60 Minutes)</h2>
+    <table>
+        <tr><th>Time</th><th>Topic</th><th>Format</th></tr>
+        <tr><td>0–10 min</td><td>Indian Marriage Laws &amp; Legal Framework</td><td>Lecture</td></tr>
+        <tr><td>10–15 min</td><td>Domestic Violence Act &amp; Mental Healthcare Act</td><td>Lecture</td></tr>
+        <tr><td>15–25 min</td><td>Special Populations (Premarital, Infertility, LGBTQIA+, Elderly)</td><td>Lecture + Discussion</td></tr>
+        <tr><td>25–35 min</td><td>Session Structure &amp; Treatment Planning</td><td>Lecture</td></tr>
+        <tr><td>35–45 min</td><td>Ethics &amp; Documentation</td><td>Lecture</td></tr>
+        <tr><td>45–55 min</td><td>Final Case Study – Complete Treatment Plan</td><td>Group Activity</td></tr>
+        <tr><td>55–60 min</td><td>Course Summary &amp; Next Steps</td><td>Interactive</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Final Hour Goal:</strong> By the end of this session, you will be able to integrate legal knowledge, cultural competence, and clinical skills into a complete treatment plan for Indian couples.
+    </div>
+</div>
+
+
+<!-- SLIDE 3: Section Header - Legal Framework -->
+<div class="slide section-header">
+    <h2>Section 1</h2>
+    <p>Indian Legal Framework for Marriage &amp; Family</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 4: Marriage Laws Table -->
+<div class="slide content-slide">
+    <h2>Indian Marriage Laws: What Therapists Must Know</h2>
+    <table>
+        <tr><th>Law</th><th>Applies To</th><th>Key Provisions for Therapists</th></tr>
+        <tr><td><strong>Hindu Marriage Act, 1955</strong></td><td>Hindus, Buddhists, Jains, Sikhs</td><td>Restitution of conjugal rights (S.9); Judicial separation (S.10); Divorce (S.13); Mutual consent (S.13B)</td></tr>
+        <tr><td><strong>Special Marriage Act, 1954</strong></td><td>Any citizen (interfaith/civil)</td><td>30-day notice period; No religious ceremony needed; Similar divorce grounds</td></tr>
+        <tr><td><strong>Indian Christian Marriage Act, 1872</strong></td><td>Christians</td><td>Dissolution under Indian Divorce Act 1869; Adultery historically primary ground</td></tr>
+        <tr><td><strong>Muslim Personal Law</strong></td><td>Muslims</td><td>Talaq (husband); Khula (wife-initiated); Mubarat (mutual); Mehr rights</td></tr>
+        <tr><td><strong>Parsi Marriage &amp; Divorce Act, 1936</strong></td><td>Parsis</td><td>Matrimonial court; specific grounds; very small population</td></tr>
+    </table>
+    <div class="warning-box">
+        <strong>⚠️ Remember:</strong> You are NOT a legal advisor. Know enough to understand your client's legal context and refer appropriately. Never provide legal opinions.
+    </div>
+</div>
+
+
+<!-- SLIDE 5: Grounds for Divorce -->
+<div class="slide content-slide">
+    <h2>Grounds for Divorce – Hindu Marriage Act (Section 13)</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Grounds Available to Both (S.13(1))</h4>
+            <ul>
+                <li><strong>Adultery</strong> – Voluntary sexual intercourse outside marriage</li>
+                <li><strong>Cruelty</strong> – Physical or mental (most common ground filed)</li>
+                <li><strong>Desertion</strong> – 2 years continuous</li>
+                <li><strong>Conversion</strong> – To another religion</li>
+                <li><strong>Mental disorder</strong> – Incurable; intermittent insanity</li>
+                <li><strong>Communicable disease</strong> – Venereal, not cured (3 years)</li>
+                <li><strong>Renunciation</strong> – Entered religious order</li>
+                <li><strong>Presumption of death</strong> – Not heard alive for 7 years</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Additional Grounds for Wife (S.13(2))</h4>
+            <ul>
+                <li>Bigamy (husband married again before 1955 Act)</li>
+                <li>Rape, sodomy, or bestiality by husband</li>
+                <li>No cohabitation resumed after maintenance order (1+ year)</li>
+                <li>Marriage before age 15; repudiated before 18</li>
+            </ul>
+            <h4 style="margin-top:20px;">Mutual Consent Divorce (S.13B)</h4>
+            <ul>
+                <li>Living separately for 1+ year</li>
+                <li>Both agree marriage cannot be saved</li>
+                <li>6-month "cooling period" (Supreme Court can waive)</li>
+                <li><em>Therapists often see couples during this period</em></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clinical-tip">
+        <strong>💡 Clinical Tip:</strong> Many couples in therapy are simultaneously navigating legal proceedings. Understand the timeline so you can align therapeutic work appropriately.
+    </div>
+</div>
+
+
+<!-- SLIDE 6: Domestic Violence Act -->
+<div class="slide content-slide">
+    <h2>Protection of Women from Domestic Violence Act, 2005</h2>
+    <h3>Definition of Domestic Violence (Section 3)</h3>
+    <table>
+        <tr><th>Type</th><th>Includes</th></tr>
+        <tr><td><strong>Physical Abuse</strong></td><td>Hitting, slapping, burning, pushing, use of weapons, forced substance use</td></tr>
+        <tr><td><strong>Sexual Abuse</strong></td><td>Forced intercourse, forced pornography, humiliating sexual acts</td></tr>
+        <tr><td><strong>Verbal/Emotional Abuse</strong></td><td>Insults, ridicule, name-calling, threats to harm/kill, isolation from family</td></tr>
+        <tr><td><strong>Economic Abuse</strong></td><td>Denying access to finances, property, basic necessities; controlling money</td></tr>
+    </table>
+    <h3>Protections Available</h3>
+    <ul>
+        <li><strong>Protection Order (S.18)</strong> – Restrain respondent from violence</li>
+        <li><strong>Residence Order (S.19)</strong> – Right to remain in shared household</li>
+        <li><strong>Monetary Relief (S.20)</strong> – Compensation for losses, expenses</li>
+        <li><strong>Custody Order (S.21)</strong> – Temporary custody of children</li>
+    </ul>
+    <div class="warning-box">
+        <strong>⚠️ Therapist's Role:</strong> You are NOT a legal advisor but you MUST know your client's rights. If DV is disclosed: (1) Assess safety, (2) Provide information about services, (3) Document carefully, (4) Do NOT conduct conjoint therapy if active violence exists, (5) Refer to Protection Officer/NGO.
+    </div>
+</div>
+
+
+<!-- SLIDE 7: Mental Healthcare Act -->
+<div class="slide content-slide">
+    <h2>Mental Healthcare Act, 2017 – Key Provisions</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Rights of Persons with Mental Illness</h4>
+            <ul>
+                <li><strong>Right to Access Care (S.18)</strong> – Affordable, quality, near home</li>
+                <li><strong>Right to Confidentiality (S.23)</strong> – Cannot disclose without consent</li>
+                <li><strong>Informed Consent (S.22)</strong> – Must explain treatment, alternatives, risks</li>
+                <li><strong>Advance Directive (S.5–12)</strong> – Patient can pre-decide treatment preferences</li>
+                <li><strong>Right against cruel treatment (S.20)</strong> – No chaining, no forced isolation</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Implications for Couple Therapists</h4>
+            <ul>
+                <li><strong>RCI Registration:</strong> Must be registered with Rehabilitation Council of India to practice</li>
+                <li><strong>Consent for each partner:</strong> Both must consent independently</li>
+                <li><strong>Confidentiality limits:</strong> Cannot share one partner's individual disclosures without permission</li>
+                <li><strong>Duty to report:</strong> Only if imminent risk of self-harm or harm to others</li>
+                <li><strong>Record keeping:</strong> Maintain records for minimum 5 years</li>
+            </ul>
+        </div>
+    </div>
+    <div class="key-concept">
+        <strong>Key Point:</strong> The MHCA 2017 decriminalized suicide (S.115) – a client expressing suicidal ideation needs clinical support, not police involvement.
+    </div>
+</div>
+
+
+<!-- SLIDE 8: Section 498A -->
+<div class="slide content-slide">
+    <h2>Section 498A IPC / BNS – Cruelty by Husband &amp; Relatives</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>What the Law Says</h4>
+            <ul>
+                <li><strong>S.498A IPC</strong> (now S.85/86 BNS): Cruelty by husband or his relatives</li>
+                <li>Cognizable, non-bailable, non-compoundable</li>
+                <li>Punishment: up to 3 years imprisonment + fine</li>
+                <li>Includes: dowry demands, mental cruelty, physical violence</li>
+                <li>Supreme Court guidelines (Rajesh Sharma, 2017): Family Welfare Committee referral before arrest</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Implications for Therapists</h4>
+            <ul>
+                <li><strong>Remain neutral</strong> – Do not take sides in legal disputes</li>
+                <li><strong>Document carefully</strong> – Notes may be subpoenaed</li>
+                <li><strong>Never provide legal advice</strong> – Refer to advocate</li>
+                <li><strong>Understand context:</strong> Some clients are navigating 498A cases while in therapy</li>
+                <li><strong>Both parties may be genuine:</strong> Avoid the "victim-perpetrator" trap</li>
+            </ul>
+        </div>
+    </div>
+    <div class="warning-box">
+        <strong>⚠️ Ethical Dilemma:</strong> If one partner files 498A, can therapy continue? Generally NO for conjoint work. Offer individual support. Resume only if legal counsel for both sides agrees and both partners consent.
+    </div>
+</div>
+
+
+<!-- SLIDE 9: Section Header - Special Populations -->
+<div class="slide section-header">
+    <h2>Section 2</h2>
+    <p>Special Populations in Couple Therapy</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 10: Premarital Counselling -->
+<div class="slide content-slide">
+    <h2>Premarital Counselling</h2>
+    <h3>Key Areas to Assess</h3>
+    <div class="two-col">
+        <div class="col">
+            <h4>Core Topics</h4>
+            <ul>
+                <li><strong>Expectations</strong> – Roles, responsibilities, daily life vision</li>
+                <li><strong>Living arrangements</strong> – Joint family vs. nuclear; city</li>
+                <li><strong>Finances</strong> – Earning, saving, spending; joint vs. separate accounts</li>
+                <li><strong>Family planning</strong> – When? How many? What if infertility?</li>
+                <li><strong>In-law relationships</strong> – Boundaries, visits, decision-making</li>
+                <li><strong>Conflict resolution style</strong> – How will disagreements be handled?</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Evidence-Based Programs</h4>
+            <ul>
+                <li><strong>PREPARE/ENRICH</strong> (Olson) – Most researched; 300+ items; identifies strength/growth areas</li>
+                <li><strong>PREP</strong> (Prevention &amp; Relationship Enhancement Program) – Communication &amp; conflict skills</li>
+                <li><strong>Indian adaptation needed:</strong> Include family system, cultural values, arranged marriage dynamics</li>
+            </ul>
+            <div class="clinical-tip">
+                <strong>💡 Tip:</strong> In arranged marriages, premarital counselling may be the ONLY space where partners can honestly discuss expectations before wedding.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 11: Special Populations Table -->
+<div class="slide content-slide">
+    <h2>Special Populations: Clinical Considerations</h2>
+    <table>
+        <tr><th>Population</th><th>Key Issues</th><th>Therapeutic Considerations</th></tr>
+        <tr><td><strong>Infertility Couples</strong></td><td>Depression, anxiety, medicalized sex, blame (often on wife), social pressure from family</td><td>Normalize grief; separate sex from reproduction; address family pressure as a couple; screen for depression</td></tr>
+        <tr><td><strong>LGBTQIA+ Couples</strong></td><td>Post-Section 377 (2018) but no legal marriage; minority stress; family rejection; internalized homophobia</td><td>Affirming stance mandatory; address unique stressors; no conversion therapy; understand legal limitations</td></tr>
+        <tr><td><strong>Elderly Couples</strong></td><td>Retirement adjustment; caregiving burden; empty nest; health issues; rekindling after decades</td><td>Address grief/loss; redefine roles; intimacy at older age; involve family respectfully</td></tr>
+        <tr><td><strong>Trauma/Mental Illness</strong></td><td>Partner as caregiver; high expressed emotion; medication compliance; relapse cycle</td><td>Psychoeducation for both; relapse prevention plan; caregiver burnout; maintain couple identity</td></tr>
+        <tr><td><strong>Interfaith/Inter-caste</strong></td><td>Family opposition; ritual conflicts; naming children; honor-based threats</td><td>Safety first; validate choice; help build support network; address internalized conflict</td></tr>
+    </table>
+    <div class="key-concept">
+        <strong>Universal Principle:</strong> Regardless of population, the core therapeutic stance remains: empathy, neutrality, cultural humility, and evidence-based practice.
+    </div>
+</div>
+
+
+<!-- SLIDE 12: Section Header - Clinical Skills -->
+<div class="slide section-header">
+    <h2>Section 3</h2>
+    <p>Clinical Skills &amp; Session Structure</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 13: Session Structure -->
+<div class="slide content-slide">
+    <h2>Standard 60-Minute Session Structure</h2>
+    <table>
+        <tr><th>Phase</th><th>Time</th><th>Tasks</th></tr>
+        <tr><td><strong>Opening</strong></td><td>0–10 min</td><td>Check-in with each partner; Review homework; Set session agenda collaboratively</td></tr>
+        <tr><td><strong>Working Phase</strong></td><td>10–50 min</td><td>Interventions (enactments, dialogue, restructuring); Process emotions; Practice new skills; Address cycle</td></tr>
+        <tr><td><strong>Closing</strong></td><td>50–60 min</td><td>Summarize key insights; Assign homework; Safety check; Schedule next session</td></tr>
+    </table>
+    <div class="two-col">
+        <div class="col">
+            <h4>Opening Phase Tips</h4>
+            <ul>
+                <li>Balance time equally between partners</li>
+                <li>Ask about homework FIRST (signals importance)</li>
+                <li>Note affect – who is distressed today?</li>
+                <li>Set agenda together (not just one partner's crisis)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Closing Phase Tips</h4>
+            <ul>
+                <li>Never open new emotional content after minute 50</li>
+                <li>End on a constructive note</li>
+                <li>Safety check: "Is everyone safe to go home together?"</li>
+                <li>Homework should be small, specific, achievable</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 14: 16-Session Treatment Protocol -->
+<div class="slide content-slide">
+    <h2>16-Session Integrative Treatment Protocol</h2>
+    <table>
+        <tr><th>Sessions</th><th>Phase</th><th>Focus</th></tr>
+        <tr><td><strong>1–4</strong></td><td>Assessment &amp; Contract</td><td>Individual + conjoint interviews; standardized measures; formulation; therapeutic contract; goals</td></tr>
+        <tr><td><strong>5–6</strong></td><td>Understanding the Cycle</td><td>Map negative interaction cycle; Gottman friendship-building; Love Maps; fondness &amp; admiration</td></tr>
+        <tr><td><strong>7–8</strong></td><td>Communication &amp; Emotion</td><td>Speaker-Listener technique; emotional accessibility; softened startup; turning toward bids</td></tr>
+        <tr><td><strong>9–10</strong></td><td>Conflict Management</td><td>Perpetual vs. solvable problems; dreams within conflict; compromise; repair attempts</td></tr>
+        <tr><td><strong>11–12</strong></td><td>Core Issues</td><td>Attachment injuries; forgiveness work; EFT enactments; accessing primary emotions</td></tr>
+        <tr><td><strong>13</strong></td><td>Intimacy &amp; Sexuality</td><td>Sensate focus; desire discrepancy; sexual communication; body image; cultural barriers</td></tr>
+        <tr><td><strong>14</strong></td><td>Shared Meaning</td><td>Rituals of connection; shared goals; roles; family-of-origin integration; life dreams</td></tr>
+        <tr><td><strong>15</strong></td><td>Relapse Prevention</td><td>Identify triggers; create couple "fire drill"; maintain gains; when to return to therapy</td></tr>
+        <tr><td><strong>16</strong></td><td>Termination &amp; Review</td><td>Celebrate progress; review goals; booster session plan; feedback to therapist</td></tr>
+    </table>
+    <div class="clinical-tip">
+        <strong>💡 Flexibility:</strong> This is a guide, not a rigid protocol. Some couples need more time in early phases; some skip directly to attachment work. Let the formulation guide your pacing.
+    </div>
+</div>
+
+
+<!-- SLIDE 15: Ethics -->
+<div class="slide content-slide">
+    <h2>Ethics in Couple Therapy</h2>
+    <h3>Confidentiality – The Secrets Dilemma</h3>
+    <table>
+        <tr><th>Policy</th><th>Description</th><th>Pros/Cons</th></tr>
+        <tr><td><strong>No-Secrets Policy</strong></td><td>Anything told individually can be brought into conjoint session</td><td>✅ Protects therapist; ❌ Partner may not disclose affairs</td></tr>
+        <tr><td><strong>Full Confidentiality</strong></td><td>Individual disclosures kept completely private</td><td>✅ Encourages honesty; ❌ Therapist holds secrets (collusion risk)</td></tr>
+        <tr><td><strong>Limited Confidentiality</strong></td><td>Private unless it directly harms therapy progress</td><td>✅ Balanced; ❌ Therapist must make judgment calls</td></tr>
+    </table>
+    <h3>Other Ethical Considerations</h3>
+    <ul>
+        <li><strong>Maintaining balance:</strong> Equal alliance with both partners (split alliance = therapy failure)</li>
+        <li><strong>Dual relationships:</strong> Never treat a couple where you know one partner socially</li>
+        <li><strong>When to recommend separation:</strong> Only when safety demands it (DV); otherwise, it's the couple's decision</li>
+        <li><strong>Teletherapy ethics:</strong> Ensure both partners have private space; screen for DV; secure platforms only</li>
+        <li><strong>Power imbalances:</strong> Gender, caste, economic – therapist must actively address</li>
+    </ul>
+    <div class="warning-box">
+        <strong>⚠️ Golden Rule:</strong> State your secrets policy CLEARLY in the first session and in the consent form. Changing policy mid-therapy = ethical violation.
+    </div>
+</div>
+
+
+<!-- SLIDE 16: Documentation -->
+<div class="slide content-slide">
+    <h2>Documentation in Couple Therapy</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Consent Form Essentials</h4>
+            <ul>
+                <li>Nature of couple therapy explained</li>
+                <li>Confidentiality policy (including secrets policy)</li>
+                <li>Limits of confidentiality (harm, DV, court orders)</li>
+                <li>Session recording permission (if applicable)</li>
+                <li>Fees, cancellation policy, duration</li>
+                <li>Therapist's qualifications &amp; RCI registration</li>
+                <li>Right to terminate at any time</li>
+                <li><strong>Both partners must sign independently</strong></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>SOAP Notes Format</h4>
+            <ul>
+                <li><strong>S (Subjective):</strong> What each partner reported; presenting concerns this session</li>
+                <li><strong>O (Objective):</strong> Therapist observations; affect; interaction patterns noted</li>
+                <li><strong>A (Assessment):</strong> Progress toward goals; cycle activation; risk level</li>
+                <li><strong>P (Plan):</strong> Next session focus; homework; referrals; safety plan updates</li>
+            </ul>
+            <h4 style="margin-top:15px;">Record Keeping</h4>
+            <ul>
+                <li>Minimum 5 years retention (MHCA 2017)</li>
+                <li>Secure storage (physical lock / encrypted digital)</li>
+                <li>Risk assessment documented every session</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 17: Section Header - Final Activity -->
+<div class="slide section-header">
+    <h2>Section 4</h2>
+    <p>Final Comprehensive Activity</p>
+    <div class="time-badge">10 Minutes</div>
+</div>
+
+<!-- SLIDE 18: Complete Treatment Plan Activity -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">👥 GROUP ACTIVITY – 5 Minutes</span>
+    <h2>Final Case: Create a Complete Treatment Plan</h2>
+    <div class="highlight-box">
+        <p><strong>Case:</strong> Anita (34, teacher) and Vikram (38, IT professional), love marriage (inter-caste), 8 years, one child (5 years). Living nuclear but Vikram's parents in same city. Presenting complaint: Vikram discovered Anita's emotional affair (WhatsApp messages with college friend). Anita says: "He's been emotionally absent for 3 years. He works 14-hour days, comes home and watches phone. I felt invisible." Vikram says: "I trusted her completely. How can I ever trust again? My parents say I should divorce her." Vikram reports insomnia, weight loss, rage episodes. Anita reports guilt but also resentment. Both say "we want to try, for our child."</p>
+    </div>
+    <p style="margin-top:15px;"><strong>In your group (5 min), create:</strong></p>
+    <ol>
+        <li><strong>(a)</strong> Case formulation (attachment lens + systemic lens)</li>
+        <li><strong>(b)</strong> Treatment approach selection (which model? why?)</li>
+        <li><strong>(c)</strong> 3 measurable therapy goals</li>
+        <li><strong>(d)</strong> Session plan for first 4 sessions</li>
+    </ol>
+    <button class="reveal-btn" onclick="document.getElementById('revModel').classList.add('shown')">Reveal Model Answer</button>
+    <div class="reveal-content" id="revModel">
+        <div class="key-concept">
+            <strong>Model Formulation:</strong><br>
+            <strong>Attachment:</strong> Vikram = anxious (betrayal injury activated hypervigilance); Anita = avoidant-turned-pursuer (sought connection externally when attachment needs unmet).<br>
+            <strong>Cycle:</strong> Vikram withdraws into work → Anita feels abandoned → seeks connection elsewhere → Vikram discovers → rage/pursuit → Anita guilt/withdrawal.<br>
+            <strong>Systemic:</strong> In-laws as triangulated voice pushing divorce. Child as stabilizing factor but also pressure.<br><br>
+            <strong>Approach:</strong> EFT (attachment injury protocol) + Gottman Trust Revival Method<br>
+            <strong>Goals:</strong> (1) Process attachment injury to restore safety, (2) Rebuild emotional accessibility &amp; responsiveness, (3) Create new rituals of connection + work-life boundary<br>
+            <strong>Sessions 1-4:</strong> S1: Individual intake (assess safety, Vikram's MH); S2: Individual (Anita - understand affair context); S3: Conjoint - present formulation, contract, secrets policy; S4: Map the cycle together, psychoeducation on attachment injury
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 19: Course Summary Quiz -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">📊 FINAL QUIZ – 5 Rapid-Fire Questions</span>
+    <h2>Course Summary Quiz (All 5 Hours)</h2>
+    
+    <p><strong>Q1:</strong> What is the #1 predictor of divorce according to Gottman?</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. Criticism</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. Contempt</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. Stonewalling</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('q1ans').classList.add('shown')">Reveal</button>
+    <div class="reveal-content" id="q1ans"><div class="highlight-box"><strong>B. Contempt</strong> – Hour 1: Gottman's Four Horsemen</div></div>
+
+    <p style="margin-top:15px;"><strong>Q2:</strong> In EFT, what emotion lies beneath the anger of a "pursuing" partner?</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. Disgust</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. Fear/Sadness</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. Jealousy</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('q2ans').classList.add('shown')">Reveal</button>
+    <div class="reveal-content" id="q2ans"><div class="highlight-box"><strong>B. Fear/Sadness</strong> – Hour 2 & 3: Primary emotions underneath secondary reactions</div></div>
+
+    <p style="margin-top:15px;"><strong>Q3:</strong> What minimum separation period is required for mutual consent divorce under HMA S.13B?</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. 6 months</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. 1 year</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. 2 years</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('q3ans').classList.add('shown')">Reveal</button>
+    <div class="reveal-content" id="q3ans"><div class="highlight-box"><strong>B. 1 year</strong> – Hour 5: Hindu Marriage Act Section 13B</div></div>
+</div>
+
+
+<!-- SLIDE 20: Quiz continued -->
+<div class="slide interactive-slide">
+    <span class="activity-badge">📊 FINAL QUIZ – Continued</span>
+    <h2>Course Summary Quiz (Questions 4 &amp; 5)</h2>
+    
+    <p><strong>Q4:</strong> When active domestic violence is present, what should you NOT do?</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. Assess safety</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. Conduct conjoint therapy</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. Refer to support services</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('q4ans').classList.add('shown')">Reveal</button>
+    <div class="reveal-content" id="q4ans"><div class="highlight-box"><strong>B. Conduct conjoint therapy</strong> – Active DV = contraindication for conjoint work. Offer individual; ensure safety first.</div></div>
+
+    <p style="margin-top:20px;"><strong>Q5:</strong> What percentage of couple problems are "perpetual" (unsolvable) according to Gottman?</p>
+    <div class="poll-container">
+        <div class="poll-option" onclick="this.classList.toggle('selected')">A. 31%</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">B. 50%</div>
+        <div class="poll-option" onclick="this.classList.toggle('selected')">C. 69%</div>
+    </div>
+    <button class="reveal-btn" onclick="document.getElementById('q5ans').classList.add('shown')">Reveal</button>
+    <div class="reveal-content" id="q5ans"><div class="highlight-box"><strong>C. 69%</strong> – Most problems are perpetual. The goal is not to solve all problems but to dialogue about them with humor, affection, and acceptance.</div></div>
+
+    <div class="key-concept" style="margin-top:20px;">
+        <strong>How did you do?</strong> 5/5 = You're ready to practice! | 3-4 = Review specific hours | &lt;3 = Re-read the key concepts from each hour
+    </div>
+</div>
+
+
+<!-- SLIDE 21: 10 Commandments -->
+<div class="slide content-slide">
+    <h2>The 10 Commandments of Couple Therapy</h2>
+    <p style="margin-bottom:15px;"><em>Key principles distilled from all 16 modules:</em></p>
+    <div class="commandment"><strong>1.</strong> The relationship is your client – not either individual.</div>
+    <div class="commandment"><strong>2.</strong> Assess for safety (DV, suicide) before EVERY intervention.</div>
+    <div class="commandment"><strong>3.</strong> Understand the cycle – behaviour makes sense in context.</div>
+    <div class="commandment"><strong>4.</strong> Access the emotion beneath the position – primary over secondary.</div>
+    <div class="commandment"><strong>5.</strong> Cultural humility always – your textbook ≠ their lived reality.</div>
+    <div class="commandment"><strong>6.</strong> Maintain balanced alliance – lose one partner, lose the therapy.</div>
+    <div class="commandment"><strong>7.</strong> 69% of problems are perpetual – teach dialogue, not resolution.</div>
+    <div class="commandment"><strong>8.</strong> Know the law, but never BE the lawyer.</div>
+    <div class="commandment"><strong>9.</strong> Document everything – your notes may outlast the therapy.</div>
+    <div class="commandment"><strong>10.</strong> Supervision is not optional – it's ethical practice.</div>
+    <div class="key-concept" style="margin-top:15px;">
+        <strong>Bonus:</strong> The 5:1 ratio applies to YOU too – ensure your therapeutic relationship has far more positive than negative moments for each partner.
+    </div>
+</div>
+
+
+<!-- SLIDE 22: Professional Development -->
+<div class="slide content-slide">
+    <h2>Professional Development Pathway</h2>
+    <div class="two-col">
+        <div class="col">
+            <h4>Certification Options</h4>
+            <ul>
+                <li><strong>Gottman Level 1-2-3</strong> – Training in Gottman Method; Level 3 = Certified Therapist</li>
+                <li><strong>ICEEFT EFT Externship</strong> – 4-day intensive; pathway to ICEEFT certification</li>
+                <li><strong>RCI Registration</strong> – Mandatory for practice in India (Clinical Psychologist)</li>
+                <li><strong>PREPARE/ENRICH Facilitator</strong> – Premarital counselling certification</li>
+                <li><strong>AAMFT Membership</strong> – International recognition</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Next Steps for Trainees</h4>
+            <ul>
+                <li><strong>Supervision:</strong> Minimum 50 hours couple therapy under supervision before independent practice</li>
+                <li><strong>Personal therapy:</strong> Highly recommended (your own attachment patterns will show up)</li>
+                <li><strong>Reading groups:</strong> Monthly journal club on couple therapy research</li>
+                <li><strong>Case presentations:</strong> Present at departmental meetings</li>
+                <li><strong>Research:</strong> Indian adaptation studies desperately needed</li>
+            </ul>
+            <h4 style="margin-top:15px;">Indian Training Institutes</h4>
+            <ul>
+                <li>NIMHANS, Bangalore</li>
+                <li>CIP Ranchi</li>
+                <li>IHBAS, Delhi</li>
+                <li>Various MPhil Clinical Psychology programs (RCI approved)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- SLIDE 23: Recommended Reading -->
+<div class="slide content-slide">
+    <h2>Recommended Reading List (Top 10)</h2>
+    <ol style="font-size:1.05em; line-height:2.2;">
+        <li>Gottman, J. M. &amp; Silver, N. (1999). <em>The Seven Principles for Making Marriage Work</em>. Crown.</li>
+        <li>Johnson, S. M. (2004). <em>The Practice of Emotionally Focused Couple Therapy</em> (2nd ed.). Routledge.</li>
+        <li>Johnson, S. M. (2008). <em>Hold Me Tight: Seven Conversations for a Lifetime of Love</em>. Little, Brown.</li>
+        <li>Gottman, J. M. &amp; Gottman, J. S. (2015). <em>10 Principles for Doing Effective Couples Therapy</em>. Norton.</li>
+        <li>Gurman, A. S. (Ed.). (2008). <em>Clinical Handbook of Couple Therapy</em> (4th ed.). Guilford.</li>
+        <li>Christensen, A. et al. (2014). <em>Reconcilable Differences</em> (2nd ed.). Guilford.</li>
+        <li>Minuchin, S. (1974). <em>Families and Family Therapy</em>. Harvard University Press.</li>
+        <li>Bowen, M. (1978). <em>Family Therapy in Clinical Practice</em>. Jason Aronson.</li>
+        <li>Perel, E. (2017). <em>The State of Affairs: Rethinking Infidelity</em>. Harper.</li>
+        <li>Dattilio, F. M. (2010). <em>Cognitive-Behavioral Therapy with Couples and Families</em>. Guilford.</li>
+    </ol>
+    <div class="clinical-tip">
+        <strong>💡 Start with:</strong> Johnson's "Hold Me Tight" (accessible EFT) + Gottman's "Seven Principles" (evidence-based skills) – these two cover 70% of what you need in clinical work.
+    </div>
+</div>
+
+
+<!-- SLIDE 24: References -->
+<div class="slide content-slide">
+    <h2>References (APA 7)</h2>
+    <ul style="font-size:0.85em; line-height:2;">
+        <li>Christensen, A., Doss, B. D., &amp; Jacobson, N. S. (2014). <em>Reconcilable differences</em> (2nd ed.). Guilford Press.</li>
+        <li>Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. Norton.</li>
+        <li>Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown.</li>
+        <li>Johnson, S. M. (2004). <em>The practice of emotionally focused couple therapy</em> (2nd ed.). Routledge.</li>
+        <li>Jhamb, S., et al. (2024). Family therapy in India: A narrative review. <em>The Family Journal, 32</em>(4), 512–528.</li>
+        <li>Mental Healthcare Act. (2017). Government of India, Ministry of Law and Justice.</li>
+        <li>Protection of Women from Domestic Violence Act. (2005). Government of India.</li>
+        <li>Hindu Marriage Act. (1955). Government of India, No. 25 of 1955.</li>
+        <li>Olson, D. H. (2000). PREPARE/ENRICH program. <em>Journal of Family Ministry, 14</em>(1), 28–35.</li>
+        <li>Wiebe, S. A., et al. (2024). Meta-analysis of EFT efficacy. <em>Couple &amp; Family Psychology, 13</em>(1), 45–63.</li>
+        <li>Rehabilitation Council of India Act. (1992). Government of India.</li>
+        <li>Supreme Court of India. (2018). Navtej Singh Johar v. Union of India (Section 377).</li>
+    </ul>
+</div>
+
+
+<!-- SLIDE 25: Course Complete -->
+<div class="slide title-slide">
+    <h1 style="font-size:2.8em;">🎓 Congratulations!</h1>
+    <h2 style="font-size:1.8em;">Course Complete</h2>
+    <p style="font-size:1.3em; margin:25px 0;">You have completed the 5-Hour Comprehensive Training in<br><strong>Couple &amp; Marriage Therapy</strong></p>
+    <div style="background:rgba(255,255,255,0.15); padding:25px; border-radius:15px; margin:20px auto; max-width:600px;">
+        <p style="font-size:1.1em; margin:8px 0;">✅ Hour 1: Foundations &amp; Psychology of Relationships</p>
+        <p style="font-size:1.1em; margin:8px 0;">✅ Hour 2: Assessment &amp; Theoretical Approaches</p>
+        <p style="font-size:1.1em; margin:8px 0;">✅ Hour 3: Major Therapeutic Models (EFT, Gottman, CBCT)</p>
+        <p style="font-size:1.1em; margin:8px 0;">✅ Hour 4: Communication, Conflict &amp; Special Issues</p>
+        <p style="font-size:1.1em; margin:8px 0;">✅ Hour 5: Legal Framework, Special Populations &amp; Practice</p>
+    </div>
+    <div class="meta">
+        <p style="font-size:1.1em;"><strong>Next Steps:</strong> Supervised practice → Certification training → Lifelong learning</p>
+        <p style="margin-top:10px; opacity:0.8;"><em>"The best therapists are those who never stop being students."</em></p>
+    </div>
+</div>
+
+
+<script>
+// Slide Navigation
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slideCounter');
+const timerBar = document.getElementById('timerBar');
+const timerDisplay = document.getElementById('timerDisplay');
+let timerInterval = null;
+let timeRemaining = 3600; // 60 minutes in seconds
+let timerRunning = false;
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    slides[currentSlide].classList.add('active');
+    counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    timerBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 't' || e.key === 'T') { toggleTimer(); }
+    else if (e.key === 'r' || e.key === 'R') { revealAll(); }
+});
+
+// Click navigation
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('poll-option') || e.target.classList.contains('reveal-btn')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+});
+
+// Timer
+function toggleTimer() {
+    timerDisplay.classList.toggle('visible');
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) { clearInterval(timerInterval); timerDisplay.textContent = "TIME!"; timerDisplay.style.color = '#e94560'; return; }
+            const min = Math.floor(timeRemaining / 60);
+            const sec = timeRemaining % 60;
+            timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            if (timeRemaining <= 300) timerDisplay.style.color = '#e94560';
+        }, 1000);
+    } else {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+// Reveal all hidden content on current slide
+function revealAll() {
+    const active = slides[currentSlide];
+    active.querySelectorAll('.reveal-content').forEach(el => el.classList.add('shown'));
+}
+
+// Initialize
+showSlide(0);
+</script>
+</body>
+</html>

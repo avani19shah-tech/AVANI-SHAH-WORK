@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple &amp; Marriage Therapy in India: A Comprehensive Clinical Training Workbook</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #8e44ad;
+            --accent: #e74c3c;
+            --bg-light: #f8f9fa;
+            --bg-module: #fdfdfe;
+            --text: #2c3e50;
+            --border: #dee2e6;
+            --highlight: #fff3cd;
+            --success: #d4edda;
+            --info: #d1ecf1;
+            --worksheet-bg: #f0f7ff;
+            --session-bg: #f5f0ff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg-light);
+            padding: 0;
+        }
+        .cover-page {
+            background: linear-gradient(135deg, #2c3e50 0%, #8e44ad 50%, #e74c3c 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .cover-page h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .cover-page h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .cover-page .meta {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-top: 40px;
+            line-height: 2;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            background: white;
+        }
+        .toc {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid var(--border);
+        }
+        .toc h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+        .toc ol li {
+            counter-increment: toc-counter;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border);
+        }
+        .toc ol li::before {
+            content: "Module " counter(toc-counter) ": ";
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        .toc ol li a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .toc ol li a:hover {
+            color: var(--secondary);
+        }
+        .module {
+            margin: 60px 0;
+            padding: 40px;
+            background: var(--bg-module);
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .module h2 {
+            color: var(--secondary);
+            font-size: 2em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        .module h3 {
+            color: var(--primary);
+            font-size: 1.4em;
+            margin: 30px 0 15px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent);
+        }
+        .module h4 {
+            color: var(--accent);
+            font-size: 1.15em;
+            margin: 20px 0 10px;
+        }
+        .module p, .module li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        .module ul, .module ol {
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+        .worksheet {
+            background: var(--worksheet-bg);
+            border: 2px dashed #4a90d9;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .worksheet h4 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .worksheet .field {
+            margin: 12px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #b8d4f0;
+        }
+        .worksheet .field label {
+            display: block;
+            font-weight: bold;
+            color: #2c5282;
+            margin-bottom: 5px;
+        }
+        .worksheet .field .line {
+            border-bottom: 1px solid #999;
+            height: 25px;
+            margin-top: 5px;
+        }
+        .worksheet textarea-placeholder {
+            display: block;
+            width: 100%;
+            min-height: 60px;
+            border: 1px solid #b8d4f0;
+            border-radius: 4px;
+            margin-top: 5px;
+            background: white;
+        }
+        .session-plan {
+            background: var(--session-bg);
+            border: 2px solid #8e44ad;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .session-plan h4 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .session-plan table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .session-plan th, .session-plan td {
+            border: 1px solid #d1c4e9;
+            padding: 10px;
+            text-align: left;
+        }
+        .session-plan th {
+            background: #8e44ad;
+            color: white;
+        }
+        .session-plan tr:nth-child(even) {
+            background: #f3e5f5;
+        }
+        .clinical-tip {
+            background: var(--highlight);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .clinical-tip strong {
+            color: #856404;
+        }
+        .evidence-box {
+            background: var(--success);
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .evidence-box strong {
+            color: #155724;
+        }
+        .info-box {
+            background: var(--info);
+            border-left: 4px solid #17a2b8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .case-example {
+            background: #fff8e1;
+            border: 1px solid #ffcc02;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #555;
+            padding-left: 40px;
+            text-indent: -40px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .references-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid var(--border);
+        }
+        .references-section h3 {
+            color: var(--primary);
+            border-left: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        table.assessment {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table.assessment th, table.assessment td {
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            text-align: left;
+        }
+        table.assessment th {
+            background: var(--primary);
+            color: white;
+        }
+        table.assessment tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        .page-break {
+            page-break-before: always;
+            margin-top: 40px;
+        }
+        @media print {
+            .cover-page { min-height: auto; padding: 40px; }
+            .module { page-break-inside: avoid; }
+            .container { padding: 20px; }
+        }
+        @media (max-width: 768px) {
+            .cover-page h1 { font-size: 2em; }
+            .container { padding: 20px 15px; }
+            .module { padding: 20px; }
+        }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <h1>Couple &amp; Marriage Therapy in India</h1>
+    <h2>A Comprehensive Clinical Training Workbook &amp; Guide for Psychologists &amp; Therapists</h2>
+    <p style="font-size:1.2em; margin:20px 0;">Based on Evidence-Based Practice &amp; Indian Clinical Context</p>
+    <div class="meta">
+        <p><strong>Duration:</strong> 6–12 Months (150–250 Hours)</p>
+        <p><strong>Level:</strong> Intermediate to Advanced (Postgraduate Clinical Training)</p>
+        <p><strong>Audience:</strong> MPhil Clinical Psychology Trainees, Counselling Psychologists, Psychotherapists</p>
+        <p><strong>Core Text:</strong> Handbook of Couples Therapy (Ed. Michele Harway, 2005)</p>
+        <p style="margin-top:30px; font-size:0.9em; opacity:0.7;">Prepared for Clinical Training &amp; Supervision | APA 7th Edition Citations</p>
+    </div>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#mod1">Foundations of Couple &amp; Marriage Therapy</a></li>
+        <li><a href="#mod2">Psychology of Romantic Relationships</a></li>
+        <li><a href="#mod3">Assessment in Couple Therapy</a></li>
+        <li><a href="#mod4">Theories of Couple Therapy</a></li>
+        <li><a href="#mod5">Evidence-Based Couple Therapies</a></li>
+        <li><a href="#mod6">Communication &amp; Conflict Resolution</a></li>
+        <li><a href="#mod7">Sexual &amp; Intimacy Counselling</a></li>
+        <li><a href="#mod8">High Conflict Couples</a></li>
+        <li><a href="#mod9">Trauma &amp; Mental Illness in Marriage</a></li>
+        <li><a href="#mod10">Special Populations</a></li>
+        <li><a href="#mod11">Marriage Counselling in India: Legal Framework</a></li>
+        <li><a href="#mod12">Cultural Competence</a></li>
+        <li><a href="#mod13">Clinical Skills &amp; Session Planning</a></li>
+        <li><a href="#mod14">Therapist Development</a></li>
+        <li><a href="#mod15">Documentation &amp; Practice Management</a></li>
+        <li><a href="#mod16">Practicum &amp; Supervised Training</a></li>
+    </ol>
+    <p style="margin-top:20px;"><strong>Appendices:</strong> Advanced Masterclasses | Worksheets Compendium | Recommended Readings | Complete Reference List</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 1: FOUNDATIONS OF COUPLE & MARRIAGE THERAPY -->
+<!-- ============================================================ -->
+<div class="module" id="mod1">
+<h2>MODULE 1: Foundations of Couple &amp; Marriage Therapy</h2>
+
+<h3>1.1 Evolution of Marriage and Couple Therapy</h3>
+
+<p>Couple therapy has evolved significantly over the past century. The field began in the early 20th century with marriage counselling offered by clergy and social workers, then transformed through the systemic revolution of the 1950s–1970s, the behavioural movement of the 1970s–1980s, and the emotion-focused and integrative approaches of the 1990s–present (Gurman et al., 2015).</p>
+
+<h4>Historical Timeline</h4>
+<ul>
+    <li><strong>1930s–1940s:</strong> Marriage counselling emerges as a distinct practice; American Association of Marriage Counselors founded (1942)</li>
+    <li><strong>1950s–1960s:</strong> Systems theory influences therapeutic work with couples; structural and strategic family therapy develop</li>
+    <li><strong>1970s–1980s:</strong> Behavioural marital therapy (Jacobson &amp; Margolin, 1979); cognitive approaches (Epstein &amp; Baucom)</li>
+    <li><strong>1980s–1990s:</strong> Emotionally Focused Therapy (Johnson &amp; Greenberg, 1985); Gottman's research on marital stability</li>
+    <li><strong>2000s–present:</strong> Integrative approaches, neuroscience-informed therapy, technology-assisted interventions, cultural adaptations</li>
+</ul>
+
+<h4>Development of Systemic Thinking</h4>
+<p>The shift from individual pathology to relational patterns was revolutionary. Key principles include circular causality (mutual influence between partners), homeostasis (the system's tendency to maintain equilibrium), and equifinality (different pathways can lead to similar outcomes). Gregory Bateson's work on communication patterns and the Mental Research Institute (MRI) in Palo Alto laid foundations for understanding couples as interactional systems (Nichols &amp; Davis, 2017).</p>
+
+<h4>Couple Therapy Across Cultures</h4>
+<p>Western models of couple therapy emphasize individual autonomy, egalitarian partnerships, and emotional expressiveness. However, these values cannot be universally applied. Jhamb et al. (2024) noted that Western models fail to capture the central role of the intergenerational subsystem or understand hierarchical dynamics in Indian families. Cultural adaptations require understanding collectivist values, family honour, spiritual dimensions of marriage, and community involvement in relationship decisions.</p>
+
+<h3>1.2 Understanding Marriage: Indian vs. Western Perspectives</h3>
+
+<h4>Indian Concepts of Marriage</h4>
+<ul>
+    <li><strong>Marriage as Sanskar:</strong> In Hindu tradition, marriage (Vivah) is one of the 16 sanskars (sacraments); it is considered a sacred bond rather than merely a legal contract</li>
+    <li><strong>Dharma-based partnership:</strong> Partners fulfil mutual religious and social duties together</li>
+    <li><strong>Family alliance:</strong> Marriage in India is often an alliance between two families, not just two individuals</li>
+    <li><strong>Arranged marriages:</strong> Approximately 90% of marriages in India are arranged (Ahuja, 2019), involving family participation in partner selection</li>
+    <li><strong>Joint family system:</strong> The marital dyad exists within a larger family system with hierarchical relationships</li>
+</ul>
+
+<h4>Modern Relationship Trends in India</h4>
+<ul>
+    <li>Rising age of marriage and increasing urbanization</li>
+    <li>Growth of love marriages and dating culture</li>
+    <li>Impact of social media on relationships and infidelity</li>
+    <li>Increasing divorce rates (1.1% in 2021, rising steadily; Census of India data)</li>
+    <li>NRI marriages and cross-cultural challenges</li>
+    <li>Live-in relationships gaining legal recognition</li>
+    <li>LGBTQIA+ visibility (post-Navtej Singh Johar v. Union of India, 2018)</li>
+</ul>
+
+<h3>1.3 Relationship Science: What Predicts Success and Failure</h3>
+
+<h4>Predictors of Relationship Success (Evidence-Based)</h4>
+<p>John Gottman's longitudinal research spanning four decades provides the most robust empirical basis for understanding what makes relationships succeed or fail. His research can predict divorce with over 90% accuracy from brief observations of couple interactions (Gottman &amp; Silver, 1999).</p>
+
+<ul>
+    <li><strong>Friendship and fondness:</strong> Maintaining a positive sentiment override (ratio of 5:1 positive to negative interactions)</li>
+    <li><strong>Emotional attunement:</strong> Responding to partner's emotional bids for connection</li>
+    <li><strong>Effective conflict management:</strong> Softened startup, accepting influence, repair attempts</li>
+    <li><strong>Shared meaning:</strong> Creating shared rituals, goals, roles, and symbols</li>
+    <li><strong>Trust and commitment:</strong> Transparency, reliability, and dedication to the relationship</li>
+</ul>
+
+<h4>Predictors of Divorce (The Four Horsemen)</h4>
+<p>Gottman identified four destructive communication patterns that predict divorce with high reliability:</p>
+<ol>
+    <li><strong>Criticism:</strong> Attacking the partner's character rather than addressing specific behaviour</li>
+    <li><strong>Contempt:</strong> Disrespect, mockery, eye-rolling, name-calling (the single strongest predictor of divorce)</li>
+    <li><strong>Defensiveness:</strong> Self-protection through righteous indignation or playing the victim</li>
+    <li><strong>Stonewalling:</strong> Emotional withdrawal, shutting down, refusing to engage</li>
+</ol>
+
+<div class="evidence-box">
+    <strong>Research Evidence:</strong> Gottman Method Couples Therapy is built upon four decades of scientific research. Published outcome studies demonstrate its effectiveness for both heterosexual and same-sex couples. The therapy consisted of 9–11 sessions with measurable improvements in relationship satisfaction (Gottman &amp; Gottman, 2015; Babcock et al., 2013).
+</div>
+
+<h3>1.4 Indian Marriage Systems</h3>
+
+<h4>Types of Indian Family Structures</h4>
+<table class="assessment">
+    <tr><th>Family Type</th><th>Characteristics</th><th>Clinical Implications</th></tr>
+    <tr><td>Joint Family</td><td>Multiple generations living together; shared resources; hierarchical decision-making</td><td>Boundary issues; in-law conflicts; lack of privacy; role confusion</td></tr>
+    <tr><td>Nuclear Family</td><td>Couple and children living independently; increasing in urban India</td><td>Isolation; lack of support; increased pressure on dyad</td></tr>
+    <tr><td>Extended Family (Modified Joint)</td><td>Nuclear family with regular involvement of extended kin</td><td>Interference vs. support balance; dual loyalties</td></tr>
+    <tr><td>Interfaith Marriage</td><td>Partners from different religious backgrounds</td><td>Ritual conflicts; naming children; festival celebrations; identity issues</td></tr>
+    <tr><td>Inter-caste Marriage</td><td>Partners from different caste backgrounds</td><td>Family rejection; honor-related risks; social ostracism</td></tr>
+    <tr><td>LGBTQIA+ Relationships</td><td>Same-sex partnerships; legal recognition evolving</td><td>Stigma; lack of legal protections; family acceptance</td></tr>
+    <tr><td>NRI Marriages</td><td>One/both partners in diaspora</td><td>Cultural adjustment; long-distance; in-law expectations</td></tr>
+</table>
+
+<div class="worksheet">
+    <h4>WORKSHEET 1.1: Relationship Context Assessment</h4>
+    <div class="field"><label>Couple's Names &amp; Ages:</label><div class="line"></div></div>
+    <div class="field"><label>Type of Marriage (Arranged/Love/Semi-arranged):</label><div class="line"></div></div>
+    <div class="field"><label>Duration of Marriage:</label><div class="line"></div></div>
+    <div class="field"><label>Family Structure (Joint/Nuclear/Extended):</label><div class="line"></div></div>
+    <div class="field"><label>Religious &amp; Cultural Background:</label><div class="line"></div></div>
+    <div class="field"><label>Children (Number, Ages):</label><div class="line"></div></div>
+    <div class="field"><label>Living Arrangements:</label><div class="line"></div></div>
+    <div class="field"><label>Key Family Members Involved in the Relationship:</label><div class="line"></div></div>
+    <div class="field"><label>Presenting Concerns (Brief):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Previous Counselling/Therapy Attempts:</label><div class="line"></div></div>
+    <div class="field"><label>Referral Source:</label><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 1 References (APA 7th Edition)</h3>
+    <p class="reference">Babcock, J. C., Gottman, J. M., Ryan, K. D., &amp; Gottman, J. S. (2013). A component analysis of a brief psycho-educational couples' workshop: One-year follow-up results. <em>Journal of Family Therapy, 35</em>(3), 252–280. https://doi.org/10.1111/1467-6427.12003</p>
+    <p class="reference">Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton &amp; Company.</p>
+    <p class="reference">Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown Publishers.</p>
+    <p class="reference">Gurman, A. S., Lebow, J. L., &amp; Snyder, D. K. (Eds.). (2015). <em>Clinical handbook of couple therapy</em> (5th ed.). Guilford Press.</p>
+    <p class="reference">Harway, M. (Ed.). (2005). <em>Handbook of couples therapy</em>. John Wiley &amp; Sons.</p>
+    <p class="reference">Jacobson, N. S., &amp; Margolin, G. (1979). <em>Marital therapy: Strategies based on social learning and behavior exchange principles</em>. Brunner/Mazel.</p>
+    <p class="reference">Jhamb, S., Kolte, A., Prashanth, A., Roy, A. S., Roy, H., Maheshwari, K., Mathur, P., Raj, R. K., Abhyankar, S., &amp; Rani, A. (2024). Family therapy in India: Evolution, challenges, and future directions. <em>The Family Journal, 32</em>(4), 512–528. https://doi.org/10.1177/10664807241269544</p>
+    <p class="reference">Nichols, M. P., &amp; Davis, S. D. (2017). <em>Family therapy: Concepts and methods</em> (11th ed.). Pearson.</p>
+</div>
+</div>
+
+<!-- MODULE 1 ENDS -->
+
+<!-- ============================================================ -->
+<!-- MODULE 2: PSYCHOLOGY OF ROMANTIC RELATIONSHIPS -->
+<!-- ============================================================ -->
+<div class="module" id="mod2">
+<h2>MODULE 2: Psychology of Romantic Relationships</h2>
+
+<h3>2.1 Attachment Theory in Adult Relationships</h3>
+
+<p>Attachment theory, originally developed by John Bowlby (1969/1982) to explain infant-caregiver bonds, was extended to adult romantic relationships by Hazan and Shaver (1987). They proposed that the emotional bond between adult romantic partners is partly a function of the same attachment behavioural system that gives rise to the bond between infants and caregivers. This theoretical framework has become central to understanding couple dynamics and forms the basis of Emotionally Focused Therapy.</p>
+
+<h4>Bowlby's Core Propositions</h4>
+<ul>
+    <li>Humans have an innate need for close emotional bonds (attachment system)</li>
+    <li>Early experiences with caregivers form internal working models of self and others</li>
+    <li>These models guide expectations, emotions, and behaviour in close relationships throughout life</li>
+    <li>The attachment system is activated by perceived threats (separation, conflict, stress)</li>
+    <li>Secure attachment provides a "safe haven" (comfort in distress) and "secure base" (exploration)</li>
+</ul>
+
+<h4>Adult Attachment Styles</h4>
+<table class="assessment">
+    <tr><th>Style</th><th>Model of Self</th><th>Model of Other</th><th>Relationship Pattern</th><th>Therapeutic Focus</th></tr>
+    <tr><td><strong>Secure</strong></td><td>Positive (worthy of love)</td><td>Positive (reliable, responsive)</td><td>Comfortable with intimacy and autonomy; effective communicator</td><td>Build on existing strengths</td></tr>
+    <tr><td><strong>Anxious-Preoccupied</strong></td><td>Negative (unworthy)</td><td>Positive (desired but unreliable)</td><td>Pursuer; clingy; fear of abandonment; hypervigilant to rejection cues</td><td>Self-soothing; reduce protest behaviours</td></tr>
+    <tr><td><strong>Dismissive-Avoidant</strong></td><td>Positive (self-sufficient)</td><td>Negative (unreliable)</td><td>Withdrawer; values independence; suppresses emotions; distances under stress</td><td>Access vulnerable emotions; increase engagement</td></tr>
+    <tr><td><strong>Fearful-Avoidant (Disorganized)</strong></td><td>Negative</td><td>Negative</td><td>Desire closeness but fear it; unpredictable; often trauma history</td><td>Trauma processing; building safety</td></tr>
+</table>
+
+<h4>The Pursuer-Withdrawer Cycle</h4>
+<p>The most common negative interaction cycle in distressed couples involves one partner (typically anxious attachment) pursuing connection through criticism, demands, or emotional intensity, while the other (typically avoidant attachment) withdraws through silence, emotional shutdown, or physical avoidance. This cycle is self-reinforcing: pursuit triggers withdrawal, and withdrawal triggers more intense pursuit (Johnson, 2008).</p>
+
+<div class="clinical-tip">
+    <strong>Clinical Tip:</strong> In Indian couples, the pursuer-withdrawer pattern may be masked by cultural expectations. The wife may pursue through complaints to in-laws (indirect pursuit), while the husband may withdraw into work or alcohol. Assess the underlying attachment needs beneath culturally shaped behaviours.
+</div>
+
+<h3>2.2 Sternberg's Triangular Theory of Love</h3>
+
+<p>Robert Sternberg (1986) proposed that love comprises three components:</p>
+<ul>
+    <li><strong>Intimacy:</strong> Feelings of closeness, connectedness, and bondedness (emotional warmth)</li>
+    <li><strong>Passion:</strong> Drives leading to romance, physical attraction, and sexual consummation</li>
+    <li><strong>Commitment:</strong> The decision to love someone (short-term) and maintain that love (long-term)</li>
+</ul>
+
+<h4>Types of Love (Sternberg's Taxonomy)</h4>
+<table class="assessment">
+    <tr><th>Type</th><th>Intimacy</th><th>Passion</th><th>Commitment</th><th>Example</th></tr>
+    <tr><td>Liking</td><td>✓</td><td>✗</td><td>✗</td><td>Close friendship</td></tr>
+    <tr><td>Infatuation</td><td>✗</td><td>✓</td><td>✗</td><td>Love at first sight</td></tr>
+    <tr><td>Empty Love</td><td>✗</td><td>✗</td><td>✓</td><td>Stagnant marriage</td></tr>
+    <tr><td>Romantic Love</td><td>✓</td><td>✓</td><td>✗</td><td>Summer romance</td></tr>
+    <tr><td>Companionate Love</td><td>✓</td><td>✗</td><td>✓</td><td>Long-term marriage without passion</td></tr>
+    <tr><td>Fatuous Love</td><td>✗</td><td>✓</td><td>✓</td><td>Whirlwind courtship</td></tr>
+    <tr><td>Consummate Love</td><td>✓</td><td>✓</td><td>✓</td><td>Complete, ideal love</td></tr>
+</table>
+
+<div class="clinical-tip">
+    <strong>Clinical Application:</strong> Use Sternberg's model to help couples identify which component(s) are missing or diminished. Many Indian couples in arranged marriages may begin with commitment alone and need help building intimacy and passion. Conversely, love-marriage couples may have passion without developed companionate skills.
+</div>
+
+<h3>2.3 Adult Development and Marriage</h3>
+
+<h4>Erikson's Psychosocial Stages Relevant to Marriage</h4>
+<ul>
+    <li><strong>Intimacy vs. Isolation (Young Adulthood, 20–40):</strong> The capacity to form deep intimate relationships; failure leads to isolation and self-absorption</li>
+    <li><strong>Generativity vs. Stagnation (Middle Adulthood, 40–65):</strong> Contributing to the next generation through parenting, mentoring; couples may face mid-life crises, empty nest</li>
+    <li><strong>Integrity vs. Despair (Late Adulthood, 65+):</strong> Reflecting on life together; legacy; facing mortality as a couple</li>
+</ul>
+
+<h4>Common Developmental Transitions Affecting Marriage</h4>
+<ul>
+    <li>Transition to marriage / first year adjustment</li>
+    <li>Transition to parenthood (Bringing Baby Home; Shapiro et al., 2015)</li>
+    <li>Children entering school / adolescence</li>
+    <li>Mid-life re-evaluation and identity shifts</li>
+    <li>Empty nest syndrome</li>
+    <li>Retirement adjustment</li>
+    <li>Caring for aging parents</li>
+    <li>Health challenges and disability</li>
+    <li>Bereavement and loss</li>
+</ul>
+
+<h3>2.4 Personality in Marriage</h3>
+
+<h4>Big Five Personality Traits and Relationship Outcomes</h4>
+<p>Research consistently shows that certain personality traits are associated with marital satisfaction:</p>
+<ul>
+    <li><strong>Neuroticism:</strong> The single strongest personality predictor of marital dissatisfaction (Karney &amp; Bradbury, 1995)</li>
+    <li><strong>Agreeableness:</strong> Higher levels associated with better conflict resolution and relationship satisfaction</li>
+    <li><strong>Conscientiousness:</strong> Associated with reliability, commitment, and relationship maintenance</li>
+    <li><strong>Extraversion:</strong> Mixed findings; associated with social engagement but also higher conflict potential</li>
+    <li><strong>Openness:</strong> May facilitate growth but also divergence in values over time</li>
+</ul>
+
+<h4>Personality Disorders and Marriage</h4>
+<p>Personality disorders create chronic relational difficulties:</p>
+<ul>
+    <li><strong>Narcissistic Personality:</strong> Lack of empathy, entitlement, exploitation of partner, inability to see partner's perspective</li>
+    <li><strong>Borderline Personality:</strong> Intense fear of abandonment, emotional dysregulation, idealization-devaluation cycles</li>
+    <li><strong>Obsessive-Compulsive Personality:</strong> Rigidity, need for control, perfectionism, emotional constriction</li>
+    <li><strong>Dependent Personality:</strong> Excessive reliance on partner, inability to make decisions, submissiveness</li>
+    <li><strong>Antisocial Personality:</strong> Manipulation, aggression, lack of remorse (contraindicated for couple therapy if domestic violence present)</li>
+</ul>
+
+<h3>2.5 Emotion Theory in Relationships</h3>
+
+<h4>Emotional Regulation in Couples</h4>
+<p>Emotional regulation refers to the processes by which individuals influence their emotions, when they have them, and how they experience and express them (Gross, 1998). In couples, co-regulation occurs when partners help each other manage emotional states.</p>
+
+<ul>
+    <li><strong>Healthy co-regulation:</strong> Partners soothe each other; validate emotions; create emotional safety</li>
+    <li><strong>Unhealthy co-regulation:</strong> Partners escalate each other; one partner's dysregulation triggers the other's</li>
+    <li><strong>Diffuse physiological arousal (DPA):</strong> Gottman's research shows that when heart rate exceeds 100 BPM during conflict, constructive problem-solving becomes impossible</li>
+</ul>
+
+<div class="worksheet">
+    <h4>WORKSHEET 2.1: Attachment Style Self-Assessment (Clinician Use)</h4>
+    <p><em>Administer to each partner individually. Based on Experiences in Close Relationships Scale (Brennan et al., 1998).</em></p>
+    <div class="field"><label>Client Name:</label><div class="line"></div></div>
+    <div class="field"><label>When my partner is unavailable, I typically feel (describe):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>When conflict arises, my first impulse is to:</label><div class="line"></div></div>
+    <div class="field"><label>I find it (easy/difficult) to depend on my partner because:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>I worry about being abandoned (never/sometimes/often/always):</label><div class="line"></div></div>
+    <div class="field"><label>I find it (easy/difficult) to share vulnerable feelings because:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>My earliest memory of comfort from a caregiver:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Preliminary Attachment Classification:</label><div class="line"></div></div>
+    <div class="field"><label>Key Attachment Fears Identified:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 2 References (APA 7th Edition)</h3>
+    <p class="reference">Bowlby, J. (1969). <em>Attachment and loss: Vol. 1. Attachment</em>. Basic Books.</p>
+    <p class="reference">Bowlby, J. (1973). <em>Attachment and loss: Vol. 2. Separation: Anxiety and anger</em>. Basic Books.</p>
+    <p class="reference">Brennan, K. A., Clark, C. L., &amp; Shaver, P. R. (1998). Self-report measurement of adult attachment: An integrative overview. In J. A. Simpson &amp; W. S. Rholes (Eds.), <em>Attachment theory and close relationships</em> (pp. 46–76). Guilford Press.</p>
+    <p class="reference">Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. <em>Review of General Psychology, 2</em>(3), 271–299. https://doi.org/10.1037/1089-2680.2.3.271</p>
+    <p class="reference">Hazan, C., &amp; Shaver, P. (1987). Romantic love conceptualized as an attachment process. <em>Journal of Personality and Social Psychology, 52</em>(3), 511–524. https://doi.org/10.1037/0022-3514.52.3.511</p>
+    <p class="reference">Johnson, S. M. (2008). <em>Hold me tight: Seven conversations for a lifetime of love</em>. Little, Brown and Company.</p>
+    <p class="reference">Karney, B. R., &amp; Bradbury, T. N. (1995). The longitudinal course of marital quality and stability: A review of theory, methods, and research. <em>Psychological Bulletin, 118</em>(1), 3–34. https://doi.org/10.1037/0033-2909.118.1.3</p>
+    <p class="reference">Shapiro, A. F., Gottman, J. M., &amp; Fink, B. C. (2015). Short-term change in couples' conflict following a transition to parenthood intervention. <em>Couple and Family Psychology: Research and Practice, 4</em>(4), 239–251. https://doi.org/10.1037/cfp0000051</p>
+    <p class="reference">Sternberg, R. J. (1986). A triangular theory of love. <em>Psychological Review, 93</em>(2), 119–135. https://doi.org/10.1037/0033-295X.93.2.119</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 3: ASSESSMENT IN COUPLE THERAPY -->
+<!-- ============================================================ -->
+<div class="module" id="mod3">
+<h2>MODULE 3: Assessment in Couple Therapy</h2>
+
+<h3>3.1 The Couple Intake Process</h3>
+
+<p>Assessment in couple therapy is multifaceted, involving both partners individually and conjointly. A thorough assessment helps the therapist understand the presenting problems, relationship history, individual factors, and systemic influences. It forms the basis for case formulation and treatment planning (Snyder et al., 2005).</p>
+
+<h4>Structure of Initial Assessment (Recommended 2–3 Sessions)</h4>
+<table class="assessment">
+    <tr><th>Session</th><th>Format</th><th>Focus</th><th>Duration</th></tr>
+    <tr><td>Session 1</td><td>Conjoint (both partners together)</td><td>Presenting concerns; relationship narrative; observing interaction patterns; informed consent; confidentiality discussion</td><td>60–90 min</td></tr>
+    <tr><td>Session 2A</td><td>Individual (Partner A)</td><td>Personal history; attachment history; individual mental health; secrets screen; violence screen; substance use; goals</td><td>45–60 min</td></tr>
+    <tr><td>Session 2B</td><td>Individual (Partner B)</td><td>Same as above for second partner</td><td>45–60 min</td></tr>
+    <tr><td>Session 3</td><td>Conjoint (feedback session)</td><td>Share formulation; discuss suitability for couple therapy; set goals; agree on treatment plan</td><td>60 min</td></tr>
+</table>
+
+<h4>Key Areas to Assess in First Interview</h4>
+<ul>
+    <li>What brings you to therapy now? (precipitating event)</li>
+    <li>How long have the problems existed?</li>
+    <li>What have you tried so far?</li>
+    <li>What does each partner want from therapy?</li>
+    <li>Is there a "mixed agenda" (one partner wanting to leave)?</li>
+    <li>Safety assessment (domestic violence screen)</li>
+    <li>Observe: How do they sit? Who speaks first? Do they interrupt? Eye contact?</li>
+</ul>
+
+<div class="clinical-tip">
+    <strong>Critical Protocol – Violence Screen:</strong> ALWAYS conduct individual sessions to screen for intimate partner violence (IPV). Couple therapy is CONTRAINDICATED when there is ongoing physical violence, coercive control, or one partner is afraid of the other. Use validated screening (e.g., Conflict Tactics Scale-Revised; Straus et al., 1996). In India, also assess for dowry harassment and in-law violence.
+</div>
+
+<h3>3.2 Comprehensive Case History Format</h3>
+
+<div class="worksheet">
+    <h4>WORKSHEET 3.1: Couple Therapy Case History Proforma</h4>
+    
+    <p><strong>SECTION A: IDENTIFYING INFORMATION</strong></p>
+    <div class="field"><label>Partner A – Name, Age, Gender, Education, Occupation, Religion, Caste, Income:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Partner B – Name, Age, Gender, Education, Occupation, Religion, Caste, Income:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Type of Marriage (Arranged/Love/Court) &amp; Date:</label><div class="line"></div></div>
+    <div class="field"><label>Duration of Marriage:</label><div class="line"></div></div>
+    <div class="field"><label>Children (Names, Ages, any concerns):</label><div class="line"></div></div>
+    <div class="field"><label>Living Arrangement (Joint/Nuclear/Other):</label><div class="line"></div></div>
+    <div class="field"><label>Referral Source:</label><div class="line"></div></div>
+
+    <p><strong>SECTION B: PRESENTING CONCERNS</strong></p>
+    <div class="field"><label>Partner A's view of the problem:</label><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Partner B's view of the problem:</label><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Duration and onset of problems:</label><div class="line"></div></div>
+    <div class="field"><label>Precipitating factors:</label><div class="line"></div></div>
+    <div class="field"><label>Previous attempts to resolve:</label><div class="line"></div></div>
+
+    <p><strong>SECTION C: RELATIONSHIP HISTORY</strong></p>
+    <div class="field"><label>How did the couple meet?</label><div class="line"></div></div>
+    <div class="field"><label>Courtship/engagement period:</label><div class="line"></div></div>
+    <div class="field"><label>Wedding experience:</label><div class="line"></div></div>
+    <div class="field"><label>Early marriage adjustment:</label><div class="line"></div></div>
+    <div class="field"><label>Major life events during marriage:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Best period of the relationship:</label><div class="line"></div></div>
+    <div class="field"><label>Worst period of the relationship:</label><div class="line"></div></div>
+
+    <p><strong>SECTION D: FAMILY OF ORIGIN</strong></p>
+    <div class="field"><label>Partner A – Parents' relationship quality:</label><div class="line"></div></div>
+    <div class="field"><label>Partner A – Family communication patterns:</label><div class="line"></div></div>
+    <div class="field"><label>Partner B – Parents' relationship quality:</label><div class="line"></div></div>
+    <div class="field"><label>Partner B – Family communication patterns:</label><div class="line"></div></div>
+    <div class="field"><label>Intergenerational patterns identified:</label><div class="line"></div><div class="line"></div></div>
+
+    <p><strong>SECTION E: SEXUAL HISTORY</strong></p>
+    <div class="field"><label>Sexual satisfaction (each partner's rating 1–10):</label><div class="line"></div></div>
+    <div class="field"><label>Frequency concerns:</label><div class="line"></div></div>
+    <div class="field"><label>Sexual dysfunctions identified:</label><div class="line"></div></div>
+    <div class="field"><label>Infidelity (past/present):</label><div class="line"></div></div>
+
+    <p><strong>SECTION F: INDIVIDUAL FACTORS</strong></p>
+    <div class="field"><label>Mental health history (both partners):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Medical history:</label><div class="line"></div></div>
+    <div class="field"><label>Substance use:</label><div class="line"></div></div>
+    <div class="field"><label>Trauma history:</label><div class="line"></div></div>
+    <div class="field"><label>Current medications:</label><div class="line"></div></div>
+</div>
+
+<h3>3.3 Standardized Assessment Instruments</h3>
+
+<table class="assessment">
+    <tr><th>Instrument</th><th>Authors</th><th>Items</th><th>What It Measures</th><th>Clinical Utility</th></tr>
+    <tr><td>Dyadic Adjustment Scale (DAS)</td><td>Spanier (1976)</td><td>32</td><td>Relationship quality: consensus, satisfaction, cohesion, affectional expression</td><td>Most widely used; scores 0–151; &lt;100 suggests distress</td></tr>
+    <tr><td>Revised DAS (RDAS)</td><td>Busby et al. (1995)</td><td>14</td><td>Same constructs, briefer version</td><td>Efficient for repeated measurement</td></tr>
+    <tr><td>Couple Satisfaction Index (CSI)</td><td>Funk &amp; Rogge (2007)</td><td>4/16/32</td><td>Global relationship satisfaction</td><td>Superior psychometrics; free to use</td></tr>
+    <tr><td>Marital Satisfaction Inventory–Revised (MSI-R)</td><td>Snyder (1997)</td><td>150</td><td>Multiple domains of relationship distress</td><td>Comprehensive; includes validity scales</td></tr>
+    <tr><td>ENRICH Couple Inventory</td><td>Olson et al. (1987)</td><td>125–195</td><td>Strengths and growth areas across 12 domains</td><td>Premarital and marital; widely used in India</td></tr>
+    <tr><td>Experiences in Close Relationships (ECR)</td><td>Brennan et al. (1998)</td><td>36</td><td>Adult attachment (anxiety and avoidance dimensions)</td><td>Essential for EFT-informed practice</td></tr>
+    <tr><td>Conflict Tactics Scale–Revised (CTS-2)</td><td>Straus et al. (1996)</td><td>78</td><td>Negotiation, psychological aggression, physical assault, sexual coercion, injury</td><td>Critical for violence screening</td></tr>
+    <tr><td>Gottman Sound Relationship House Questionnaire</td><td>Gottman &amp; Gottman</td><td>Variable</td><td>Love maps, fondness, turning toward, conflict, shared meaning</td><td>Maps to Gottman treatment targets</td></tr>
+</table>
+
+<h3>3.4 Clinical Interview Skills for Couple Assessment</h3>
+
+<h4>Essential Interviewing Techniques</h4>
+<ul>
+    <li><strong>Circular Questioning:</strong> "When your wife becomes quiet, what do you do?" "And when he walks away, what happens inside you?" – Reveals interaction patterns</li>
+    <li><strong>Reflective Listening:</strong> Paraphrasing each partner's experience to convey understanding</li>
+    <li><strong>Tracking Interaction:</strong> Observing and naming the process happening in-session: "I notice that when Priya brings up her mother-in-law, Rahul looks away. What's happening for you right now, Rahul?"</li>
+    <li><strong>Reframing:</strong> Offering an alternative perspective: "So the anger you show might actually be about how much you care about this relationship?"</li>
+    <li><strong>Validation:</strong> Acknowledging each partner's experience without taking sides</li>
+    <li><strong>Scaling Questions:</strong> "On a scale of 1–10, how committed are you to this relationship?"</li>
+    <li><strong>Genogram Construction:</strong> Mapping three generations to identify intergenerational patterns</li>
+</ul>
+
+<h3>3.5 The Relationship Timeline</h3>
+
+<div class="worksheet">
+    <h4>WORKSHEET 3.2: Relationship Timeline (Administer Jointly)</h4>
+    <p><em>Instructions: Ask the couple to collaboratively create a timeline of their relationship from meeting to present. Mark positive events above the line and negative events below.</em></p>
+    <div class="field"><label>How &amp; When You Met:</label><div class="line"></div></div>
+    <div class="field"><label>First Impression of Each Other:</label><div class="line"></div></div>
+    <div class="field"><label>Decision to Marry (Who proposed? Family involvement?):</label><div class="line"></div></div>
+    <div class="field"><label>Happiest Memories Together:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>First Major Conflict (When? About what? How resolved?):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Turning Points (positive and negative):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Current Relationship Satisfaction (each partner, 1–10):</label><div class="line"></div></div>
+    <div class="field"><label>Hope for the Future (each partner, 1–10):</label><div class="line"></div></div>
+</div>
+
+<div class="worksheet">
+    <h4>WORKSHEET 3.3: Communication Pattern Assessment</h4>
+    <p><em>Observe during session and complete after. Based on Gottman's Four Horsemen framework.</em></p>
+    <div class="field"><label>Primary Communication Pattern Observed:</label>
+        <br>☐ Pursue-Withdraw &nbsp; ☐ Mutual Avoidance &nbsp; ☐ Mutual Escalation &nbsp; ☐ Demand-Comply
+    </div>
+    <div class="field"><label>Four Horsemen Present:</label>
+        <br>☐ Criticism (frequency: ___) &nbsp; ☐ Contempt (frequency: ___) &nbsp; ☐ Defensiveness (frequency: ___) &nbsp; ☐ Stonewalling (frequency: ___)
+    </div>
+    <div class="field"><label>Repair Attempts Observed (successful/unsuccessful):</label><div class="line"></div></div>
+    <div class="field"><label>Emotional Bids Made and Responded To:</label><div class="line"></div></div>
+    <div class="field"><label>Power Balance Observed:</label><div class="line"></div></div>
+    <div class="field"><label>Nonverbal Communication Patterns:</label><div class="line"></div></div>
+</div>
+
+<h3>3.6 Case Formulation in Couple Therapy</h3>
+
+<p>A comprehensive case formulation integrates assessment data into a coherent understanding of the couple's difficulties. It should address:</p>
+
+<div class="worksheet">
+    <h4>WORKSHEET 3.4: Couple Therapy Case Formulation Template</h4>
+    <div class="field"><label>1. Presenting Problems (behavioural description):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>2. Negative Interaction Cycle (describe the pattern):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>3. Underlying Attachment Needs/Fears (each partner):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>4. Predisposing Factors (family of origin, personality, past relationships):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>5. Precipitating Factors (recent triggers):</label><div class="line"></div></div>
+    <div class="field"><label>6. Perpetuating Factors (what maintains the problem):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>7. Protective Factors (strengths, resources):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>8. Cultural/Contextual Factors:</label><div class="line"></div></div>
+    <div class="field"><label>9. Treatment Goals (mutual and individual):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>10. Recommended Therapeutic Approach:</label><div class="line"></div></div>
+    <div class="field"><label>11. Estimated Duration of Treatment:</label><div class="line"></div></div>
+    <div class="field"><label>12. Potential Challenges/Risks:</label><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 3 References (APA 7th Edition)</h3>
+    <p class="reference">Busby, D. M., Christensen, C., Crane, D. R., &amp; Larson, J. H. (1995). A revision of the Dyadic Adjustment Scale for use with distressed and nondistressed couples. <em>Journal of Marital and Family Therapy, 21</em>(3), 289–308. https://doi.org/10.1111/j.1752-0606.1995.tb00163.x</p>
+    <p class="reference">Funk, J. L., &amp; Rogge, R. D. (2007). Testing the ruler with item response theory: Increasing precision of measurement for relationship satisfaction with the Couples Satisfaction Index. <em>Journal of Family Psychology, 21</em>(4), 572–583. https://doi.org/10.1037/0893-3200.21.4.572</p>
+    <p class="reference">Olson, D. H., Fournier, D. G., &amp; Druckman, J. M. (1987). <em>ENRICH: Enriching and nurturing relationship issues, communication, and happiness</em>. PREPARE/ENRICH, Inc.</p>
+    <p class="reference">Snyder, D. K. (1997). <em>Marital Satisfaction Inventory–Revised (MSI-R) manual</em>. Western Psychological Services.</p>
+    <p class="reference">Snyder, D. K., Heyman, R. E., &amp; Haynes, S. N. (2005). Evidence-based approaches to assessing couple distress. <em>Psychological Assessment, 17</em>(3), 288–307. https://doi.org/10.1037/1040-3590.17.3.288</p>
+    <p class="reference">Spanier, G. B. (1976). Measuring dyadic adjustment: New scales for assessing the quality of marriage and similar dyads. <em>Journal of Marriage and the Family, 38</em>(1), 15–28. https://doi.org/10.2307/350547</p>
+    <p class="reference">Straus, M. A., Hamby, S. L., Boney-McCoy, S., &amp; Sugarman, D. B. (1996). The Revised Conflict Tactics Scales (CTS2). <em>Journal of Family Issues, 17</em>(3), 283–316. https://doi.org/10.1177/019251396017003001</p>
+</div>
+</div>
+</html>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 4: THEORIES OF COUPLE THERAPY -->
+<!-- ============================================================ -->
+<div class="module" id="mod4">
+<h2>MODULE 4: Theories of Couple Therapy</h2>
+
+<h3>4.1 General Systems Theory</h3>
+
+<p>Systems theory, derived from the work of Ludwig von Bertalanffy (1968) and applied to families by pioneers like Gregory Bateson and the Palo Alto group, provides the foundational epistemology for couple therapy. It moves away from linear causality (A causes B) toward circular causality (A and B mutually influence each other in recursive loops).</p>
+
+<h4>Core Systems Concepts Applied to Couples</h4>
+<ul>
+    <li><strong>Circular Causality:</strong> Each partner's behaviour is both cause and effect of the other's. "She nags because he withdraws; he withdraws because she nags" – neither is the sole cause</li>
+    <li><strong>Homeostasis:</strong> Couples develop equilibrium (even if dysfunctional). Change in one partner creates systemic pressure on the other to change or restore balance</li>
+    <li><strong>Boundaries:</strong> Rules defining who participates and how. Couples need clear but flexible boundaries between themselves and extended family</li>
+    <li><strong>Subsystems:</strong> The couple is a subsystem within the larger family system (parental subsystem, sibling subsystem)</li>
+    <li><strong>Triangulation:</strong> When two-person tension becomes unmanageable, a third party is drawn in (child, in-law, therapist, affair partner)</li>
+    <li><strong>Equifinality:</strong> Same outcome can arise from different starting points; different couples may present similarly but have different underlying dynamics</li>
+    <li><strong>Feedback Loops:</strong> Positive feedback (amplifies deviation/change) vs. negative feedback (maintains stability)</li>
+</ul>
+
+<h3>4.2 Bowen Family Systems Theory</h3>
+
+<p>Murray Bowen (1978) developed one of the most comprehensive theories of family emotional functioning. His theory emphasizes intergenerational patterns and the concept of differentiation of self as the key variable in healthy functioning.</p>
+
+<h4>Eight Interlocking Concepts</h4>
+<ol>
+    <li><strong>Differentiation of Self:</strong> The ability to maintain one's sense of self while remaining emotionally connected to significant others. Low differentiation leads to fusion (over-involvement) or emotional cutoff. Clarified as "the integration of emotion and intellect rather than privileging one over another" (Brown, 2024).</li>
+    <li><strong>Triangles:</strong> The basic unit of emotional systems. When anxiety rises between two people, they pull in a third to stabilize. Chronic triangles become rigid.</li>
+    <li><strong>Nuclear Family Emotional Process:</strong> Four patterns of managing undifferentiation: marital conflict, dysfunction in one spouse, impairment of children, emotional distance.</li>
+    <li><strong>Family Projection Process:</strong> Parents transmit their anxiety and undifferentiation to one or more children.</li>
+    <li><strong>Multigenerational Transmission Process:</strong> Patterns of functioning transmitted across generations through relationship processes.</li>
+    <li><strong>Emotional Cutoff:</strong> Managing emotional intensity by reducing or cutting off contact with family members. Creates pseudo-independence.</li>
+    <li><strong>Sibling Position:</strong> Toman's work on birth order influences expectations and functioning in marriage.</li>
+    <li><strong>Societal Emotional Process:</strong> Broader social forces that influence family functioning (economic stress, cultural transitions).</li>
+</ol>
+
+<h4>The Genogram: A Key Assessment Tool</h4>
+<p>The genogram is a graphic representation of family structure across at least three generations, mapping relationships, patterns, and significant events. It is intertwined with Bowen family systems theory and reveals how unresolved tension is transmitted across generations (McGoldrick et al., 2020).</p>
+
+<div class="clinical-tip">
+    <strong>Indian Context Application:</strong> Genograms are especially valuable in Indian couple therapy because marriage involves joining of two extended family systems. Map: arranged marriage patterns, dowry history, in-law relationships, migration patterns, education/occupation shifts across generations, history of mental illness or substance use, patriarchal power structures, and intergenerational expectations.
+</div>
+
+<h3>4.3 Structural Family Therapy (Salvador Minuchin)</h3>
+
+<p>Structural therapy (Minuchin, 1974) focuses on the organization of the family system, particularly its subsystems, boundaries, and power hierarchies.</p>
+
+<h4>Key Concepts for Couple Work</h4>
+<ul>
+    <li><strong>Structure:</strong> The invisible set of functional demands organizing family interactions</li>
+    <li><strong>Boundaries:</strong> Clear (healthy), diffuse/enmeshed (over-involved), or rigid/disengaged (under-involved)</li>
+    <li><strong>Hierarchy:</strong> Who holds decision-making power? In Indian families, this may involve parents or in-laws</li>
+    <li><strong>Joining:</strong> The therapist enters the family system by accommodating to its style and language</li>
+    <li><strong>Enactments:</strong> Asking the couple to interact with each other in session rather than talking about their problems to the therapist – allows direct observation and intervention</li>
+    <li><strong>Restructuring:</strong> Challenging and changing dysfunctional patterns through boundary making, unbalancing, and complementarity</li>
+</ul>
+
+<div class="clinical-tip">
+    <strong>Indian Context:</strong> In joint families, the couple subsystem often lacks clear boundaries. Mother-in-law may be part of the executive subsystem, making decisions that should be the couple's. Structural therapy helps strengthen the couple boundary while respecting family hierarchy – a delicate but essential therapeutic task.
+</div>
+
+<h3>4.4 Strategic Family Therapy</h3>
+
+<p>Strategic therapy (Haley, 1976; MRI Brief Therapy) focuses on solving specific presenting problems through planned interventions. The therapist is directive and strategic in approach.</p>
+
+<h4>Key Techniques</h4>
+<ul>
+    <li><strong>Problem definition:</strong> Operationally define the problem in interactional terms</li>
+    <li><strong>Attempted solutions analysis:</strong> What have they tried that hasn't worked? (Often the "solution" maintains the problem)</li>
+    <li><strong>Directives:</strong> Specific homework tasks designed to change interaction patterns</li>
+    <li><strong>Paradoxical interventions:</strong> Prescribing the symptom; reframing the problem as serving a function</li>
+    <li><strong>Ordeal therapy:</strong> Making the symptom more difficult than giving it up</li>
+    <li><strong>Reframing:</strong> Offering new meaning to behaviour that changes the family's response to it</li>
+</ul>
+
+<h3>4.5 Virginia Satir's Communication/Experiential Model</h3>
+
+<h4>Communication Stances Under Stress</h4>
+<ul>
+    <li><strong>Placating:</strong> Agreeing, apologizing, trying to please (low self-worth; prioritizes other over self)</li>
+    <li><strong>Blaming:</strong> Finding fault, dominating, criticizing (protects self at expense of other)</li>
+    <li><strong>Super-reasonable:</strong> Intellectualizing, being overly logical, detached from feelings</li>
+    <li><strong>Irrelevant:</strong> Distracting, changing the subject, using humour to deflect</li>
+    <li><strong>Congruent:</strong> The goal – genuine, authentic communication where words, feelings, and body language align</li>
+</ul>
+
+<p>Satir's model emphasizes self-esteem as the foundation of healthy communication. Her technique of "family sculpting" involves physically positioning family members to represent emotional relationships – a powerful experiential intervention.</p>
+
+<h3>4.6 Narrative Therapy with Couples</h3>
+
+<p>Narrative therapy (White &amp; Epston, 1990) holds that people construct their identities through stories. In couples, dominant problem-saturated stories ("we always fight," "he never listens") can be deconstructed and alternative stories co-authored.</p>
+
+<h4>Key Narrative Techniques for Couples</h4>
+<ul>
+    <li><strong>Externalization:</strong> Separating the problem from the people. "How does the anger affect your relationship?" rather than "Why are you always angry?"</li>
+    <li><strong>Unique outcomes:</strong> Identifying exceptions to the dominant problem story – times when the couple connected, resolved conflict, or showed care</li>
+    <li><strong>Re-authoring:</strong> Building a preferred relationship story based on values, hopes, and demonstrated strengths</li>
+    <li><strong>Witnessing:</strong> Using therapeutic letters, definitional ceremonies, or reflecting teams to thicken the alternative story</li>
+</ul>
+
+<h3>4.7 Solution-Focused Brief Therapy (SFBT) with Couples</h3>
+
+<h4>Core Techniques</h4>
+<ul>
+    <li><strong>Miracle Question:</strong> "Suppose tonight while you sleep, a miracle happens and the problem is solved. What would be different tomorrow morning? How would your partner notice?"</li>
+    <li><strong>Scaling Questions:</strong> "On a scale of 0–10, where 10 is your ideal relationship and 0 is the worst it's been, where are you today? What would one point higher look like?"</li>
+    <li><strong>Exception Finding:</strong> "Tell me about a recent time when the problem was less present or absent. What was different?"</li>
+    <li><strong>Coping Questions:</strong> "How have you managed to keep this relationship going despite these difficulties?"</li>
+    <li><strong>Complimenting:</strong> Acknowledging strengths and resources the couple demonstrates</li>
+</ul>
+
+<div class="worksheet">
+    <h4>WORKSHEET 4.1: Three-Generation Genogram Template</h4>
+    <p><em>Instructions: Construct a genogram for the couple, covering at least three generations. Use standard symbols. Note relationship patterns, mental health issues, substance use, separations, and significant life events.</em></p>
+    <div class="field"><label>Partner A's Family (3 generations):</label><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Partner B's Family (3 generations):</label><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Intergenerational Patterns Identified:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Triangles Identified:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Level of Differentiation (each partner, estimated):</label><div class="line"></div></div>
+    <div class="field"><label>Emotional Cutoffs Present:</label><div class="line"></div></div>
+    <div class="field"><label>Implications for Current Couple Functioning:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 4 References (APA 7th Edition)</h3>
+    <p class="reference">Bowen, M. (1978). <em>Family therapy in clinical practice</em>. Jason Aronson.</p>
+    <p class="reference">Brown, J. (2024). Bowen family systems theory and practice: Illustration and critique revisited. <em>Family Process, 63</em>(2), 498–515. https://doi.org/10.1111/famp.12978</p>
+    <p class="reference">Haley, J. (1976). <em>Problem-solving therapy</em>. Jossey-Bass.</p>
+    <p class="reference">McGoldrick, M., Gerson, R., &amp; Petry, S. (2020). <em>Genograms: Assessment and treatment</em> (4th ed.). W. W. Norton.</p>
+    <p class="reference">Minuchin, S. (1974). <em>Families and family therapy</em>. Harvard University Press.</p>
+    <p class="reference">Satir, V. (1988). <em>The new peoplemaking</em>. Science and Behavior Books.</p>
+    <p class="reference">von Bertalanffy, L. (1968). <em>General system theory: Foundations, development, applications</em>. George Braziller.</p>
+    <p class="reference">White, M., &amp; Epston, D. (1990). <em>Narrative means to therapeutic ends</em>. W. W. Norton.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 5: EVIDENCE-BASED COUPLE THERAPIES -->
+<!-- ============================================================ -->
+<div class="module" id="mod5">
+<h2>MODULE 5: Evidence-Based Couple Therapies</h2>
+
+<h3>5.1 Gottman Method Couples Therapy (GMCT)</h3>
+
+<p>Developed by Drs. John and Julie Gottman, this approach is built upon four decades of observational research with over 3,000 couples. The Sound Relationship House theory provides both the assessment framework and the treatment roadmap (Gottman &amp; Gottman, 2015).</p>
+
+<h4>The Sound Relationship House (Seven Levels)</h4>
+<ol>
+    <li><strong>Build Love Maps:</strong> Knowledge of partner's inner world – worries, hopes, dreams, stressors, history</li>
+    <li><strong>Share Fondness and Admiration:</strong> Express appreciation, respect, and affection regularly</li>
+    <li><strong>Turn Toward Instead of Away:</strong> Respond to partner's emotional "bids" for connection</li>
+    <li><strong>The Positive Perspective:</strong> Positive sentiment override (the result of the first three levels working well)</li>
+    <li><strong>Manage Conflict:</strong> Accept influence; dialogue about perpetual problems; solvable problem-solving</li>
+    <li><strong>Make Life Dreams Come True:</strong> Support each other's life aspirations and dreams</li>
+    <li><strong>Create Shared Meaning:</strong> Build rituals of connection, shared goals, roles, symbols</li>
+</ol>
+<p><strong>Walls:</strong> Trust (transparency, accountability) and Commitment (cherish, minimize negative comparisons)</p>
+
+<h4>The Four Horsemen and Their Antidotes</h4>
+<table class="assessment">
+    <tr><th>Horseman</th><th>Definition</th><th>Antidote</th></tr>
+    <tr><td>Criticism</td><td>"You always..." / "You never..." (character attack)</td><td>Gentle Startup: "I feel ___ about ___ and I need ___"</td></tr>
+    <tr><td>Contempt</td><td>Mockery, eye-rolling, sarcasm, name-calling</td><td>Build Culture of Appreciation; describe own feelings/needs</td></tr>
+    <tr><td>Defensiveness</td><td>Cross-complaining, whining, "Yes, but..." </td><td>Accept Responsibility: "You're right, I did..." (even partially)</td></tr>
+    <tr><td>Stonewalling</td><td>Shutting down, withdrawing, tuning out</td><td>Physiological Self-Soothing; take a structured break (20+ min)</td></tr>
+</table>
+
+<h4>Gottman Method Session Structure (12–20 Sessions Typical)</h4>
+<div class="session-plan">
+    <h4>GMCT Treatment Protocol Overview</h4>
+    <table>
+        <tr><th>Phase</th><th>Sessions</th><th>Focus</th><th>Key Interventions</th></tr>
+        <tr><td>Assessment</td><td>1–3</td><td>Oral history interview; individual sessions; questionnaires</td><td>Sound Relationship House assessment; Four Horsemen observation; identify strengths and gridlocked issues</td></tr>
+        <tr><td>Feedback</td><td>4</td><td>Present formulation; treatment contract</td><td>Share assessment results; identify couple's "story of us" narrative (positive or negative); set goals</td></tr>
+        <tr><td>Friendship &amp; Intimacy</td><td>5–8</td><td>Strengthen positive connections</td><td>Love Map exercises; fondness and admiration; turning toward; rituals of connection</td></tr>
+        <tr><td>Conflict Management</td><td>9–14</td><td>Address perpetual and solvable problems</td><td>Dreams Within Conflict intervention; gentle startup; repair; compromise; accepting influence</td></tr>
+        <tr><td>Shared Meaning</td><td>15–18</td><td>Build shared life philosophy</td><td>Rituals; roles; goals; symbols; legacy</td></tr>
+        <tr><td>Relapse Prevention</td><td>19–20</td><td>Consolidate gains; plan for future</td><td>What-to-do-when worksheets; marital check-ins; booster sessions</td></tr>
+    </table>
+</div>
+
+<div class="evidence-box">
+    <strong>Evidence Base:</strong> Multiple outcome studies support GMCT effectiveness. The therapy has been validated for both heterosexual and same-sex couples. A study of the Trust Revival Method for affair recovery showed significant effects in repairing relationships following infidelity (Gottman et al., 2022). The 7 Principles workshop has demonstrated effectiveness in both in-person and online formats (Zahl-Olsen et al., 2024).
+</div>
+
+<h3>5.2 Emotionally Focused Therapy (EFT)</h3>
+
+<p>EFT, developed by Sue Johnson and Les Greenberg in the 1980s, is grounded in attachment theory and experiential/humanistic traditions. It is now recognized as one of the most extensively research-validated approaches to couples therapy, with a comprehensive meta-analysis showing that 70% of couples are symptom-free at the end of treatment (Wiebe et al., 2024).</p>
+
+<h4>The EFT Model of Change</h4>
+<p>EFT conceptualizes relationship distress as arising from insecure attachment bonds. Partners develop rigid negative interaction cycles (e.g., pursue-withdraw) that block access to attachment needs and fears. The therapist helps partners:</p>
+<ol>
+    <li>Identify and de-escalate the negative cycle</li>
+    <li>Access underlying attachment emotions (fear, sadness, longing)</li>
+    <li>Restructure interactions toward secure bonding</li>
+</ol>
+
+<h4>Nine Steps of EFT (Three Stages)</h4>
+<table class="assessment">
+    <tr><th>Stage</th><th>Step</th><th>Description</th></tr>
+    <tr><td rowspan="4"><strong>Stage 1: De-escalation</strong> (Sessions 1–7)</td><td>1</td><td>Assessment: Identify relational issues and core negative cycle</td></tr>
+    <tr><td>2</td><td>Identify the negative interaction cycle that maintains attachment insecurity</td></tr>
+    <tr><td>3</td><td>Access unacknowledged emotions underlying interactional positions</td></tr>
+    <tr><td>4</td><td>Reframe the problem in terms of the cycle and underlying attachment needs</td></tr>
+    <tr><td rowspan="3"><strong>Stage 2: Restructuring</strong> (Sessions 8–15)</td><td>5</td><td>Promote identification with disowned needs and aspects of self</td></tr>
+    <tr><td>6</td><td>Promote acceptance of partner's experience and new interaction</td></tr>
+    <tr><td>7</td><td>Facilitate the expression of needs and wants – creating bonding events ("softening" and "re-engagement")</td></tr>
+    <tr><td rowspan="2"><strong>Stage 3: Consolidation</strong> (Sessions 16–20)</td><td>8</td><td>Facilitate new solutions to old problems from a position of security</td></tr>
+    <tr><td>9</td><td>Consolidate new positions and new cycle of attachment behaviour</td></tr>
+</table>
+
+<h4>Key EFT Interventions</h4>
+<ul>
+    <li><strong>Reflection:</strong> Empathic reflection of each partner's experience</li>
+    <li><strong>Validation:</strong> Normalizing and legitimizing emotional responses</li>
+    <li><strong>Evocative responding:</strong> Using evocative questions and imagery to deepen emotional experience</li>
+    <li><strong>Heightening:</strong> Amplifying key emotional responses through repetition, imagery, or enactment</li>
+    <li><strong>Empathic conjecture:</strong> "Could it be that underneath the anger, there's a part of you that feels scared you're losing him?"</li>
+    <li><strong>Tracking and reflecting the cycle:</strong> "There it is – the cycle is happening right now. You reach out and he pulls back..."</li>
+    <li><strong>Restructuring interactions:</strong> "Can you turn to her right now and tell her what you just told me?"</li>
+</ul>
+
+<div class="case-example">
+    <strong>EFT Case Vignette (Indian Context):</strong> Meera (28) and Amit (32), married 4 years (arranged marriage), present with frequent arguments and emotional distance. Meera complains Amit never shares his feelings; Amit says Meera is always complaining. <em>EFT formulation:</em> Meera's pursuit (criticizing, questioning) is driven by attachment anxiety – she fears she doesn't matter to him. Amit's withdrawal (working late, silence) is driven by avoidance – he feels inadequate and fears he can never satisfy her. The cycle: "The more you reach for him, the more he pulls away; and the more he pulls away, the more urgently you reach." EFT aims to help Amit access and express his vulnerability ("I shut down because I feel like a failure") and Meera to express her softer emotion ("I miss you; I need to know I matter to you").
+</div>
+
+<h3>5.3 Cognitive Behavioral Couple Therapy (CBCT)</h3>
+
+<p>CBCT, developed primarily by Norman Epstein and Donald Baucom, evolved during the 1980s from traditional Behavioural Marital Therapy. It draws upon cognitive therapy principles and social learning theory to address dysfunctional cognitions, emotional responses, and behavioural patterns in relationships (Epstein &amp; Baucom, 2002).</p>
+
+<h4>The CBCT Model: Three Domains of Intervention</h4>
+<ol>
+    <li><strong>Cognitions:</strong>
+        <ul>
+            <li><em>Selective attention:</em> Noticing only negatives</li>
+            <li><em>Attributions:</em> "He's late because he doesn't care" vs. "He's late because of traffic"</li>
+            <li><em>Expectancies:</em> "She'll never change"</li>
+            <li><em>Assumptions:</em> "A good wife should always be available"</li>
+            <li><em>Standards:</em> "Marriage should always be passionate"</li>
+        </ul>
+    </li>
+    <li><strong>Behaviours:</strong>
+        <ul>
+            <li>Positive behaviour exchange (increasing rewarding interactions)</li>
+            <li>Communication skills training (speaker-listener technique)</li>
+            <li>Problem-solving training (structured approach to resolving issues)</li>
+        </ul>
+    </li>
+    <li><strong>Emotions:</strong>
+        <ul>
+            <li>Identifying and labelling emotions</li>
+            <li>Emotion regulation strategies</li>
+            <li>Expressing emotions constructively</li>
+        </ul>
+    </li>
+</ol>
+
+<h4>CBCT Session Structure (15–20 Sessions)</h4>
+<div class="session-plan">
+    <h4>Typical CBCT Session Format (60 minutes)</h4>
+    <table>
+        <tr><th>Time</th><th>Activity</th></tr>
+        <tr><td>0–10 min</td><td>Check-in; review homework; set agenda collaboratively</td></tr>
+        <tr><td>10–25 min</td><td>Address first agenda item (cognitive restructuring or skill practice)</td></tr>
+        <tr><td>25–45 min</td><td>Address second agenda item; in-session practice</td></tr>
+        <tr><td>45–55 min</td><td>Summary; assign homework; feedback</td></tr>
+        <tr><td>55–60 min</td><td>Process check: "What was most helpful today?"</td></tr>
+    </table>
+</div>
+
+<div class="worksheet">
+    <h4>WORKSHEET 5.1: Cognitive Restructuring for Couples</h4>
+    <p><em>Instructions: When you notice a strong negative reaction to your partner, use this worksheet to examine your thinking.</em></p>
+    <div class="field"><label>Situation (What happened? Just the facts):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Automatic Thought (What went through my mind?):</label><div class="line"></div></div>
+    <div class="field"><label>Emotion (What did I feel? Rate intensity 0–100):</label><div class="line"></div></div>
+    <div class="field"><label>Type of Cognitive Distortion (attribution? mind-reading? catastrophizing?):</label><div class="line"></div></div>
+    <div class="field"><label>Evidence FOR this thought:</label><div class="line"></div></div>
+    <div class="field"><label>Evidence AGAINST this thought:</label><div class="line"></div></div>
+    <div class="field"><label>Alternative/Balanced Thought:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>New Emotion (re-rate intensity 0–100):</label><div class="line"></div></div>
+    <div class="field"><label>Behavioural Response (What will I do differently?):</label><div class="line"></div></div>
+</div>
+
+<h3>5.4 Integrative Behavioral Couple Therapy (IBCT)</h3>
+
+<p>IBCT was developed in the early 1990s by Andrew Christensen and Neil Jacobson in response to limitations of traditional Behavioural Couple Therapy (TBCT). While TBCT focuses exclusively on behaviour change, IBCT integrates acceptance strategies alongside change strategies (Christensen et al., 2016).</p>
+
+<h4>Core IBCT Concepts</h4>
+<ul>
+    <li><strong>DEEP Analysis:</strong> Understanding differences, emotional sensitivities, external stressors, and patterns of interaction (the formulation framework)</li>
+    <li><strong>Acceptance Strategies:</strong>
+        <ul>
+            <li><em>Empathic Joining:</em> Helping each partner understand the other's pain and vulnerability</li>
+            <li><em>Unified Detachment:</em> Viewing the problem pattern as "it" rather than "you" vs. "me"</li>
+            <li><em>Tolerance Building:</em> Accepting certain differences as part of the relationship</li>
+        </ul>
+    </li>
+    <li><strong>Change Strategies:</strong>
+        <ul>
+            <li><em>Behaviour Exchange:</em> Increasing positive interactions</li>
+            <li><em>Communication Training:</em> When appropriate and wanted by both partners</li>
+            <li><em>Problem-Solving:</em> Structured collaborative problem-solving</li>
+        </ul>
+    </li>
+</ul>
+
+<div class="evidence-box">
+    <strong>Research Base:</strong> IBCT has been supported in three clinical trials, including one with five-year follow-up. A landmark RCT with 134 chronically distressed couples compared IBCT to TBCT, finding IBCT demonstrated greater maintenance of communication improvement over follow-up (Christensen et al., 2010). Since 2010, IBCT has been the couple therapy modality used within the US Veterans Administration system.
+</div>
+
+<h3>5.5 Psychodynamic Couple Therapy</h3>
+
+<p>Object relations couple therapy focuses on how unconscious internal representations of early relationships (internal objects) shape current relational patterns. Partners often unconsciously select each other to enact unresolved developmental conflicts (Scharff &amp; Scharff, 2014).</p>
+
+<h4>Key Concepts</h4>
+<ul>
+    <li><strong>Projective Identification:</strong> One partner disowns an unacceptable feeling and unconsciously projects it onto the other, who then acts it out. E.g., one partner disowns anger; the other becomes "the angry one"</li>
+    <li><strong>Collusion:</strong> An unconscious "contract" where each partner agrees to play a complementary role (e.g., strong/weak; caretaker/helpless; pursuer/distancer)</li>
+    <li><strong>Transference in the Couple:</strong> Partners relate to each other based on templates from early relationships rather than present reality</li>
+    <li><strong>Countertransference:</strong> The therapist's emotional responses as diagnostic information about the couple's unconscious dynamics</li>
+    <li><strong>Containment:</strong> The therapist's capacity to hold and process the couple's unbearable emotions without acting them out</li>
+</ul>
+
+<h3>5.6 Discernment Counselling</h3>
+
+<p>Developed by William Doherty, Discernment Counselling is a short-term intervention (1–5 sessions) for "mixed-agenda" couples where one partner is leaning out of the relationship while the other wants to preserve it. Traditional couple therapy is often contraindicated or iatrogenic for such couples (Doherty &amp; Harris, 2017).</p>
+
+<h4>Three Pathways</h4>
+<ol>
+    <li><strong>Path 1:</strong> Status quo (continue as is)</li>
+    <li><strong>Path 2:</strong> Separation/divorce</li>
+    <li><strong>Path 3:</strong> Commit to six months of wholehearted couple therapy effort</li>
+</ol>
+
+<h4>Session Structure</h4>
+<p>Each session involves: brief conjoint opening → individual conversation with leaning-out partner → individual conversation with leaning-in partner → brief conjoint closing. The therapist does not do couple therapy but helps each partner gain clarity about their contribution to problems and confidence about next steps.</p>
+
+<div class="references-section">
+    <h3>Module 5 References (APA 7th Edition)</h3>
+    <p class="reference">Christensen, A., Atkins, D. C., Baucom, B., &amp; Yi, J. (2010). Marital status and satisfaction five years following a randomized clinical trial comparing traditional versus integrative behavioral couple therapy. <em>Journal of Consulting and Clinical Psychology, 78</em>(2), 225–235. https://doi.org/10.1037/a0018132</p>
+    <p class="reference">Christensen, A., Doss, B. D., &amp; Jacobson, N. S. (2016). <em>Integrative behavioral couple therapy: A therapist's guide to creating acceptance and change</em> (2nd ed.). W. W. Norton.</p>
+    <p class="reference">Doherty, W. J., &amp; Harris, S. M. (2017). <em>Helping couples on the brink of divorce: Discernment counseling for troubled relationships</em>. American Psychological Association.</p>
+    <p class="reference">Epstein, N. B., &amp; Baucom, D. H. (2002). <em>Enhanced cognitive-behavioral therapy for couples: A contextual approach</em>. American Psychological Association.</p>
+    <p class="reference">Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton.</p>
+    <p class="reference">Gottman, J. M., Gottman, J. S., Cole, C., &amp; Preciado, M. (2022). Validating the effectiveness of a Gottman Method couples therapy intervention: The Trust Revival Method for affair recovery. <em>Journal of Marital and Family Therapy, 48</em>(1), 88–108. https://doi.org/10.1111/jmft.12573</p>
+    <p class="reference">Johnson, S. M. (2019). <em>Attachment theory in practice: Emotionally focused therapy (EFT) with individuals, couples, and families</em>. Guilford Press.</p>
+    <p class="reference">Scharff, D. E., &amp; Scharff, J. S. (2014). <em>Psychoanalytic couple therapy: Foundations of theory and practice</em>. Karnac Books.</p>
+    <p class="reference">Wiebe, S. A., Johnson, S. M., Burgess Moser, M., Dalgleish, T. L., &amp; Tasca, G. A. (2024). A comprehensive meta-analysis on the efficacy of emotionally focused couple therapy. <em>Couple and Family Psychology: Research and Practice, 13</em>(1), 45–63. https://doi.org/10.1037/cfp0000233</p>
+    <p class="reference">Zahl-Olsen, R., Thuen, F., &amp; Bertelsen, T. B. (2024). The effectiveness of the in-person and online Gottman Seven Principles Couple Enhancement Program. <em>Journal of Marital and Family Therapy, 50</em>(2), 312–330. https://doi.org/10.1111/jmft.12678</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 6: COMMUNICATION & CONFLICT RESOLUTION -->
+<!-- ============================================================ -->
+<div class="module" id="mod6">
+<h2>MODULE 6: Communication &amp; Conflict Resolution</h2>
+
+<h3>6.1 Models of Communication in Couples</h3>
+
+<p>Communication is both the medium through which relationship problems are expressed and the primary tool for their resolution. Research consistently shows that communication quality is one of the strongest predictors of relationship satisfaction (Gottman, 1994).</p>
+
+<h4>Levels of Communication</h4>
+<ul>
+    <li><strong>Content level:</strong> What is being said (the topic)</li>
+    <li><strong>Process level:</strong> How it is being said (tone, timing, nonverbals)</li>
+    <li><strong>Relational level:</strong> What the communication says about the relationship (power, respect, care)</li>
+</ul>
+
+<h4>The Speaker-Listener Technique (Markman et al., 2010)</h4>
+<p>A structured communication exercise particularly useful for discussing difficult topics:</p>
+<ul>
+    <li><strong>Rules for the Speaker:</strong> Use "I" statements; speak about your own feelings and experience; keep statements brief; pause for listener to paraphrase</li>
+    <li><strong>Rules for the Listener:</strong> Paraphrase what you heard; don't rebut; focus on understanding, not responding; ask "Did I get that right?"</li>
+    <li><strong>The Floor:</strong> Only one person speaks at a time; use a physical object to indicate who "has the floor"</li>
+</ul>
+
+<h3>6.2 Active Listening Skills Training</h3>
+
+<h4>Components of Active Listening</h4>
+<ol>
+    <li><strong>Attending:</strong> Physical orientation, eye contact, removing distractions (put away phone)</li>
+    <li><strong>Reflecting:</strong> Paraphrasing content – "So what you're saying is..."</li>
+    <li><strong>Reflecting feelings:</strong> "It sounds like you felt hurt when that happened"</li>
+    <li><strong>Summarizing:</strong> "Let me see if I understand the full picture..."</li>
+    <li><strong>Validating:</strong> "I can understand why you'd feel that way given what happened"</li>
+    <li><strong>Open questions:</strong> "Can you tell me more about that?" "What was that like for you?"</li>
+</ol>
+
+<h3>6.3 Gottman's Repair Attempts</h3>
+
+<p>Repair attempts are any statement or action that prevents negativity from escalating. The success of repair attempts is the primary factor distinguishing "master" couples from "disaster" couples (Gottman, 1999).</p>
+
+<h4>Categories of Repair Attempts</h4>
+<ul>
+    <li>"I need to calm down" (self-soothing statement)</li>
+    <li>"Can we start over?" (process comment)</li>
+    <li>"I'm sorry" (taking responsibility)</li>
+    <li>Using humour appropriately</li>
+    <li>"I love you even though we're fighting"</li>
+    <li>"Let me rephrase that"</li>
+    <li>Physical affection (touch, hug) during conflict</li>
+    <li>"You have a point"</li>
+</ul>
+
+<h3>6.4 Assertiveness Training for Couples</h3>
+
+<h4>The Assertiveness Spectrum</h4>
+<table class="assessment">
+    <tr><th>Style</th><th>Self-Respect</th><th>Respect for Other</th><th>Example</th></tr>
+    <tr><td>Passive</td><td>Low</td><td>High (at expense of self)</td><td>"Whatever you want is fine" (while resentful)</td></tr>
+    <tr><td>Aggressive</td><td>High (at expense of other)</td><td>Low</td><td>"You'll do what I say or else"</td></tr>
+    <tr><td>Passive-Aggressive</td><td>Low</td><td>Low</td><td>Silent treatment; sarcasm; "forgetting"</td></tr>
+    <tr><td><strong>Assertive</strong></td><td><strong>High</strong></td><td><strong>High</strong></td><td><strong>"I feel ___ when ___ because ___. I would like ___"</strong></td></tr>
+</table>
+
+<h3>6.5 Conflict Resolution: Solvable vs. Perpetual Problems</h3>
+
+<p>Gottman's research shows that 69% of couple conflicts are "perpetual" – they will never be fully resolved because they reflect fundamental differences in personality, values, or lifestyle preferences. The goal with perpetual problems is dialogue, not resolution (Gottman, 1999).</p>
+
+<h4>For Solvable Problems (Use structured problem-solving):</h4>
+<ol>
+    <li>Soften startup (begin gently, with "I" statements)</li>
+    <li>Accept influence from your partner</li>
+    <li>Make repair attempts and de-escalate</li>
+    <li>Compromise (find common ground)</li>
+    <li>Agree on a solution that honours both partners' needs</li>
+</ol>
+
+<h4>For Perpetual Problems (Use Dreams Within Conflict):</h4>
+<ol>
+    <li>Each partner describes the dream/hope/wish underlying their position</li>
+    <li>Listener asks questions to understand the dream (not argue)</li>
+    <li>Identify areas of flexibility vs. non-negotiables</li>
+    <li>Reach temporary compromise that respects both dreams</li>
+    <li>Revisit periodically with ongoing dialogue</li>
+</ol>
+
+<h3>6.6 Forgiveness and Apology in Relationships</h3>
+
+<h4>Components of an Effective Apology (Lerner, 2017)</h4>
+<ol>
+    <li>Express genuine regret without justification</li>
+    <li>Take responsibility (no "but...")</li>
+    <li>Make restitution if possible</li>
+    <li>Commit to changed behaviour</li>
+    <li>Ask what the partner needs to heal (rather than demanding forgiveness)</li>
+</ol>
+
+<div class="worksheet">
+    <h4>WORKSHEET 6.1: Communication Skills Practice Log</h4>
+    <p><em>Instructions: Practice one communication skill each week. Record your experience.</em></p>
+    <div class="field"><label>Week/Date:</label><div class="line"></div></div>
+    <div class="field"><label>Skill Practiced (e.g., active listening, I-statements, repair attempt):</label><div class="line"></div></div>
+    <div class="field"><label>Situation in which I used it:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Partner's response:</label><div class="line"></div></div>
+    <div class="field"><label>Outcome (better/worse/same as usual?):</label><div class="line"></div></div>
+    <div class="field"><label>What I would do differently next time:</label><div class="line"></div></div>
+    <div class="field"><label>Difficulty Level (1–10):</label><div class="line"></div></div>
+</div>
+
+<div class="worksheet">
+    <h4>WORKSHEET 6.2: The Softened Startup Formula</h4>
+    <p><em>Instead of criticism, use this format to raise issues with your partner:</em></p>
+    <div class="field"><label>"I feel..." (name the emotion):</label><div class="line"></div></div>
+    <div class="field"><label>"About..." (describe the specific situation, not character):</label><div class="line"></div></div>
+    <div class="field"><label>"I need/would like..." (positive need statement):</label><div class="line"></div></div>
+    <p><strong>Example:</strong> Instead of "You never help with the kids, you're so selfish!" → "I feel overwhelmed when I'm managing bedtime alone every night. I need us to share this responsibility."</p>
+</div>
+
+<div class="references-section">
+    <h3>Module 6 References (APA 7th Edition)</h3>
+    <p class="reference">Gottman, J. M. (1994). <em>What predicts divorce? The relationship between marital processes and marital outcomes</em>. Lawrence Erlbaum Associates.</p>
+    <p class="reference">Gottman, J. M. (1999). <em>The marriage clinic: A scientifically based marital therapy</em>. W. W. Norton.</p>
+    <p class="reference">Lerner, H. (2017). <em>Why won't you apologize? Healing big betrayals and everyday hurts</em>. Gallery Books.</p>
+    <p class="reference">Markman, H. J., Stanley, S. M., &amp; Blumberg, S. L. (2010). <em>Fighting for your marriage</em> (3rd ed.). Jossey-Bass.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 7: SEXUAL & INTIMACY COUNSELLING -->
+<!-- ============================================================ -->
+<div class="module" id="mod7">
+<h2>MODULE 7: Sexual &amp; Intimacy Counselling</h2>
+
+<h3>7.1 Human Sexuality: Foundations</h3>
+
+<h4>Models of Sexual Response</h4>
+<ul>
+    <li><strong>Masters &amp; Johnson (1966):</strong> Linear model – Excitement → Plateau → Orgasm → Resolution</li>
+    <li><strong>Kaplan (1979):</strong> Three-phase model – Desire → Arousal → Orgasm (added desire as a separate phase)</li>
+    <li><strong>Basson (2000):</strong> Circular model for women – responsive desire; intimacy motivation; multiple feedback loops; more relevant for many women and long-term relationships</li>
+</ul>
+
+<h4>Components of Sexual Health (WHO Framework)</h4>
+<ul>
+    <li>Physical capacity for sexual response</li>
+    <li>Emotional comfort with sexuality</li>
+    <li>Freedom from dysfunction, disease, and coercion</li>
+    <li>Ability to express sexuality consistent with one's values</li>
+    <li>Access to accurate sexual health information</li>
+</ul>
+
+<h3>7.2 Common Sexual Dysfunctions in Indian Couples</h3>
+
+<h4>Male Sexual Dysfunctions</h4>
+<table class="assessment">
+    <tr><th>Disorder</th><th>Presentation</th><th>Common Causes (Indian Context)</th><th>Treatment Approach</th></tr>
+    <tr><td>Erectile Dysfunction</td><td>Inability to achieve/maintain erection sufficient for intercourse</td><td>Performance anxiety (especially in arranged marriages with little prior sexual experience); diabetes; cardiovascular disease; medications; pornography-induced</td><td>Psychoeducation; sensate focus; CBT for performance anxiety; medical referral if needed</td></tr>
+    <tr><td>Premature Ejaculation</td><td>Ejaculation within 1 minute of penetration; lack of control</td><td>Performance anxiety; limited sexual experience; conditioned rapid response; relationship distress</td><td>Stop-start technique; squeeze technique; sensate focus; cognitive restructuring</td></tr>
+    <tr><td>Delayed Ejaculation</td><td>Marked delay or inability to ejaculate despite adequate stimulation</td><td>Medication side effects (SSRIs); psychological inhibition; masturbatory conditioning</td><td>Graduated stimulation; reducing inhibiting factors; psychoeducation</td></tr>
+    <tr><td>Low Desire (Male)</td><td>Persistently low or absent sexual desire</td><td>Depression; hormonal issues; relationship distress; work stress; medication effects</td><td>Address underlying cause; couple communication; hormonal screening</td></tr>
+</table>
+
+<h4>Female Sexual Dysfunctions</h4>
+<table class="assessment">
+    <tr><th>Disorder</th><th>Presentation</th><th>Common Causes (Indian Context)</th><th>Treatment Approach</th></tr>
+    <tr><td>Vaginismus</td><td>Involuntary spasm of vaginal muscles preventing penetration</td><td>Fear and anxiety; lack of sexual education; cultural taboos; past trauma; painful first intercourse expectations</td><td>Graduated desensitization; relaxation; dilator therapy; psychoeducation; addressing trauma</td></tr>
+    <tr><td>Dyspareunia</td><td>Recurrent genital pain during intercourse</td><td>Insufficient arousal; vaginal dryness; infections; endometriosis; postpartum changes</td><td>Medical evaluation; adequate foreplay education; lubricant use; treatment of underlying conditions</td></tr>
+    <tr><td>Female Sexual Interest/Arousal Disorder</td><td>Low/absent desire or arousal</td><td>Relationship distress; depression; body image; hormonal changes; sexual pain history; exhaustion (domestic burden)</td><td>Basson's circular model psychoeducation; addressing relational context; sensate focus; desire scheduling</td></tr>
+    <tr><td>Female Orgasmic Disorder</td><td>Marked delay or inability to orgasm despite adequate stimulation</td><td>Lack of knowledge about female anatomy; shame about self-stimulation; inadequate stimulation; performance pressure</td><td>Directed masturbation program; psychoeducation; couples exercises; reducing spectatoring</td></tr>
+</table>
+
+<h3>7.3 Sensate Focus: The Foundation of Sex Therapy</h3>
+
+<p>Sensate Focus was developed by Masters and Johnson in the 1960s and remains a cornerstone of sex therapy. It is a structured set of touching exercises designed to reduce performance anxiety, rebuild physical intimacy, and cultivate mindful awareness of sensation rather than goal-oriented sexual performance (Weiner &amp; Avery-Clark, 2017).</p>
+
+<h4>Stages of Sensate Focus</h4>
+<ol>
+    <li><strong>Stage 1 – Non-genital touching:</strong> Partners take turns touching each other's body (excluding breasts and genitals) for their own interest and curiosity. Focus is on sensation, not arousal. No sexual intercourse allowed.</li>
+    <li><strong>Stage 2 – Including breasts/genitals:</strong> Same as Stage 1 but including genital and breast touching. Still for pleasure/curiosity, not arousal as a goal.</li>
+    <li><strong>Stage 3 – Mutual touching:</strong> Simultaneous rather than turn-taking. Partners guide each other regarding preferences.</li>
+    <li><strong>Stage 4 – Non-demand intercourse:</strong> Containment (penis in vagina without movement) → gradual movement → full intercourse, maintaining mindful focus on sensation.</li>
+</ol>
+
+<div class="clinical-tip">
+    <strong>Indian Context Consideration:</strong> Many Indian couples, especially those in arranged marriages, have had minimal physical intimacy before marriage. Cultural shame around sexuality, lack of sex education, and performance pressure (especially regarding consummation and conception) are common presenting issues. Psychoeducation about normal sexual response and permission-giving are essential first steps. Many couples in joint families also face privacy challenges that must be addressed practically.
+</div>
+
+<h3>7.4 Integrating Sexual and Relational Therapy</h3>
+
+<p>Sexual difficulties rarely exist in isolation from relationship dynamics. The therapist must assess whether sexual dysfunction is:</p>
+<ul>
+    <li>Primary (existed before this relationship)</li>
+    <li>Secondary (developed within this relationship context)</li>
+    <li>A cause of relationship distress</li>
+    <li>A symptom/consequence of relationship distress</li>
+    <li>Related to individual factors (medical, psychological, developmental)</li>
+</ul>
+
+<div class="worksheet">
+    <h4>WORKSHEET 7.1: Sexual History Assessment Guide (Individual Session)</h4>
+    <p><em>To be administered individually with each partner. Maintain strict confidentiality.</em></p>
+    <div class="field"><label>Sexual education received (formal/informal/none):</label><div class="line"></div></div>
+    <div class="field"><label>Family messages about sexuality (positive/negative/absent):</label><div class="line"></div></div>
+    <div class="field"><label>First sexual experience (age, context, emotional response):</label><div class="line"></div></div>
+    <div class="field"><label>History of sexual abuse or coercion:</label><div class="line"></div></div>
+    <div class="field"><label>Current sexual satisfaction (1–10):</label><div class="line"></div></div>
+    <div class="field"><label>Frequency desired vs. actual:</label><div class="line"></div></div>
+    <div class="field"><label>Specific sexual difficulties (describe):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Pornography use (frequency, type, impact on relationship):</label><div class="line"></div></div>
+    <div class="field"><label>Extramarital sexual experiences:</label><div class="line"></div></div>
+    <div class="field"><label>What would improve your sexual relationship?</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 7 References (APA 7th Edition)</h3>
+    <p class="reference">Basson, R. (2000). The female sexual response: A different model. <em>Journal of Sex &amp; Marital Therapy, 26</em>(1), 51–65. https://doi.org/10.1080/009262300278641</p>
+    <p class="reference">Kaplan, H. S. (1979). <em>Disorders of sexual desire</em>. Simon &amp; Schuster.</p>
+    <p class="reference">Masters, W. H., &amp; Johnson, V. E. (1966). <em>Human sexual response</em>. Little, Brown.</p>
+    <p class="reference">Sawant, N. (2023). A narrative review on sexual wellbeing and dysfunctions: Research in the past 15 years. <em>Indian Journal of Psychiatry, 65</em>(Suppl 2), S234–S243. https://doi.org/10.4103/indianjpsychiatry.indianjpsychiatry_717_23</p>
+    <p class="reference">Weiner, L., &amp; Avery-Clark, C. (2017). <em>Sensate focus in sex therapy: The illustrated manual</em>. Routledge.</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 8: HIGH CONFLICT COUPLES -->
+<!-- ============================================================ -->
+<div class="module" id="mod8">
+<h2>MODULE 8: High Conflict Couples</h2>
+
+<h3>8.1 Emotional Abuse and Coercive Control</h3>
+
+<p>Emotional abuse involves patterns of behaviour intended to control, demean, intimidate, or isolate a partner. Unlike physical violence, emotional abuse can be difficult to identify and is often normalized within certain cultural frameworks.</p>
+
+<h4>Forms of Emotional Abuse</h4>
+<ul>
+    <li><strong>Verbal abuse:</strong> Name-calling, humiliation, constant criticism</li>
+    <li><strong>Gaslighting:</strong> Making the partner doubt their own reality, memory, or perceptions</li>
+    <li><strong>Isolation:</strong> Controlling access to family, friends, finances, or employment</li>
+    <li><strong>Monitoring and surveillance:</strong> Checking phone, tracking location, controlling social media</li>
+    <li><strong>Economic abuse:</strong> Controlling finances, preventing employment, withholding money</li>
+    <li><strong>Threats:</strong> Threatening to harm, leave, take children, or self-harm to control partner</li>
+    <li><strong>Using children:</strong> Undermining parenting, using children as messengers or weapons</li>
+</ul>
+
+<div class="clinical-tip">
+    <strong>Critical Decision Point:</strong> Couple therapy is CONTRAINDICATED when:<br>
+    (a) There is ongoing physical violence or credible threats of violence<br>
+    (b) One partner reports being afraid of the other<br>
+    (c) There is active coercive control (one partner controls the other's freedom)<br>
+    (d) The perpetrator is not taking responsibility<br>
+    In such cases, individual therapy for both, safety planning for the victim, and perpetrator intervention programs are indicated. Couple therapy may be considered ONLY after violence has ceased, safety is established, and the perpetrator has completed individual work.
+</div>
+
+<h3>8.2 Infidelity and Affairs</h3>
+
+<h4>Types of Infidelity</h4>
+<ul>
+    <li><strong>Sexual infidelity:</strong> Physical/sexual contact with someone outside the relationship</li>
+    <li><strong>Emotional infidelity:</strong> Deep emotional connection/attachment to another person</li>
+    <li><strong>Online/cyber infidelity:</strong> Pornography use (contested), sexting, online relationships</li>
+    <li><strong>Combined:</strong> Both emotional and sexual involvement</li>
+</ul>
+
+<h4>Affair Recovery Protocol (Based on Gottman Trust Revival Method)</h4>
+<p>Three phases of recovery:</p>
+<ol>
+    <li><strong>Phase 1 – Atonement:</strong> Involved partner takes full responsibility; answers questions honestly; expresses genuine remorse; cuts off contact with affair partner; transparency (open phone/email)</li>
+    <li><strong>Phase 2 – Attunement:</strong> Understanding what led to vulnerability; addressing unmet needs; rebuilding friendship and emotional connection; Gottman ATTUNE acronym (Awareness, Tolerance, Turning toward, Understanding, Non-defensive listening, Empathy)</li>
+    <li><strong>Phase 3 – Attachment:</strong> Rebuilding secure bond; creating a shared narrative of the affair and recovery; recommitting to the relationship; establishing new relationship agreements</li>
+</ol>
+
+<h3>8.3 Addiction and Relationships</h3>
+
+<h4>Common Addictions Affecting Indian Couples</h4>
+<ul>
+    <li>Alcohol (most common substance issue in Indian marriages)</li>
+    <li>Tobacco/Gutka</li>
+    <li>Cannabis</li>
+    <li>Prescription medication misuse</li>
+    <li>Gambling (online and offline)</li>
+    <li>Internet/gaming addiction</li>
+    <li>Pornography</li>
+</ul>
+
+<h4>Therapeutic Approach</h4>
+<p>Behavioral Couples Therapy for substance use disorders (BCT; O'Farrell &amp; Fals-Stewart, 2006) integrates substance use treatment with relationship intervention. The non-using partner is involved as a support rather than an enabler. Combined Motivational Interviewing and BCT has been tested in Indian primary care settings with promising results (Kalra et al., 2025).</p>
+
+<h3>8.4 In-Law Conflicts (Unique to Indian Context)</h3>
+
+<p>In-law conflicts are one of the most common presenting problems in Indian couple therapy. The therapist must navigate carefully between:</p>
+<ul>
+    <li>Validating the couple's need for autonomy and boundary-setting</li>
+    <li>Respecting cultural values of filial duty and family honour</li>
+    <li>Understanding the mother-in-law/daughter-in-law dynamic within patrilocal marriage systems</li>
+    <li>Addressing triangulation (spouse caught between partner and parent)</li>
+</ul>
+
+<h4>Therapeutic Strategies for In-Law Issues</h4>
+<ol>
+    <li>Help the couple present a "united front" – the blood-related partner takes primary responsibility for managing their own family</li>
+    <li>Clarify role expectations explicitly (what are reasonable expectations of a daughter-in-law vs. wife?)</li>
+    <li>Establish practical boundaries (living arrangements, financial boundaries, child-rearing decisions)</li>
+    <li>Use structural therapy to strengthen the couple boundary without "cutting off" from extended family</li>
+    <li>When possible, include extended family members in sessions</li>
+</ol>
+
+<div class="worksheet">
+    <h4>WORKSHEET 8.1: Safety Assessment Checklist</h4>
+    <p><em>To be completed during individual session. Do NOT share with partner.</em></p>
+    <div class="field"><label>Has your partner ever pushed, slapped, kicked, or physically hurt you? (Y/N, details):</label><div class="line"></div></div>
+    <div class="field"><label>Are you afraid of your partner? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Has your partner threatened to hurt you or someone you love? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Does your partner control your access to money, phone, or social contacts? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Has your partner forced or pressured you sexually? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Has your partner destroyed your property or threatened to? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Has violence/abuse been witnessed by children? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Is violence escalating in frequency or severity? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Has your partner ever threatened suicide to control you? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Do you have a safe place to go if needed? (Y/N):</label><div class="line"></div></div>
+    <div class="field"><label>Risk Level Assessment: ☐ Low ☐ Moderate ☐ High ☐ Imminent</label></div>
+    <div class="field"><label>Action Plan:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 8 References (APA 7th Edition)</h3>
+    <p class="reference">Gottman, J. M., Gottman, J. S., Cole, C., &amp; Preciado, M. (2022). Validating the effectiveness of a Gottman Method couples therapy intervention: The Trust Revival Method for affair recovery. <em>Journal of Marital and Family Therapy, 48</em>(1), 88–108.</p>
+    <p class="reference">Kalra, G., et al. (2025). Protocol for a randomized controlled trial of a combined motivational interviewing and behavioral couples therapy intervention to reduce intimate partner violence and alcohol use in south India. <em>PLOS ONE, 20</em>(1), e0335332. https://doi.org/10.1371/journal.pone.0335332</p>
+    <p class="reference">O'Farrell, T. J., &amp; Fals-Stewart, W. (2006). <em>Behavioral couples therapy for alcoholism and drug abuse</em>. Guilford Press.</p>
+    <p class="reference">Spring, J. A. (2012). <em>After the affair: Healing the pain and rebuilding trust when a partner has been unfaithful</em> (2nd ed.). William Morrow.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 9: TRAUMA & MENTAL ILLNESS IN MARRIAGE -->
+<!-- ============================================================ -->
+<div class="module" id="mod9">
+<h2>MODULE 9: Trauma &amp; Mental Illness in Marriage</h2>
+
+<h3>9.1 When One Partner Has a Mental Illness</h3>
+
+<p>Mental illness significantly impacts couple functioning. The therapist must integrate individual psychopathology understanding with systemic/relational perspectives. Key principles include: (a) psychoeducation for both partners, (b) reducing expressed emotion and criticism, (c) supporting the well partner's caregiver burden, and (d) maintaining the relationship as a therapeutic resource rather than a casualty of illness.</p>
+
+<h4>Depression and Marriage</h4>
+<ul>
+    <li>Depression is both a cause and consequence of marital distress (bidirectional relationship)</li>
+    <li>Couple therapy (especially Behavioural Couples Therapy for Depression) can be as effective as individual therapy for depression when relationship distress co-occurs (Baucom et al., 2017)</li>
+    <li>The well partner often experiences frustration, helplessness, and caregiver fatigue</li>
+    <li>Focus on: behavioural activation together, reducing criticism, maintaining connection despite symptoms</li>
+</ul>
+
+<h4>Anxiety Disorders and Marriage</h4>
+<ul>
+    <li>Accommodation by partner (avoiding triggers, providing reassurance) maintains anxiety</li>
+    <li>Couple-based exposure therapy: partner as coach rather than accommodator</li>
+    <li>OCD: partner must learn to resist providing reassurance or participating in rituals</li>
+    <li>Social anxiety: impacts couple's social life and may lead to isolation</li>
+</ul>
+
+<h4>Bipolar Disorder and Marriage</h4>
+<ul>
+    <li>Mood episodes create chaos in the relationship</li>
+    <li>Manic episodes: impulsivity, financial irresponsibility, hypersexuality, irritability</li>
+    <li>Depressive episodes: withdrawal, burden on partner, suicidal ideation</li>
+    <li>Focus: relapse prevention planning together; identifying early warning signs; medication adherence; creating a "wellness agreement"</li>
+</ul>
+
+<h4>Psychosis and Marriage</h4>
+<ul>
+    <li>Impact on partner's wellbeing and safety</li>
+    <li>Caregiver burden and expressed emotion research</li>
+    <li>Family psychoeducation (reduces relapse by 50%; Pharoah et al., 2010)</li>
+    <li>Addressing grief over lost hopes and the "relationship that could have been"</li>
+</ul>
+
+<h3>9.2 Trauma and PTSD in Relationships</h3>
+
+<h4>How Trauma Impacts Couple Functioning</h4>
+<ul>
+    <li>Emotional numbing and detachment from partner</li>
+    <li>Hyperarousal leading to irritability and anger outbursts</li>
+    <li>Avoidance of intimacy (emotional and physical)</li>
+    <li>Re-traumatization through relationship conflicts</li>
+    <li>Secondary traumatization of the partner</li>
+    <li>Attachment injuries from within the relationship (betrayal, abandonment during crisis)</li>
+</ul>
+
+<h4>Couple-Based Interventions for Trauma</h4>
+<ul>
+    <li><strong>Structured Approach Therapy (SAT):</strong> Combines couple therapy with trauma processing</li>
+    <li><strong>Cognitive-Behavioral Conjoint Therapy for PTSD (CBCT-PTSD; Monson &amp; Fredman, 2012):</strong> 15-session protocol involving both partners</li>
+    <li><strong>EFT for Trauma:</strong> Processing attachment injuries; creating safety for trauma disclosure</li>
+</ul>
+
+<h3>9.3 Chronic Illness and Disability</h3>
+
+<ul>
+    <li>Role changes (from partner to caregiver)</li>
+    <li>Sexual intimacy challenges with illness/disability</li>
+    <li>Financial stress from medical costs</li>
+    <li>Grief and loss of shared activities/plans</li>
+    <li>Maintaining equity and partnership despite asymmetric functioning</li>
+    <li>Special considerations: infertility, pregnancy loss, chronic pain, cancer</li>
+</ul>
+
+<div class="worksheet">
+    <h4>WORKSHEET 9.1: Impact of Mental Illness on the Relationship</h4>
+    <div class="field"><label>Diagnosis/Condition:</label><div class="line"></div></div>
+    <div class="field"><label>Duration of Illness:</label><div class="line"></div></div>
+    <div class="field"><label>Current Treatment (medications, individual therapy):</label><div class="line"></div></div>
+    <div class="field"><label>How does the illness affect daily relationship functioning?</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>How does the illness affect sexual intimacy?</label><div class="line"></div></div>
+    <div class="field"><label>What does the well partner feel? (burden, resentment, guilt, helplessness):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>What does the ill partner feel about the impact on their partner?</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Strengths the couple shows in managing this challenge:</label><div class="line"></div></div>
+    <div class="field"><label>What support systems exist?</label><div class="line"></div></div>
+    <div class="field"><label>Goals for couple therapy in relation to the illness:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 9 References (APA 7th Edition)</h3>
+    <p class="reference">Baucom, D. H., Fischer, M. S., Worrell, M., Corrie, S., Belus, J. M., Mooney, S. E., &amp; Boeding, S. E. (2017). <em>Couple-based intervention for depression: An effectiveness study in the NHS</em>. Guilford Press.</p>
+    <p class="reference">Monson, C. M., &amp; Fredman, S. J. (2012). <em>Cognitive-behavioral conjoint therapy for PTSD: Harnessing the healing power of relationships</em>. Guilford Press.</p>
+    <p class="reference">Pharoah, F., Mari, J. J., Rathbone, J., &amp; Wong, W. (2010). Family intervention for schizophrenia. <em>Cochrane Database of Systematic Reviews</em>, (12). https://doi.org/10.1002/14651858.CD000088.pub2</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 10: SPECIAL POPULATIONS -->
+<!-- ============================================================ -->
+<div class="module" id="mod10">
+<h2>MODULE 10: Special Populations</h2>
+
+<h3>10.1 Premarital Counselling</h3>
+
+<p>Premarital counselling is a preventive intervention that helps couples prepare for marriage by discussing expectations, building communication skills, and identifying potential areas of difficulty before they become entrenched patterns.</p>
+
+<h4>Key Areas for Premarital Assessment (Especially in Indian Context)</h4>
+<ul>
+    <li>Expectations about marriage (role of husband/wife)</li>
+    <li>Living arrangements (with in-laws or independently?)</li>
+    <li>Financial management and transparency</li>
+    <li>Family planning (when? how many children?)</li>
+    <li>Division of household responsibilities</li>
+    <li>Career expectations for both partners</li>
+    <li>Religious and cultural practices</li>
+    <li>Communication patterns and conflict resolution styles</li>
+    <li>Sexual expectations and concerns</li>
+    <li>Relationship with in-laws and extended family boundaries</li>
+    <li>Previous relationships and their impact</li>
+</ul>
+
+<h4>Evidence-Based Premarital Programs</h4>
+<ul>
+    <li><strong>PREPARE/ENRICH:</strong> Assessment-based program identifying couple strengths and growth areas (Olson et al., 1987)</li>
+    <li><strong>Prevention and Relationship Enhancement Program (PREP):</strong> Skills-based program focusing on communication and conflict management (Markman et al., 2010)</li>
+</ul>
+
+<h3>10.2 Infertility and Couples</h3>
+
+<p>Infertility affects approximately 10–15% of Indian couples and carries significant psychological, social, and marital consequences. The couple faces medical procedures, financial burden, social stigma, and potential grief (Kumar et al., 2024).</p>
+
+<h4>Psychological Impact</h4>
+<ul>
+    <li>Depression and anxiety in both partners</li>
+    <li>Sexual dysfunction (sex becoming "medicalized" and goal-oriented)</li>
+    <li>Relationship strain from repeated treatment cycles</li>
+    <li>Gender-specific blame (in Indian culture, women are disproportionately blamed)</li>
+    <li>Social pressure and stigma from extended family</li>
+    <li>Grief and loss (multiple pregnancy losses, failed IVF cycles)</li>
+</ul>
+
+<h3>10.3 LGBTQIA+ Couples</h3>
+
+<p>Following the decriminalization of homosexuality in India (Section 377 struck down; Navtej Singh Johar v. Union of India, 2018), LGBTQIA+ individuals are increasingly seeking couple therapy. Clinicians must:</p>
+<ul>
+    <li>Examine their own biases and assumptions about gender and sexuality</li>
+    <li>Avoid heteronormative frameworks and language</li>
+    <li>Understand minority stress model (Meyer, 2003) – external prejudice, expectations of rejection, concealment, internalized stigma</li>
+    <li>Address unique stressors: coming out, family rejection, lack of legal recognition, navigating heteronormative marriage pressure</li>
+    <li>Recognize that standard couple therapy approaches (EFT, Gottman, IBCT) are applicable and validated for same-sex couples</li>
+</ul>
+
+<h3>10.4 Elderly Couples</h3>
+
+<ul>
+    <li>Retirement adjustment and loss of role/identity</li>
+    <li>Health decline and caregiving demands</li>
+    <li>Re-negotiating relationship after children leave</li>
+    <li>Sexual changes with aging</li>
+    <li>Bereavement and anticipatory grief</li>
+    <li>Financial anxieties</li>
+    <li>In Indian context: dependency on adult children, intergenerational living, elder abuse</li>
+</ul>
+
+<div class="references-section">
+    <h3>Module 10 References (APA 7th Edition)</h3>
+    <p class="reference">Kumar, P., et al. (2024). Unveiling the emotional terrain of infertile couples: A systematic review of psychotherapies in the Indian context. <em>Human Arenas, 8</em>(2), 215–240. https://doi.org/10.1007/s42087-024-00470-x</p>
+    <p class="reference">Meyer, I. H. (2003). Prejudice, social stress, and mental health in lesbian, gay, and bisexual populations. <em>Psychological Bulletin, 129</em>(5), 674–697. https://doi.org/10.1037/0033-2909.129.5.674</p>
+    <p class="reference">Navtej Singh Johar v. Union of India, W.P. (Crl.) No. 76/2016 (Supreme Court of India, 2018).</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 11: MARRIAGE COUNSELLING IN INDIA: LEGAL FRAMEWORK -->
+<!-- ============================================================ -->
+<div class="module" id="mod11">
+<h2>MODULE 11: Marriage Counselling in India – Legal Framework</h2>
+
+<h3>11.1 Marriage Laws in India</h3>
+
+<p>India has a complex system of personal laws governing marriage based on religion, alongside secular legislation. Clinicians must be aware of these frameworks as they influence client decisions, options, and rights.</p>
+
+<table class="assessment">
+    <tr><th>Legislation</th><th>Applicable To</th><th>Key Provisions</th></tr>
+    <tr><td>Hindu Marriage Act, 1955</td><td>Hindus, Buddhists, Sikhs, Jains</td><td>Conditions for valid marriage; restitution of conjugal rights; judicial separation; divorce (mutual consent and fault-based); maintenance; legitimacy of children</td></tr>
+    <tr><td>Special Marriage Act, 1954</td><td>All citizens (inter-religious, civil marriages)</td><td>Secular marriage registration; 30-day notice period; grounds for divorce similar to HMA; allows inter-faith and inter-caste marriages</td></tr>
+    <tr><td>Indian Christian Marriage Act, 1872</td><td>Christians</td><td>Church solemnization; divorce under Indian Divorce Act, 1869 (amended 2001)</td></tr>
+    <tr><td>Parsi Marriage and Divorce Act, 1936</td><td>Parsis</td><td>Marriage registration; grounds for divorce; maintenance</td></tr>
+    <tr><td>Muslim Personal Law (Shariat) Application Act, 1937</td><td>Muslims</td><td>Talaq; Khula; Mubarat; maintenance under CrPC 125</td></tr>
+    <tr><td>Foreign Marriage Act, 1969</td><td>Indian citizens marrying abroad</td><td>Registration of marriages solemnized outside India</td></tr>
+</table>
+
+<h3>11.2 Divorce in India</h3>
+
+<h4>Grounds for Divorce (Hindu Marriage Act, Section 13)</h4>
+<ul>
+    <li>Adultery</li>
+    <li>Cruelty (physical or mental)</li>
+    <li>Desertion for a continuous period of two years</li>
+    <li>Conversion to another religion</li>
+    <li>Unsoundness of mind / mental disorder</li>
+    <li>Communicable venereal disease</li>
+    <li>Renunciation of the world (sanyasa)</li>
+    <li>Presumed dead (not heard alive for seven years)</li>
+    <li><strong>Mutual Consent (Section 13B):</strong> Both parties agree; living separately for one year; one-year cooling period (can be waived by Supreme Court)</li>
+</ul>
+
+<h4>Additional Grounds Available Only to Wife (Section 13(2))</h4>
+<ul>
+    <li>Husband guilty of rape, sodomy, or bestiality</li>
+    <li>Non-resumption of cohabitation after a maintenance decree</li>
+    <li>Marriage before age 15; repudiation before age 18</li>
+</ul>
+
+<h3>11.3 Domestic Violence Act, 2005</h3>
+
+<p>The Protection of Women from Domestic Violence Act, 2005 (PWDVA) provides civil remedies and protection to women experiencing domestic violence. It covers wife, female live-in partner, and female relatives.</p>
+
+<h4>Definition of Domestic Violence (Section 3)</h4>
+<ul>
+    <li><strong>Physical abuse:</strong> Any act causing bodily pain, harm, or danger to health</li>
+    <li><strong>Sexual abuse:</strong> Forced sexual intercourse, degrading sexual conduct</li>
+    <li><strong>Verbal and emotional abuse:</strong> Insults, ridicule, name-calling, accusations of having affairs</li>
+    <li><strong>Economic abuse:</strong> Deprivation of financial resources, prohibition from employment, control of property/assets</li>
+</ul>
+
+<h4>Protections Available</h4>
+<ul>
+    <li>Protection orders (restraining orders)</li>
+    <li>Residence orders (right to reside in shared household)</li>
+    <li>Monetary reliefs</li>
+    <li>Custody orders</li>
+    <li>Compensation orders</li>
+</ul>
+
+<h3>11.4 Section 498A IPC / Bharatiya Nyaya Sanhita (BNS)</h3>
+
+<p>Section 498A of the Indian Penal Code (now corresponding provisions under BNS, 2023) deals with cruelty by husband or his relatives. It is a cognizable, non-bailable, and non-compoundable offence. Clinicians should be aware that:</p>
+<ul>
+    <li>Clients may mention filing or threat of 498A as part of marital conflict</li>
+    <li>The therapist must remain neutral and not provide legal advice</li>
+    <li>Document carefully; maintain confidentiality; refer to appropriate legal aid</li>
+    <li>Some cases involve genuine abuse; others may involve contested use as leverage in matrimonial disputes</li>
+</ul>
+
+<h3>11.5 Mental Healthcare Act, 2017 (MHCA 2017)</h3>
+
+<p>The MHCA 2017 replaced the outdated Mental Health Act, 1987. It provides a rights-based framework for mental healthcare in India, including:</p>
+
+<h4>Key Provisions Relevant to Couple Therapy Practice</h4>
+<ul>
+    <li><strong>Right to access mental healthcare (Section 18):</strong> Every person has the right to access affordable, quality mental healthcare and treatment</li>
+    <li><strong>Right to confidentiality (Section 23):</strong> Every person with mental illness has the right to confidentiality of their mental health condition</li>
+    <li><strong>Right to informed consent (Section 22):</strong> No treatment without free and informed consent except in specific emergencies</li>
+    <li><strong>Advance directive (Section 5–12):</strong> A person can make an advance directive specifying treatment preferences</li>
+    <li><strong>Nominated representative (Section 14):</strong> Can be appointed to assist in treatment decisions</li>
+    <li><strong>Prohibition of discrimination (Section 21(1)(a)):</strong> No denial of health services based on mental illness</li>
+</ul>
+
+<h3>11.6 Professional Ethics in Couple Therapy</h3>
+
+<h4>Key Ethical Issues</h4>
+<ul>
+    <li><strong>Confidentiality:</strong> Who is the client – each individual or the relationship? Establish clear policy at outset (especially regarding secrets revealed in individual sessions)</li>
+    <li><strong>Secrets Policy Options:</strong>
+        <ul>
+            <li>No-secrets policy (most common): Therapist will not hold secrets that impact treatment</li>
+            <li>Full confidentiality for individual sessions: Risk of collusion with one partner</li>
+            <li>Limited confidentiality: Therapist uses clinical judgment about what to hold</li>
+        </ul>
+    </li>
+    <li><strong>Neutrality and alliances:</strong> Maintaining balanced alliance with both partners; avoiding taking sides</li>
+    <li><strong>Dual relationships:</strong> Avoid treating couples where you have a pre-existing relationship with one partner</li>
+    <li><strong>When to recommend separation:</strong> Ethical obligation to not maintain harmful relationships</li>
+    <li><strong>Teletherapy ethics:</strong> Ensure privacy, informed consent for technology, and crisis protocols for online sessions</li>
+    <li><strong>Record keeping:</strong> What to document; how long to retain; access by third parties (court orders)</li>
+</ul>
+
+<div class="info-box">
+    <strong>Ethical Dilemma Example:</strong> In individual session, one partner discloses an ongoing affair that the other does not know about. Under a no-secrets policy, the therapist cannot continue couple therapy holding this secret. Options: (a) encourage disclosure, (b) refer out, (c) give a time limit for disclosure. NEVER reveal the secret without consent – this violates individual confidentiality and can be unsafe.
+</div>
+
+<div class="references-section">
+    <h3>Module 11 References (APA 7th Edition)</h3>
+    <p class="reference">The Hindu Marriage Act, 1955, No. 25, Acts of Parliament (India).</p>
+    <p class="reference">The Special Marriage Act, 1954, No. 43, Acts of Parliament (India).</p>
+    <p class="reference">The Protection of Women from Domestic Violence Act, 2005, No. 43, Acts of Parliament (India).</p>
+    <p class="reference">The Mental Healthcare Act, 2017, No. 10, Acts of Parliament (India).</p>
+    <p class="reference">The Bharatiya Nyaya Sanhita, 2023, No. 45, Acts of Parliament (India).</p>
+    <p class="reference">Malhotra, S., &amp; Shah, R. (2019). Marriage counsellors' reflections on the counselling process in family courts in India. <em>Psychological Studies, 63</em>(4), 358–365. https://doi.org/10.1007/s12646-018-0460-z</p>
+    <p class="reference">Srinivasan, G. (2019). Mental Healthcare Act 2017 – Aspiration to action. <em>Indian Journal of Psychiatry, 61</em>(Suppl 4), S660–S666. https://doi.org/10.4103/psychiatry.IndianJPsychiatry_82_19</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 12: CULTURAL COMPETENCE -->
+<!-- ============================================================ -->
+<div class="module" id="mod12">
+<h2>MODULE 12: Cultural Competence in Indian Couple Therapy</h2>
+
+<h3>12.1 Cultural Dimensions Affecting Marriage</h3>
+
+<h4>Religion and Spirituality</h4>
+<p>India is a multi-faith society. Religious beliefs deeply influence marital expectations, gender roles, sexual attitudes, and conflict resolution approaches:</p>
+<ul>
+    <li>Hindu concepts: dharma, karma, sanskar, pativrata (wife devotion), grihasthashram (householder stage)</li>
+    <li>Muslim marriages: nikaah as contract, mahr (dower), concepts of obedience and maintenance</li>
+    <li>Christian marriages: sacramental nature, views on divorce, forgiveness theology</li>
+    <li>Sikh marriages: Anand Karaj, equality principles, community expectations</li>
+    <li>Interfaith marriages: navigating competing religious frameworks</li>
+</ul>
+
+<h4>Gender Roles and Patriarchy</h4>
+<ul>
+    <li>Traditional expectations: wife as homemaker, husband as provider</li>
+    <li>Shifting realities: dual-income families, women's education, urban modernization</li>
+    <li>Masculine ideals and emotional restriction in Indian men</li>
+    <li>The "good wife" burden and women's mental health</li>
+    <li>Dowry system and its ongoing psychological impact</li>
+    <li>Son preference and its impact on the marital relationship</li>
+</ul>
+
+<h4>Caste and Community Influences</h4>
+<ul>
+    <li>Endogamy expectations and inter-caste marriage challenges</li>
+    <li>Community honour (izzat) and its role in relationship decisions</li>
+    <li>Biradari/community pressure in conflict resolution</li>
+    <li>Honour-based risks for couples who defy community norms</li>
+</ul>
+
+<h3>12.2 Culturally Adapted Therapeutic Practices</h3>
+
+<h4>Principles for Cultural Adaptation</h4>
+<ol>
+    <li><strong>Cultural humility:</strong> Continuous self-reflection about one's own cultural assumptions and biases</li>
+    <li><strong>Collaborative stance:</strong> Ask the couple to educate you about their cultural framework rather than assuming</li>
+    <li><strong>Both/and thinking:</strong> Honour cultural values AND individual rights; tradition AND change</li>
+    <li><strong>Avoid pathologizing culture:</strong> Joint family living is not inherently dysfunctional; arranged marriage is not inherently oppressive</li>
+    <li><strong>Identify cultural resources:</strong> Spirituality, community support, family involvement can be therapeutic allies</li>
+    <li><strong>Language:</strong> Use culturally resonant metaphors; avoid Western therapy jargon; consider working in the couple's mother tongue</li>
+</ol>
+
+<div class="clinical-tip">
+    <strong>Clinical Tip:</strong> When a woman from a traditional family presents saying "I'm not allowed to work," resist the urge to immediately frame this as oppression. Instead, explore: What does she want? What are the barriers? What cultural factors does she value? What would change look like that respects her context? Therapeutic change should emerge from the client's own values, not the therapist's cultural agenda.
+</div>
+
+<div class="references-section">
+    <h3>Module 12 References (APA 7th Edition)</h3>
+    <p class="reference">Carson, D. K., &amp; Chowdhury, A. (2009). Counseling and family therapy in India: Evolving professions in a rapidly developing nation. <em>International Journal for the Advancement of Counselling, 22</em>(1), 49–69. https://doi.org/10.1023/A:1005468719768</p>
+    <p class="reference">Jhamb, S., et al. (2024). Family therapy in India: Evolution, challenges, and future directions. <em>The Family Journal, 32</em>(4), 512–528. https://doi.org/10.1177/10664807241269544</p>
+    <p class="reference">Sue, D. W., &amp; Sue, D. (2019). <em>Counseling the culturally diverse: Theory and practice</em> (8th ed.). Wiley.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 13: CLINICAL SKILLS & SESSION PLANNING -->
+<!-- ============================================================ -->
+<div class="module" id="mod13">
+<h2>MODULE 13: Clinical Skills &amp; Session Planning</h2>
+
+<h3>13.1 Structure of a Couple Therapy Session</h3>
+
+<div class="session-plan">
+    <h4>Standard 60-Minute Session Structure</h4>
+    <table>
+        <tr><th>Phase</th><th>Time</th><th>Activities</th></tr>
+        <tr><td>Opening</td><td>0–10 min</td><td>Check-in: "How has the week been?" Review homework. Set agenda for today. Note emotional state of each partner.</td></tr>
+        <tr><td>Working Phase</td><td>10–50 min</td><td>Address the primary therapeutic focus. Use model-specific interventions (EFT processing, CBCT cognitive restructuring, Gottman exercises, etc.). Facilitate partner-to-partner dialogue. Process in-session enactments.</td></tr>
+        <tr><td>Closing</td><td>50–60 min</td><td>Summarize session. Assign homework/between-session tasks. Check: "How are you both feeling right now?" Address any unfinished intensity. Preview next session.</td></tr>
+    </table>
+</div>
+
+<h3>13.2 Treatment Planning Framework</h3>
+
+<div class="worksheet">
+    <h4>WORKSHEET 13.1: Couple Therapy Treatment Plan Template</h4>
+    <div class="field"><label>Couple:</label><div class="line"></div></div>
+    <div class="field"><label>Date of Plan:</label><div class="line"></div></div>
+    <div class="field"><label>Therapist:</label><div class="line"></div></div>
+    <div class="field"><label>Presenting Problems (prioritized):</label>
+        <br>1. <div class="line"></div>
+        <br>2. <div class="line"></div>
+        <br>3. <div class="line"></div>
+    </div>
+    <div class="field"><label>Case Formulation Summary:</label><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Therapeutic Approach Selected:</label><div class="line"></div></div>
+    <div class="field"><label>Rationale for Approach:</label><div class="line"></div></div>
+    
+    <p><strong>TREATMENT GOALS</strong></p>
+    <div class="field"><label>Goal 1:</label><div class="line"></div>
+        <br><label>Interventions:</label><div class="line"></div>
+        <br><label>Measurable Outcome:</label><div class="line"></div>
+    </div>
+    <div class="field"><label>Goal 2:</label><div class="line"></div>
+        <br><label>Interventions:</label><div class="line"></div>
+        <br><label>Measurable Outcome:</label><div class="line"></div>
+    </div>
+    <div class="field"><label>Goal 3:</label><div class="line"></div>
+        <br><label>Interventions:</label><div class="line"></div>
+        <br><label>Measurable Outcome:</label><div class="line"></div>
+    </div>
+    
+    <div class="field"><label>Estimated Duration (number of sessions):</label><div class="line"></div></div>
+    <div class="field"><label>Session Frequency:</label><div class="line"></div></div>
+    <div class="field"><label>Risks/Contraindications:</label><div class="line"></div></div>
+    <div class="field"><label>Review Date:</label><div class="line"></div></div>
+</div>
+
+<h3>13.3 Session-by-Session Guide (Integrative Model – 16 Sessions)</h3>
+
+<div class="session-plan">
+    <h4>Complete Treatment Protocol: Session-by-Session</h4>
+    <table>
+        <tr><th>Session</th><th>Focus</th><th>Key Activities</th><th>Homework</th></tr>
+        <tr><td>1</td><td>Initial conjoint assessment</td><td>Rapport building; presenting concerns; observe interaction; informed consent; confidentiality &amp; secrets policy; set expectations</td><td>Complete relationship questionnaires (DAS/CSI); individual reflection on goals</td></tr>
+        <tr><td>2</td><td>Individual session – Partner A</td><td>Personal history; attachment history; mental health screen; violence screen; individual goals; secret information</td><td>Write a letter to your partner about what you appreciate (not to send yet)</td></tr>
+        <tr><td>3</td><td>Individual session – Partner B</td><td>Same as above for Partner B</td><td>Same as above</td></tr>
+        <tr><td>4</td><td>Feedback &amp; treatment contract</td><td>Present case formulation; identify the negative cycle; agree on goals; discuss treatment plan and approach</td><td>Notice the cycle when it happens this week; journal observations</td></tr>
+        <tr><td>5</td><td>Understanding the cycle</td><td>Psychoeducation about the negative cycle; map triggers, behaviours, emotions; externalize the cycle ("it's the enemy, not each other")</td><td>Track cycle occurrences; identify one moment you could have responded differently</td></tr>
+        <tr><td>6</td><td>Building friendship &amp; fondness</td><td>Love Map exercise; fondness and admiration sharing; identify turning toward moments</td><td>Daily appreciation (tell partner one thing you appreciate); ask one Love Map question daily</td></tr>
+        <tr><td>7</td><td>Communication skills</td><td>Speaker-listener technique practice; softened startup; I-statements; active listening</td><td>Practice speaker-listener technique on a low-stakes topic (10 min)</td></tr>
+        <tr><td>8</td><td>Emotional accessibility</td><td>Identify primary emotions beneath secondary reactions; practice vulnerability; validate each other's emotional experience</td><td>Share one vulnerable feeling with partner this week</td></tr>
+        <tr><td>9–10</td><td>Conflict management</td><td>Identify solvable vs. perpetual problems; practice repair attempts; self-soothing when flooded; compromise and negotiation</td><td>Use the repair checklist during one disagreement; take a physiological break if heart rate rises</td></tr>
+        <tr><td>11–12</td><td>Addressing core issues</td><td>Process specific grievances or attachment injuries; facilitate deeper emotional connection; use EFT-informed interventions for primary emotions</td><td>Write a letter expressing your deepest fears and longings about the relationship</td></tr>
+        <tr><td>13</td><td>Intimacy &amp; sexuality</td><td>Discuss sexual relationship; psychoeducation if needed; address mismatches; sensate focus introduction if appropriate</td><td>Non-sexual physical affection daily; sensate focus Stage 1 if assigned</td></tr>
+        <tr><td>14</td><td>Life dreams &amp; shared meaning</td><td>Discuss individual dreams and life goals; create shared rituals; build shared meaning</td><td>Create one new ritual of connection (weekly date, morning coffee together, etc.)</td></tr>
+        <tr><td>15</td><td>Relapse prevention</td><td>Review progress; anticipate future stressors; create "what-to-do-when" plans; identify warning signs of cycle return</td><td>Write your relapse prevention plan together</td></tr>
+        <tr><td>16</td><td>Termination &amp; review</td><td>Celebrate progress; review goals and achievements; discuss ongoing maintenance; schedule booster session (3–6 months)</td><td>Complete post-therapy questionnaires; schedule regular "state of the union" meetings</td></tr>
+    </table>
+</div>
+
+<h3>13.4 Managing Resistance and Difficult Moments</h3>
+
+<h4>Common Sources of Resistance in Indian Couple Therapy</h4>
+<ul>
+    <li>One partner forced to attend (often husband in Indian context)</li>
+    <li>Fear of family "finding out" about therapy</li>
+    <li>Belief that therapy = weakness or madness</li>
+    <li>Cultural resistance to discussing sexual matters</li>
+    <li>Expectation that therapist will "fix" the other partner</li>
+    <li>Fear of being asked to change cultural practices</li>
+</ul>
+
+<h4>Strategies for Managing Resistance</h4>
+<ul>
+    <li>Validate the resistance – "It makes sense you'd feel cautious about this"</li>
+    <li>Explore the function of resistance – what is it protecting?</li>
+    <li>Start with strengths – acknowledge what's working</li>
+    <li>Use the client's own motivations – "What brought you here today?"</li>
+    <li>Avoid power struggles – work with, not against</li>
+    <li>Normalize – "Many couples feel this way at first"</li>
+</ul>
+
+<h3>13.5 Crisis Intervention in Couple Therapy</h3>
+
+<h4>When to Intervene Immediately</h4>
+<ul>
+    <li>Disclosure of suicidal ideation by either partner</li>
+    <li>Disclosure of ongoing domestic violence</li>
+    <li>Disclosure of child abuse</li>
+    <li>Acute psychotic episode during session</li>
+    <li>Substance intoxication in session</li>
+    <li>Threat of violence toward partner or therapist</li>
+</ul>
+
+<h4>De-escalation Protocol</h4>
+<ol>
+    <li>Recognize escalation early (rising voices, aggressive body language, personal attacks)</li>
+    <li>Interrupt firmly but calmly: "I'm going to pause us here"</li>
+    <li>Redirect to process: "What's happening right now? Can you notice what you're feeling?"</li>
+    <li>Offer a break if needed (physiological self-soothing)</li>
+    <li>Reconvene when both partners are regulated</li>
+    <li>If unsafe: end session; arrange individual follow-up; safety plan if needed</li>
+</ol>
+
+<div class="references-section">
+    <h3>Module 13 References (APA 7th Edition)</h3>
+    <p class="reference">Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton.</p>
+    <p class="reference">Gurman, A. S., Lebow, J. L., &amp; Snyder, D. K. (Eds.). (2015). <em>Clinical handbook of couple therapy</em> (5th ed.). Guilford Press.</p>
+    <p class="reference">Sprenkle, D. H., Davis, S. D., &amp; Lebow, J. L. (2009). <em>Common factors in couple and family therapy: The overlooked foundation for effective practice</em>. Guilford Press.</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 14: THERAPIST DEVELOPMENT -->
+<!-- ============================================================ -->
+<div class="module" id="mod14">
+<h2>MODULE 14: Therapist Development</h2>
+
+<h3>14.1 The Therapeutic Alliance in Couple Therapy</h3>
+
+<p>Research consistently identifies the therapeutic alliance as the strongest predictor of therapy outcome across all modalities. In couple therapy, the alliance is more complex because the therapist must maintain a balanced alliance with both partners simultaneously (Sprenkle et al., 2009).</p>
+
+<h4>Types of Alliance in Couple Therapy (Pinsof, 1994)</h4>
+<ul>
+    <li><strong>Individual alliance:</strong> Each partner's bond with the therapist</li>
+    <li><strong>Within-system alliance:</strong> The couple's shared bond with the therapist</li>
+    <li><strong>Split alliance:</strong> When one partner feels more allied with the therapist than the other – a significant predictor of dropout</li>
+</ul>
+
+<h4>Maintaining Balance</h4>
+<ul>
+    <li>Track time and attention given to each partner</li>
+    <li>Validate both perspectives explicitly</li>
+    <li>Side with the relationship, not either individual</li>
+    <li>When challenging one partner, frame it within care for both</li>
+    <li>Check in regularly: "How is this feeling for both of you?"</li>
+</ul>
+
+<h3>14.2 Countertransference in Couple Therapy</h3>
+
+<h4>Common Countertransference Reactions</h4>
+<ul>
+    <li><strong>Over-identification:</strong> Identifying with one partner based on gender, age, cultural background, or personal experience</li>
+    <li><strong>Rescue fantasies:</strong> Wanting to "save" the perceived victim</li>
+    <li><strong>Frustration and hopelessness:</strong> Mirroring the couple's stuck-ness</li>
+    <li><strong>Avoidance:</strong> Avoiding topics (e.g., sexuality, violence) that make the therapist uncomfortable</li>
+    <li><strong>Judgement:</strong> Moral judgement of infidelity, lifestyle choices, or cultural practices</li>
+    <li><strong>Activation of personal relationship issues:</strong> Couple's dynamics triggering therapist's own attachment patterns</li>
+</ul>
+
+<h3>14.3 Burnout Prevention and Self-Care</h3>
+
+<ul>
+    <li>Regular clinical supervision (mandatory for trainees; recommended for all)</li>
+    <li>Personal therapy to process countertransference and personal triggers</li>
+    <li>Peer support groups</li>
+    <li>Case load management (limit number of couple cases)</li>
+    <li>Maintain own relationship health</li>
+    <li>Regular continuing education and training</li>
+    <li>Practice boundaries (session time limits, availability limits)</li>
+    <li>Mindfulness and physical self-care</li>
+</ul>
+
+<h3>14.4 Clinical Supervision in Couple Therapy</h3>
+
+<h4>Models of Supervision</h4>
+<ul>
+    <li><strong>Live supervision:</strong> Supervisor observes through one-way mirror or video; provides real-time feedback</li>
+    <li><strong>Video review:</strong> Recorded sessions reviewed together</li>
+    <li><strong>Case discussion:</strong> Verbal presentation of cases</li>
+    <li><strong>Reflective practice:</strong> Journaling, self-assessment, and exploration of therapist's internal responses</li>
+</ul>
+
+<div class="worksheet">
+    <h4>WORKSHEET 14.1: Therapist Self-Reflection Journal (Complete After Each Session)</h4>
+    <div class="field"><label>Date and Session Number:</label><div class="line"></div></div>
+    <div class="field"><label>Couple:</label><div class="line"></div></div>
+    <div class="field"><label>What went well in this session?</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>What was challenging?</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Did I maintain balanced alliance? If not, what happened?</label><div class="line"></div></div>
+    <div class="field"><label>What emotions did I notice in myself during the session?</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Any countertransference reactions identified?</label><div class="line"></div></div>
+    <div class="field"><label>What would I do differently?</label><div class="line"></div></div>
+    <div class="field"><label>Questions for supervision:</label><div class="line"></div></div>
+    <div class="field"><label>Self-care needed after this session:</label><div class="line"></div></div>
+</div>
+
+<div class="references-section">
+    <h3>Module 14 References (APA 7th Edition)</h3>
+    <p class="reference">Pinsof, W. M. (1994). An integrative systems perspective on the therapeutic alliance: Theoretical, clinical, and research implications. In A. O. Horvath &amp; L. S. Greenberg (Eds.), <em>The working alliance: Theory, research, and practice</em> (pp. 173–195). Wiley.</p>
+    <p class="reference">Sprenkle, D. H., Davis, S. D., &amp; Lebow, J. L. (2009). <em>Common factors in couple and family therapy</em>. Guilford Press.</p>
+    <p class="reference">Todd, T. C., &amp; Storm, C. L. (2014). <em>The complete systemic supervisor</em> (2nd ed.). iUniverse.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODULE 15: DOCUMENTATION & PRACTICE MANAGEMENT -->
+<!-- ============================================================ -->
+<div class="module" id="mod15">
+<h2>MODULE 15: Documentation &amp; Practice Management</h2>
+
+<h3>15.1 Intake and Consent Forms</h3>
+
+<div class="worksheet">
+    <h4>TEMPLATE 15.1: Informed Consent for Couple Therapy</h4>
+    <p><strong>CONSENT FOR COUPLE / MARRIAGE THERAPY</strong></p>
+    <p><em>(Adapt for your practice letterhead)</em></p>
+    <p><strong>Nature of Couple Therapy:</strong> Couple therapy involves both partners meeting together (and sometimes individually) with a therapist to address relationship concerns. The focus is on the relationship system and interaction patterns.</p>
+    <p><strong>Confidentiality:</strong> Information shared in sessions is confidential and will not be disclosed to any third party without written consent from BOTH partners, except where legally mandated (harm to self/others, child abuse, court order). [Choose one:]</p>
+    <ul>
+        <li>☐ <strong>No-Secrets Policy:</strong> Information shared in individual sessions that is relevant to the couple therapy will not be held as a secret by the therapist. If you share something in an individual session that the therapist believes is relevant to treatment, you will be encouraged to share it in the conjoint session.</li>
+        <li>☐ <strong>Limited Confidentiality:</strong> Information shared in individual sessions will be kept confidential unless the therapist determines it poses a risk to treatment integrity.</li>
+    </ul>
+    <p><strong>Risks and Benefits:</strong> Benefits may include improved communication, greater understanding, and increased satisfaction. Risks include temporary increases in distress as difficult topics are addressed. In some cases, therapy may lead to a clearer decision to separate.</p>
+    <p><strong>Duration and Frequency:</strong> Sessions are typically _____ minutes, held _____ (frequency). Treatment duration varies but is typically 12–20 sessions.</p>
+    <p><strong>Fees:</strong> ₹_____ per session. Cancellation policy: _____ hours notice required.</p>
+    <p><strong>Therapist Qualifications:</strong> [Name, Degree, RCI Registration if applicable]</p>
+    <p><strong>Signatures:</strong></p>
+    <div class="field"><label>Partner A: _______________ Date: ___________</label></div>
+    <div class="field"><label>Partner B: _______________ Date: ___________</label></div>
+    <div class="field"><label>Therapist: _______________ Date: ___________</label></div>
+</div>
+
+<h3>15.2 Progress Notes (SOAP Format for Couple Therapy)</h3>
+
+<div class="worksheet">
+    <h4>TEMPLATE 15.2: Session Progress Note (SOAP Format)</h4>
+    <div class="field"><label>Date:</label><div class="line"></div></div>
+    <div class="field"><label>Session Number:</label><div class="line"></div></div>
+    <div class="field"><label>Present:</label><div class="line"></div></div>
+    
+    <p><strong>S – Subjective (What the clients reported):</strong></p>
+    <div class="field"><label>Partner A reports:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Partner B reports:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Homework completion/feedback:</label><div class="line"></div></div>
+    
+    <p><strong>O – Objective (Therapist observations):</strong></p>
+    <div class="field"><label>Interaction pattern observed:</label><div class="line"></div></div>
+    <div class="field"><label>Affect and nonverbal communication:</label><div class="line"></div></div>
+    <div class="field"><label>Alliance balance:</label><div class="line"></div></div>
+    
+    <p><strong>A – Assessment (Clinical formulation):</strong></p>
+    <div class="field"><label>Progress toward goals:</label><div class="line"></div></div>
+    <div class="field"><label>Current functioning and risk:</label><div class="line"></div></div>
+    <div class="field"><label>Stage of therapy:</label><div class="line"></div></div>
+    
+    <p><strong>P – Plan:</strong></p>
+    <div class="field"><label>Focus for next session:</label><div class="line"></div></div>
+    <div class="field"><label>Homework assigned:</label><div class="line"></div></div>
+    <div class="field"><label>Referrals/consultations needed:</label><div class="line"></div></div>
+    <div class="field"><label>Next session date:</label><div class="line"></div></div>
+</div>
+
+<h3>15.3 Risk Assessment Documentation</h3>
+
+<div class="worksheet">
+    <h4>TEMPLATE 15.3: Risk Assessment Form</h4>
+    <div class="field"><label>Date:</label><div class="line"></div></div>
+    <div class="field"><label>Client(s):</label><div class="line"></div></div>
+    <p><strong>Suicide Risk:</strong></p>
+    <div class="field"><label>Ideation present: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Plan: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Means: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Intent: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Previous attempts: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Protective factors:</label><div class="line"></div></div>
+    <p><strong>Violence Risk:</strong></p>
+    <div class="field"><label>History of violence: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Current threats: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Access to weapons: ☐ Yes ☐ No</label></div>
+    <div class="field"><label>Escalation pattern: ☐ Yes ☐ No</label></div>
+    <p><strong>Overall Risk Level: ☐ Low ☐ Moderate ☐ High ☐ Imminent</strong></p>
+    <div class="field"><label>Safety Plan/Actions Taken:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Therapist Signature &amp; Date:</label><div class="line"></div></div>
+</div>
+
+<h3>15.4 Private Practice Considerations in India</h3>
+
+<ul>
+    <li><strong>Registration:</strong> Rehabilitation Council of India (RCI) registration for clinical psychologists is mandatory for practice</li>
+    <li><strong>Setting up practice:</strong> Location, space requirements (soundproofing), waiting area considerations</li>
+    <li><strong>Fee structure:</strong> Setting fair fees; sliding scale options; insurance panels</li>
+    <li><strong>Online therapy:</strong> Telemedicine guidelines by NMC/MoHFW; platform security; consent for online sessions</li>
+    <li><strong>Marketing:</strong> Ethical advertising; online presence; networking with lawyers, gynaecologists, psychiatrists</li>
+    <li><strong>Record keeping:</strong> Secure storage (digital and paper); retention period (minimum 5 years recommended)</li>
+    <li><strong>Referral network:</strong> Psychiatrists, lawyers, shelters, addiction centres, financial counsellors</li>
+</ul>
+
+<div class="references-section">
+    <h3>Module 15 References (APA 7th Edition)</h3>
+    <p class="reference">American Psychological Association. (2017). <em>Ethical principles of psychologists and code of conduct</em>. https://www.apa.org/ethics/code</p>
+    <p class="reference">Rehabilitation Council of India Act, 1992, No. 34, Acts of Parliament (India).</p>
+    <p class="reference">Wiger, D. E. (2012). <em>The psychotherapy documentation primer</em> (3rd ed.). Wiley.</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MODULE 16: PRACTICUM & SUPERVISED TRAINING -->
+<!-- ============================================================ -->
+<div class="module" id="mod16">
+<h2>MODULE 16: Practicum &amp; Supervised Training</h2>
+
+<h3>16.1 Training Structure</h3>
+
+<h4>Progressive Skill Development Model</h4>
+<table class="assessment">
+    <tr><th>Stage</th><th>Activities</th><th>Duration</th><th>Competency Goals</th></tr>
+    <tr><td>Stage 1: Observation</td><td>Observe experienced therapist conduct couple sessions (live or video); read transcripts; discuss</td><td>Months 1–2</td><td>Understand session structure; recognize patterns; identify interventions</td></tr>
+    <tr><td>Stage 2: Role Play</td><td>Practice with fellow trainees; receive feedback; video review</td><td>Months 2–3</td><td>Basic alliance skills; assessment interview; reflecting cycle; using worksheets</td></tr>
+    <tr><td>Stage 3: Co-therapy</td><td>Conduct sessions alongside experienced therapist; debrief after each session</td><td>Months 3–5</td><td>Manage live process; maintain balance; begin interventions with guidance</td></tr>
+    <tr><td>Stage 4: Primary Therapist (Supervised)</td><td>Lead sessions independently with regular supervision (weekly); video review</td><td>Months 5–10</td><td>Full session management; case formulation; intervention selection; homework; crisis management</td></tr>
+    <tr><td>Stage 5: Advanced/Independent</td><td>Independent practice with periodic peer supervision; specialization</td><td>Months 10–12+</td><td>Complex cases; integration of approaches; cultural adaptation; supervision of others</td></tr>
+</table>
+
+<h3>16.2 Competency Assessment</h3>
+
+<div class="worksheet">
+    <h4>WORKSHEET 16.1: Couple Therapy Competency Self-Assessment</h4>
+    <p><em>Rate yourself on each competency (1 = Novice, 2 = Developing, 3 = Competent, 4 = Proficient, 5 = Expert)</em></p>
+    
+    <p><strong>Assessment Skills:</strong></p>
+    <div class="field"><label>☐ Conducting a couple intake interview: ___/5</label></div>
+    <div class="field"><label>☐ Administering and interpreting standardized assessments: ___/5</label></div>
+    <div class="field"><label>☐ Constructing a genogram: ___/5</label></div>
+    <div class="field"><label>☐ Conducting a violence/safety screen: ___/5</label></div>
+    <div class="field"><label>☐ Formulating a couple case conceptualization: ___/5</label></div>
+    
+    <p><strong>Intervention Skills:</strong></p>
+    <div class="field"><label>☐ Identifying and tracking the negative interaction cycle: ___/5</label></div>
+    <div class="field"><label>☐ Maintaining balanced therapeutic alliance: ___/5</label></div>
+    <div class="field"><label>☐ Facilitating partner-to-partner dialogue: ___/5</label></div>
+    <div class="field"><label>☐ Cognitive restructuring with couples: ___/5</label></div>
+    <div class="field"><label>☐ Emotion-focused interventions (accessing primary emotions): ___/5</label></div>
+    <div class="field"><label>☐ Behavioural interventions (homework, skill training): ___/5</label></div>
+    <div class="field"><label>☐ Communication skills training: ___/5</label></div>
+    <div class="field"><label>☐ Crisis intervention and de-escalation: ___/5</label></div>
+    
+    <p><strong>Professional Skills:</strong></p>
+    <div class="field"><label>☐ Treatment planning: ___/5</label></div>
+    <div class="field"><label>☐ Documentation (progress notes, treatment plans): ___/5</label></div>
+    <div class="field"><label>☐ Managing ethical dilemmas: ___/5</label></div>
+    <div class="field"><label>☐ Cultural competence: ___/5</label></div>
+    <div class="field"><label>☐ Self-awareness and countertransference management: ___/5</label></div>
+    <div class="field"><label>☐ Using supervision effectively: ___/5</label></div>
+    
+    <div class="field"><label>Areas of strength:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Areas for development:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>Learning goals for next 3 months:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<h3>16.3 Case Presentation Format for Supervision</h3>
+
+<div class="worksheet">
+    <h4>TEMPLATE 16.2: Case Presentation Format</h4>
+    <div class="field"><label>1. Identifying Information (demographics, type of marriage, duration):</label><div class="line"></div></div>
+    <div class="field"><label>2. Presenting Problem (each partner's perspective):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>3. Relationship History (brief timeline):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>4. Individual Factors (attachment styles, mental health, personality):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>5. Family of Origin and Cultural Context:</label><div class="line"></div></div>
+    <div class="field"><label>6. Case Formulation (negative cycle, underlying needs, predisposing/perpetuating factors):</label><div class="line"></div><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>7. Treatment Approach and Goals:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>8. Progress to Date (sessions completed, key moments):</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>9. Current Challenges/Stuck Points:</label><div class="line"></div><div class="line"></div></div>
+    <div class="field"><label>10. Questions for Supervisor:</label><div class="line"></div><div class="line"></div></div>
+</div>
+
+<h3>16.4 Reflective Practice Journal</h3>
+
+<p>Maintaining a reflective journal throughout training is essential for professional development. It promotes self-awareness, tracks growth, identifies blind spots, and provides material for supervision discussions.</p>
+
+<h4>Weekly Reflection Prompts</h4>
+<ul>
+    <li>What was my most challenging moment this week? What made it challenging?</li>
+    <li>What personal reactions (emotions, thoughts, body sensations) did I notice during sessions?</li>
+    <li>What aspects of my own relationship history are being activated by my work?</li>
+    <li>What am I learning about myself as a therapist?</li>
+    <li>What cultural assumptions did I notice in my work this week?</li>
+    <li>What would I do differently if I could repeat a session?</li>
+    <li>What am I grateful for in my learning this week?</li>
+</ul>
+
+<div class="references-section">
+    <h3>Module 16 References (APA 7th Edition)</h3>
+    <p class="reference">Falender, C. A., &amp; Shafranske, E. P. (2004). <em>Clinical supervision: A competency-based approach</em>. American Psychological Association.</p>
+    <p class="reference">Gehart, D. R. (2018). <em>Mastering competencies in family therapy: A practical approach to theories and clinical case documentation</em> (3rd ed.). Cengage Learning.</p>
+    <p class="reference">Nelson, T. S., &amp; Figley, C. R. (2022). Burnout in family therapy: Implications for supervision and training. <em>Journal of Marital and Family Therapy, 48</em>(3), 612–628.</p>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- APPENDIX A: ADVANCED MASTERCLASSES -->
+<!-- ============================================================ -->
+<div class="module" id="appendix-a">
+<h2>APPENDIX A: Advanced Masterclass Topics</h2>
+
+<h3>A.1 Discernment Counselling Protocol</h3>
+<p>For "mixed-agenda" couples where one partner is leaning out. 1–5 sessions. Goal: clarity and confidence, not reconciliation or divorce. Structure: brief conjoint → individual with leaning-out partner → individual with leaning-in partner → conjoint close (Doherty &amp; Harris, 2017).</p>
+
+<h3>A.2 Affair Recovery: Detailed Protocol</h3>
+<p>Gottman Trust Revival Method: Atonement → Attunement → Attachment (minimum 6 months). Includes: full disclosure session, transparency agreements, rebuilding rituals, addressing vulnerability factors, creating a shared narrative of the affair and recovery.</p>
+
+<h3>A.3 Couples with Personality Disorders</h3>
+<p>Schema Therapy for couples (Young et al., 2003); managing splitting, projective identification, and intense transference. Longer treatment duration (30–50 sessions). Emphasis on therapist self-care and supervision.</p>
+
+<h3>A.4 Domestic Violence Risk Assessment (DVRA)</h3>
+<p>DASH-RIC checklist; safety planning; when to refer vs. when to intervene; coordinating with legal services and women's helplines (Women Helpline 181; NCW complaint portal).</p>
+
+<h3>A.5 Suicide Risk in Couple Therapy</h3>
+<p>Couples in acute distress have elevated suicide risk. Protocols: assess individually; involve partner in safety planning; collaborative safety planning (Stanley &amp; Brown, 2012); know when to escalate to crisis services (Vandrevala Foundation Helpline: 1860-2662-345; iCall: 9152987821).</p>
+
+<h3>A.6 Integrating Individual and Couple Therapy</h3>
+<p>When to recommend individual therapy alongside couple work. Coordination between therapists. Common scenarios: individual trauma processing, personality disorder treatment, substance use treatment, depression/anxiety management.</p>
+
+<h3>A.7 High-Net-Worth Family Conflict</h3>
+<p>Unique dynamics: prenuptial agreements, family business succession, lifestyle differences, power imbalances due to wealth disparity, privacy concerns, involving financial advisors.</p>
+
+<h3>A.8 Technology in Couple Therapy Practice</h3>
+<p>Teletherapy best practices; apps for between-session work (Gottman Card Deck app, Lasting app); AI-assisted documentation; maintaining therapeutic relationship in online format; managing emergencies in teletherapy.</p>
+
+<h3>A.9 Building a Couple Therapy Private Practice in India</h3>
+<p>Market analysis; positioning and niche; fee structure (metro vs. tier-2 cities); networking with referral sources (lawyers, doctors, schools); online presence; ethical marketing; managing a wait list; hiring associate therapists; continuing education and certification.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- APPENDIX B: COMPLETE RECOMMENDED READING LIST -->
+<!-- ============================================================ -->
+<div class="module" id="appendix-b">
+<h2>APPENDIX B: Recommended Core Readings</h2>
+
+<h3>Essential Textbooks</h3>
+<ol>
+    <li>Gurman, A. S., Lebow, J. L., &amp; Snyder, D. K. (Eds.). (2015). <em>Clinical handbook of couple therapy</em> (5th ed.). Guilford Press.</li>
+    <li>Harway, M. (Ed.). (2005). <em>Handbook of couples therapy</em>. John Wiley &amp; Sons.</li>
+    <li>Nichols, M. P., &amp; Davis, S. D. (2017). <em>Family therapy: Concepts and methods</em> (11th ed.). Pearson.</li>
+    <li>Johnson, S. M. (2019). <em>Attachment theory in practice: EFT with individuals, couples, and families</em>. Guilford Press.</li>
+    <li>Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton.</li>
+    <li>Christensen, A., Doss, B. D., &amp; Jacobson, N. S. (2016). <em>Integrative behavioral couple therapy</em> (2nd ed.). W. W. Norton.</li>
+    <li>Epstein, N. B., &amp; Baucom, D. H. (2002). <em>Enhanced cognitive-behavioral therapy for couples</em>. American Psychological Association.</li>
+</ol>
+
+<h3>Essential Clinical Books</h3>
+<ol>
+    <li>Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown Publishers.</li>
+    <li>Gottman, J. M. (2011). <em>The science of trust: Emotional attunement for couples</em>. W. W. Norton.</li>
+    <li>Johnson, S. M. (2008). <em>Hold me tight: Seven conversations for a lifetime of love</em>. Little, Brown.</li>
+    <li>Johnson, S. M. (2002). <em>Emotionally focused couple therapy with trauma survivors</em>. Guilford Press.</li>
+    <li>Doherty, W. J., &amp; Harris, S. M. (2017). <em>Helping couples on the brink of divorce</em>. American Psychological Association.</li>
+    <li>McGoldrick, M., Gerson, R., &amp; Petry, S. (2020). <em>Genograms: Assessment and treatment</em> (4th ed.). W. W. Norton.</li>
+    <li>Spring, J. A. (2012). <em>After the affair</em> (2nd ed.). William Morrow.</li>
+    <li>Wallin, D. J. (2007). <em>Attachment in psychotherapy</em>. Guilford Press.</li>
+    <li>Perel, E. (2017). <em>The state of affairs: Rethinking infidelity</em>. Harper.</li>
+</ol>
+
+<h3>Indian Context Resources</h3>
+<ol>
+    <li>Carson, D. K., &amp; Chowdhury, A. (2009). Counseling and family therapy in India. <em>International Journal for the Advancement of Counselling, 22</em>(1), 49–69.</li>
+    <li>Jhamb, S., et al. (2024). Family therapy in India: Evolution, challenges, and future directions. <em>The Family Journal, 32</em>(4), 512–528.</li>
+    <li>Malhotra, S., &amp; Shah, R. (2018). Marriage counsellors' reflections on the counselling process in family courts in India. <em>Psychological Studies, 63</em>(4), 358–365.</li>
+    <li>Sawant, N. (2023). A narrative review on sexual wellbeing and dysfunctions: Research in the past 15 years. <em>Indian Journal of Psychiatry, 65</em>(Suppl 2), S234–S243.</li>
+</ol>
+
+<h3>Assessment Tools References</h3>
+<ol>
+    <li>Spanier, G. B. (1976). Dyadic Adjustment Scale (DAS). <em>Journal of Marriage and the Family, 38</em>(1), 15–28.</li>
+    <li>Funk, J. L., &amp; Rogge, R. D. (2007). Couple Satisfaction Index (CSI). <em>Journal of Family Psychology, 21</em>(4), 572–583.</li>
+    <li>Brennan, K. A., et al. (1998). Experiences in Close Relationships Scale (ECR).</li>
+    <li>Olson, D. H., et al. (1987). ENRICH Couple Inventory.</li>
+    <li>Straus, M. A., et al. (1996). Conflict Tactics Scale–Revised (CTS-2).</li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- APPENDIX C: COMPLETE REFERENCE LIST -->
+<!-- ============================================================ -->
+<div class="module" id="appendix-c">
+<h2>APPENDIX C: Complete Reference List (APA 7th Edition)</h2>
+
+<div class="references-section">
+<p class="reference">American Psychological Association. (2017). <em>Ethical principles of psychologists and code of conduct</em>. https://www.apa.org/ethics/code</p>
+<p class="reference">Babcock, J. C., Gottman, J. M., Ryan, K. D., &amp; Gottman, J. S. (2013). A component analysis of a brief psycho-educational couples' workshop: One-year follow-up results. <em>Journal of Family Therapy, 35</em>(3), 252–280. https://doi.org/10.1111/1467-6427.12003</p>
+<p class="reference">Basson, R. (2000). The female sexual response: A different model. <em>Journal of Sex &amp; Marital Therapy, 26</em>(1), 51–65. https://doi.org/10.1080/009262300278641</p>
+<p class="reference">Baucom, D. H., Fischer, M. S., Worrell, M., Corrie, S., Belus, J. M., Mooney, S. E., &amp; Boeding, S. E. (2017). Couple-based intervention for depression: An effectiveness study in the National Health Service in England. <em>Family Process, 57</em>(2), 417–433. https://doi.org/10.1111/famp.12332</p>
+<p class="reference">Bowen, M. (1978). <em>Family therapy in clinical practice</em>. Jason Aronson.</p>
+<p class="reference">Bowlby, J. (1969). <em>Attachment and loss: Vol. 1. Attachment</em>. Basic Books.</p>
+<p class="reference">Bowlby, J. (1973). <em>Attachment and loss: Vol. 2. Separation: Anxiety and anger</em>. Basic Books.</p>
+<p class="reference">Brennan, K. A., Clark, C. L., &amp; Shaver, P. R. (1998). Self-report measurement of adult attachment. In J. A. Simpson &amp; W. S. Rholes (Eds.), <em>Attachment theory and close relationships</em> (pp. 46–76). Guilford Press.</p>
+<p class="reference">Brown, J. (2024). Bowen family systems theory and practice: Illustration and critique revisited. <em>Family Process, 63</em>(2), 498–515. https://doi.org/10.1111/famp.12978</p>
+<p class="reference">Busby, D. M., Christensen, C., Crane, D. R., &amp; Larson, J. H. (1995). A revision of the Dyadic Adjustment Scale. <em>Journal of Marital and Family Therapy, 21</em>(3), 289–308. https://doi.org/10.1111/j.1752-0606.1995.tb00163.x</p>
+<p class="reference">Carson, D. K., &amp; Chowdhury, A. (2009). Counseling and family therapy in India: Evolving professions in a rapidly developing nation. <em>International Journal for the Advancement of Counselling, 22</em>(1), 49–69. https://doi.org/10.1023/A:1005468719768</p>
+<p class="reference">Christensen, A., Atkins, D. C., Baucom, B., &amp; Yi, J. (2010). Marital status and satisfaction five years following a randomized clinical trial. <em>Journal of Consulting and Clinical Psychology, 78</em>(2), 225–235. https://doi.org/10.1037/a0018132</p>
+<p class="reference">Christensen, A., Doss, B. D., &amp; Jacobson, N. S. (2016). <em>Integrative behavioral couple therapy: A therapist's guide</em> (2nd ed.). W. W. Norton.</p>
+<p class="reference">Doherty, W. J., &amp; Harris, S. M. (2017). <em>Helping couples on the brink of divorce: Discernment counseling for troubled relationships</em>. American Psychological Association.</p>
+<p class="reference">Epstein, N. B., &amp; Baucom, D. H. (2002). <em>Enhanced cognitive-behavioral therapy for couples: A contextual approach</em>. American Psychological Association.</p>
+<p class="reference">Falender, C. A., &amp; Shafranske, E. P. (2004). <em>Clinical supervision: A competency-based approach</em>. American Psychological Association.</p>
+<p class="reference">Funk, J. L., &amp; Rogge, R. D. (2007). Testing the ruler with item response theory. <em>Journal of Family Psychology, 21</em>(4), 572–583. https://doi.org/10.1037/0893-3200.21.4.572</p>
+<p class="reference">Gottman, J. M. (1994). <em>What predicts divorce?</em> Lawrence Erlbaum Associates.</p>
+<p class="reference">Gottman, J. M. (1999). <em>The marriage clinic: A scientifically based marital therapy</em>. W. W. Norton.</p>
+<p class="reference">Gottman, J. M. (2011). <em>The science of trust: Emotional attunement for couples</em>. W. W. Norton.</p>
+<p class="reference">Gottman, J. M., &amp; Gottman, J. S. (2015). <em>10 principles for doing effective couples therapy</em>. W. W. Norton.</p>
+<p class="reference">Gottman, J. M., &amp; Silver, N. (1999). <em>The seven principles for making marriage work</em>. Crown Publishers.</p>
+<p class="reference">Gottman, J. M., Gottman, J. S., Cole, C., &amp; Preciado, M. (2022). Validating the Trust Revival Method for affair recovery. <em>Journal of Marital and Family Therapy, 48</em>(1), 88–108. https://doi.org/10.1111/jmft.12573</p>
+<p class="reference">Gross, J. J. (1998). The emerging field of emotion regulation. <em>Review of General Psychology, 2</em>(3), 271–299. https://doi.org/10.1037/1089-2680.2.3.271</p>
+<p class="reference">Gurman, A. S., Lebow, J. L., &amp; Snyder, D. K. (Eds.). (2015). <em>Clinical handbook of couple therapy</em> (5th ed.). Guilford Press.</p>
+<p class="reference">Haley, J. (1976). <em>Problem-solving therapy</em>. Jossey-Bass.</p>
+<p class="reference">Harway, M. (Ed.). (2005). <em>Handbook of couples therapy</em>. John Wiley &amp; Sons.</p>
+<p class="reference">Hazan, C., &amp; Shaver, P. (1987). Romantic love conceptualized as an attachment process. <em>Journal of Personality and Social Psychology, 52</em>(3), 511–524. https://doi.org/10.1037/0022-3514.52.3.511</p>
+<p class="reference">Jacobson, N. S., &amp; Margolin, G. (1979). <em>Marital therapy: Strategies based on social learning</em>. Brunner/Mazel.</p>
+<p class="reference">Jhamb, S., Kolte, A., Prashanth, A., Roy, A. S., Roy, H., Maheshwari, K., Mathur, P., Raj, R. K., Abhyankar, S., &amp; Rani, A. (2024). Family therapy in India: Evolution, challenges, and future directions. <em>The Family Journal, 32</em>(4), 512–528. https://doi.org/10.1177/10664807241269544</p>
+<p class="reference">Johnson, S. M. (2002). <em>Emotionally focused couple therapy with trauma survivors</em>. Guilford Press.</p>
+<p class="reference">Johnson, S. M. (2008). <em>Hold me tight: Seven conversations for a lifetime of love</em>. Little, Brown.</p>
+<p class="reference">Johnson, S. M. (2019). <em>Attachment theory in practice: EFT with individuals, couples, and families</em>. Guilford Press.</p>
+<p class="reference">Kalra, G., et al. (2025). Protocol for a combined MI and BCT intervention in south India. <em>PLOS ONE, 20</em>(1), e0335332. https://doi.org/10.1371/journal.pone.0335332</p>
+<p class="reference">Kaplan, H. S. (1979). <em>Disorders of sexual desire</em>. Simon &amp; Schuster.</p>
+<p class="reference">Karney, B. R., &amp; Bradbury, T. N. (1995). The longitudinal course of marital quality and stability. <em>Psychological Bulletin, 118</em>(1), 3–34. https://doi.org/10.1037/0033-2909.118.1.3</p>
+<p class="reference">Kumar, P., et al. (2024). Unveiling the emotional terrain of infertile couples in India. <em>Human Arenas, 8</em>(2), 215–240. https://doi.org/10.1007/s42087-024-00470-x</p>
+<p class="reference">Lerner, H. (2017). <em>Why won't you apologize?</em> Gallery Books.</p>
+<p class="reference">Malhotra, S., &amp; Shah, R. (2018). Marriage counsellors' reflections in family courts in India. <em>Psychological Studies, 63</em>(4), 358–365. https://doi.org/10.1007/s12646-018-0460-z</p>
+<p class="reference">Markman, H. J., Stanley, S. M., &amp; Blumberg, S. L. (2010). <em>Fighting for your marriage</em> (3rd ed.). Jossey-Bass.</p>
+<p class="reference">Masters, W. H., &amp; Johnson, V. E. (1966). <em>Human sexual response</em>. Little, Brown.</p>
+<p class="reference">McGoldrick, M., Gerson, R., &amp; Petry, S. (2020). <em>Genograms: Assessment and treatment</em> (4th ed.). W. W. Norton.</p>
+<p class="reference">Meyer, I. H. (2003). Prejudice, social stress, and mental health in LGB populations. <em>Psychological Bulletin, 129</em>(5), 674–697. https://doi.org/10.1037/0033-2909.129.5.674</p>
+<p class="reference">Minuchin, S. (1974). <em>Families and family therapy</em>. Harvard University Press.</p>
+<p class="reference">Monson, C. M., &amp; Fredman, S. J. (2012). <em>Cognitive-behavioral conjoint therapy for PTSD</em>. Guilford Press.</p>
+<p class="reference">Nichols, M. P., &amp; Davis, S. D. (2017). <em>Family therapy: Concepts and methods</em> (11th ed.). Pearson.</p>
+<p class="reference">O'Farrell, T. J., &amp; Fals-Stewart, W. (2006). <em>Behavioral couples therapy for alcoholism and drug abuse</em>. Guilford Press.</p>
+<p class="reference">Olson, D. H., Fournier, D. G., &amp; Druckman, J. M. (1987). <em>ENRICH: Enriching and nurturing relationship issues, communication, and happiness</em>. PREPARE/ENRICH, Inc.</p>
+<p class="reference">Pharoah, F., Mari, J. J., Rathbone, J., &amp; Wong, W. (2010). Family intervention for schizophrenia. <em>Cochrane Database of Systematic Reviews</em>, (12). https://doi.org/10.1002/14651858.CD000088.pub2</p>
+<p class="reference">Pinsof, W. M. (1994). An integrative systems perspective on the therapeutic alliance. In A. O. Horvath &amp; L. S. Greenberg (Eds.), <em>The working alliance</em> (pp. 173–195). Wiley.</p>
+<p class="reference">Satir, V. (1988). <em>The new peoplemaking</em>. Science and Behavior Books.</p>
+<p class="reference">Sawant, N. (2023). Sexual wellbeing and dysfunctions in the past 15 years. <em>Indian Journal of Psychiatry, 65</em>(Suppl 2), S234–S243.</p>
+<p class="reference">Scharff, D. E., &amp; Scharff, J. S. (2014). <em>Psychoanalytic couple therapy</em>. Karnac Books.</p>
+<p class="reference">Shapiro, A. F., Gottman, J. M., &amp; Fink, B. C. (2015). Short-term change in couples' conflict. <em>Couple and Family Psychology, 4</em>(4), 239–251. https://doi.org/10.1037/cfp0000051</p>
+<p class="reference">Snyder, D. K. (1997). <em>Marital Satisfaction Inventory–Revised manual</em>. Western Psychological Services.</p>
+<p class="reference">Snyder, D. K., Heyman, R. E., &amp; Haynes, S. N. (2005). Evidence-based approaches to assessing couple distress. <em>Psychological Assessment, 17</em>(3), 288–307. https://doi.org/10.1037/1040-3590.17.3.288</p>
+<p class="reference">Spanier, G. B. (1976). Measuring dyadic adjustment. <em>Journal of Marriage and the Family, 38</em>(1), 15–28. https://doi.org/10.2307/350547</p>
+<p class="reference">Spring, J. A. (2012). <em>After the affair</em> (2nd ed.). William Morrow.</p>
+<p class="reference">Sprenkle, D. H., Davis, S. D., &amp; Lebow, J. L. (2009). <em>Common factors in couple and family therapy</em>. Guilford Press.</p>
+<p class="reference">Sternberg, R. J. (1986). A triangular theory of love. <em>Psychological Review, 93</em>(2), 119–135. https://doi.org/10.1037/0033-295X.93.2.119</p>
+<p class="reference">Straus, M. A., Hamby, S. L., Boney-McCoy, S., &amp; Sugarman, D. B. (1996). The Revised Conflict Tactics Scales. <em>Journal of Family Issues, 17</em>(3), 283–316. https://doi.org/10.1177/019251396017003001</p>
+<p class="reference">Sue, D. W., &amp; Sue, D. (2019). <em>Counseling the culturally diverse</em> (8th ed.). Wiley.</p>
+<p class="reference">von Bertalanffy, L. (1968). <em>General system theory</em>. George Braziller.</p>
+<p class="reference">Wallin, D. J. (2007). <em>Attachment in psychotherapy</em>. Guilford Press.</p>
+<p class="reference">Weiner, L., &amp; Avery-Clark, C. (2017). <em>Sensate focus in sex therapy</em>. Routledge.</p>
+<p class="reference">White, M., &amp; Epston, D. (1990). <em>Narrative means to therapeutic ends</em>. W. W. Norton.</p>
+<p class="reference">Wiebe, S. A., Johnson, S. M., Burgess Moser, M., Dalgleish, T. L., &amp; Tasca, G. A. (2024). A comprehensive meta-analysis on EFT efficacy. <em>Couple and Family Psychology, 13</em>(1), 45–63. https://doi.org/10.1037/cfp0000233</p>
+<p class="reference">Zahl-Olsen, R., Thuen, F., &amp; Bertelsen, T. B. (2024). Effectiveness of the Gottman Seven Principles Program. <em>Journal of Marital and Family Therapy, 50</em>(2), 312–330. https://doi.org/10.1111/jmft.12678</p>
+</div>
+
+<p style="margin-top:40px; text-align:center; font-style:italic; color:#888;">
+    — End of Workbook —<br>
+    <strong>Couple &amp; Marriage Therapy in India: A Comprehensive Clinical Training Workbook</strong><br>
+    Designed for MPhil Clinical Psychology Training | Evidence-Based | Culturally Adapted<br>
+    <small>Content was rephrased for compliance with licensing restrictions. All sources cited in APA 7th Edition format.</small>
+</p>
+</div>
+
+</div><!-- end container -->
+</body>
+</html>
