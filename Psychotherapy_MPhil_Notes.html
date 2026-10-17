@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.Phil Clinical Psychology — Psychotherapy Notes (Units I–IV)</title>
+<style>
+  :root{
+    --ink:#1b2430; --muted:#5b6b7b; --accent:#1d5c8f; --accent2:#0f7b6c;
+    --warn:#8a5a00; --warnbg:#fff6e5; --suppbg:#eef5fb; --srcbg:#eef9f4;
+    --line:#dfe6ee; --tablehead:#1d5c8f; --code:#f4f6f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);
+    line-height:1.65;background:#fbfcfd;font-size:17px}
+  .wrap{display:flex;max-width:1500px;margin:0 auto}
+  nav{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;
+    width:310px;min-width:310px;padding:18px 14px;background:#12304a;color:#dce6f0;
+    font-family:"Segoe UI",Arial,sans-serif;font-size:13.5px}
+  nav h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#9fc3e0;margin:14px 0 6px}
+  nav a{display:block;color:#cdddea;text-decoration:none;padding:3px 8px;border-radius:5px;margin:1px 0}
+  nav a:hover{background:#1d4a6e;color:#fff}
+  nav a.sub{padding-left:20px;font-size:12.8px;color:#a9c4d8}
+  nav .lead{font-size:12px;color:#7fa6c4;margin-bottom:10px}
+  main{flex:1;padding:34px 48px 120px;max-width:1050px;min-width:0}
+  h1{font-size:30px;line-height:1.25;color:var(--accent);margin:0 0 6px}
+  h2.unit{font-size:25px;color:#fff;background:linear-gradient(100deg,#12304a,#1d5c8f);
+    padding:12px 18px;border-radius:8px;margin:52px 0 18px;scroll-margin-top:12px}
+  h3{font-size:22px;color:var(--accent);border-bottom:2px solid var(--line);
+    padding-bottom:5px;margin:38px 0 12px;scroll-margin-top:12px}
+  h4{font-size:18.5px;color:var(--accent2);margin:24px 0 8px}
+  h5{font-size:16.5px;color:var(--ink);margin:18px 0 6px;font-variant:small-caps;letter-spacing:.03em}
+  p{margin:10px 0}
+  ul,ol{margin:8px 0 12px;padding-left:26px}
+  li{margin:5px 0}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:15px;
+    font-family:"Segoe UI",Arial,sans-serif}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:var(--tablehead);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:#f5f8fb}
+  .tag{display:inline-block;font-family:"Segoe UI",Arial,sans-serif;font-size:11px;
+    font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:11px;vertical-align:middle}
+  .tag-src{background:#0f7b6c;color:#fff}
+  .tag-supp{background:#1d5c8f;color:#fff}
+  .tag-gap{background:#8a5a00;color:#fff}
+  .box{border-left:5px solid var(--accent);background:#f3f7fb;border-radius:0 8px 8px 0;
+    padding:12px 16px;margin:16px 0;font-family:"Segoe UI",Arial,sans-serif;font-size:15px}
+  .box.supp{border-color:var(--accent);background:var(--suppbg)}
+  .box.src{border-color:var(--accent2);background:var(--srcbg)}
+  .box.warn{border-color:#c08a1e;background:var(--warnbg)}
+  .box .bt{font-weight:700;display:block;margin-bottom:4px;font-size:13px;letter-spacing:.03em;text-transform:uppercase}
+  .vignette{border:1px dashed #9bb6cc;background:#f7fbff;padding:12px 16px;border-radius:8px;
+    margin:16px 0;font-size:15.5px}
+  .vignette .vt{font-weight:700;color:var(--accent);font-family:"Segoe UI",Arial,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .dialogue{font-family:"Segoe UI",Arial,sans-serif;font-size:14.5px;background:#fcfdfe;border:1px solid var(--line);border-radius:8px;padding:6px 0;margin:14px 0}
+  .dialogue table{margin:0;border:0}
+  .dialogue td{border:0;border-bottom:1px solid #eef2f6;padding:7px 12px}
+  .dialogue .who{font-weight:700;white-space:nowrap;width:95px;color:var(--ink)}
+  .dialogue .skill{color:var(--accent2);font-style:italic;width:220px;font-size:13px}
+  .exam{border:1px solid #c9d8e6;border-radius:8px;background:#f1f6fb;padding:4px 18px 14px;margin:22px 0;font-family:"Segoe UI",Arial,sans-serif;font-size:15px}
+  .exam h4{color:#12304a;margin-top:14px}
+  .cite{color:var(--muted);font-size:14.5px}
+  .ref{font-family:"Segoe UI",Arial,sans-serif;font-size:13.5px;text-indent:-26px;padding-left:26px;margin:7px 0;color:#2a3542}
+  code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:14px}
+  .legend{font-family:"Segoe UI",Arial,sans-serif;font-size:14px;display:flex;gap:18px;flex-wrap:wrap;margin:14px 0}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .toc-top{columns:2;column-gap:30px;font-family:"Segoe UI",Arial,sans-serif;font-size:14.5px}
+  .toc-top a{color:var(--accent);text-decoration:none}
+  .toc-top a:hover{text-decoration:underline}
+  details{margin:10px 0;border:1px solid var(--line);border-radius:8px;padding:4px 14px;background:#fff}
+  summary{cursor:pointer;font-weight:600;color:var(--accent);font-family:"Segoe UI",Arial,sans-serif}
+  .meta{color:var(--muted);font-size:14.5px;font-family:"Segoe UI",Arial,sans-serif}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .pill{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;background:#e7eff6;color:#12304a;border-radius:10px;padding:2px 9px;margin-right:5px}
+  @media(max-width:980px){.wrap{flex-direction:column}nav{position:relative;width:100%;height:auto;min-width:0}main{padding:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="lead">M.Phil Clinical Psychology<br>Psychotherapy — Units I–IV</div>
+  <a href="#about">About these notes</a>
+  <a href="#howto">How to read (tags)</a>
+  <a href="#sources">Source inventory</a>
+  <a href="#mapping">Syllabus → source map</a>
+  <a href="#gaps">Coverage gaps</a>
+
+  <h2>Unit I — Introduction</h2>
+  <a class="sub" href="#u1-1">1. Definition &amp; nature</a>
+  <a class="sub" href="#u1-2">2. Scope, objectives, goals</a>
+  <a class="sub" href="#u1-3">3. Outcome factors</a>
+  <a class="sub" href="#u1-4">4. Training, competence, supervision</a>
+  <a class="sub" href="#u1-5">5. Ethics &amp; moral principles</a>
+  <a class="sub" href="#u1-6">6. Legal issues &amp; cases</a>
+  <a class="sub" href="#u1-7">7. Rights &amp; responsibilities</a>
+  <a class="sub" href="#u1-8">8. Informed consent &amp; confidentiality</a>
+  <a class="sub" href="#u1-9">9. Boundaries &amp; documentation</a>
+  <a class="sub" href="#u1-10">10. Structure of sessions</a>
+  <a class="sub" href="#u1-11">11. Assessment &amp; formulation</a>
+  <a class="sub" href="#u1-12">12. EBP &amp; the four waves</a>
+  <a class="sub" href="#u1-13">13. Psychotherapy in India</a>
+
+  <h2>Unit II — Relationship</h2>
+  <a class="sub" href="#u2-1">1. Nature &amp; importance</a>
+  <a class="sub" href="#u2-2">2. Therapeutic alliance</a>
+  <a class="sub" href="#u2-3">3. Client characteristics</a>
+  <a class="sub" href="#u2-4">4. Therapist characteristics</a>
+  <a class="sub" href="#u2-5">5. Core conditions</a>
+  <a class="sub" href="#u2-6">6. Transference / countertransference</a>
+  <a class="sub" href="#u2-7">7. Resistance, trust, motivation</a>
+  <a class="sub" href="#u2-8">8. Contextual factors</a>
+  <a class="sub" href="#u2-9">9. Ruptures &amp; repair</a>
+
+  <h2>Unit III — Interviewing</h2>
+  <a class="sub" href="#u3-1">1. Objectives &amp; functions</a>
+  <a class="sub" href="#u3-2">2. Types of interview</a>
+  <a class="sub" href="#u3-3">3. Microskills</a>
+  <a class="sub" href="#u3-4">4. Silence &amp; non-verbal</a>
+  <a class="sub" href="#u3-5">5. Rapport &amp; attending</a>
+  <a class="sub" href="#u3-6">6. Errors &amp; biases</a>
+  <a class="sub" href="#u3-7">7. Labelled dialogues</a>
+
+  <h2>Unit IV — Affective Therapies</h2>
+  <a class="sub" href="#u4-0">Overview: affective theory</a>
+  <a class="sub" href="#u4-1">1. Psychodynamic</a>
+  <a class="sub" href="#u4-2">2. Brief psychotherapy</a>
+  <a class="sub" href="#u4-3">3. Humanistic</a>
+  <a class="sub" href="#u4-4">4. Existential</a>
+  <a class="sub" href="#u4-5">5. Gestalt</a>
+  <a class="sub" href="#u4-6">6. Person-centred</a>
+  <a class="sub" href="#u4-7">7. Adlerian</a>
+  <a class="sub" href="#u4-8">8. Transactional analysis</a>
+  <a class="sub" href="#u4-9">9. Reality therapy</a>
+  <a class="sub" href="#u4-10">10. Supportive</a>
+  <a class="sub" href="#u4-11">11. Clinical hypnotherapy</a>
+  <a class="sub" href="#u4-12">12. Play therapy</a>
+  <a class="sub" href="#u4-13">13. Psychodrama</a>
+  <a class="sub" href="#u4-14">14. Yoga</a>
+  <a class="sub" href="#u4-15">15. Meditation</a>
+  <a class="sub" href="#u4-16">16. Shavasana</a>
+  <a class="sub" href="#u4-17">17. Pranic healing</a>
+  <a class="sub" href="#u4-18">18. Reiki</a>
+  <a class="sub" href="#u4-19">19. Tai chi</a>
+
+  <h2>Comparisons &amp; Revision</h2>
+  <a class="sub" href="#tables">Master comparison tables</a>
+  <a class="sub" href="#references">References</a>
+</nav>
+
+<main>
+<h1>Psychotherapy — Comprehensive Examination Notes</h1>
+<p class="meta">M.Phil Clinical Psychology · Units I–IV · Prepared primarily from the three supplied sources, with clearly-labelled supplementary material. Last compiled October 2026.</p>
+
+<section id="about">
+<h3 style="margin-top:20px">About these notes</h3>
+<p>These notes are built <strong>primarily from the material you supplied</strong>: the Unit I introduction document and two psychotherapy PDFs. They are organised to follow your four-unit syllabus exactly and to support long- and short-answer M.Phil examination writing. Theories, concepts, techniques and procedures are <em>explained</em> (not merely listed), with clinical examples, comparison tables and source-based citations.</p>
+<p>Where the supplied material was insufficient, incomplete, or (in the case of the Unit IV PDF) partly obscured by font-encoding problems during text extraction, I have added <strong>clearly-labelled supplementary content</strong> from standard authoritative psychotherapy knowledge, and <strong>flagged genuine gaps</strong>. Nothing is presented as coming from your sources unless it does.</p>
+</section>
+
+<section id="howto">
+<h3>How to read these notes — provenance tags</h3>
+<p>Every substantial block is tagged so you can see exactly where information comes from:</p>
+<div class="legend">
+  <span><span class="tag tag-src">FROM SOURCES</span> stated in / synthesised from your supplied material</span>
+  <span><span class="tag tag-supp">SUPPLEMENTARY</span> standard authoritative knowledge added to fill a thin area</span>
+  <span><span class="tag tag-gap">GAP / VERIFY</span> your sources do not cover this adequately; verify against a primary source</span>
+</div>
+<div class="box warn"><span class="bt">Honesty note on the Unit IV PDF</span>
+Your file <em>“Unit 4 – Affective Therapies.pdf”</em> uses embedded custom fonts; automated text extraction recovered most prose but corrupted some headings and scattered words. I reconstructed the Unit IV chapters from the <strong>recoverable source text</strong> plus standard knowledge, and have marked anything I could not confirm verbatim from your file. I have <strong>not</strong> fabricated references, dates, or findings.</div>
+</section>
+
+<section id="sources">
+<h3>1. Source inventory — what each source covers</h3>
+<table>
+<thead><tr><th style="width:150px">Source</th><th style="width:95px">Format</th><th>Topics covered (as actually present in the file)</th></tr></thead>
+<tbody>
+<tr><td><strong>S1</strong><br>unit1-Introduction to Psychotherapy</td><td>DOCX<br><span class="pill">clean</span></td>
+<td>Definitions (Tuke 1872; Wolberg 1967; Frank &amp; Frank 1991); objectives &amp; goals; outcome factors (Eysenck 1952; patient &amp; therapist variables); code of ethics; ethics in <em>training</em> therapists; ethical &amp; legal issues (Barnett 2008; six moral principles); competence; therapist responsibilities; therapeutic contract; confidentiality &amp; exceptions; informed consent; boundaries; termination &amp; post-termination; documentation &amp; record-keeping; client rights; structure of therapy (Wolberg phases); booster sessions; assessment &amp; formulation; the four “waves”; psychodynamic/behavioural/CBT/ACT/DBT/MBCT/schema/SFBT/play/MET with RCTs; psychotherapy in India. APA-referenced.</td></tr>
+<tr><td><strong>S2</strong><br>notes of psychotherapies</td><td>PDF<br><span class="pill">good</span></td>
+<td>Unit I (Norcross 1990 definition; four common factors; Kleinke 1994 six goals; Smith et al. 1980); ethics, boundaries, informed consent, confidentiality with <strong>legal cases</strong> (Jaffe v. Redmond 1996; Tarasoff); Tjelveit’s 14 approaches to ethical reasoning; therapeutic relationship, transference/countertransference; <strong>Unit III interviewing</strong>; <strong>Unit IV</strong> affective therapies.</td></tr>
+<tr><td><strong>S3</strong><br>Unit 4 – Affective Therapies</td><td>PDF<br><span class="pill" style="background:#f6e2c8;color:#8a5a00">noisy</span></td>
+<td>Dedicated treatment of all 19 Unit IV approaches: affective counselling theory; brief psychotherapy (Sifneos, Malan, Mann, Davanloo, Beck); humanistic; existential; gestalt; person-centred; Adlerian; transactional analysis; reality therapy; supportive; hypnotherapy; play therapy; psychodrama (Moreno); yoga; meditation; shavasana; pranic healing; Reiki (Usui); tai chi.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="mapping">
+<h3>2. Syllabus → source mapping</h3>
+<table>
+<thead><tr><th>Syllabus unit / area</th><th>Primary source</th><th>Support</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Unit I — definition, nature, scope, objectives, goals</td><td>S1</td><td>S2</td><td>✅ Full</td></tr>
+<tr><td>Unit I — training, competence, supervision</td><td>S1</td><td>—</td><td>✅ Full</td></tr>
+<tr><td>Unit I — ethics, law, consent, confidentiality, boundaries, records</td><td>S1 + S2</td><td>—</td><td>✅ Full (Indian statutes added as supplementary)</td></tr>
+<tr><td>Unit I — session structure, goal-setting, formulation, assessment, EBP</td><td>S1</td><td>S2</td><td>✅ Full</td></tr>
+<tr><td>Unit II — alliance, transference/countertransference, client/therapist variables, core conditions</td><td>S2</td><td>S1</td><td>◑ Mostly (ruptures/repair, Bordin added)</td></tr>
+<tr><td>Unit III — objectives, types, microskills, rapport, errors</td><td>S2</td><td>S1</td><td>◑ Partial (microskills taxonomy &amp; dialogues supplemented)</td></tr>
+<tr><td>Unit IV — all 19 affective therapies</td><td>S3</td><td>S2, S1</td><td>✅ Present (complementary-practice evidence treated cautiously)</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="gaps">
+<h3>3. Syllabus areas not adequately covered by your sources</h3>
+<div class="box warn"><span class="bt">Flagged gaps — supplemented &amp; labelled, or marked for your verification</span>
+<ol>
+<li><strong>Current Indian legal/professional provisions</strong> (Mental Healthcare Act 2017; Rehabilitation Council of India; professional-body codes). Your sources discuss ethics and “psychotherapy in India” generally but not the current statutes. <span class="tag tag-supp">SUPPLEMENTARY</span> added with jurisdiction &amp; dates; <span class="tag tag-gap">VERIFY</span> against the bare Act before an exam.</li>
+<li><strong>Alliance ruptures &amp; repair; Bordin’s tripartite alliance model</strong> — only lightly present. Supplemented and labelled.</li>
+<li><strong>A full interviewing-microskills taxonomy and labelled therapist–client dialogues</strong> — your Unit III source is brief. I supply labelled teaching dialogues (<span class="tag tag-supp">SUPPLEMENTARY</span>).</li>
+<li><strong>Pranic healing &amp; shavasana detail</strong> — present in S3 but partly obscured by extraction noise; reconstructed from recoverable text + labelled supplementary.</li>
+<li><strong>Verbatim fidelity for parts of the Unit IV PDF</strong> — see honesty note above.</li>
+</ol>
+</div>
+</section>
+
+<section id="plan" class="box"><span class="bt">4. Chapter plan (this document)</span>
+Cover &amp; checklist → <strong>Unit I</strong> (13 topics) → <strong>Unit II</strong> (9 topics) → <strong>Unit III</strong> (interviewing + labelled dialogues) → <strong>Unit IV</strong> (19 therapy chapters, each on the A–S template) → master comparison tables → consolidated references. Exam-revision boxes appear throughout.
+</section>
+
+<!-- ============================= UNIT I ============================= -->
+<h2 class="unit" id="unit1">UNIT I — Introduction to Psychotherapy</h2>
+
+<h3 id="u1-1">1. Definition and nature of psychotherapy</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> The word <em>psychotherapy</em> has Greek roots — <em>psyche</em> (mind/soul) and <em>therapeutikos</em> (healing/attending to). <strong>Daniel Hack Tuke</strong> first used “psychotherapeutics” in <strong>1872</strong>, and in his dictionary (<strong>Tuke, 1892</strong>) defined psychotherapy as <em>“treatment of disease by the influence of the mind on the body.”</em> Historically, Breuer’s patient <strong>Anna O.</strong> is credited with coining the phrase <em>“talking cure.”</em> (S1, S2)</p>
+
+<p>Traditionally the term refers to the treatment of mental disorders by <strong>psychological techniques within a client–therapist relationship</strong>. Three classic definitions anchor the concept:</p>
+<ul>
+<li><strong>Wolberg (1967):</strong> psychotherapy is <em>“a form of treatment for problems of an emotional nature in which a trained person deliberately establishes a professional relationship with a patient for the purpose of (a) removing, modifying or retarding existing symptoms, (b) mediating disturbed patterns of behaviour, and (c) promoting positive personality growth and development.”</em> <span class="cite">(S1)</span></li>
+<li><strong>Frank &amp; Frank (1991):</strong> psychotherapy comprises three components — <em>a healing agent, a sufferer, and a healing (therapeutic) relationship</em>. <span class="cite">(S1)</span></li>
+<li><strong>Norcross (1990):</strong> the informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles, to assist people to modify their behaviours, cognitions, emotions and other personal characteristics in directions the participants deem desirable. <span class="cite">(S2)</span></li>
+</ul>
+<p><span class="tag tag-src">FROM SOURCES</span> The <strong>mutual cognitive and emotional engagement</strong> of client and therapist is the foundation of effective work (S1). Psychotherapy is a <strong>unilateral professional relationship</strong>, circumscribed by limits on time, frequency, content and intimacy; confidentiality is assured (within ethical/legal limits); and it must not be compromised by unethical dual relationships (S2). An extensive review concluded that roughly <strong>70–80% of those treated improve</strong> (Smith et al., 1980; S2).</p>
+
+<div class="box src"><span class="bt">Why the three verbs matter (conceptual)</span>
+Wolberg’s “remove / modify / retard” maps onto a <em>realistic hierarchy of goals</em>: cure where possible, symptom <em>modification</em> where cure is blocked (poor motivation, low ego-strength, financial limits), and <em>retardation</em> of decline in malignant conditions such as dementia — where therapy preserves the client’s contact with reality rather than curing. This distinction is a favourite short-note and prevents the naïve equation “therapy = cure”.</div>
+
+<h4>Psychotherapy vs. counselling (comparison)</h4>
+<table>
+<thead><tr><th>Dimension</th><th>Psychotherapy</th><th>Counselling</th></tr></thead>
+<tbody>
+<tr><td>Focus</td><td>Deeper personality change; disorders of thinking, emotion, behaviour</td><td>Advice, guidance, situational problem-solving</td></tr>
+<tr><td>Depth / duration</td><td>Often longer, more intensive; may address unconscious material</td><td>Usually shorter, present-focused, developmental/situational</td></tr>
+<tr><td>Population</td><td>More disturbed / clinical presentations</td><td>Comparatively well-functioning people in difficulty</td></tr>
+<tr><td>Relationship</td><td>Unilateral professional relationship; limits on time/content/intimacy (S2)</td><td>Supportive, educative, collaborative</td></tr>
+</tbody>
+</table>
+<p class="cite"><span class="tag tag-src">FROM SOURCES</span> S2 explicitly contrasts the two: psychotherapy implies <em>treatment</em> to cure/care for problems, whereas counselling implies providing <em>advice and suggestions</em>. The boundary is a continuum, not a wall.</p>
+
+<h3 id="u1-2">2. Scope, objectives and goals</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Psychotherapy is <em>“more than a talk between two people”</em> — it is a <strong>collaborative undertaking on a professional level toward specific objectives</strong> (S1). Wolberg’s five objectives are:</p>
+<ol>
+<li><strong>Removing</strong> existing symptoms — eliminate distressing symptoms.</li>
+<li><strong>Modifying</strong> existing symptoms — when cure is impractical (motivation, ego-strength, finances).</li>
+<li><strong>Retarding</strong> existing symptoms — delaying inevitable deterioration (e.g., dementia).</li>
+<li><strong>Mediating disturbed patterns of behaviour</strong> — correcting disturbed interpersonal/occupational/marital patterns.</li>
+<li><strong>Promoting positive personality growth</strong> — resolving blocks in psychosocial development toward creative self-fulfilment.</li>
+</ol>
+<p><span class="tag tag-src">FROM SOURCES</span> Additional aims (S1): strengthen motivation to do the right things; reduce emotional pressure through expression of feeling; release the potential for growth; change maladaptive habits; modify cognitive structure; foster self-knowledge; and facilitate interpersonal relations and communication.</p>
+
+<div class="box src"><span class="bt">Kleinke’s (1994) six universal goals (S2)</span>
+Across virtually all psychotherapies: (1) overcoming demoralisation and gaining hope; (2) enhancing mastery and self-efficacy; (3) overcoming avoidance; (4) becoming aware of one’s misconceptions; (5) accepting life’s realities; and (6) achieving insight. These are useful as a “common-factors” checklist in a goals answer.</p></div>
+
+<p><span class="tag tag-src">FROM SOURCES</span> S2 notes an important <strong>ethical complication</strong> in goal-setting: whose goals? CBT may make patients feel better quickly by removing symptoms, whereas psychodynamic therapy may make patients “feel worse before they feel better.” The therapist and patient may hold different goals (e.g., patient wants <em>all</em> negative emotion gone; therapist wants to reduce <em>excess</em> emotion). This makes informed consent genuinely complex, and it is grounded in <strong>respect for autonomy</strong>.</p>
+
+<h3 id="u1-3">3. Factors important to psychotherapy outcome</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> In <strong>1952, Hans Eysenck</strong> published a controversial review concluding that ~74% of neurotic patients across 24 studies improved — a rate he claimed was no better than untreated controls over two years. This spurred decades of outcome research (S1). Findings fall into three categories:</p>
+
+<h4>(a) Patient variables</h4>
+<p>It is often <em>the patient</em> who most determines a successful outcome. Relevant variables (Hersen &amp; Sledge, 2002): <strong>severity of disturbance</strong> (the single most predictive), motivation and expectancy, capacity to relate, degree of integration/coherence, perfectionism, and the ability to recognise and verbalise focalised problems. Types and severity of mental illness also shape outcome (Sadock &amp; Sadock, 2005). <span class="cite">(S1)</span></p>
+
+<h4>(b) Therapist variables</h4>
+<p>Age, emotional well-being and aptitude matter; key qualities include <strong>empathy, unconditional positive regard, genuineness, flexibility, objectivity and sensitivity</strong>. Popescu (2012) classifies therapist variables as:</p>
+<ul>
+<li><strong>Relational:</strong> empathy, attachment style, unconditional positive regard, respect, warmth, genuineness.</li>
+<li><strong>Professional:</strong> theoretical orientation, training level, experience, view of psychotherapy, activity/neutrality, caseload, supervisory status.</li>
+<li><strong>Demographic &amp; diversity:</strong> age, gender, race, ethnicity, values, client–therapist similarity.</li>
+<li><strong>Personality:</strong> traits, attitudes, flexibility, kindness, trustworthiness, adjustment.</li>
+<li><strong>Developmental &amp; personal:</strong> level of personal development, functioning, self-efficacy, self-directed hostility, interpersonal problems, introjects.</li>
+</ul>
+
+<h4>(c) Common factors &amp; specific intervention variables</h4>
+<p><span class="tag tag-src">FROM SOURCES</span> S2 describes psychotherapy as resting on <strong>four major common factors</strong>: (1) a relationship in which the client trusts a competent, caring therapist; (2) shared expectancy/hope of benefit; (3) an underlying conceptual framework (rationale) with a set of procedures requiring both parties’ participation; and (4) a socially sanctioned healing setting. The <strong>integrative movement</strong> is validated by “equivalence” findings — therapies from different theoretical traditions are roughly equally effective and clearly superior to no-treatment/placebo (the “Dodo bird” pattern), attributed partly to these shared factors.</p>
+
+<h3 id="u1-4">4. Training, competence and supervision of therapists</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Training is a basic component of practitioner <strong>competence</strong> (“possession of required skill, knowledge, qualification or capacity”). Faculty bear primary responsibility, but trainees share it (S1). Key ethical issues in training:</p>
+<ul>
+<li><strong>Selection of trainees:</strong> clear, published selection criteria; a two-way screening process (faculty screen candidates; candidates screen the programme).</li>
+<li><strong>Content of a programme:</strong> a range of techniques for diverse clients; required areas include professional orientation &amp; ethics, social/cultural diversity, human growth &amp; development, career development, counselling relationships, group work, assessment &amp; testing, and research/programme evaluation. Programmes must <em>weave didactic and experiential learning together</em>, not teach academics alone.</li>
+<li><strong>Training for a digital culture:</strong> online services require knowledge of the ethical/legal complexities of tele-therapy and cross-jurisdiction work.</li>
+<li><strong>Evaluation &amp; the gatekeeper role:</strong> faculty must protect future consumers by identifying and remediating problematic trainees; <strong>dismissal is a last resort</strong> after remediation fails (Corey, Corey &amp; Corey, 2019).</li>
+</ul>
+<p><span class="tag tag-src">FROM SOURCES</span> <strong>Supervision</strong> recurs as a core professional safeguard: therapists should have regular suitable supervision to develop skills, monitor performance and provide accountability; and should seek supervision before any post-termination relationship with a former client (S1).</p>
+
+<h3 id="u1-5">5. Ethics and the moral principles of practice</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Each major mental-health organisation has a code of ethics. Common themes (Corey, Corey &amp; Corey, 2019): client welfare; practising within one’s competence; respecting clients’ cultural values; distinguishing personal from professional values; avoiding harm and exploitation; maintaining professional boundaries; protecting confidentiality and privacy; working within an ethical–legal framework; avoiding discrimination; striving for the highest ethical standard; and recognising self-care as a basis for competent practice.</p>
+
+<h4>Six basic moral principles</h4>
+<table>
+<thead><tr><th>Principle</th><th>Meaning</th><th>Clinical illustration</th></tr></thead>
+<tbody>
+<tr><td><strong>Autonomy</strong></td><td>Respect clients’ right to self-determination</td><td>Supporting a client’s informed decision to decline a technique</td></tr>
+<tr><td><strong>Non-maleficence</strong></td><td>“Above all, do no harm”</td><td>Not using an unproven technique that could worsen the client</td></tr>
+<tr><td><strong>Beneficence</strong></td><td>Act for the client’s good</td><td>Choosing an evidence-based treatment for the presenting problem</td></tr>
+<tr><td><strong>Justice</strong></td><td>Fairness; equitable access</td><td>Not discriminating; sliding-scale fees where appropriate</td></tr>
+<tr><td><strong>Fidelity</strong></td><td>Loyalty, trustworthiness, keeping promises</td><td>Honouring the therapeutic contract and appointments</td></tr>
+<tr><td><strong>Veracity</strong></td><td>Truthfulness</td><td>Honest disclosure of qualifications, risks and alternatives</td></tr>
+</tbody>
+</table>
+<p class="cite"><span class="tag tag-src">FROM SOURCES</span> S1 lists these six and, via Barnett (2008), three strategies for best ethical practice: <strong>Positive Ethics</strong> (striving for the highest standard — guided by beneficence, non-maleficence, fidelity, autonomy, justice, self-care), <strong>Risk Management</strong> (minimising ethics complaints/malpractice via consent, documentation, consultation), and <strong>Defensive Practice</strong> (protecting the therapist by reducing adverse outcomes). (Avasthi &amp; Grover, 2022)</p>
+
+<div class="box src"><span class="bt">Tjelveit’s (1999) 14 approaches to ethical reasoning (S2)</span>
+Casuistry; classic liberal individualism; communitarianism; critical psychology; feminist ethics; hermeneutics; narrative; naturalistic; pragmatic; radical; rational; religious; romantic; and virtue ethics. The key teaching point: ethical dilemmas <em>must be resolved</em> — the therapist’s overarching duty is to make the best-quality decision possible.</div>
+
+<h3 id="u1-6">6. Legal issues in psychotherapy (with cases)</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> With 450+ schools of psychotherapy, negligence claims have risen. The therapist’s <strong>duty to safeguard confidentiality</strong> arises from four sources (S2): professional ethical codes; licensure/privilege statutes; developing case law (analogous to attorney–client privilege, though less stringent); and constitutional privacy guarantees.</p>
+<ul>
+<li><strong>Jaffee v. Redmond (1996):</strong> the US Supreme Court recognised a <strong>psychotherapist–patient privilege</strong> in federal courts — such communications are confidential and need not be disclosed in federal trials (the ruling does not bind all state courts). <span class="cite">(S2)</span></li>
+<li><strong>Informed consent &amp; risk:</strong> all psychotherapies carry risks (e.g., untoward transference reactions, mismanaged transference/countertransference, regressive dependency, temporary worsening). Failure to obtain informed consent can be the basis of malpractice liability. <span class="cite">(S2)</span></li>
+</ul>
+<div class="box supp"><span class="bt">Supplementary — Tarasoff &amp; the duty to protect</span>
+<em>Tarasoff v. Regents of the University of California (1976)</em> established the clinician’s <strong>duty to protect/warn</strong> identifiable third parties from a serious, foreseeable threat — the classic exception to confidentiality (“protective privilege ends where the public peril begins”). Your sources mention “protecting clients and their potential threatened victims” as a confidentiality exception (S1) and discuss breach of confidentiality for third-party risk (S2); the named case is added here for completeness.</div>
+
+<div class="box warn"><span class="bt">Indian legal/professional context <span class="tag tag-gap">VERIFY</span> <span class="tag tag-supp">SUPPLEMENTARY</span></span>
+Your sources discuss ethics and the history of psychotherapy in India but not current statutes. For Indian practice, verify these against the primary texts before an exam:
+<ul>
+<li><strong>Mental Healthcare Act, 2017</strong> — rights-based framework; advance directives; nominated representative; capacity to consent; least-restrictive care; a statutory definition of “mental healthcare” that includes psychotherapy-type interventions.</li>
+<li><strong>Rehabilitation Council of India (RCI) Act, 1992</strong> — registration/standards for clinical psychologists (CRR register) and the RCI code of conduct.</li>
+<li><strong>Protection of Children (POCSO Act, 2012)</strong> — mandatory reporting of child sexual abuse, a statutory limit on confidentiality with minors.</li>
+<li><strong>Professional codes</strong> of the relevant Indian professional bodies for clinical psychology.</li>
+</ul>
+Jurisdiction: India; current as of 2024–2026 — confirm the latest amendments.</div>
+
+<h3 id="u1-7">7. Rights and responsibilities in therapy</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Therapists uphold ethical principles that commit them to promote client welfare and assure client rights (APA, 1977: psychologists respect the dignity and worth of the individual). Rights and responsibilities <strong>converge</strong> on freedom of choice, disclosure of treatment information, and protection of human dignity (Hare-Mustin et al., 1979). Importantly, assuring clients’ rights places <strong>corresponding responsibilities on clients</strong> — to choose wisely, use the information provided, and assume control of their participation (Arbuckle, 1977). (S1)</p>
+
+<h5>Therapist responsibilities to the client (S1)</h5>
+<ul>
+<li>Undertake therapy only with professional intent; keep contracts realistic and clear.</li>
+<li>Take reasonable steps to avoid harm; seek supervision or refer when a case exceeds competence.</li>
+<li>Promote client autonomy; maintain professional boundaries; avoid detrimental dual relationships.</li>
+<li>Maintain confidentiality for all verbal, written, recorded or computer-stored material (continuing after the client’s death, barring overriding legal considerations).</li>
+<li><strong>Never</strong> engage in sexual relations with a client (any physical contact for sexual gratification); do not exploit clients financially, sexually or emotionally; do not pay/accept referral fees.</li>
+<li>Obtain consent from a legally authorised person when a client cannot give informed consent; keep publicity accurate.</li>
+</ul>
+<h5>Responsibilities to self (S1)</h5>
+<ul>
+<li>Maintain one’s effectiveness, resilience and ability to help; monitor personal functioning; refrain from practice when impaired by illness, personal/emotional difficulty, alcohol or drugs; use regular supervision.</li>
+</ul>
+
+<h3 id="u1-8">8. Informed consent, confidentiality and its limits</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> <strong>Informed consent</strong> is the first step in protecting client rights — a <em>shared decision-making process</em> in which the practitioner gives adequate information so the client can decide about participating (Corey et al., 2019). It requires that the client <strong>understands</strong> the information, <strong>consents voluntarily</strong>, and is <strong>competent</strong> to consent (Wheeler &amp; Bertram, 2015). Disclosures must be in simple, culturally sensitive language, and the client must have the chance to raise questions. A client merely seeking help is <strong>not</strong> “implied consent.”</p>
+
+<p><span class="tag tag-src">FROM SOURCES</span> Informed-consent content a client should receive (S1): the nature of the therapeutic process (including that long-term work can produce disruptions — e.g., individual progress may disrupt a marriage; Hurvitz, 1967); the right to refuse specific techniques; the assessment process; the therapist’s background and credentials; costs and missed-appointment policy; length of therapy and the <strong>termination phase</strong>; consultation with colleagues; benefits <em>and</em> risks (especially for non-traditional techniques); alternatives to therapy; recording/live-observation (requires documented consent, with a right to decline); and the right of access to files (clients may legally inspect records — ideally with the clinician present to interpret them).</p>
+
+<h4>Confidentiality and its exceptions</h4>
+<p><span class="tag tag-src">FROM SOURCES</span> Confidentiality is the <strong>foundation</strong> of psychotherapy — without it, clients cannot be expected to reveal damaging information. Exceptions (S1):</p>
+<ol>
+<li>Release <strong>without</strong> patient consent when required — e.g., reporting abuse; protecting clients and threatened third parties; self-defence against threatening client behaviour.</li>
+<li>When information must be submitted as <strong>evidence</strong> in legal proceedings.</li>
+<li>When the client threatens the therapist’s life or files a case against the therapist.</li>
+</ol>
+<p>In exceptional breaches, attempts should be made to seek the client’s permission first; agreements continue after death unless overridden by law. Fisher (2008/2016) stresses clients have a right to be informed of the limits of confidentiality <em>before</em> consenting (S1).</p>
+
+<div class="vignette"><span class="vt">Consent example</span> Before the first session, Dr. S explains to a new client the fee and missed-appointment policy, the likelihood that early sessions may raise distress before improvement, the confidentiality limits (risk to self/others, abuse reporting, court order), and the right to decline recording. The client asks questions, then signs. <em>This operationalises autonomy, veracity and fidelity.</em></div>
+
+<h3 id="u1-9">9. Professional boundaries, record-keeping &amp; documentation</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> There are <em>no</em> absolute answers to boundaries, but certain behaviours are violations in any context — sexual relationships; self-disclosure of personal fantasies/dreams/sexual information; wearing seductive clothing (S1). S2 distinguishes <strong>boundary crossings</strong> (may be benign or unintended — lateness, altered sessions, self-disclosure, accidental out-of-session contact, physical contact) from <strong>boundary violations</strong> (therapist-initiated, harmful — abrupt termination, excessive self-disclosure, sexual contact).</p>
+
+<h4>Documentation (S1)</h4>
+<ul>
+<li>Keeping <strong>no</strong> record is unethical; records should be concise, factual, accurate, up-to-date and respectful (distinguishing fact from opinion).</li>
+<li>Include: notable events in treatment or the patient’s life; clinical observations; efforts to obtain collateral information; investigation/test findings; medication information; suicidal ideation with intent; child abuse; threats to others; consultations; and basic continuity-of-care information.</li>
+<li>Use clinical judgement for sensitive content (intimate relationships, fantasies, dreams, third-party information); <strong>avoid documenting mere hypotheses or speculation</strong>.</li>
+</ul>
+<div class="box src"><span class="bt">Where &amp; how long to keep records</span>
+Data-protection law and the duty of confidentiality require <strong>secure</strong> storage (locked cabinet, encrypted/password-protected electronic or cloud storage). The retention period varies by context, and clients should be told how long records are kept (Feltham, Hanley &amp; Winter, 2017; S1). A golden rule (S1): write every note as though it may one day be read in court — or by the client.</div>
+
+<h3 id="u1-10">10. Planning &amp; structuring sessions; goal-setting; termination</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> <strong>Wolberg (1979)</strong> describes three phases of therapy (S1):</p>
+<table>
+<thead><tr><th>Phase</th><th>Principal objective</th><th>Key tasks</th></tr></thead>
+<tbody>
+<tr><td><strong>Beginning</strong></td><td>Establish a working relationship</td><td>Clarify/remove misconceptions about therapy; convey understanding and capacity to help; define objectives</td></tr>
+<tr><td><strong>Middle</strong></td><td>Work through causes &amp; consequences</td><td><em>Early middle:</em> explore environmental frustrations &amp; maladaptive drives; probe anxiety-mobilising unconscious conflicts. <em>Late middle:</em> help the client change maladaptive behaviour and incentivise change</td></tr>
+<tr><td><strong>Termination</strong></td><td>End the work constructively</td><td>Plan, prepare and process ending; significant yet understudied phase (Bhatia &amp; Gelso, 2017)</td></tr>
+</tbody>
+</table>
+<p><span class="tag tag-src">FROM SOURCES</span> Conditions indicating termination (S1): achievement of planned goals; decision (client or therapist) to end on incomplete goals; an unresolvable impasse/resistance; uncontrollable countertransference; or physical reasons (relocation). <strong>Booster sessions</strong> are periodic additional sessions to assess status and reinforce gains, giving continuity to the targeted behaviour change (N. Sam, 2013).</p>
+
+<h3 id="u1-11">11. Assessment, case formulation &amp; outcome monitoring</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Assessment serves two decisions: (1) whether <em>any</em> psychological treatment is appropriate; and (2) <em>which</em> method. These draw on both <strong>evidence-based practice</strong> (research knowledge) and <strong>practice-based evidence</strong> (systematic clinical experience). Two processes operate (Margison &amp; Brown, 2007): the <strong>idiographic</strong> (a unique formulation of this person) and the <strong>nomothetic</strong> (inferences from research on similar individuals). (S1)</p>
+<ul>
+<li><strong>Before the interview:</strong> contact itself can be therapeutic; a preliminary questionnaire and standardised measures may be used.</li>
+<li><strong>Malan’s (1979) assessment checklist:</strong> think psychiatrically (diagnosis, symptoms, medication); psychodynamically (triangles of conflict and of person); psychotherapeutically (forecasts/predictions); practically (what is possible); take care of the session (rapport); take care of the patient (avoid pointless anxiety); be wary of your impact.</li>
+<li><strong>Common measures:</strong> SCL-90-R (Derogatis, 1983); Inventory of Interpersonal Problems (Horowitz et al., 1988); CORE (Barkham et al., 1998).</li>
+<li><strong>Model-specific assessment:</strong> behavioural therapy → ABC functional analysis of antecedents–behaviours–consequences; cognitive therapy → diaries targeting dysfunctional cognitions; group approaches → the patient’s impact on the group; in-patient/therapeutic-community → multiple assessors.</li>
+</ul>
+<div class="box src"><span class="bt">Formulation as an “anchor point” (S1)</span>
+A case formulation functions as an anchor for therapy: the therapist keeps it “in the back of the mind” during free-flowing conversation, and periodically reviews progress against agreed goals. Aveline (1980): a formulation should address <strong>cause and effect, maintaining factors, factors promoting change, and predictions</strong>. Cognitive Analytic Therapy (Ryle, 1990) is the exemplar of formulation-led therapy.</div>
+
+<h3 id="u1-12">12. Evidence-based practice &amp; the “four waves”</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> As therapies proliferated, authors distinguished waves of approaches (Kahl, Winter &amp; Schweiger, 2012; Peteet, 2015). (S1)</p>
+<table>
+<thead><tr><th>Wave</th><th>Core aim / stance</th><th>Representative therapies</th></tr></thead>
+<tbody>
+<tr><td><strong>First</strong></td><td>Autonomy &amp; mastery through <em>insight</em>; therapist as expert</td><td>Psychodynamic therapy</td></tr>
+<tr><td><strong>Second</strong></td><td>Present- and problem-focused</td><td>CBT, gestalt, family systems</td></tr>
+<tr><td><strong>Third</strong></td><td>Solutions &amp; conscious action; heterogeneous techniques</td><td>ACT, DBT, schema therapy, MBCT, SFBT</td></tr>
+<tr><td><strong>Fourth</strong></td><td>Beyond insight/mastery → positive well-being, meaning, virtue</td><td>Positive-psychology interventions, compassion/loving-kindness &amp; meaning-centred, forgiveness-oriented and spiritually-informed therapies</td></tr>
+</tbody>
+</table>
+<p><span class="tag tag-src">FROM SOURCES</span> S1 reviews the <strong>evidence base</strong> with RCTs for psychodynamic therapy (Salzer et al., 2014; Leichsenring et al., 2013; Johansson et al., 2017), CBT (Anastopoulos/Langberg et al., 2021; Goldin et al., 2016), ACT (Twohig et al., 2010; Bohlmeijer et al., 2011), DBT (Neacsiu/Rizvi/Linehan 2010; McMain et al., 2009), MBCT (Segal et al., 2012; Kuyken et al., 2008), schema therapy (van Asselt et al., 2008; Farrell et al., 2009), SFBT (Kim et al., 2018; Beauchemin, 2018), play therapy (Chhillar et al., 2020; Cheng &amp; Ray, 2016) and MET (Walker et al., 2011; Noknoy et al., 2010). (Full citations in <a href="#references">References</a>.)</p>
+<div class="box supp"><span class="bt">EBP — the three-legged stool</span>
+Standard EBP integrates (1) best available <strong>research evidence</strong>, (2) <strong>clinical expertise</strong>, and (3) <strong>patient values &amp; preferences</strong>. Your sources’ “evidence-based practice vs. practice-based evidence” distinction maps directly onto this model.</div>
+
+<h3 id="u1-13">13. Psychotherapy in India</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Western/scientific psychology entered India in <strong>1905 at Calcutta University</strong>; a full department followed in 1915, and <strong>Girindrashekhar Bose</strong> became the first Indian doctorate in psychology (1921) and founded the <strong>Indian Psychoanalytic Society (1922)</strong>. Post-independence, <strong>NIMHANS (Bangalore)</strong> and the <strong>Central Institute of Psychiatry (Ranchi)</strong> became the earliest higher-education centres for psychiatry, psychiatric social work and clinical psychology (Bhatt, 2015). (S1)</p>
+<p><span class="tag tag-src">FROM SOURCES</span> Culturally, the <strong>egalitarian stance</strong> of Western therapy has been debated as sometimes unhelpful in the Indian context (Neki, 1979); older indigenous healing practices remain popular; and the Eastern view resists a strict separation of psychology and spirituality (Varghese, 1998). Western psychotherapy can “strengthen an ego which can only then be surrendered in the spiritual quest” (Varma, 2004); mindfulness and yoga are now embedded in many Western therapies. This provides the conceptual bridge to the complementary practices in Unit IV.</p>
+
+<div class="exam">
+<h4>Unit I — Examination revision</h4>
+<p><strong>Likely long-answer (predicted):</strong> “Define psychotherapy and discuss its nature, objectives and goals.” · “Discuss the ethical and legal issues in psychotherapy with reference to confidentiality, informed consent and boundaries.” · “Explain the factors that influence psychotherapy outcome.”</p>
+<p><strong>Short-answer / short-notes (predicted):</strong> Wolberg’s three phases · Kleinke’s six goals · the six moral principles · boundary crossings vs. violations · booster sessions · Malan’s assessment checklist · the four waves · Eysenck (1952) · Jaffee v. Redmond / Tarasoff · EBP vs. practice-based evidence.</p>
+<p><strong>Frequently confused:</strong> psychotherapy vs. counselling · modifying vs. retarding symptoms · crossing vs. violation · idiographic vs. nomothetic · EBP vs. practice-based evidence.</p>
+<p><strong>Model-answer skeleton (ethics question):</strong> Introduction (ethics = how therapists <em>ought</em> to act) → six moral principles → the four core issues (competence, consent, confidentiality + exceptions, boundaries) → documentation &amp; termination → cases (Jaffee, Tarasoff) → Indian statutes (flag &amp; verify) → conclusion (ethics protects both client welfare and the integrity of the profession).</p>
+</div>
+
+<!-- ============================= UNIT II ============================= -->
+<h2 class="unit" id="unit2">UNIT II — The Therapeutic Relationship</h2>
+
+<h3 id="u2-1">1. Meaning, nature and importance</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> The therapeutic relationship is the <strong>core vehicle</strong> of psychotherapy. S1/S2 treat the mutual cognitive and emotional engagement of client and therapist as the foundation of effective work, and list a trusting relationship with a competent, caring therapist as the first of the four common factors. In psychodynamic/interpersonal approaches the relationship itself becomes the <strong>effective therapeutic agent</strong>: the therapist offers a <em>“corrective emotional experience”</em>, responding in ways that do not replicate the client’s earlier hurtful or non-supportive relationships, so the client internalises more adaptive relational schemes (S2).</p>
+<div class="box src"><span class="bt">Why the relationship matters (conceptual)</span>
+The “equivalence”/common-factors literature (S2) suggests that a substantial portion of outcome variance is carried by relational factors shared across schools, rather than by technique alone. Hence the maxim: <em>technique is delivered through the relationship, not instead of it.</em></div>
+
+<h3 id="u2-2">2. The therapeutic alliance and its components</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> A good <strong>working alliance</strong> is considered <em>essential</em> to therapeutic change in cognitive/behavioural as well as humanistic traditions (S2). In person-centred work the alliance is understood through the <strong>core conditions</strong>, though many hold that these are <em>necessary but not sufficient</em> for change (Bohart, 1990; Tausch, 1990; S2).</p>
+<div class="box supp"><span class="bt">Supplementary — Bordin’s (1979) tripartite model of the working alliance</span>
+The most examinable alliance model (lightly covered in your sources, so added here) describes three interdependent components:
+<ul>
+<li><strong>Bond</strong> — the affective attachment: mutual trust, acceptance, liking and confidence.</li>
+<li><strong>Goals</strong> — agreement on the aims/targets of therapy.</li>
+<li><strong>Tasks</strong> — agreement on the in-session and between-session activities believed to produce change.</li>
+</ul>
+A strong alliance exists when bond, goals and tasks are mutually agreed and congruent. Alliance quality early in therapy is one of the most consistent predictors of outcome across modalities.</div>
+
+<h4>Therapeutic relationship vs. therapeutic alliance (comparison)</h4>
+<table>
+<thead><tr><th>Aspect</th><th>Therapeutic relationship</th><th>Therapeutic alliance</th></tr></thead>
+<tbody>
+<tr><td>Scope</td><td>The <em>whole</em> affective/relational bond between client &amp; therapist (incl. transference, real relationship)</td><td>A <em>specific, task-focused</em> aspect: collaborative agreement on bond, goals &amp; tasks</td></tr>
+<tr><td>Nature</td><td>Broader, partly unconscious, evolving</td><td>Narrower, conscious, purposive, measurable</td></tr>
+<tr><td>Theoretical home</td><td>All therapies (esp. psychodynamic/humanistic)</td><td>Pan-theoretical; operationalised by Bordin (1979)</td></tr>
+<tr><td>Measurement</td><td>Harder to quantify</td><td>Working Alliance Inventory (WAI) etc.</td></tr>
+</tbody>
+</table>
+<p class="cite">Relationship ⊇ alliance: the alliance is the collaborative, goal-directed <em>subset</em> of the broader relationship.</p>
+
+<h3 id="u2-3">3. Client characteristics affecting therapy</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> As in Unit I, the client is often the strongest determinant of outcome. Relevant client variables (Hersen &amp; Sledge, 2002; Sadock &amp; Sadock, 2005; S1): <strong>severity of disturbance</strong> (most predictive), motivation and expectancy, capacity to relate, degree of integration and coherence, perfectionism, psychological-mindedness and capacity for symbolism, and the ability to recognise and verbalise focal problems. Social-support networks and the nature of the presenting problem also influence engagement (S2).</p>
+
+<h3 id="u2-4">4. Therapist characteristics affecting therapy</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Popescu’s (2012) five-cluster classification (S1) — relational, professional, demographic/diversity, personality, developmental/personal — organises these variables (see Unit I §3b). The <strong>relational cluster</strong> (empathy, UPR, warmth, genuineness) is the one most directly tied to a strong alliance.</p>
+
+<h3 id="u2-5">5. Empathy, genuineness, warmth, acceptance &amp; active listening</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> These are the Rogerian <strong>core conditions</strong> (fully elaborated in Unit IV §6). S2 provides crisp definitions:</p>
+<ul>
+<li><strong>Empathy</strong> — the ability to <em>subjectively</em> enter the client’s frame of reference, to “walk in their shoes” in the here-and-now, <em>and convey this back</em> to the client. <strong>Empathy is not sympathy</strong> (sympathy = feeling <em>for</em>; empathy = feeling <em>with</em> + accurate understanding). <strong>Carkhuff</strong> created a five-point empathy scale, with a Level-5 response as the most additively accurate.</li>
+<li><strong>Unconditional positive regard (UPR) / acceptance &amp; warmth</strong> — prizing the client as a person of worth, without conditions of approval.</li>
+<li><strong>Genuineness / congruence</strong> — the therapist is real, integrated and non-defensive; outer behaviour matches inner experience.</li>
+<li><strong>Active listening &amp; attending</strong> — see Unit III; the behavioural expression of empathy.</li>
+</ul>
+<div class="box src"><span class="bt">Carkhuff’s empathy scale (teaching point)</span>
+Level 1–2 responses detract from or ignore the client’s expressed feeling; Level 3 is <em>interchangeable</em> (accurately reflects what the client expressed); Levels 4–5 are <em>additive</em> — they go slightly beyond, naming feelings/meanings the client only implied, deepening exploration. Aim for interchangeable-or-above.</div>
+
+<h3 id="u2-6">6. Transference and countertransference</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> As psychoanalytic therapy evolved, <strong>transference</strong> and <strong>countertransference</strong> were reconceptualised to reflect the impact of early relationships on current functioning (S2):</p>
+<table>
+<thead><tr><th></th><th>Transference</th><th>Countertransference</th></tr></thead>
+<tbody>
+<tr><td>Direction</td><td>Client → therapist</td><td>Therapist → client</td></tr>
+<tr><td>Definition (S2)</td><td>Thoughts/feelings the client directs toward the therapist (e.g., the child feels love toward the therapist)</td><td>The therapist projects his/her own feelings onto the client (e.g., over-caring for the patient)</td></tr>
+<tr><td>Origin</td><td>Displacement of feelings from significant early figures (parents) onto the therapist</td><td>The therapist’s own unresolved conflicts, or a reaction evoked by the client</td></tr>
+<tr><td>Clinical use</td><td>A window into the client’s relational patterns; worked with via interpretation</td><td>Monitored in supervision; can inform understanding or impede the work if unexamined</td></tr>
+</tbody>
+</table>
+<p><span class="tag tag-src">FROM SOURCES</span> Risks of mismanagement are real: S2 lists <em>untoward transference reactions, mismanagement of transference/countertransference, and regressive dependency states</em> among the recognised risks of psychotherapy that inform the consent process.</p>
+<div class="vignette"><span class="vt">Illustration</span> A client who was criticised harshly by her father becomes unusually anxious to please her male therapist and dreads his “disapproval” (<em>transference</em>). The therapist notices irritation when the client is deferential — mirroring his own impatience with his dependent sibling (<em>countertransference</em>) — and takes this to supervision rather than enacting it.</div>
+
+<h3 id="u2-7">7. Resistance, trust, motivation &amp; engagement</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> <strong>Motivation</strong> is notoriously difficult to assess and may be as much a function of social compliance as rational intent (Margison &amp; Brown, 2007; Bloch, 1979); without at least a minimal agreement to attend, therapy is impossible (S1). <strong>Resistance</strong> can appear as lateness or absence (noted as a marker of mid-therapy negative transference in Mann’s brief therapy; see Unit IV §2) and is one condition that may indicate termination when it becomes an unresolvable impasse (Unit I §10). <strong>Trust</strong> is built through the core conditions and reliable boundaries; it is the precondition for disclosing “embarrassing, personally damaging information” — the basis of the confidentiality principle (S1).</p>
+
+<h3 id="u2-8">8. Contextual factors (illness, techniques, culture, expectations)</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> The relationship is shaped by context: cultural differences affect alliance formation and how patients’ beliefs shape their thinking and reactions — different thinking styles must often be accommodated for progress (S2). Expectations (hope of benefit) are a common factor; the <em>practice setting</em> socially sanctioned as a place of healing is another (S2). The nature and severity of the <strong>illness</strong> shape engagement and the realistic goal (remove/modify/retard; Unit I). The chosen <strong>techniques</strong> are delivered <em>through</em> the relationship, not in place of it.</p>
+
+<h3 id="u2-9">9. Alliance ruptures and repair</h3>
+<div class="box supp"><span class="bt">Supplementary (thin in sources) — ruptures &amp; repair</span>
+Your sources establish that a good alliance is essential and that resistance/negative transference occur, but do not systematically cover <em>rupture–repair</em>, so this standard material is added and labelled:
+<ul>
+<li><strong>Rupture</strong> = a deterioration or strain in the alliance — a breakdown in collaboration, tension in the bond, or disagreement on goals/tasks.</li>
+<li><strong>Withdrawal ruptures</strong>: the client moves away/against contact (silence, vagueness, appeasement).</li>
+<li><strong>Confrontation ruptures</strong>: the client moves against the therapist (complaints, hostility, pressure).</li>
+<li><strong>Repair</strong>: the therapist non-defensively notices the rupture, invites exploration, acknowledges any contribution, and renegotiates goals/tasks. Successfully repaired ruptures are associated with <em>improved</em> outcomes — the repair itself can be therapeutic (a corrective relational experience).</li>
+</ul>
+This dovetails with your sources’ “corrective emotional experience” (S2) and with managing negative transference.</div>
+
+<div class="exam">
+<h4>Unit II — Examination revision</h4>
+<p><strong>Predicted long-answer:</strong> “Discuss the therapeutic relationship/alliance and its role in outcome.” · “Explain transference and countertransference with clinical examples.” · “Describe the core conditions and their place in the relationship.”</p>
+<p><strong>Short-notes:</strong> Bordin’s three components · empathy vs. sympathy · Carkhuff’s empathy scale · corrective emotional experience · alliance ruptures (withdrawal vs. confrontation) · UPR.</p>
+<p><strong>Frequently confused:</strong> relationship vs. alliance · transference vs. countertransference · empathy vs. sympathy · necessary vs. sufficient (core conditions).</p>
+</div>
+
+<!-- ============================= UNIT III ============================= -->
+<h2 class="unit" id="unit3">UNIT III — Interviewing</h2>
+
+<h3 id="u3-1">1. Objectives and functions of clinical interviewing</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Clinical interviewing has been defined narrowly and broadly (S2):</p>
+<ul>
+<li><strong>Keats (2000):</strong> <em>“a controlled situation in which one person, the interviewer, asks a series of questions of another person, the respondent.”</em></li>
+<li><strong>Trull &amp; Phares (2001):</strong> an interaction between at least two persons in which each contributes to the process and influences the other’s responses — but interviewing goes <em>beyond</em> ordinary conversation.</li>
+</ul>
+<p>Functions include: establishing rapport and a working relationship; gathering information (presenting problem, history, relationships, psychological-mindedness, motivation); assessment/diagnosis and formulation; and laying the groundwork for intervention. (Synthesis of S1 assessment material + S2.)</p>
+
+<h3 id="u3-2">2. Types of interview</h3>
+<div class="box supp"><span class="bt">Supplementary — the structured / semi-structured / unstructured taxonomy</span>
+Your Unit III source focuses on <em>question types</em> and <em>attending behaviour</em> rather than a formal structure taxonomy, so this standard comparison is added and labelled:</div>
+<table>
+<thead><tr><th>Type</th><th>Description</th><th>Advantages</th><th>Disadvantages / limits</th></tr></thead>
+<tbody>
+<tr><td><strong>Structured</strong></td><td>Fixed set/sequence of questions (e.g., standardised diagnostic schedules)</td><td>High reliability; comparability; good for research; less interviewer bias</td><td>Rigid; may miss idiosyncratic material; weaker rapport; low flexibility</td></tr>
+<tr><td><strong>Semi-structured</strong></td><td>Core questions + freedom to probe and follow leads</td><td>Balances reliability and flexibility; allows clinical judgement</td><td>Requires skill/training; moderate reliability</td></tr>
+<tr><td><strong>Unstructured</strong></td><td>Open, client-led, flexible flow</td><td>Rich, individualised data; strong rapport; good for exploration</td><td>Low reliability/comparability; prone to bias; hard to quantify</td></tr>
+</tbody>
+</table>
+
+<h3 id="u3-3">3. Interviewing microskills</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> S2 details <strong>question types</strong> and <strong>attending behaviour</strong> as the backbone of microskills.</p>
+
+<h4>(a) Types of questions (S2)</h4>
+<ul>
+<li><strong>Open questions</strong> — facilitate verbal output; cannot be answered yes/no; typically begin with <em>How</em> or <em>What</em> (<em>Where/When/Why/Who</em> are sometimes included but are narrower). Purpose: encourage elaboration and exploration.</li>
+<li><strong>Closed questions</strong> — answerable yes/no or with specific facts (often <em>Who/Where/When</em>); <strong>restrict</strong> verbalisation. Useful to control an over-talkative client or obtain precise diagnostic detail.</li>
+<li><strong>Swing, indirect/implied, and projective questions</strong> — additional types that shape the kind of response elicited.</li>
+</ul>
+
+<h4>(b) Attending behaviour — Ivey &amp; Ivey’s four dimensions (S2)</h4>
+<p><span class="tag tag-src">FROM SOURCES</span> Ivey &amp; Ivey (1999) call attending behaviour the <strong>foundation of interviewing</strong>; it is primarily <em>non-verbal</em>, and “the importance of listening well is spectacularly uncontroversial.” The four dimensions:</p>
+<ol>
+<li><strong>Eye contact</strong> — more constant while the client speaks, less constant while they are emotionally aroused; varies greatly by culture and individual.</li>
+<li><strong>Body language (kinesics &amp; proxemics)</strong> — <em>kinesics</em> = movement of body parts (eyes, face, hands); <em>proxemics</em> = personal space/distance. Positive: leaning slightly toward the client, relaxed-but-attentive posture, unobtrusive legs. <strong>Mirroring</strong> (synchrony) can enhance rapport but, done poorly, is “disastrous” and may feel mocking.</li>
+<li><strong>Vocal qualities</strong> — matching volume/tone to the client to convey interest, empathy and emphasis; tone can gently lead the client toward content or feeling.</li>
+<li><strong>Verbal tracking</strong> — accurately following and occasionally repeating key words/phrases; the clearest sign that the interviewer is <em>listening</em>.</li>
+</ol>
+<div class="box src"><span class="bt">Negative attending behaviour (S2): “overuse breeds contempt”</span>
+Excessive head-nods (the “wobbly spring”), too much eye contact (feels like scrutiny/intimidation), parroting a single last word (client feels over-analysed), and clumsy mirroring (feels like mockery) all <em>inhibit</em> expression. Positive behaviours become negative when overused.</div>
+
+<h4>(c) Core responding skills <span class="tag tag-supp">SUPPLEMENTARY</span></h4>
+<p>Standard microskills the syllabus names, defined for completeness (your source emphasises questions &amp; attending; these responding skills are added):</p>
+<table>
+<thead><tr><th>Skill</th><th>What it is</th><th>Purpose / when used</th></tr></thead>
+<tbody>
+<tr><td><strong>Clarification</strong></td><td>Asking the client to make vague/ambiguous content clearer (“Do you mean…?”)</td><td>To check accuracy and avoid assumptions</td></tr>
+<tr><td><strong>Paraphrasing</strong></td><td>Restating the <em>content</em> of the client’s message in your words</td><td>Shows accurate tracking; focuses on cognitive content</td></tr>
+<tr><td><strong>Reflection (of feeling)</strong></td><td>Mirroring back the <em>emotion</em> you hear (“You sound frightened”)</td><td>Conveys empathy; helps the client own feelings</td></tr>
+<tr><td><strong>Facilitation</strong></td><td>Minimal encouragers (“mm-hmm”, “go on”)</td><td>Keeps the client talking without steering</td></tr>
+<tr><td><strong>Summarisation</strong></td><td>Pulling together several themes across a span of talk</td><td>Transitions, closing, checking the big picture</td></tr>
+<tr><td><strong>Confrontation</strong></td><td>Gently pointing out discrepancies/incongruities (between words &amp; behaviour, or two statements)</td><td>To promote awareness; must be well-timed and non-aggressive</td></tr>
+</tbody>
+</table>
+
+<h3 id="u3-4">4. Silence and non-verbal communication</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Communication is heavily non-verbal (S2, citing Hall). <strong>Silence</strong> <span class="tag tag-supp">SUPPLEMENTARY</span> is itself a skill: it allows reflection, signals space to continue, gives the client control of pacing, and lets emotion surface. Clinically significant silences may indicate resistance, grief, or the processing of a painful insight — the therapist must judge whether to wait or to gently facilitate. Non-verbal channels (kinesics, proxemics, vocal qualities) often carry the affective truth that words conceal.</p>
+
+<h3 id="u3-5">5. Rapport building, attending &amp; active listening</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> Positive attending behaviours <em>open up communication and encourage free expression</em>; negative ones inhibit it (S2). Rapport is built by congruent eye contact, warm vocal tone, accurate verbal tracking and well-judged body language — always calibrated to <strong>cultural and individual variation</strong> (there are “few universals”; S2). Active listening is the integration of attending + reflecting + accurate empathy (links to Unit II).</p>
+
+<h3 id="u3-6">6. Common interviewing errors, biases &amp; ethical issues</h3>
+<ul>
+<li><span class="tag tag-src">FROM SOURCES</span> <strong>Overusing good behaviours</strong> (over-nodding, over–eye-contact, parroting, clumsy mirroring) — the source’s central error (S2).</li>
+<li><span class="tag tag-supp">SUPPLEMENTARY</span> <strong>Leading/multiple/“why” questions</strong> that pressure or confuse; <strong>premature advice-giving</strong>; <strong>interrupting</strong>; <strong>cultural insensitivity</strong>; and cognitive <strong>biases</strong> (confirmation bias, halo effect, primacy/recency, stereotyping).</li>
+<li><span class="tag tag-supp">SUPPLEMENTARY</span> <strong>Ethical issues</strong>: informed consent for assessment and recording; confidentiality limits; competence; non-exploitation (all per Unit I).</li>
+</ul>
+
+<h3 id="u3-7">7. Labelled therapist–client dialogues</h3>
+<p><span class="tag tag-supp">SUPPLEMENTARY</span> Your sources describe the skills but include few full dialogues, so these labelled teaching examples are provided. Each line is annotated with the skill and why it is appropriate.</p>
+
+<div class="dialogue">
+<table>
+<tr><td class="who">Client</td><td class="skill"></td><td>“I don’t even know why I came. Everything’s fine, really… I just can’t sleep.”</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Open question</td><td>“What has your sleep been like over the past few weeks?” — invites elaboration (cannot be answered yes/no).</td></tr>
+<tr><td class="who">Client</td><td class="skill"></td><td>“I lie awake going over the argument with my wife, again and again.”</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Reflection of feeling</td><td>“It sounds like that argument left you feeling really unsettled.” — names the implied emotion, conveying empathy (Carkhuff interchangeable/additive).</td></tr>
+<tr><td class="who">Client</td><td class="skill"></td><td>“Unsettled… yeah. Angry too, I guess.”</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Clarification</td><td>“When you say angry — angry at her, at yourself, or both?” — checks meaning, avoids assuming.</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Closed question (appropriate)</td><td>“Have you had any thoughts of harming yourself?” — a precise safety question requiring a specific answer; <em>appropriate</em> use of a closed question.</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Summarisation</td><td>“So the sleeplessness started after the argument, you feel both angry and guilty, and it’s worst late at night — have I understood that right?” — integrates themes and checks accuracy.</td></tr>
+</table>
+</div>
+
+<div class="dialogue">
+<table>
+<tr><td class="who">Therapist</td><td class="skill">Leading question — <span style="color:#8a5a00">inappropriate</span></td><td>“You don’t really blame your wife, do you?” — pressures the client toward the interviewer’s view; closes exploration and risks a false ‘appeasement’ answer.</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Confrontation — appropriate</td><td>“You say everything’s fine, yet you’ve told me you cry most evenings. I’m noticing those don’t quite fit together.” — gently names a discrepancy to raise awareness; non-aggressive and well-timed.</td></tr>
+<tr><td class="who">Therapist</td><td class="skill">Facilitation</td><td>“Mm-hmm… go on.” — a minimal encourager that keeps the client talking without steering content.</td></tr>
+</table>
+</div>
+
+<div class="exam">
+<h4>Unit III — Examination revision</h4>
+<p><strong>Predicted long-answer:</strong> “Describe the microskills of clinical interviewing with examples.” · “Compare structured, semi-structured and unstructured interviews.” · “Discuss attending behaviour and its role in rapport.”</p>
+<p><strong>Short-notes:</strong> open vs. closed questions · Ivey &amp; Ivey’s four dimensions of attending · kinesics vs. proxemics · verbal tracking · confrontation · negative attending behaviour · clinical significance of silence.</p>
+<p><strong>Frequently confused:</strong> open vs. closed questions · paraphrasing (content) vs. reflection (feeling) · clarification vs. confrontation · crossing vs. violation of attending norms (overuse).</p>
+</div>
+
+<!-- ============================= UNIT IV ============================= -->
+<h2 class="unit" id="unit4">UNIT IV — Affective Psychotherapies</h2>
+
+<section id="u4-0">
+<h3>Overview — what “affective psychotherapies” means</h3>
+<p><span class="tag tag-src">FROM SOURCES</span> While every therapist works with thoughts, feelings and behaviour, the <strong>affective</strong> therapies place primary emphasis on <em>emotion/affect</em> — “the outward expression of a feeling or emotion.” The guiding idea is that a person can be helped by focusing on emotions and <strong>taking responsibility for their feelings</strong> (S3). Key principles the sources attach to affective counselling (S3):</p>
+<ul>
+<li>Priority on a good, trusting, respectful <strong>relationship</strong>.</li>
+<li>Helping the client become <strong>aware of</strong> and <strong>communicate</strong> feelings (e.g., “I” statements).</li>
+<li>Helping the client <strong>take responsibility</strong> for their own feelings rather than blaming others.</li>
+<li>An <strong>optimistic</strong>, non-judgemental, client-led stance, trusting an innate drive toward <strong>self-actualisation</strong>.</li>
+</ul>
+<div class="box warn"><span class="bt">Evidence-caution for this unit</span>
+Your master instruction (and the sources) rightly separate <strong>established psychological interventions</strong> (psychodynamic, brief, humanistic/person-centred, Gestalt, existential, Adlerian, TA, reality, supportive, hypnotherapy, play, psychodrama) from <strong>complementary mind–body practices</strong> (yoga, meditation, shavasana, pranic healing, Reiki, tai chi) whose evidence base is mixed, preliminary or (for energy-healing practices) scientifically contested. Each chapter’s “Research &amp; status” section states this honestly.</div>
+<p class="meta">Each chapter below follows the A–S template (Definition → History → Theory → Concepts → Formulation → Goals → Roles → Assessment → Procedure → Techniques → Stages → Indications → Contraindications → Outcomes → Research → Advantages/Disadvantages → Comparisons → Illustration → Exam summary), adapted to the approach.</p>
+</section>
+
+<!-- 1. PSYCHODYNAMIC -->
+<h3 id="u4-1">1. Psychodynamic Psychotherapy</h3>
+<p><strong>A. Definition &amp; introduction.</strong> <span class="tag tag-src">FROM SOURCES</span> Psychodynamic therapy — the oldest form of psychotherapy, pioneered by <strong>Sigmund Freud</strong> — treats present difficulties as expressions of <em>unconscious conflict</em> rooted in early relationships (S1, S2). Its long tradition yields enormous diversity in emphasis (the unconscious, dreams, the transference relationship) (S2).</p>
+<p><strong>B. History &amp; contributors.</strong> Freud (psychoanalysis); later relational/interpersonal turns increased the importance of the <strong>therapeutic relationship</strong> and reconceptualised transference/countertransference (S2). The Freudian view of human nature is <strong>deterministic</strong>: behaviour is shaped by irrational forces, unconscious motivation, and biological/instinctual drives evolving through psychosexual stages in the first six years (S1).</p>
+<p><strong>C. Theory &amp; assumptions.</strong> <span class="tag tag-src">FROM SOURCES</span> Core tenets (S2): the <strong>universal existence of inner conflict</strong> and how people manage it; <strong>defences</strong> that contain intolerable anxiety arising from conflict; a tripartite <strong>structure of mind</strong> — <em>id</em> (unconscious), <em>ego</em> and <em>superego</em> (conscious/preconscious); the primacy of <strong>unconscious processes</strong>; and the therapeutic aim of moving unconscious material into awareness for “greater freedom and authenticity.” <strong>Instincts</strong> are central: <em>libido</em> (life instincts/pleasure) and the <em>death instinct</em> (aggression) (S1).</p>
+<p><strong>D. Core concepts.</strong> Unconscious; id/ego/superego; defence mechanisms; psychosexual stages; <strong>transference</strong> (early relational templates re-activated with the therapist) and countertransference; resistance; dreams; interpretation; insight (see Unit II for transference detail).</p>
+<p><strong>E. Formulation.</strong> Present patterns are read as repetitions of early relational templates — a “prism through which we view the world.” When a caregiver withheld interest, the client may “close down” when upset; this very pattern is enacted in the room as <strong>transference</strong>, giving direct insight into the past (S2). Malan’s “triangles” (of conflict: defence–anxiety–impulse; of person: current other–therapist–parent) organise the formulation (S1 assessment §; S3 brief-therapy §).</p>
+<p><strong>F. Goals.</strong> Insight into unconscious conflict; working through defences; a corrective emotional experience; promoting personality growth (Wolberg’s fifth objective).</p>
+<p><strong>G. Roles.</strong> <span class="tag tag-src">FROM SOURCES</span> Freud held the therapist should <strong>avoid criticism, encouragement, reassurance and advice</strong>; the relationship therefore lacks ordinary social dynamics and can feel “cold and uninviting” at first. The therapist does not seek friendship (though basic warmth is not absent) and primarily <strong>interprets and confronts</strong>, attending to how conflict and control play out in the relationship (S2).</p>
+<p><strong>H. Assessment.</strong> Malan (1979): the suitable client has at least one sustained personal relationship, can hold back impulsive/suicidal/violent acts, has conflicts at a <strong>neurotic (not all-pervasive) level</strong>, can stay focused on one theme, is motivated, and can withstand interpretation and confrontation (S2).</p>
+<p><strong>I. Procedure.</strong> Sessions last <strong>50 minutes</strong>, frequency weekly up to five times/week, in individual, couple or group formats (S2). Phases follow Wolberg’s beginning–middle–termination (Unit I §10).</p>
+<p><strong>J. Techniques.</strong></p>
+<ul>
+<li><strong>Free association</strong> — say whatever comes to mind; bypasses censorship to surface unconscious material. <em>Rationale:</em> relaxing conscious control reveals conflict. <em>Example:</em> a slip or sudden silence flags a defended topic.</li>
+<li><strong>Interpretation</strong> — the therapist offers meaning linking current feeling, defence and underlying impulse/conflict. <em>Precaution:</em> timing/dosage — premature interpretation raises resistance.</li>
+<li><strong>Dream analysis</strong> — the “royal road to the unconscious.”</li>
+<li><strong>Analysis of transference &amp; resistance</strong> — the central curative work (see Unit II).</li>
+</ul>
+<p><strong>K. Stages/process.</strong> Alliance → emergence &amp; interpretation of transference/resistance → working through → termination.</p>
+<p><strong>L. Indications.</strong> Neurotic-level conflict; relational/characterological difficulties; psychologically-minded, motivated clients.</p>
+<p><strong>M. Contraindications/risks.</strong> Severe/psychotic/addictive presentations; poor impulse control; crisis states. Recognised risks (S2): untoward transference reactions, mismanaged transference/countertransference, and regressive dependency.</p>
+<p><strong>N–O. Outcomes &amp; research.</strong> <span class="tag tag-src">FROM SOURCES</span> RCT support (S1): Salzer et al. (2014) — psychodynamic therapy (PDT) improved comorbid conduct/emotional disorders in adolescent inpatients; Leichsenring et al. (2013) — both CBT and PDT efficacious in social anxiety, with some advantage for CBT; Johansson et al. (2017) — internet-based affect-focused PDT promising for social anxiety (2-year follow-up).</p>
+<p><strong>P. Advantages/disadvantages.</strong> + depth, durable change, strong theory of the relationship; − time- and resource-intensive; weaker/slower symptom relief than CBT in some conditions; demands a specific, suitable client.</p>
+<p><strong>Q. Comparison.</strong> See the <a href="#tables">psychodynamic vs. humanistic</a> and <a href="#tables">brief vs. long-term</a> tables.</p>
+<div class="vignette"><span class="vt">R. Clinical illustration</span> A client repeatedly arrives late and becomes dismissive whenever closeness grows in sessions. Rather than reassure, the therapist interprets: “As we get closer, something in you seems to pull back — I wonder if that’s how you learned to protect yourself at home.” The <em>transference</em> pattern becomes the material for insight.</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Discuss the theoretical basis and techniques of psychodynamic psychotherapy.” <strong>Short-notes:</strong> id/ego/superego · free association · interpretation · Malan’s selection criteria · transference as formulation. <strong>Confused pair:</strong> transference vs. countertransference; interpretation vs. confrontation.</div>
+
+<!-- 2. BRIEF -->
+<h3 id="u4-2">2. Brief Psychotherapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> Brief (planned short-term) therapy is a generic label for any therapy in which <strong>time is an explicit element of treatment planning</strong> (S2). It is an umbrella for short-term, solution-oriented approaches that emphasise (1) a <strong>specific focus</strong> and (2) <strong>direct, active intervention</strong>; the therapist works pro-actively, favouring the present and the factors <em>sustaining</em> a problem over historical causes (S3). It is <em>brief by design, not by default</em> (dropping out ≠ brief therapy) (S2).</p>
+<p><strong>B. History.</strong> Early psychoanalysis was itself brief and active; as free association, transference work and dream analysis developed, treatment lengthened. The modern era began in the <strong>1960s</strong> when <strong>Sifneos</strong> and <strong>Malan</strong> independently created the first theoretically coherent short-term therapies; WWII and events such as grief work after the Coconut Grove fire also shaped the field (S3).</p>
+<p><strong>C. Theory &amp; four schools.</strong> <span class="tag tag-src">FROM SOURCES</span> Four general schools (S3): (1) <strong>psychodynamic</strong>, (2) <strong>cognitive-behavioural</strong>, (3) <strong>interpersonal</strong>, (4) <strong>eclectic</strong> — with no conclusive evidence that any one is superior. Common elements across brief therapies (S2): sharp <strong>focus</strong>; high <strong>therapist activity</strong> (catalyst, not blank screen); active <strong>client</strong> involvement with homework; careful <strong>client selection</strong>; <strong>enhanced experiencing</strong> (via hypnosis, relaxation, confrontation, exposure, role-play); emphasis on <strong>readiness for change</strong> (Prochaska &amp; DiClemente); and <strong>impact</strong> (corrective emotional experience) over exhaustive insight.</p>
+<p><strong>D. Key models (contributors).</strong></p>
+<table>
+<thead><tr><th>Model</th><th>Hallmark</th></tr></thead>
+<tbody>
+<tr><td><strong>Sifneos</strong> — short-term anxiety-provoking therapy</td><td>12–20 sessions; detached, didactic therapist; provokes &amp; uses anxiety as a lever; suits a small (~2–10%) high-functioning subgroup (S3)</td></tr>
+<tr><td><strong>Malan</strong></td><td>Interpretation as curative, aimed at the <em>objects</em> behind defences; sets a stop date once the goal is in sight; uses triangles of conflict/person (S3)</td></tr>
+<tr><td><strong>Davanloo</strong></td><td>Intensive confrontation/“pressure” to elicit warded-off anger; D→A→I triangle; experienced as supportive by suitable (nonpsychotic, nonaddicted) clients (S3)</td></tr>
+<tr><td><strong>Mann</strong> — time-limited therapy</td><td><strong>Exactly 12 sessions</strong>; time itself is the therapeutic tool; focuses on a “central issue” (separation, grief, developmental impasse) experienced existentially (S3)</td></tr>
+<tr><td><strong>Beck</strong> (cognitive)</td><td>Brings preconscious automatic thoughts into awareness; Socratic questioning; activity scheduling &amp; behavioural experiments (S3)</td></tr>
+</tbody>
+</table>
+<p><strong>E–F. Formulation &amp; goals.</strong> A single, agreed <strong>focal problem/pattern</strong>; goals are circumscribed and reached by streamlining change — advancing readiness and delivering emotionally impactful interventions rather than broad personality overhaul (S2).</p>
+<p><strong>G. Roles.</strong> Active, directive therapist; engaged, task-doing client.</p>
+<p><strong>H. Assessment / suitability (S2).</strong> Depends on: <strong>duration</strong> (chronic over-learned patterns need more work); <strong>interpersonal history</strong> (brevity needs a quick, durable alliance — harder after abuse/neglect); plus motivation and a focal problem. Not appropriate for chronic/severe mental illness.</p>
+<p><strong>I–J. Procedure &amp; techniques.</strong> Time-limited contract (fixed number or stop-date); focus-holding; interpretation/confrontation (dynamic models) or Socratic questioning, activity scheduling, cognitive rehearsal and homework (cognitive models); between-session tasks.</p>
+<p><strong>K. Stages (Mann’s arc, S3).</strong> Early outpouring &amp; idealisation → ~session 4 disillusionment/return of symptoms (first interpretation of avoidance of time-limit) → mid-therapy deepening → after midpoint (session 6) overt resistance/negative transference → termination work on separation; the client moves from neurotic separation-fear toward realistic, autonomous optimism.</p>
+<p><strong>L–M. Indications/contraindications.</strong> Indicated for focal, situational, neurotic-level problems in higher-functioning, motivated clients; contraindicated for chronic/severe illness, severe trauma histories, poor alliance capacity.</p>
+<p><strong>N–O. Outcomes &amp; research.</strong> No single brief therapy proven superior to another (S3). Solution-Focused Brief Therapy evidence (S1): Kim et al. (2018), Beauchemin (2018), Wengao et al. (2022) support SFBT across substance use, student wellness and distress.</p>
+<p><strong>P. Advantages/disadvantages.</strong> + efficient, focused, cost-effective, good for motivated clients; − unsuitable for complex/chronic cases; demands skilled, active therapists; narrow focus may leave broader issues untouched.</p>
+<div class="vignette"><span class="vt">R. Illustration (Mann)</span> A client grieving a parent contracts for exactly 12 sessions. The therapist names the central issue — unresolved separation — and, as the ending nears, uses the <em>time limit itself</em> to re-evoke and master the feelings of loss.</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Describe brief psychotherapy, its common features and major models.” <strong>Short-notes:</strong> four schools of brief therapy · Mann’s 12-session model · Sifneos vs. Davanloo · brief by design vs. default. See <a href="#tables">brief vs. long-term</a> table.</div>
+
+<!-- 3. HUMANISTIC -->
+<h3 id="u4-3">3. Humanistic Psychotherapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> A family of therapies emphasising <strong>self-actualisation</strong>, with the therapist <em>facilitating</em> that actualisation (Rowan, 2001). Though stereotyped as a 1960s reaction to psychoanalysis, they in fact have strong roots in psychodynamic theory and evolved alongside it (S2).</p>
+<p><strong>B–C. History &amp; philosophical basis (S2).</strong> Four defining philosophical values:</p>
+<ul>
+<li><strong>Human potential &amp; freedom</strong> — an optimistic view: people have freedom and responsibility to shape their lives and can find internal resources even in adversity (not a denial of genetics or circumstance).</li>
+<li><strong>Holism</strong> — the person is an indivisible unity of mind, body, action, feeling and spirit; no aspect can be split off.</li>
+<li><strong>Relationship</strong> — human relatedness is central; the therapeutic relationship is the most potent healing factor (Rogers, 1951).</li>
+<li><strong>Phenomenology</strong> — attending to the client’s experience without pre-judging, so new meaning can emerge.</li>
+</ul>
+<p><strong>D. Core concepts.</strong> Self-actualisation; the “fully functioning”/“OK” person; here-and-now contact; subjective experience; the whole person (feeling–thinking–acting + spiritual); meaning-making “from cradle to grave” (S2).</p>
+<p><strong>E–F. Formulation &amp; goals.</strong> Emotional problems are respected as <em>attempts to get on with life</em>; everyone can improve their quality of life. Goals: facilitate self-actualisation, awareness and authentic living; change paradoxically follows <strong>acceptance of who one is</strong> (S2).</p>
+<p><strong>G. Roles.</strong> The therapist is a <strong>facilitator</strong> providing the relational conditions; the client leads and is trusted as the expert on their own experience.</p>
+<p><strong>I–J. Procedure &amp; techniques.</strong> Individual, couple and group formats; frequency from several times/week to monthly; applicable briefly or long-term (S2). Techniques are relationship-based: empathic reflection, the core conditions, here-and-now contact, experiential exercises (see Gestalt &amp; person-centred).</p>
+<p><strong>K. Integrative development (S2).</strong> Safran &amp; Messer (1997) identify three forms of integration: <strong>technical eclecticism</strong> (selecting effective techniques across approaches), <strong>common-factors</strong> integration (privileging the therapeutic relationship), and <strong>theoretical integration</strong> (building a unified theory).</p>
+<p><strong>L–M. Indications/limits.</strong> Classically for reasonably functional clients with specific life-area problems (relationships, work), increasingly extended to deeper problems incl. personality disorder (Johnson 2000; Bulmer 2003; Shah 2004). Critique: openness/flexibility can be seen as <em>dilution</em> of a complex task (Rowan, 1983) (S2).</p>
+<p><strong>N–O. Research.</strong> <span class="tag tag-src">FROM SOURCES</span> S2 notes that because many principles derive from <em>philosophical values</em> and include a spiritual dimension, building a research evidence base has been a particular challenge for the humanistic therapies (an honest limitation).</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Discuss the philosophical foundations of humanistic psychotherapy.” <strong>Short-notes:</strong> the four humanistic values (potential/freedom, holism, relationship, phenomenology) · self-actualisation · three forms of integration (Safran &amp; Messer). See <a href="#tables">psychodynamic vs. humanistic</a>.</div>
+
+<!-- 4. EXISTENTIAL -->
+<h3 id="u4-4">4. Existential Therapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> A philosophically grounded approach addressing the “givens” of existence — freedom, responsibility, meaning, isolation and mortality — rooted in existential philosophy (S2).</p>
+<p><strong>B. History &amp; contributors (S2).</strong> Philosophical roots in <strong>Kierkegaard, Nietzsche, Heidegger, Husserl, Merleau-Ponty, Sartre and Tillich</strong>. Clinical lineage: <strong>Karl Jaspers</strong> (<em>General Psychopathology</em>, 1913; phenomenological observation; human relatedness as a therapeutic tool); <strong>Martin Buber</strong> (existence is <em>dialogical</em>; “I–Thou” contactful relating); <strong>Viktor Frankl</strong> (meaning as the key to survival — from the concentration camps; focus on the here-and-now and the future, freedom of will and finding meaning); <strong>R.D. Laing</strong> (UK; psychotic experience as meaningful and amenable to help); <strong>Emmy van Deurzen</strong> (UK); <strong>Rollo May</strong> and <strong>Irvin Yalom</strong> (USA).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> Freedom and responsibility; authenticity vs. “bad faith”; meaning/meaninglessness; here-and-now and the future over early history (Frankl); the dialogical (I–Thou) relationship (Buber); phenomenological understanding (Jaspers).</p>
+<p><strong>E–F. Formulation &amp; goals.</strong> Distress is understood as a confrontation with existential givens (e.g., avoiding freedom/responsibility, or living without meaning). Goals: enable authentic, responsible, meaning-filled living; help the client “own freedom of will” (Frankl).</p>
+<p><strong>G. Roles.</strong> An authentic, present fellow-traveller rather than a technical expert; the I–Thou encounter is itself therapeutic.</p>
+<p><strong>J. Techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Existential therapy is deliberately light on prescribed “techniques”; it works through phenomenological exploration, confronting the givens, Socratic dialogue, and (in logotherapy) Frankl’s <em>paradoxical intention</em> and <em>dereflection</em> to find meaning. (Your source names Frankl/logotherapy; the specific technique labels are standard supplements.)</p>
+<p><strong>L–M. Indications/limits.</strong> Suited to clients grappling with meaning, loss, mortality, major life transitions; less suited where structured symptom-relief or crisis stabilisation is the priority. A recognised limitation (S2): the humanistic/existential family’s philosophical, spiritual character makes a research evidence base harder to build.</p>
+<div class="vignette"><span class="vt">R. Illustration (Frankl)</span> A bereaved widower feels life is pointless. Rather than removing the grief, the therapist helps him find <em>meaning</em> in honouring his late wife through the way he now lives — converting unavoidable suffering into a stance he can own.</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Discuss existential therapy and its major contributors.” <strong>Short-notes:</strong> Buber’s I–Thou · Frankl’s logotherapy &amp; meaning · existential givens · Yalom/May. <strong>Confused pair:</strong> existential vs. humanistic (overlapping but existential foregrounds the ‘givens’ &amp; responsibility).</div>
+
+<!-- 5. GESTALT -->
+<h3 id="u4-5">5. Gestalt Therapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> <em>Gestalt</em> (German) = whole/form/shape. An experiential humanistic therapy focused on present <strong>awareness</strong> and full <strong>contact</strong> with oneself and the environment (S2).</p>
+<p><strong>B. History.</strong> Originated by <strong>Fritz Perls</strong> and his wife <strong>Laura Perls</strong>. Perls (a neuropsychiatrist, briefly analysed by Karen Horney) trained as a psychoanalyst, encountered Gestalt psychology and existentialism in the 1920s, fled Nazi Germany (South Africa, 1936), moved to the USA and in 1947 — with Laura — began the first group from which Gestalt therapy emerged; <em>Gestalt Therapy: Excitement and Growth in the Human Personality</em> (Perls et al., 1951) (S2).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> Phenomenological; people are <strong>self-regulating organisms</strong> with an inbuilt drive toward development and need-meeting. <strong>Change is inevitable</strong> when a person is in contact with self and environment (the “paradoxical theory of change,” Beisser 1970 — one becomes what one is, not what one tries to be). When contact is interrupted (often early in life), the person cannot meet needs; these <strong>patterned interruptions to contact</strong> are the primary focus (S2). Later Gestalt added the <strong>dialogic relationship</strong> (Hycner, Jacobs, Yontef) — phenomenological exploration <em>through</em> the therapist–client dialogue.</p>
+<p><strong>F–G. Goals &amp; roles.</strong> Raise awareness, enlarge choice, restore contact — <em>not</em> change or problem-solving per se. Perls stressed <strong>self-support</strong>, challenging clients who leaned on the therapist (S2); the therapist is a facilitator of present experience.</p>
+<p><strong>J. Techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> (Your source gives the theory; these classic techniques are standard additions.) <strong>Empty-chair / two-chair</strong> dialogue (enacting conflicting parts or unfinished business with another person); <strong>exaggeration</strong>; <strong>staying with the feeling</strong>; <strong>“I” language</strong> and present-tense talk; <strong>awareness experiments</strong>; attending to <strong>unfinished business</strong>. <em>Rationale:</em> make the implicit explicit and restore here-and-now contact.</p>
+<p><strong>L–M. Indications/limits.</strong> Good for over-intellectualised, affectively constricted clients; caution with fragile/psychotic clients where intense affect-arousal may destabilise.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> paradoxical theory of change · unfinished business · empty-chair · contact &amp; interruptions · Perls. See <a href="#tables">Gestalt vs. person-centred</a>.</div>
+
+<!-- 6. PERSON-CENTRED -->
+<h3 id="u4-6">6. Person-Centred Therapy</h3>
+<p><strong>A–B. Definition &amp; history.</strong> <span class="tag tag-src">FROM SOURCES</span> Developed by <strong>Carl Rogers</strong> (influenced by Rank and the child-guidance movement from the 1930s; a landmark 1940 University of Minnesota talk critiqued existing approaches). Rogers’ radical idea: providing a <strong>respectful, empathic and authentic relationship</strong> will <em>in itself</em> enable the client to activate their own capacity to become a more fully functioning, responsible self (Rogers, 1951, 1961). He was also a pioneer of systematic psychotherapy <strong>research</strong> (S2).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> An <strong>actualising tendency</strong> (an innate drive toward growth) that life experiences may thwart but the right conditions release; the <strong>self-concept</strong>, conditions of worth, and <strong>congruence/incongruence</strong> between self and experience. The <strong>Rogers–Buber dialogue (1957)</strong>: Rogers resonated with Buber’s I–Thou but saw implicit judgement where positive potential is doubted (S2).</p>
+<p><strong>E–F. Formulation &amp; goals.</strong> Distress arises from <strong>incongruence</strong> and introjected conditions of worth; the goal is to restore congruence and movement toward the fully functioning person — self-directed by the client.</p>
+<p><strong>G–J. Roles &amp; the core conditions (the “technique”).</strong> <span class="tag tag-src">FROM SOURCES</span> Person-centred therapy is <strong>non-directive</strong>; the therapist’s stance <em>is</em> the method — the <strong>core conditions</strong> (see Unit II): <strong>congruence/genuineness</strong>, <strong>unconditional positive regard</strong>, and <strong>empathic understanding</strong> conveyed to the client (empathy, not sympathy; Carkhuff’s scale) (S2). Many hold these are <em>necessary but not sufficient</em> (Bohart 1990; Tausch 1990).</p>
+<p><strong>L–M. Indications/limits.</strong> Broadly applicable; especially where self-direction and relationship are central. Limits: may be insufficient alone for severe/complex conditions; non-directiveness can frustrate clients wanting structure.</p>
+<div class="vignette"><span class="vt">R. Illustration</span> A client says, “I should be grateful — I have no right to feel sad.” The therapist responds with UPR and empathy: “It sounds like you’re feeling sad <em>and</em> telling yourself you shouldn’t be.” Accepted without judgement, the client gradually owns the feeling — congruence increases.</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Explain the core conditions of person-centred therapy and their role in change.” <strong>Short-notes:</strong> actualising tendency · congruence · UPR · empathy vs. sympathy · necessary-but-not-sufficient. See <a href="#tables">Gestalt vs. person-centred</a>.</div>
+
+<!-- 7. ADLERIAN -->
+<h3 id="u4-7">7. Adlerian Therapy (Individual Psychology)</h3>
+<p><strong>A–B. Definition &amp; history.</strong> <span class="tag tag-src">FROM SOURCES</span> Founded by <strong>Alfred Adler</strong>, who emphasised that human beings are <strong>social in nature</strong> and that <strong>behaviour is goal-directed</strong> (teleological) — ideas that also seeded reality therapy (S2). The “primary indication of mental health” in the Adlerian view is <strong>connectedness with all of life</strong> (social embeddedness), which provides a genuine sense of security (S2).</p>
+<p><strong>C–D. Theory &amp; concepts <span class="tag tag-supp">SUPPLEMENTARY</span> (named standard terms).</strong> <strong>Inferiority feelings</strong> and striving for superiority/competence; <strong>social interest (Gemeinschaftsgefühl)</strong> — the hallmark of mental health; <strong>style of life</strong> (lifestyle) formed in early childhood; <strong>fictional finalism</strong> (guiding goals); <strong>birth order/family constellation</strong>; the <strong>creative self</strong>. (Your source names the social, goal-directed, lifestyle, and connectedness ideas; these classic Adlerian labels are added.)</p>
+<p><strong>H–I. Assessment &amp; procedure — six phases (S2).</strong></p>
+<ol>
+<li><strong>Establishing the therapeutic relationship</strong> — a warm, caring, empathic, cooperative bond; the client may first need to express distress with little interruption.</li>
+<li><strong>Assessment</strong> — of the lifestyle (incl. early recollections, family constellation).</li>
+<li><strong>Encouragement &amp; clarification.</strong></li>
+<li><strong>Interpretation</strong> — of the lifestyle and mistaken goals (with insight).</li>
+<li><strong>Redirection of the lifestyle</strong> — reorientation toward social interest and useful goals.</li>
+<li><strong>Meta-therapy.</strong></li>
+</ol>
+<p>Adlerian therapy is “a creative process in which the therapist invents a new therapy for each client” (S2).</p>
+<p><strong>F–G. Goals &amp; roles.</strong> Foster social interest, courage and useful goal-striving; the therapist is an encouraging, collaborative educator.</p>
+<p><strong>J. Techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Early recollections; lifestyle/family-constellation analysis; <strong>encouragement</strong>; confronting the “basic mistakes”; “<em>the question</em>” (“How would life be different if you were well?”); <strong>acting as-if</strong>; <strong>spitting in the client’s soup</strong> (making a payoff conscious); task-setting.</p>
+<p><strong>L–M. Indications/limits.</strong> Broadly applicable, strongly used in child guidance, parenting and education; less emphasis on biological/unconscious drive than classical analysis.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> social interest · inferiority &amp; striving · style of life · the six phases · encouragement. See <a href="#tables">Adlerian vs. other individual-focused</a>.</div>
+
+<!-- 8. TRANSACTIONAL ANALYSIS -->
+<h3 id="u4-8">8. Transactional Analysis (TA)</h3>
+<p><strong>A–B. Definition &amp; history.</strong> <span class="tag tag-src">FROM SOURCES</span> Developed in the <strong>1950s–60s in the USA by Eric Berne</strong> (a Canadian doctor and psychoanalyst). Rooted in humanistic and existential values, its core is the <strong>ego-state model</strong> — a sophisticated model of intrapsychic structure evolved from psychoanalysis (Berne, 1961). TA has absorbed technique from Gestalt (Goulding &amp; Goulding, 1979) and later self-psychology/neuroscience (Hargaden &amp; Sills, 2002), and is well-regarded within psychotherapy integration (S2).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> <span class="tag tag-src">FROM SOURCES</span> The <strong>three ego states</strong> (S3): <strong>Parent</strong> (introjected parental figures — blaming/praising), <strong>Adult</strong> (reality-oriented processing of here-and-now), and <strong>Child</strong> (archaic feelings/behaviours). A healthy person flexibly uses all three; problems arise from <strong>contamination</strong> or <strong>exclusion</strong> of ego states.</p>
+<p><strong>D (continued) <span class="tag tag-supp">SUPPLEMENTARY</span>:</strong> <strong>transactions</strong> (complementary, crossed, ulterior); <strong>strokes</strong> (units of recognition); <strong>life positions</strong> (I’m OK/You’re OK, etc.); <strong>games</strong> (repetitive ulterior-transaction sequences with a payoff — from <em>Games People Play</em>); and the <strong>life script</strong> formed in childhood. (Your source names ego states &amp; the humanistic/existential grounding; these are the standard TA terms.)</p>
+<p><strong>F–G. Goals &amp; roles.</strong> Attain <strong>autonomy</strong> (awareness, spontaneity, capacity for intimacy); strengthen the Adult; decontaminate ego states; a contractual, egalitarian therapist–client partnership.</p>
+<p><strong>J. Techniques (S3 + supplement).</strong> <strong>Structural &amp; transactional analysis</strong> (diagramming ego states and transactions); <strong>decontamination</strong> (the therapist explains inconsistencies to free the Adult — illustrated in your source’s dialogue); <strong>game &amp; script analysis</strong>; <strong>contracts</strong>; redecision work.</p>
+<div class="vignette"><span class="vt">R. Illustration (from source)</span> A client demands a stronger tranquilliser and complains of being “bad-tempered.” The counsellor points out the inconsistencies in the client’s Parent–Adult–Child communication — a <em>decontamination</em> that frees the Adult to appraise reality (S3).</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Describe the ego-state model and techniques of TA.” <strong>Short-notes:</strong> Parent–Adult–Child · transactions (complementary/crossed/ulterior) · strokes · games · life script · life positions. See <a href="#tables">TA vs. reality therapy</a>.</div>
+
+<!-- 9. REALITY -->
+<h3 id="u4-9">9. Reality Therapy</h3>
+<p><strong>A–B. Definition &amp; history.</strong> <span class="tag tag-src">FROM SOURCES</span> Founded by <strong>William Glasser</strong>; roots in <strong>Adler</strong> (humans are social; behaviour is goal-centred). Glasser extended these ideas to include <strong>genetic instructions / human needs</strong> as sources of behaviour, holding that <strong>behaviour is <em>chosen</em></strong> — not thrust on us by family, environment or childhood conflict; “human beings originate their own behaviour” (S2).</p>
+<p><strong>C. Theoretical basis — Choice Theory (S2).</strong> Reality therapy is grounded in <strong>Choice Theory</strong> (originally framed via control-system theory). Behaviour is a continual attempt to satisfy basic needs; we control our own behaviour.</p>
+<p><strong>D. Core concepts <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> The <strong>five basic needs</strong> (survival, love/belonging, power/achievement, freedom, fun); the <strong>“quality world”</strong> (our pictures of need-satisfying people/things); <strong>total behaviour</strong> (acting, thinking, feeling, physiology); and a present-, responsibility-focused stance. (Source gives choice/needs/present focus; these labels are standard additions.)</p>
+<p><strong>F–G. Goals &amp; roles.</strong> Help clients make <strong>effective choices</strong> to meet needs responsibly, strengthening need-satisfying relationships. The therapist “becomes part of the client’s inner discourse” — a caring, needed, involved figure (S2); directive but warm, focused on present behaviour, not blaming the past.</p>
+<p><strong>I–J. Procedure — the WDEP system (S2 + supplement).</strong> The procedures are tools to help clients clarify wants, evaluate behaviour, and plan change:</p>
+<ul>
+<li><strong>W — Wants:</strong> explore wants, needs and perceptions (the quality world).</li>
+<li><strong>D — Doing/Direction:</strong> examine current <em>total behaviour</em> and overall direction.</li>
+<li><strong>E — Evaluation:</strong> the client makes a self-evaluation — “is what you’re doing getting you what you want?” (the pivotal step).</li>
+<li><strong>P — Planning:</strong> make a specific, achievable, committed plan for effective change.</li>
+</ul>
+<p>Glasser emphasised <strong>no excuses, no punishment, no giving up.</strong></p>
+<p><strong>L–M. Indications/limits.</strong> Widely used with adolescents, in schools, addictions and corrections; present-focused and empowering. Limits: de-emphasises the past, the unconscious and biological/environmental constraints — a critique of the strong “behaviour is chosen” position.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> Choice Theory · five basic needs · WDEP · total behaviour · “behaviour is chosen.” See <a href="#tables">TA vs. reality therapy</a>.</div>
+
+<!-- 10. SUPPORTIVE -->
+<h3 id="u4-10">10. Supportive Psychotherapy</h3>
+<div class="box warn"><span class="bt">Source note</span>Your Unit IV PDF refers to “supportive” work but does not give a dedicated, cleanly-extractable chapter on <em>supportive psychotherapy</em> as a formal modality. The following is standard, authoritative material, labelled accordingly; the <em>supportive–expressive continuum</em> idea and the structure-of-therapy material <em>are</em> grounded in your sources (S1/S2).</div>
+<p><strong>A. Definition.</strong> <span class="tag tag-supp">SUPPLEMENTARY</span> Supportive psychotherapy aims to <strong>maintain or restore the client’s best level of functioning</strong> and relieve distress by strengthening existing adaptive defences and coping, rather than by uncovering unconscious conflict. It sits at the <em>supportive</em> end of the supportive–expressive continuum.</p>
+<p><strong>C–D. Theory &amp; stance.</strong> Draws on psychodynamic understanding but <em>reverses</em> the uncovering stance: it <strong>bolsters</strong> defences and self-esteem instead of challenging them. Core aims: reduce anxiety, enhance reality-testing, improve adaptive skills, and sustain the therapeutic relationship as a stabilising force.</p>
+<p><strong>F–G. Goals &amp; roles.</strong> Symptom relief, ego-support, prevention of relapse/deterioration (links to Wolberg’s “modify/retard” objectives, S1). The therapist is <strong>active, warm, reassuring and directive</strong> — the opposite of the neutral psychodynamic stance.</p>
+<p><strong>J. Techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Reassurance; praise and encouragement; psychoeducation; advice and guidance; environmental intervention; naming and normalising affect; reinforcing adaptive defences; problem-solving; rehearsal/anticipatory guidance. Interpretation and transference analysis are used sparingly if at all.</p>
+<p><strong>L–M. Indications/limits.</strong> Indicated for clients with <strong>limited ego-strength</strong> or in <strong>crisis</strong> — severe/chronic illness, acute stress, psychosis in stabilisation, low psychological-mindedness. Limitation: does not produce deep characterological change (that is not its aim).</p>
+<h4>Supportive vs. insight-oriented (expressive) psychotherapy</h4>
+<table>
+<thead><tr><th>Dimension</th><th>Supportive</th><th>Insight-oriented</th></tr></thead>
+<tbody>
+<tr><td>Primary aim</td><td>Maintain/restore functioning; relieve distress</td><td>Insight &amp; structural/personality change</td></tr>
+<tr><td>Stance toward defences</td><td>Strengthen adaptive defences</td><td>Explore/challenge defences</td></tr>
+<tr><td>Therapist activity</td><td>High: reassure, advise, direct</td><td>Lower: neutral, interpretive</td></tr>
+<tr><td>Transference</td><td>Kept positive, usually not interpreted</td><td>Analysed as central material</td></tr>
+<tr><td>Suitable client</td><td>Lower ego-strength / crisis / severe illness</td><td>Higher ego-strength, psychologically-minded</td></tr>
+</tbody>
+</table>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> supportive–expressive continuum · ego-support · when to use supportive therapy. See the comparison table above and <a href="#tables">master tables</a>.</div>
+
+<!-- 11. HYPNOTHERAPY -->
+<h3 id="u4-11">11. Clinical Hypnotherapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> Hypnosis is treated as a <strong>normal phenomenon</strong> and, per your source, “a valid and reliable clinical tool in the treatment of many health problems” — an accepted therapeutic medical tool (S3). Clinical hypnotherapy uses a focused, absorbed state (trance) with heightened suggestibility for therapeutic ends.</p>
+<p><strong>B. History (S3).</strong> From early practitioners through the 19th century; <strong>from the 1880s</strong> the study of hypnosis passed from surgeons to a broader medical/psychological field; despite debates (e.g., Charcot’s claim that hypnosis was a manifestation of hysteria rather than a cure), it continued to be accepted and practised. <span class="tag tag-supp">SUPPLEMENTARY</span> Key names standardly cited: Mesmer (animal magnetism), James Braid (coined “hypnosis”), Charcot, Bernheim, and Milton Erickson (modern clinical hypnosis).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> Trance; <strong>suggestibility</strong>; focused attention and dissociation; ideomotor responses; post-hypnotic suggestion. Debate persists between “state” (altered-state) and “non-state/socio-cognitive” accounts of hypnosis.</p>
+<p><strong>I–J. Procedure &amp; techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Assessment of hypnotisability and suitability → <strong>induction</strong> (e.g., eye-fixation, progressive relaxation) → <strong>deepening</strong> → <strong>therapeutic suggestion / imagery / age-regression / ego-strengthening</strong> → <strong>post-hypnotic suggestion</strong> → <strong>re-alerting</strong>. Often combined with CBT (“cognitive-behavioural hypnotherapy”).</p>
+<p><strong>L–M. Indications/contraindications.</strong> Indicated: pain management, anxiety, habit disorders (smoking), IBS, procedural distress, some psychosomatic conditions. <strong>Caution/contraindication:</strong> psychosis, severe dissociative disorders, low trust; risk of iatrogenic <strong>false memories</strong> if used for “memory recovery” — a serious ethical/legal concern. Requires trained, consented practice.</p>
+<p><strong>N–O. Research &amp; status (S3 + supplement).</strong> Your source affirms hypnosis as a significant clinical tool in medical practice; the strongest empirical support is as an <em>adjunct</em> (e.g., for pain and procedural anxiety), not a stand-alone cure-all.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> trance &amp; suggestibility · induction–deepening–suggestion–re-alerting · Braid/Erickson · false-memory risk · hypnosis as adjunct.</div>
+
+<!-- 12. PLAY THERAPY -->
+<h3 id="u4-12">12. Play Therapy</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> “The systematic use of a theoretical model to establish an interpersonal process wherein trained play therapists use the <strong>therapeutic powers of play</strong> to help clients prevent or resolve psychosocial difficulties and achieve optimal growth and development” (Association for Play Therapy, 2015; S1). It is based on <strong>developmental principles</strong>, providing developmentally appropriate means of expression and communication for children (S1).</p>
+<p><strong>B. History &amp; contributors <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Psychoanalytic roots (Anna Freud, Melanie Klein); <strong>Virginia Axline</strong> formalised non-directive/child-centred play therapy (eight principles) based on Rogers; later directive and integrative models.</p>
+<p><strong>C–D. Theory &amp; rationale.</strong> Play is the child’s natural language and symbolic medium; through play the child externalises inner conflict, gains mastery, and processes experience that cannot yet be verbalised.</p>
+<p><strong>H–I. Procedure.</strong> A safe, consistent playroom with selected toys (expressive, nurturing, aggressive-release, real-life); regular sessions; the relationship is central. Directive vs. non-directive stance (see below).</p>
+<p><strong>J. Techniques <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Reflective tracking of play; limit-setting; sand-tray; art; puppets/role-play; storytelling; therapeutic board games (directive models).</p>
+<h4>Directive vs. non-directive play therapy</h4>
+<table>
+<thead><tr><th>Aspect</th><th>Non-directive (child-centred)</th><th>Directive</th></tr></thead>
+<tbody>
+<tr><td>Lead</td><td>Child leads; therapist follows &amp; reflects</td><td>Therapist structures activities toward goals</td></tr>
+<tr><td>Theory</td><td>Rogerian/humanistic (Axline)</td><td>Behavioural/cognitive/psychodynamic goals</td></tr>
+<tr><td>Therapist role</td><td>Reflective, accepting, trusts the child’s process</td><td>Active, goal-focused, selects materials/tasks</td></tr>
+<tr><td>Best for</td><td>Building self-direction, emotional expression</td><td>Specific target problems, skill-building</td></tr>
+</tbody>
+</table>
+<p><strong>L. Indications.</strong> Children with anxiety, trauma, behavioural/adjustment problems, hospitalisation stress, grief.</p>
+<p><strong>N–O. Research (S1).</strong> RCTs support play therapy: Chhillar et al. (2020) — reduced anxiety in hospitalised children; Cheng &amp; Ray (2016) — child-centred group play therapy improved social-emotional assets, empathy and social competence; Su &amp; Tsai (2016) — improved relationships and mood.</p>
+<div class="vignette"><span class="vt">R. Illustration</span> A 6-year-old who witnessed domestic violence repeatedly stages a “crash and rescue” with toy cars and figures. The child-centred therapist tracks and reflects (“The little one got hurt, and someone came to help”), letting the child gain mastery over the frightening experience at her own pace.</div>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> therapeutic powers of play · Axline’s child-centred principles · directive vs. non-directive · play as the child’s language. See <a href="#tables">directive vs. non-directive</a>.</div>
+
+<!-- 13. PSYCHODRAMA -->
+<h3 id="u4-13">13. Psychodrama</h3>
+<p><strong>A–B. Definition &amp; history.</strong> <span class="tag tag-src">FROM SOURCES</span> Developed by psychiatrist <strong>Dr J.L. Moreno</strong>, psychodrama was the <strong>first recognised method of group psychotherapy</strong>, is practised in many countries, and is fully accredited as a psychotherapy by the UKCP (S3). (As early as 1908 Moreno drew on existential ideas of personal responsibility, using drama techniques in groups to help patients process early family conflicts — S2.)</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> <span class="tag tag-src">FROM SOURCES</span> Central concepts include <strong>spontaneity</strong>, <strong>catharsis</strong>, <strong>surplus reality</strong>, and the roles of <strong>protagonist</strong> and <strong>director</strong> (all present in S3). <span class="tag tag-supp">SUPPLEMENTARY</span> Also: <em>tele</em> (two-way empathic flow in the group), the <strong>auxiliary ego</strong> (group members enacting significant others), the <strong>audience</strong>, and the <strong>stage</strong>.</p>
+<p><strong>G. Roles.</strong> <strong>Protagonist</strong> (the client whose situation is enacted); <strong>director</strong> (the therapist who guides the drama); <strong>auxiliary egos</strong> (play significant figures); <strong>audience</strong> (the group, offering resonance and sharing).</p>
+<p><strong>I. Procedure — three phases.</strong></p>
+<ol>
+<li><strong>Warm-up</strong> — the group becomes ready and a protagonist/theme emerges.</li>
+<li><strong>Action (enactment)</strong> — the protagonist dramatises the situation on the “stage,” using techniques below, often reaching <strong>catharsis</strong>.</li>
+<li><strong>Sharing</strong> — group members share (not analyse) how the enactment resonated with their own lives, re-integrating the protagonist.</li>
+</ol>
+<p><strong>J. Techniques.</strong> <strong>Doubling</strong> (an auxiliary voices the protagonist’s unspoken inner experience); <strong>mirroring</strong> (the protagonist watches an auxiliary replay their behaviour, as in a mirror); <strong>role reversal</strong> (the protagonist takes the role of the other, building empathy and perspective); <strong>soliloquy</strong>; <strong>empty-chair</strong>. <em>Rationale:</em> enactment makes implicit relational dynamics explicit and enables new, spontaneous responses (surplus reality lets the client replay the past “as it should have been”).</p>
+<p><strong>L–M. Indications/limits.</strong> Group settings; trauma, relational and family-of-origin issues, skill rehearsal. Caution: emotionally powerful — needs a skilled director and a contained group; fragile clients may be overwhelmed.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Long-answer:</strong> “Describe psychodrama: its structure, roles and techniques.” <strong>Short-notes:</strong> Moreno · protagonist/director/auxiliary ego · warm-up/action/sharing · doubling, mirroring, role reversal · spontaneity &amp; catharsis.</div>
+
+<div class="box warn" style="margin-top:30px"><span class="bt">Chapters 14–19: complementary mind–body practices</span>
+The following six approaches are <strong>complementary / integrative mind–body practices</strong>, not conventional verbal psychotherapies. Your sources include material on each, and Unit I itself notes that mindfulness and yoga are now embedded in Western therapies (S1). As your master instruction requires, their <em>evidence</em> is treated cautiously: yoga, meditation, shavasana and tai chi have a <strong>growing but mixed</strong> empirical base as adjuncts; <strong>pranic healing</strong> and <strong>Reiki</strong> are <strong>energy-healing</strong> practices whose proposed mechanisms are not established by conventional science — the sources themselves describe them as <em>complementary, not replacements</em> for medical/psychological treatment.</div>
+
+<!-- 14. YOGA -->
+<h3 id="u4-14">14. Yoga</h3>
+<p><strong>A–B. Definition &amp; origin.</strong> <span class="tag tag-src">FROM SOURCES</span> An ancient Indian mind–body discipline. Your source frames yoga especially as a <strong>preventive therapy</strong>, quoting Maharishi <strong>Patanjali</strong>’s <em>Yoga Darshan</em> — <em>“heyam dukkham anagatam”</em> (“prevent those miseries that are yet to come”) — so that taking up yoga in childhood can prevent later conditions (<strong>primary prevention</strong>), with <strong>secondary prevention</strong> once a condition has set in (S3).</p>
+<p><strong>C–D. Theory &amp; components <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Patanjali’s <strong>eight limbs (ashtanga)</strong>: yama, niyama, <strong>asana</strong> (posture), <strong>pranayama</strong> (breath regulation), pratyahara, dharana, dhyana (meditation), samadhi. Therapeutic yoga typically uses asana + pranayama + meditation/relaxation.</p>
+<p><strong>F–G. Goals &amp; mechanisms.</strong> Prevention and health promotion; stress reduction via autonomic balancing (shift toward parasympathetic activity — see Shavasana §16); improved affect regulation, flexibility and body-awareness. The teacher/therapist instructs and guides practice.</p>
+<p><strong>L–M. Indications/precautions.</strong> Used adjunctively for anxiety, depression, stress and psychosomatic conditions. <strong>Precautions:</strong> physical limitations/injuries, pregnancy, certain cardiovascular conditions; some practices (intense pranayama) can occasionally destabilise vulnerable individuals — needs qualified instruction.</p>
+<p><strong>N–O. Research &amp; status <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> A growing evidence base supports yoga as an <em>adjunct</em> for stress, anxiety and depressive symptoms, though trials vary in quality and standardisation. Best framed as complementary to, not a replacement for, established treatment.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> yoga as primary/secondary prevention (Patanjali) · ashtanga (eight limbs) · asana &amp; pranayama · yoga as adjunct.</div>
+
+<!-- 15. MEDITATION -->
+<h3 id="u4-15">15. Meditation</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> Meditation is described as an <strong>altered state of consciousness</strong> — a view supported by findings that experienced meditators can influence the <strong>EEG wave-pattern</strong> associated with meditation practice (S3).</p>
+<p><strong>C–D. Types &amp; concepts <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Broadly, <strong>focused-attention</strong> (concentrative, e.g., on breath/mantra), <strong>open-monitoring</strong> (mindfulness), and <strong>loving-kindness/compassion</strong> meditation. Mindfulness = non-judgemental, present-moment awareness.</p>
+<p><strong>F–G. Goals &amp; mechanisms.</strong> Reduced physiological arousal; metacognitive awareness (experiencing thoughts/emotions as passing mental events — the mechanism central to MBCT, see Unit I §12); improved attention and emotion regulation; parasympathetic shift (alpha activity).</p>
+<p><strong>N–O. Research &amp; status.</strong> <span class="tag tag-src">FROM SOURCES</span> Meditation is woven into evidence-based protocols in your Unit I source — <strong>MBCT</strong> reduces depressive relapse (Segal et al., 2012; Kuyken et al., 2008; Godfrin &amp; van Heeringen, 2010) and <strong>MBSR</strong> helps social anxiety (Goldin et al., 2016) (S1). As a stand-alone practice its effects are robust for stress/affect but modality- and dose-dependent.</p>
+<p><strong>M. Precautions <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Rarely, intensive practice can provoke anxiety, dissociation or destabilisation in vulnerable individuals (“adverse meditation experiences”) — screen and titrate.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> meditation as altered state (EEG/alpha) · focused vs. open-monitoring · mindfulness &amp; metacognitive awareness · MBCT/MBSR evidence.</div>
+
+<!-- 16. SHAVASANA -->
+<h3 id="u4-16">16. Shavasana (Corpse / Relaxation Pose)</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> A yogic deep-relaxation posture. Your source explains its rationale physiologically: the nervous system has a <strong>voluntary</strong> part and an <strong>involuntary</strong> part (respiration, circulation, digestion). Under fear/stress the <strong>sympathetic</strong> system drives “fight or flight”; chronic or imaginary-threat activation becomes a harmful drain on energy (S3).</p>
+<p><strong>C. Mechanism (S3).</strong> <strong>Shavasana and meditation activate the parasympathetic nervous system</strong>, normalising adrenaline, noradrenaline and corticosteroid secretion. As a result: heart rate, blood pressure and blood sugar normalise; blood “thins” and arteries dilate; lactic-acid formation falls (said to retard ageing); <strong>endorphins and neuropeptides</strong> are released (bringing “peace and joy”); and slow rhythmic <strong>alpha activity</strong> appears over the frontal lobe. These chemical changes are said to promote healing by improving immune status (S3).</p>
+<p><strong>I–J. Procedure.</strong> <span class="tag tag-supp">SUPPLEMENTARY</span> Lie supine, limbs relaxed and slightly apart, eyes closed; systematically relax each body region; slow natural breathing; passive awareness; typically 10–20 minutes.</p>
+<p><strong>F–L. Goals &amp; indications.</strong> Relaxation, stress-reduction, recovery; used as the concluding relaxation of a yoga session and as a standalone destressing practice; useful adjunct for anxiety, hypertension (as complementary), insomnia.</p>
+<p><strong>M. Precautions.</strong> Generally safe; those who find lying still with eyes closed distressing (e.g., some trauma survivors) may need modification.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> sympathetic vs. parasympathetic · the physiological changes in shavasana · alpha activity · shavasana as relaxation adjunct.</div>
+
+<!-- 17. PRANIC HEALING -->
+<h3 id="u4-17">17. Pranic Healing</h3>
+<p><strong>A. Definition.</strong> <span class="tag tag-src">FROM SOURCES</span> “A highly developed and tested system of <strong>energy-based healing</strong> that utilises <em>life force</em> or <strong>prana</strong> to balance, harmonise and transform the body’s energy processes” — described as a simple-to-learn, <strong>no-touch</strong> energy healing resting on the principle that the body is a “self-repairing” living entity (S3).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> Increasing life force/vital energy on the affected part is said to accelerate healing; it works on the proper functioning of <strong>chakras</strong> within the “energy body,” which regulate life force in the “bioplasmic body” (S3). <span class="tag tag-supp">SUPPLEMENTARY</span> The modern system is associated with <strong>Grand Master Choa Kok Sui</strong>; practitioners “scan,” “cleanse” (sweep) and “energise” the aura.</p>
+<p><strong>I–J. Procedure.</strong> No physical touch: scanning the energy field → cleansing/sweeping “diseased” energy → energising with prana → stabilising/releasing.</p>
+<p><strong>M. Important disclaimers (quoted stance from source, S3).</strong> Pranic Healing is <strong>not intended to replace orthodox medicine</strong> but to complement it; for severe/persistent symptoms a medical practitioner should be consulted; it is a system of <em>balancing energy for stress reduction, relaxation and empowerment</em>; practitioners do <strong>not</strong> physically touch the recipient, diagnose disease, prescribe substances, or make health claims, and are <strong>not</strong> licensed physicians, surgeons or psychotherapists.</p>
+<p><strong>N–O. Research &amp; status.</strong> <span class="tag tag-gap">GAP / VERIFY</span> <span class="tag tag-supp">SUPPLEMENTARY</span> The proposed mechanism (prana/chakras/bioplasmic body) is <strong>not established by conventional science</strong>; rigorous controlled evidence of specific efficacy beyond relaxation/placebo is lacking. Present it as a <em>complementary</em> practice, consistent with the source’s own disclaimers — not an evidence-based psychotherapy.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> prana &amp; chakras · no-touch energy healing · “complement, not replace” · evidential status (unestablished mechanism).</div>
+
+<!-- 18. REIKI -->
+<h3 id="u4-18">18. Reiki</h3>
+<p><strong>A–B. Definition &amp; origin.</strong> <span class="tag tag-src">FROM SOURCES</span> Reiki is described as an ancient energy-healing therapy based on both Japanese and Indian traditions; its modern origin is attributed to <strong>Dr Mikao Usui</strong> in Japan, who (after training in psychology/spiritual therapy and a 21-day practice in the caves of Mount Kurama) is said to have discovered the method (S3). It is a <strong>healing delivery system</strong> working through “glowing radiances” passing through/around the biological system, and your source notes reported benefits in reducing side-effects of chemotherapy/radiotherapy (S3).</p>
+<p><strong>C–D. Theory &amp; concepts.</strong> <span class="tag tag-src">FROM SOURCES</span> <strong>Chakra and Aura</strong> are the main factors, said to be postulated by ancient Indian saints — symbols within humans that regulate body function; their proper stimulation/activation is held to correct problems in the biological system (S3). (Universal life-energy channelled by the practitioner, often by light touch or hands held just off the body.)</p>
+<p><strong>I–J. Procedure.</strong> The practitioner channels “life energy” through the hands over the recipient’s chakra points in a sequence; the recipient rests, clothed.</p>
+<p><strong>L. Reported applications (S3).</strong> Stress/relaxation; adjunctive support during cancer treatment (symptom/side-effect relief), among others claimed.</p>
+<p><strong>N–O. Research &amp; status.</strong> <span class="tag tag-gap">GAP / VERIFY</span> <span class="tag tag-supp">SUPPLEMENTARY</span> Like pranic healing, Reiki’s proposed “life-energy” mechanism is <strong>not scientifically established</strong>; systematic reviews generally find <strong>no convincing evidence</strong> of specific efficacy beyond relaxation/placebo. Position Reiki as a complementary practice for relaxation/comfort, not an evidence-based psychotherapy.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> Usui &amp; Mount Kurama · chakra &amp; aura · hands-on/near-body energy channelling · complementary status; weak specific-efficacy evidence.</div>
+
+<!-- 19. TAI CHI -->
+<h3 id="u4-19">19. Tai Chi</h3>
+<p><strong>A–B. Definition &amp; origin.</strong> <span class="tag tag-src">FROM SOURCES</span> Tai Chi is a popular <strong>mind–body intervention that originated as a martial art</strong>; your source states it “can significantly regulate emotion and relieve the symptoms of mood disorders,” and that its simplified, low-intensity forms (and instructional videos) make it a promising mind–body exercise (S3). It combines slow, flowing movement with breath and meditative attention.</p>
+<p><strong>C–D. Theory &amp; concepts <span class="tag tag-supp">SUPPLEMENTARY</span>.</strong> Rooted in Taoist philosophy and the balance of <em>yin–yang</em> and <em>qi</em> (vital energy); therapeutically understood through conventional mechanisms — physical exercise, relaxation, breath regulation, attentional focus and parasympathetic activation.</p>
+<p><strong>F–G. Goals &amp; mechanisms.</strong> Emotion regulation, mood improvement, stress reduction, balance and physical conditioning. Mechanisms your source explores include its action on mood via mind–body regulation (S3).</p>
+<p><strong>L–M. Indications/precautions.</strong> Depression, anxiety, stress; well-suited to older adults and those needing low-intensity exercise. Precautions: adapt for physical limitations; a gentle, generally safe practice.</p>
+<p><strong>N–O. Research &amp; status.</strong> <span class="tag tag-src">FROM SOURCES</span> Your source reviews <strong>clinical trials implementing Tai Chi as a treatment for depression</strong> and explores plausible mechanisms (Kong et al., 2019, <em>Frontiers in Psychiatry</em>) (S3). <span class="tag tag-supp">SUPPLEMENTARY</span> The evidence base is <strong>growing but still mixed/preliminary</strong> — best framed as a promising <em>adjunct</em> for mood and stress rather than a first-line stand-alone treatment.</p>
+<div class="exam"><h4>S. Exam summary</h4><strong>Short-notes:</strong> Tai Chi as mind–body/martial-art exercise · qi &amp; yin–yang (philosophical) vs. conventional mechanisms · emerging evidence for depression (Kong et al., 2019).</div>
+
+<!-- ============================= TABLES ============================= -->
+<h2 class="unit" id="tables">Master Comparison Tables</h2>
+<p class="meta">Meaningful comparisons for revision — not repeated definitions.</p>
+
+<h4>1. Psychotherapy vs. counselling</h4>
+<table><thead><tr><th>Feature</th><th>Psychotherapy</th><th>Counselling</th></tr></thead><tbody>
+<tr><td>Aim</td><td>Treatment/change of disorder &amp; personality</td><td>Advice, guidance, situational problem-solving</td></tr>
+<tr><td>Depth/duration</td><td>Deeper, often longer; may address unconscious</td><td>Present-focused, usually shorter</td></tr>
+<tr><td>Population</td><td>More disturbed/clinical</td><td>Relatively well-functioning</td></tr></tbody></table>
+
+<h4>2. Structured vs. unstructured interviews</h4>
+<table><thead><tr><th>Feature</th><th>Structured</th><th>Semi-structured</th><th>Unstructured</th></tr></thead><tbody>
+<tr><td>Reliability</td><td>High</td><td>Moderate</td><td>Low</td></tr>
+<tr><td>Flexibility</td><td>Low</td><td>Moderate</td><td>High</td></tr>
+<tr><td>Rapport</td><td>Weaker</td><td>Good</td><td>Strongest</td></tr>
+<tr><td>Best for</td><td>Research/diagnosis</td><td>Clinical practice</td><td>Exploration</td></tr></tbody></table>
+
+<h4>3. Therapeutic relationship vs. therapeutic alliance</h4>
+<table><thead><tr><th>Feature</th><th>Relationship</th><th>Alliance</th></tr></thead><tbody>
+<tr><td>Scope</td><td>Whole bond (incl. transference, real relationship)</td><td>Task-focused subset: bond + goals + tasks (Bordin)</td></tr>
+<tr><td>Nature</td><td>Broad, partly unconscious</td><td>Conscious, collaborative, measurable</td></tr></tbody></table>
+
+<h4>4. Transference vs. countertransference</h4>
+<table><thead><tr><th></th><th>Transference</th><th>Countertransference</th></tr></thead><tbody>
+<tr><td>Direction</td><td>Client → therapist</td><td>Therapist → client</td></tr>
+<tr><td>Source</td><td>Displaced early-figure feelings</td><td>Therapist’s conflicts / evoked reaction</td></tr>
+<tr><td>Use</td><td>Window into client patterns (interpret)</td><td>Monitor in supervision</td></tr></tbody></table>
+
+<h4>5. Brief vs. long-term psychotherapy</h4>
+<table><thead><tr><th>Feature</th><th>Brief</th><th>Long-term</th></tr></thead><tbody>
+<tr><td>Time</td><td>Explicit element; focus/stop-date</td><td>Open-ended</td></tr>
+<tr><td>Focus</td><td>Specific pattern/problem</td><td>Broad personality change</td></tr>
+<tr><td>Therapist activity</td><td>High (catalyst)</td><td>Lower (blank screen)</td></tr>
+<tr><td>Selection</td><td>Higher-functioning, focal problem</td><td>Broader incl. complex cases</td></tr></tbody></table>
+
+<h4>6. Psychodynamic vs. humanistic approaches</h4>
+<table><thead><tr><th>Feature</th><th>Psychodynamic</th><th>Humanistic</th></tr></thead><tbody>
+<tr><td>View of person</td><td>Deterministic; conflict &amp; drives</td><td>Optimistic; growth &amp; freedom</td></tr>
+<tr><td>Focus</td><td>Unconscious, past, defences</td><td>Here-and-now, experience, potential</td></tr>
+<tr><td>Therapist stance</td><td>Neutral, interpretive</td><td>Facilitative, non-directive, warm</td></tr>
+<tr><td>Mechanism</td><td>Insight into conflict</td><td>Relationship/core conditions release actualising tendency</td></tr></tbody></table>
+
+<h4>7. Gestalt vs. person-centred therapy</h4>
+<table><thead><tr><th>Feature</th><th>Gestalt</th><th>Person-centred</th></tr></thead><tbody>
+<tr><td>Directiveness</td><td>Active experiments (empty-chair)</td><td>Non-directive; stance = method</td></tr>
+<tr><td>Focus</td><td>Awareness &amp; contact; unfinished business</td><td>Congruence; actualising tendency</td></tr>
+<tr><td>Key figure</td><td>Perls</td><td>Rogers</td></tr>
+<tr><td>Change view</td><td>Paradoxical theory of change</td><td>Core conditions (necessary; some say not sufficient)</td></tr></tbody></table>
+
+<h4>8. Adlerian vs. other individual-focused approaches</h4>
+<table><thead><tr><th>Feature</th><th>Adlerian</th><th>Classical psychodynamic</th><th>Person-centred</th></tr></thead><tbody>
+<tr><td>Motivation</td><td>Social interest; goal-directed striving</td><td>Drives &amp; unconscious conflict</td><td>Actualising tendency</td></tr>
+<tr><td>Time focus</td><td>Lifestyle (early) → present reorientation</td><td>Past &amp; unconscious</td><td>Here-and-now experience</td></tr>
+<tr><td>Stance</td><td>Encouraging educator; egalitarian</td><td>Neutral, interpretive</td><td>Facilitative, non-directive</td></tr></tbody></table>
+
+<h4>9. Transactional analysis vs. reality therapy</h4>
+<table><thead><tr><th>Feature</th><th>Transactional analysis</th><th>Reality therapy</th></tr></thead><tbody>
+<tr><td>Founder</td><td>Eric Berne</td><td>William Glasser</td></tr>
+<tr><td>Core model</td><td>Ego states (P-A-C), transactions, scripts</td><td>Choice Theory; five basic needs; WDEP</td></tr>
+<tr><td>Focus</td><td>Intrapsychic structure &amp; communication patterns</td><td>Present chosen behaviour &amp; responsibility</td></tr>
+<tr><td>Past?</td><td>Script formed in childhood is examined</td><td>De-emphasised; focus on present choices</td></tr></tbody></table>
+
+<h4>10. Supportive vs. insight-oriented psychotherapy</h4>
+<table><thead><tr><th>Feature</th><th>Supportive</th><th>Insight-oriented</th></tr></thead><tbody>
+<tr><td>Aim</td><td>Maintain/restore functioning</td><td>Insight &amp; structural change</td></tr>
+<tr><td>Defences</td><td>Strengthen</td><td>Explore/challenge</td></tr>
+<tr><td>Client</td><td>Lower ego-strength / crisis</td><td>Higher ego-strength, psychologically-minded</td></tr></tbody></table>
+
+<h4>11. Directive vs. non-directive play therapy</h4>
+<table><thead><tr><th>Feature</th><th>Non-directive (child-centred)</th><th>Directive</th></tr></thead><tbody>
+<tr><td>Lead</td><td>Child</td><td>Therapist</td></tr>
+<tr><td>Theory</td><td>Rogerian (Axline)</td><td>Behavioural/cognitive/psychodynamic</td></tr>
+<tr><td>Best for</td><td>Self-direction, emotional expression</td><td>Targeted problems, skills</td></tr></tbody></table>
+
+<h4>12. Unit IV — therapies at a glance</h4>
+<table><thead><tr><th>Therapy</th><th>Key figure(s)</th><th>Core idea</th><th>Evidence stance</th></tr></thead><tbody>
+<tr><td>Psychodynamic</td><td>Freud</td><td>Insight into unconscious conflict</td><td>Established (RCTs)</td></tr>
+<tr><td>Brief</td><td>Sifneos, Malan, Mann, Davanloo, Beck</td><td>Time-limited, focal, active</td><td>Established</td></tr>
+<tr><td>Humanistic</td><td>Rogers (family)</td><td>Self-actualisation via relationship</td><td>Established; research harder (philosophical)</td></tr>
+<tr><td>Existential</td><td>Frankl, Yalom, May, Buber</td><td>Meaning, freedom, responsibility</td><td>Established; research harder</td></tr>
+<tr><td>Gestalt</td><td>Perls</td><td>Awareness &amp; contact in the here-and-now</td><td>Established</td></tr>
+<tr><td>Person-centred</td><td>Rogers</td><td>Core conditions release actualising tendency</td><td>Established</td></tr>
+<tr><td>Adlerian</td><td>Adler</td><td>Social interest; lifestyle reorientation</td><td>Established</td></tr>
+<tr><td>Transactional analysis</td><td>Berne</td><td>Ego states, transactions, scripts</td><td>Established</td></tr>
+<tr><td>Reality</td><td>Glasser</td><td>Choice Theory; responsible choices (WDEP)</td><td>Established</td></tr>
+<tr><td>Supportive</td><td>—</td><td>Strengthen defences; maintain functioning</td><td>Established clinical use</td></tr>
+<tr><td>Hypnotherapy</td><td>Braid, Erickson</td><td>Trance &amp; suggestion</td><td>Effective adjunct (e.g., pain/anxiety)</td></tr>
+<tr><td>Play therapy</td><td>Axline, Klein, A. Freud</td><td>Therapeutic powers of play</td><td>Established (RCTs)</td></tr>
+<tr><td>Psychodrama</td><td>Moreno</td><td>Group enactment; spontaneity &amp; catharsis</td><td>Established (UKCP-accredited)</td></tr>
+<tr><td>Yoga</td><td>Patanjali tradition</td><td>Prevention; asana/pranayama/meditation</td><td>Growing/mixed; adjunct</td></tr>
+<tr><td>Meditation</td><td>—</td><td>Altered state; attention &amp; emotion regulation</td><td>Strong (within MBCT/MBSR); dose-dependent</td></tr>
+<tr><td>Shavasana</td><td>Yogic tradition</td><td>Parasympathetic deep relaxation</td><td>Relaxation benefit; adjunct</td></tr>
+<tr><td>Pranic healing</td><td>Choa Kok Sui</td><td>No-touch “prana” energy balancing</td><td>Mechanism unestablished; complementary</td></tr>
+<tr><td>Reiki</td><td>Usui</td><td>Channelled “life energy”; chakras/aura</td><td>Mechanism unestablished; complementary</td></tr>
+<tr><td>Tai chi</td><td>Taoist tradition</td><td>Mind–body movement; emotion regulation</td><td>Emerging/mixed; adjunct for mood</td></tr>
+</tbody></table>
+
+<!-- ============================= REFERENCES ============================= -->
+<h2 class="unit" id="references">References</h2>
+<div class="box"><span class="bt">About these references</span>
+References below are drawn from citations that actually appear in your supplied sources (S1 gives full APA entries for the RCTs; S1/S2/S3 name the authors/years for the conceptual material). Where only an author–year is given in the source, that is reproduced faithfully; <strong>no references have been fabricated</strong>. Entries marked <span class="tag tag-supp">SUPP</span> support clearly-labelled supplementary content and should be verified against the primary text.</div>
+
+<h4>Full citations given in your sources (APA, from S1)</h4>
+<p class="ref">Anastopoulos, A. D., Langberg, J. M., Eddy, L. D., Silvia, P. J., &amp; Labban, J. D. (2021). A randomized controlled trial examining CBT for college students with ADHD. <em>Journal of Consulting and Clinical Psychology, 89</em>(1), 21.</p>
+<p class="ref">Bhatt, G. (2015). Encountering culture: Psychotherapy and counseling practice in India. <em>International Psychology Bulletin, 19</em>(1), 38–41.</p>
+<p class="ref">Chhillar, R., Dabas, P., &amp; Dular, S. K. (2020). An RCT on effectiveness of play therapy on anxiety among hospitalized children. <em>European Journal of Molecular &amp; Clinical Medicine, 7</em>(11).</p>
+<p class="ref">Goldin, P. R., Morrison, A., Jazaieri, H., Brozovich, F., Heimberg, R., &amp; Gross, J. J. (2016). Group CBT versus MBSR for social anxiety disorder: A randomized controlled trial. <em>Journal of Consulting and Clinical Psychology, 84</em>(5), 427–437.</p>
+<p class="ref">Johansson, R., Hesslow, T., Ljótsson, B., et al. (2017). Internet-based affect-focused psychodynamic therapy for social anxiety disorder: A randomized controlled trial with 2-year follow-up. <em>Psychotherapy, 54</em>(4), 351–360.</p>
+<p class="ref">Kim, J. S., Brook, J., &amp; Akin, B. A. (2018). Solution-focused brief therapy with substance-using individuals: A randomized controlled trial study. <em>Research on Social Work Practice, 28</em>(4), 452–462.</p>
+<p class="ref">Leichsenring, F., Salzer, S., Beutel, M. E., et al. (2013). Psychodynamic therapy and cognitive-behavioral therapy in social anxiety disorder: A multicenter randomized controlled trial. <em>American Journal of Psychiatry, 170</em>(7), 759–767.</p>
+<p class="ref">Noknoy, S., Rangsin, R., Saengcharnchai, P., Tantibhaedhyangkul, U., &amp; McCambridge, J. (2010). RCT of effectiveness of motivational enhancement therapy delivered by nurses for hazardous drinkers in primary care units in Thailand. <em>Alcohol and Alcoholism, 45</em>(3), 263–270.</p>
+<p class="ref">Salzer, S., Cropp, C., Jaeger, U., Masuhr, O., &amp; Streeck-Fischer, A. (2014). Psychodynamic therapy for adolescents suffering from co-morbid disorders of conduct and emotions in an in-patient setting: A randomized controlled trial. <em>Psychological Medicine, 44</em>(10), 2213–2222.</p>
+<p class="ref">Walker, D. D., Stephens, R., Roffman, R., et al. (2011). Randomized controlled trial of motivational enhancement therapy with nontreatment-seeking adolescent cannabis users. <em>Psychology of Addictive Behaviors, 25</em>(3), 474–484.</p>
+<p class="ref">Wengao, L., Yining, X., Xian, L., et al. (2022). Alleviating excessive worries improves co-occurring depression and pain in adolescent and young adult cancer patients: A network approach. <em>Neuropsychiatric Disease and Treatment, 18</em>, 1843–1854.</p>
+<p class="ref">N., Sam M. S. (2013). <em>Booster sessions.</em> PsychologyDictionary.org.</p>
+
+<h4>Author–year sources named in your material (S1/S2/S3) — full details to confirm</h4>
+<p class="ref">Arbuckle (1977); Aveline (1980, 1995); Avasthi &amp; Grover (2022); Barkham et al. (1998, CORE); Barnett (2008); Beisser (1970); Berne (1961/2001); Bhatia &amp; Gelso (2017); Bloch (1979); Bohart (1990); Bruch (1981); Buber (1923/2004); Cain &amp; Seeman (2001); Corey (2008); Corey, Corey &amp; Corey (2019); Derogatis (1983, SCL-90-R); Eysenck (1952); Feltham, Hanley &amp; Winter (2017); Fisher (2008, 2016); Frank &amp; Frank (1991); Goulding &amp; Goulding (1979); Hare-Mustin, Marecek, Kaplan &amp; Liss-Levinson (1979); Hargaden &amp; Sills (2002); Hersen &amp; Sledge (2002); Horowitz et al. (1988, IIP); Hurvitz (1967); Hycner (1985); Jacobs (1989); Jaspers (1913/1959); Kahl, Winter &amp; Schweiger (2012); Keats (2000); Kleinke (1994); Knapp &amp; VandeCreek (2012); Malan (1979); Margison &amp; Brown (2007); Nagy (2011); Neki (1979, 1995); Norcross (1990); Peteet (2015); Perls et al. (1951/1990); Popescu (2012); Remley &amp; Herlihy (2016); Rogers (1951/1990, 1961/1989, 1978); Rowan (1983, 2001); Ryle (1990, CAT); Sadock &amp; Sadock (2005); Safran &amp; Messer (1997); Sharf; Simon (1991, 2001); Smith, M. et al. (1980); Tausch (1990); Tjelveit (1999); Trull &amp; Phares (2001); Tuke (1872, 1892); van Deurzen-Smith (1997); Varghese (1998); Varma (2004); Wheeler &amp; Bertram (2015); Wolberg (1967, 1979); Yontef (1993); Younggren, Fisher, Foote &amp; Hjelt (2011). Legal: <em>Jaffee v. Redmond</em> (1996); <em>Tarasoff v. Regents of the University of California</em> (1976).</p>
+
+<h4>Supplementary references (standard knowledge; verify) <span class="tag tag-supp">SUPP</span></h4>
+<p class="ref">Bordin, E. S. (1979). The generalizability of the psychoanalytic concept of the working alliance. <em>Psychotherapy, 16</em>(3), 252–260. <span class="cite">— alliance model (Unit II §2).</span></p>
+<p class="ref">Ivey, A. E., &amp; Ivey, M. B. (1999). <em>Intentional interviewing and counseling.</em> <span class="cite">— attending behaviour (Unit III); named in S2.</span></p>
+<p class="ref">Kong, J., et al. (2019). Treating depression with Tai Chi: State of the art and future perspectives. <em>Frontiers in Psychiatry, 10</em>, 237. <span class="cite">— named in S3 (Unit IV §19).</span></p>
+<p class="ref">Indian statutes (jurisdiction: India): Mental Healthcare Act, 2017; Rehabilitation Council of India Act, 1992; POCSO Act, 2012. <span class="cite">— Unit I §6; confirm current amendments.</span></p>
+
+<hr>
+<p class="meta">End of notes. Provenance tags throughout indicate <span class="tag tag-src">FROM SOURCES</span> (your material), <span class="tag tag-supp">SUPPLEMENTARY</span> (labelled additions), and <span class="tag tag-gap">GAP / VERIFY</span> (areas to confirm against primary texts). Prepared as an M.Phil Clinical Psychology examination aid.</p>
+</main>
+</div>
+</body>
+</html>
