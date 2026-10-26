@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotion-Focused Skills Training (EFST) — Clinician Manual &amp; Patient Worksheets</title>
+<style>
+  :root{
+    --ink:#1c2733; --muted:#5a6b7b; --line:#d7e0e8; --soft:#eef3f7;
+    --accent:#1f6f8b; --accent2:#2a9d8f; --warn:#b5651d; --danger:#9e2a2b;
+    --good:#2a7d4f; --paper:#ffffff; --band:#12506a;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);
+    line-height:1.55;margin:0;background:#f4f7f9;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 26px 80px;background:var(--paper);}
+  header.cover{background:linear-gradient(135deg,var(--band),var(--accent));color:#fff;
+    padding:46px 40px 40px;margin:0 -26px 0;}
+  header.cover h1{margin:0 0 6px;font-size:30px;line-height:1.2;}
+  header.cover .sub{font-size:17px;opacity:.95;margin:0 0 18px;}
+  header.cover .meta{font-size:13.5px;opacity:.92;border-top:1px solid rgba(255,255,255,.3);padding-top:14px;}
+  header.cover .meta b{font-weight:600;}
+  h2{color:var(--band);border-bottom:3px solid var(--accent2);padding-bottom:6px;margin-top:46px;font-size:23px;}
+  h3{color:var(--accent);margin-top:30px;font-size:19px;}
+  h4{color:var(--ink);margin:22px 0 6px;font-size:16px;}
+  p,li{font-size:14.6px;}
+  a{color:var(--accent);}
+  .lead{font-size:15.5px;color:var(--muted);}
+  .partband{background:var(--band);color:#fff;padding:16px 22px;border-radius:10px;margin:40px 0 10px;}
+  .partband h2{color:#fff;border:0;margin:0;font-size:24px;}
+  .partband p{margin:4px 0 0;opacity:.92;font-size:14px;}
+  .box{border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:16px 0;background:#fbfdfe;}
+  .box.soft{background:var(--soft);}
+  .callout{border-left:5px solid var(--accent);background:#eef6f9;border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0;}
+  .tip{border-left-color:var(--good);background:#eef8f1;}
+  .warn{border-left-color:var(--warn);background:#fcf4ea;}
+  .danger{border-left-color:var(--danger);background:#fbeeee;}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.8px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--band);color:#fff;font-weight:600;}
+  tr:nth-child(even) td{background:#f7fafc;}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .dd .col{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .dd .col h4{margin:0;padding:10px 14px;color:#fff;}
+  .dd .do h4{background:var(--good);}
+  .dd .dont h4{background:var(--danger);}
+  .dd .col ul{margin:10px 16px;padding-left:16px;}
+  .ws{border:2px solid var(--accent);border-radius:12px;padding:0;margin:22px 0;overflow:hidden;}
+  .ws .wshead{background:var(--accent);color:#fff;padding:12px 18px;}
+  .ws .wshead h4{color:#fff;margin:0;font-size:17px;}
+  .ws .wshead .p{font-size:12.5px;opacity:.9;margin-top:2px;}
+  .ws .wsbody{padding:16px 18px;}
+  .fill{border:1px dashed #9db4c4;border-radius:6px;min-height:26px;padding:6px 8px;margin:4px 0 12px;background:#fff;}
+  .fill.lg{min-height:70px;}
+  .line{border-bottom:1px solid #b9c7d3;height:22px;margin:8px 0;}
+  .scale{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px;}
+  .scale span{border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:12.5px;background:#fff;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+  .chips span{background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:3px 11px;font-size:12.5px;}
+  .toc{columns:2;column-gap:30px;font-size:14px;}
+  .toc a{display:block;padding:3px 0;text-decoration:none;}
+  .pill{display:inline-block;background:var(--accent2);color:#fff;border-radius:20px;padding:2px 12px;font-size:12px;font-weight:600;}
+  .ref{font-size:13px;color:var(--muted);}
+  .ref li{margin-bottom:8px;}
+  .small{font-size:12.5px;color:var(--muted);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fbfdfe;}
+  .card b{color:var(--accent);}
+  .sessionhead{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border-radius:10px;padding:14px 18px;margin-top:34px;}
+  .sessionhead h3{color:#fff;margin:0;border:0;}
+  .sessionhead .meta{font-size:13px;opacity:.95;margin-top:4px;}
+  .footer{margin-top:50px;border-top:1px solid var(--line);padding-top:16px;font-size:12.5px;color:var(--muted);}
+  @media print{
+    body{background:#fff;} .wrap{max-width:none;padding:0 10px;}
+    .ws,.box,.card{break-inside:avoid;} h2,h3{break-after:avoid;}
+    header.cover{margin:0;}
+  }
+  @media(max-width:700px){.dd,.grid3,.toc{grid-template-columns:1fr;columns:1;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="cover">
+  <h1>Emotion-Focused Skills Training (EFST)</h1>
+  <p class="sub">A Clinician Manual &amp; Patient Worksheet Pack for Reducing Alexithymia in Opioid-Dependent Individuals (With &amp; Without HIV)</p>
+  <div class="meta">
+    <b>Prepared for:</b> Avani Shah, MPhil Clinical Psychology &nbsp;|&nbsp; <b>Guide:</b> Dr. Vasudha Singh<br>
+    <b>Study:</b> Effect of Emotion-Focused Skills Training on Alexithymia among Opioid-Dependent Individuals With and Without HIV<br>
+    <b>Protocol:</b> 8 sessions · 60 min · individual delivery · 2×/week over 4 weeks · inpatient de-addiction setting<br>
+    <b>Primary outcome:</b> Toronto Alexithymia Scale-20 (TAS-20) — factors DIF, DDF, EOT
+  </div>
+</header>
+
+<p class="lead" style="margin-top:22px;">This manual has <b>two parts</b>. <b>Part 1</b> teaches you — the clinician — every EFST technique, how to formulate the case, and the dos &amp; don'ts for this population. <b>Part 2</b> is the ready-to-use, session-by-session worksheet pack you deliver <em>directly</em> to your patient. Everything is designed to map onto the three TAS-20 factors you are measuring: <b>DIF</b> (Difficulty Identifying Feelings), <b>DDF</b> (Difficulty Describing Feelings), and <b>EOT</b> (Externally-Oriented Thinking).</p>
+
+<div class="callout warn">
+  <b>Clinical safety note.</b> This is a structured educational/skills resource for your dissertation intervention. It does not replace clinical supervision. Keep your IEC-approved protocol, consent procedures, HIV-confidentiality safeguards, and your referral pathway to the treating psychiatrist/psychologist active throughout. Use with patients who are <b>post-detox (≥7 days)</b> and medically stable, per your inclusion criteria.
+</div>
+
+<h2 id="toc">Contents</h2>
+<div class="toc">
+  <a href="#part1"><b>PART 1 — The Clinician's Guide</b></a>
+  <a href="#what-is">1. What alexithymia is &amp; why it matters here</a>
+  <a href="#model">2. The EFST model &amp; its evidence base</a>
+  <a href="#techniques">3. Core EFST techniques (the toolbox)</a>
+  <a href="#formulation">4. Case formulation (step-by-step + template)</a>
+  <a href="#dosdonts">5. Dos &amp; Don'ts for this population</a>
+  <a href="#ruptures">6. Managing distress, ruptures &amp; HIV-specific issues</a>
+  <a href="#part2"><b>PART 2 — The Patient Worksheet Pack</b></a>
+  <a href="#intake">Baseline &amp; patient orientation sheet</a>
+  <a href="#s1">Session 1 — What are emotions?</a>
+  <a href="#s2">Session 2 — Body–emotion connection</a>
+  <a href="#s3">Session 3 — Emotion vocabulary</a>
+  <a href="#s4">Session 4 — Identifying feelings daily</a>
+  <a href="#s5">Session 5 — Describing feelings to others</a>
+  <a href="#s6">Session 6 — Understanding others' emotions</a>
+  <a href="#s7">Session 7 — Emotions &amp; the addiction cycle</a>
+  <a href="#s8">Session 8 — Integration &amp; maintenance</a>
+  <a href="#refs">References &amp; sources</a>
+</div>
+
+<!-- =================== PART 1 =================== -->
+<div class="partband" id="part1">
+  <h2>PART 1 — The Clinician's Guide</h2>
+  <p>Everything you need to understand and deliver EFST: the model, the technique toolbox, how to formulate each case, and what to do (and avoid) with opioid-dependent patients, including those living with HIV.</p>
+</div>
+
+<h2 id="what-is">1. What alexithymia is &amp; why it matters in your sample</h2>
+<p>Alexithymia (literally "no words for feelings") is a difficulty in the conscious experience and verbal description of emotion. At its core is a disruption of <b>emotional awareness</b> — the conscious feeling states central to mental life (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8456171/">Smith et al., "Alexithymia," PMC8456171</a>). The TAS-20 you are using captures three facets:</p>
+<table>
+<tr><th>TAS-20 factor</th><th>What the patient struggles with</th><th>EFST target</th></tr>
+<tr><td><b>DIF</b> — Difficulty Identifying Feelings</td><td>Tells arousal from bodily sensation apart; "I feel bad but I don't know what it is."</td><td>Interoceptive &amp; emotional awareness (Sessions 1–2, 4)</td></tr>
+<tr><td><b>DDF</b> — Difficulty Describing Feelings</td><td>Finding words; communicating emotion to others.</td><td>Emotion vocabulary &amp; expression (Sessions 3, 5)</td></tr>
+<tr><td><b>EOT</b> — Externally-Oriented Thinking</td><td>Attention fixed on external events/facts, away from inner life.</td><td>Shifting attention inward; empathy (Sessions 4, 6)</td></tr>
+</table>
+<div class="callout">
+  <b>Why this matters clinically.</b> In substance-dependent populations, emotional-processing deficits are linked to craving, poorer treatment adherence, and relapse — which is exactly why reducing alexithymia is a meaningful intervention target rather than just a trait to measure. Deficits in emotion recognition are a common, and importantly <b>trainable</b>, feature of alexithymia, so skills-based training is a logical treatment route (<a href="https://pubmed.ncbi.nlm.nih.gov/31110950/">Pedrosa Gil et al., 2019 / smartphone emotion-recognition training, PMID 31110950</a>). <span class="small">Content rephrased for licensing compliance.</span>
+</div>
+<div class="callout tip">
+  <b>Encouraging evidence that alexithymia is modifiable.</b> A 2024 systematic review found most psychological interventions significantly reduced TAS-20 scores across trials (<a href="https://www.mdpi.com/2076-328X/14/12/1173">Tsubaki &amp; Shimizu, 2024, <i>Behav. Sci.</i> 14(12):1173, doi:10.3390/bs14121173</a>). A 2026 systematic review and meta-analysis reported an overall medium effect of interventions versus control (g ≈ −0.52) (<a href="https://pubmed.ncbi.nlm.nih.gov/41525940/">PMID 41525940</a>). This supports your hypothesis that a brief structured EFST can shift a trait often assumed to be stable.
+</div>
+
+<h2 id="model">2. The EFST model &amp; its evidence base</h2>
+<p>EFST adapts the principles of <b>Emotion-Focused Therapy</b> (Greenberg, 2002) into a structured, skills-based format suitable for brief clinical delivery. The working assumption is that emotions are adaptive sources of information; alexithymia is a breakdown in <em>accessing</em> and <em>symbolising</em> that information. Training rebuilds the chain: <b>notice body → attend inward → name → describe → use the emotion adaptively.</b></p>
+<p>Your protocol is consistent with published emotional-self-awareness trainings. A well-documented parallel is an <b>eight-lesson programme</b> combining psychoeducation and skill-building to teach emotional vocabulary, labelling and differentiating one's own emotions, interoceptive awareness, and distinguishing emotions from thoughts, actions and sensations (<a href="https://pubmed.ncbi.nlm.nih.gov/28060205/">Neumann et al., 2017, Phase I trial, PMID 28060205</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/39154927/">TREAT RCT, 2024, PMID 39154927</a>). <span class="small">Content rephrased for licensing compliance.</span></p>
+<div class="box soft">
+  <b>Theoretical anchors (cite in your write-up):</b>
+  <ul>
+    <li><b>Greenberg (2002)</b> — Emotion-Focused Therapy; emotions as adaptive, workable in session.</li>
+    <li><b>Khantzian (1997)</b> — Self-Medication Hypothesis: substances used to manage unbearable/unnamed affect; naming affect weakens that function.</li>
+    <li><b>Lane &amp; Schwartz (1987)</b> — Levels of Emotional Awareness: awareness develops in stages (bodily sensation → action tendency → single emotion → blends of emotion) — your skills ladder mirrors this.</li>
+  </ul>
+</div>
+
+<h2 id="techniques">3. Core EFST techniques — the toolbox</h2>
+<p>These are the transdiagnostic micro-skills you will rotate across the 8 sessions. Learn them as a therapist first; Part 2 operationalises each into a patient worksheet.</p>
+
+<h3>3.1 Empathic attunement &amp; validation</h3>
+<p>The foundation. You continually reflect the patient's experience in slightly more emotionally-specific language than they used ("so there's a heaviness there... almost like a weight") — never correcting, always offering a tentative word they can accept or refine. This models emotional language and builds the safety alexithymic, trauma-exposed patients need.</p>
+
+<h3>3.2 Interoceptive / body-focused awareness</h3>
+<p>Guide attention to bodily sensations (chest tightness, stomach, throat, jaw, heat) as the <em>raw data</em> of emotion. For alexithymia specifically, awareness-of-sensation techniques improve interoception and downstream emotion processing (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6524402/">Herbert &amp; Pollatos — motivated cue integration, PMC6524402</a>). Use a slow "body scan" and a sensation-to-emotion bridge ("that tight chest — if it had a feeling name, what might it be?").</p>
+
+<h3>3.3 Emotion labelling &amp; vocabulary building</h3>
+<p>Expand from the 4–5 words most alexithymic patients use ("fine," "bad," "tense," "angry") to a graded vocabulary, using an <b>emotion wheel</b> and intensity words. Labelling ("name it to tame it") itself reduces amygdala reactivity and is a core DDF intervention.</p>
+
+<h3>3.4 Differentiating emotion from thought, sensation &amp; action</h3>
+<p>Directly targets EOT. Teach the four-column split — <b>Situation / Thought / Body sensation / Emotion</b> — so the patient stops substituting a fact or a plan ("I'll just leave") for a feeling.</p>
+
+<h3>3.5 The emotion-episode "unpacking" sequence</h3>
+<p>The workhorse. For a recent episode, walk: <b>cue → body → first feeling → secondary feeling → what the feeling needed → what I did.</b> This is the SPAARS/EFT-style tracking that converts a vague "bad day" into a named, workable emotion.</p>
+
+<h3>3.6 Expression &amp; disclosure skills</h3>
+<p>Move DDF from private naming to interpersonal description. Teach "I feel ___ because ___, and I need ___" and rehearse it in session via role-play before real-world use.</p>
+
+<h3>3.7 Empathy / reading others' emotions</h3>
+<p>Use faces, scenarios and perspective-taking to build recognition of others' affect — strengthens social emotion processing and reduces the external focus of EOT.</p>
+
+<h3>3.8 Linking emotion to the addiction cycle</h3>
+<p>The clinical payload: map how unrecognised emotion → rising arousal → craving → use → short relief → shame. Inserting the new skill ("name + body + need") at the craving node is the relapse-prevention bridge.</p>
+
+<div class="grid3">
+  <div class="card"><b>DIF skills</b><br>3.1, 3.2, 3.5</div>
+  <div class="card"><b>DDF skills</b><br>3.3, 3.6</div>
+  <div class="card"><b>EOT skills</b><br>3.4, 3.7</div>
+</div>
+
+<h2 id="formulation">4. Case formulation — step by step</h2>
+<p>Do this once per patient after your baseline battery (TAS-20, DERS, BDI-II, SDS, sociodemographic sheet). It makes the 8 sessions individualised rather than generic and gives you qualitative data for your discussion section.</p>
+<ol>
+  <li><b>Presenting picture &amp; baseline profile.</b> Record TAS-20 total + factor scores (DIF/DDF/EOT), DERS subscales, BDI-II, SDS, HIV status and ART status. Note which factor is highest — that becomes your emphasis.</li>
+  <li><b>Developmental &amp; maintaining factors.</b> Early emotional environment, trauma, when substance use started relative to emotional difficulties (self-medication framing, Khantzian).</li>
+  <li><b>Function of the substance.</b> Which emotions does opioid use switch off? (Often shame, fear, emptiness, boredom.) This names your treatment targets.</li>
+  <li><b>The emotion→craving→use chain</b> for this person — write their typical sequence in their words.</li>
+  <li><b>Strengths &amp; readiness.</b> Literacy, motivation, cognitive capacity, support — informs pacing.</li>
+  <li><b>HIV considerations (if HIV+).</b> Neurocognitive load, fatigue, stigma, disclosure stress — may slow processing and require shorter inward-attention segments.</li>
+  <li><b>Goals in the patient's language</b> + the 2–3 skills you will prioritise.</li>
+</ol>
+<div class="ws">
+  <div class="wshead"><h4>Clinician Case Formulation Template</h4><div class="p">Complete after baseline assessment · keep in research file (coded ID, de-identified)</div></div>
+  <div class="wsbody">
+    <b>Coded ID:</b> <span class="fill" style="display:inline-block;width:160px;"></span> &nbsp; <b>Group:</b> HIV+ / HIV− &nbsp; <b>ART status:</b> <span class="fill" style="display:inline-block;width:120px;"></span><br>
+    <b>TAS-20 total:</b> <span class="fill" style="display:inline-block;width:70px;"></span> &nbsp; DIF <span class="fill" style="display:inline-block;width:50px;"></span> DDF <span class="fill" style="display:inline-block;width:50px;"></span> EOT <span class="fill" style="display:inline-block;width:50px;"></span> &nbsp; (≤51 non · 52–60 possible · ≥61 alexithymic)<br>
+    <b>DERS total / notable subscales:</b><div class="fill"></div>
+    <b>BDI-II:</b> <span class="fill" style="display:inline-block;width:60px;"></span> &nbsp; <b>SDS:</b> <span class="fill" style="display:inline-block;width:60px;"></span><br>
+    <b>Function of substance (which emotions does use switch off?):</b><div class="fill lg"></div>
+    <b>This patient's emotion → craving → use chain:</b><div class="fill lg"></div>
+    <b>HIV-related factors affecting pacing (if applicable):</b><div class="fill"></div>
+    <b>Priority TAS-20 factor &amp; top 2–3 skills:</b><div class="fill"></div>
+    <b>Patient's own goal:</b><div class="fill"></div>
+  </div>
+</div>
+
+<h2 id="dosdonts">5. Dos &amp; Don'ts for this population</h2>
+<div class="dd">
+  <div class="col do">
+    <h4>✓ DO</h4>
+    <ul>
+      <li>Start every session with a brief body check-in and end with a summary + homework.</li>
+      <li>Offer feeling words <em>tentatively</em> and let the patient choose/correct them.</li>
+      <li>Use concrete, recent, specific episodes — not abstract "how do you feel about life?"</li>
+      <li>Normalise "I don't know" as a starting point, not a failure.</li>
+      <li>Keep language simple and literacy-appropriate; use the emotion wheel and body diagrams.</li>
+      <li>Titrate intensity — small, tolerable doses of emotion with grounding available.</li>
+      <li>Explicitly link each skill back to craving/relapse so it feels relevant.</li>
+      <li>Watch for and respond to shame; validate before exploring.</li>
+      <li>Keep HIV status strictly confidential; follow your coded-ID procedure.</li>
+      <li>Document fidelity (which worksheet sections were completed) for your study.</li>
+    </ul>
+  </div>
+  <div class="col dont">
+    <h4>✗ DON'T</h4>
+    <ul>
+      <li>Don't flood or push catharsis — deep emotion work can destabilise a post-detox patient.</li>
+      <li>Don't interpret or tell the patient what they "really" feel.</li>
+      <li>Don't treat intellectual insight as emotional awareness (that's EOT in disguise).</li>
+      <li>Don't rush naming before the body/sensation step — it reinforces guessing.</li>
+      <li>Don't moralise about use; shame fuels the cycle you're treating.</li>
+      <li>Don't open trauma you can't close within the session; contain and refer.</li>
+      <li>Don't ignore signs of acute distress, intoxication, or medical instability — pause and refer to the treating team.</li>
+      <li>Don't let HIV status change your warmth or create differential handling that the patient can sense.</li>
+      <li>Don't deviate from the 8-session structure in ways that threaten protocol fidelity.</li>
+      <li>Don't collect data from anyone who hasn't completed informed consent.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="ruptures">6. Managing distress, ruptures &amp; HIV-specific issues</h2>
+<div class="callout danger">
+  <b>If a patient becomes acutely distressed:</b> stop the exploration, ground (feet on floor, slow breaths, name 5 things in the room), validate ("this is hard, and stopping here is okay"), re-stabilise, and if distress persists refer to the treating psychiatrist/psychologist per your protocol. Note it in your records.
+</div>
+<p><b>Alliance ruptures</b> (withdrawal, irritation, "this is pointless") are expected with EOT-high, shame-prone patients. Name it gently, take responsibility for pacing, and slow down — don't push.</p>
+<p><b>HIV-positive patients</b> may present with fatigue, slowed processing, or disclosure-related anxiety. Shorten inward-attention segments, allow more repetition, and keep a non-stigmatising stance. Remember your study is specifically testing whether HIV status moderates response — so document qualitative differences (pace, engagement, fatigue) carefully.</p>
+<div class="callout warn">
+  <b>The self-report paradox (note for your limitations section).</b> Alexithymic patients may under-report their own deficits on the TAS-20. Watch for a gap between a "good" score and obvious in-session difficulty naming feelings, and record it as clinical observation.
+</div>
+
+<!-- =================== PART 2 =================== -->
+<div class="partband" id="part2">
+  <h2>PART 2 — The Patient Worksheet Pack</h2>
+  <p>Print these sheets and work through them <b>with</b> your patient, one session per visit. Each session has the same rhythm: <span class="pill">Check-in</span> → <span class="pill">Teach</span> → <span class="pill">Practise (worksheet)</span> → <span class="pill">Link to recovery</span> → <span class="pill">Home practice</span>. Read items aloud for patients with limited literacy and write their words for them.</p>
+</div>
+
+<div class="ws" id="intake">
+  <div class="wshead"><h4>Before we begin — Orientation &amp; Baseline Sheet</h4><div class="p">Complete together at the first meeting</div></div>
+  <div class="wsbody">
+    <p><b>What this is.</b> Over the next 4 weeks we will meet 8 times. Together we'll learn how to notice, name, and use your feelings. Many people who've used substances for a long time lose touch with their feelings — that's normal, and it can be re-learned. There are no wrong answers here.</p>
+    <p><b>My goals from this (in your words):</b></p>
+    <div class="fill lg"></div>
+    <p><b>Right now, how easy is it for you to know what you are feeling?</b></p>
+    <div class="scale"><span>1 Very hard</span><span>2</span><span>3</span><span>4</span><span>5 Very easy</span></div>
+    <p><b>The feelings words I use most often are:</b></p>
+    <div class="fill"></div>
+    <p class="small">Clinician: confirm consent completed, coded ID assigned, HIV confidentiality explained. Baseline TAS-20/DERS/BDI-II/SDS done ☐</p>
+  </div>
+</div>
+
+<!-- SESSION 1 -->
+<div class="sessionhead" id="s1">
+  <h3>Session 1 — What Are Emotions?</h3>
+  <div class="meta">Goal: psychoeducation + permission to feel · Targets DIF/EOT · 60 min</div>
+</div>
+<p><b>Teach (say this simply):</b> Emotions are signals — like messages from inside your body telling you something matters. There are no "bad" emotions; each one has a job. Anger says a line was crossed. Fear says watch out. Sadness says something was lost. Our goal is not to get rid of feelings but to <em>hear</em> them.</p>
+<div class="box soft">
+  <b>The 6 basic emotions &amp; their "jobs":</b>
+  <div class="chips"><span>😠 Anger → something's unfair</span><span>😨 Fear → danger/threat</span><span>😢 Sadness → loss</span><span>😀 Joy → something good</span><span>🤢 Disgust → keep away</span><span>😲 Surprise → something new</span></div>
+</div>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 1 — My Emotions, My Signals</h4></div>
+  <div class="wsbody">
+    <p><b>1. Pick one emotion you felt this week and what it might have been telling you.</b></p>
+    <table>
+      <tr><th>Emotion</th><th>What was happening</th><th>What might it have been telling me?</th></tr>
+      <tr><td><div class="line"></div></td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td><div class="line"></div></td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>2. Which of the 6 basic emotions do you feel most often? Least often?</b></p>
+    <div class="fill"></div>
+    <p><b>3. Myth check — circle TRUE or FALSE:</b> "Showing emotion is weak." &nbsp; TRUE / FALSE &nbsp;&nbsp; Why?</p>
+    <div class="fill"></div>
+    <p class="small"><b>Home practice:</b> Once a day, pause and ask "What am I feeling right now?" — even if the answer is "I don't know."</p>
+  </div>
+</div>
+
+<!-- SESSION 2 -->
+<div class="sessionhead" id="s2">
+  <h3>Session 2 — The Body–Emotion Connection</h3>
+  <div class="meta">Goal: interoceptive awareness · Targets DIF · 60 min</div>
+</div>
+<p><b>Teach:</b> Feelings live in the body before we have words for them. A tight chest, a hot face, a heavy stomach — these are the first clues. If we learn to read the body, we can find the feeling.</p>
+<div class="callout tip"><b>Lead a 2-minute body scan first:</b> eyes soft, feet on floor, slowly move attention from head → jaw → throat → chest → stomach → hands. "Notice any tightness, warmth, heaviness — no need to change it."</div>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 2 — Where I Feel It</h4></div>
+  <div class="wsbody">
+    <p><b>1. Mark on the body where you notice these. Describe the sensation (tight, hot, heavy, fluttery, empty):</b></p>
+    <table>
+      <tr><th>When I feel...</th><th>Where in my body</th><th>What it feels like</th></tr>
+      <tr><td>Angry</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td>Afraid / anxious</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td>Sad</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td>Calm / okay</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>2. Right now in this room, name one sensation in your body:</b></p>
+    <div class="fill"></div>
+    <p><b>3. Sensation → feeling bridge:</b> "If that sensation had a feeling name, what might it be?"</p>
+    <div class="fill"></div>
+    <p class="small"><b>Home practice:</b> Twice a day, do a 1-minute body scan and write down one sensation you notice.</p>
+  </div>
+</div>
+
+<!-- SESSION 3 -->
+<div class="sessionhead" id="s3">
+  <h3>Session 3 — Building Emotion Vocabulary</h3>
+  <div class="meta">Goal: expand &amp; grade feeling words · Targets DDF · 60 min</div>
+</div>
+<p><b>Teach:</b> Most of us use only a few feeling words. But there's a whole range, and different strengths of the same feeling. The more precise the word, the more control we have.</p>
+<div class="box soft">
+  <b>Emotion wheel — from mild to strong:</b>
+  <table>
+    <tr><th>Core</th><th>Mild</th><th>Medium</th><th>Strong</th></tr>
+    <tr><td>Anger</td><td>annoyed</td><td>frustrated</td><td>furious</td></tr>
+    <tr><td>Fear</td><td>uneasy</td><td>anxious</td><td>terrified</td></tr>
+    <tr><td>Sadness</td><td>low</td><td>down</td><td>devastated</td></tr>
+    <tr><td>Joy</td><td>content</td><td>happy</td><td>thrilled</td></tr>
+    <tr><td>Shame</td><td>awkward</td><td>embarrassed</td><td>worthless</td></tr>
+  </table>
+</div>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 3 — Finding the Right Word</h4></div>
+  <div class="wsbody">
+    <p><b>1. Rate the strength (1 = mild, 10 = strong) of a feeling you had this week and pick the best word for it:</b></p>
+    <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+    Best word: <div class="fill"></div>
+    <p><b>2. Replace a vague word with a precise one:</b></p>
+    <table>
+      <tr><th>I usually say...</th><th>A more exact word is...</th></tr>
+      <tr><td>"I feel bad"</td><td><div class="line"></div></td></tr>
+      <tr><td>"I'm fine"</td><td><div class="line"></div></td></tr>
+      <tr><td>"I'm stressed"</td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>3. Two feelings at once?</b> Sometimes we feel more than one. Write a time you felt two feelings together:</p>
+    <div class="fill"></div>
+    <p class="small"><b>Home practice:</b> Each day pick one feeling word from the wheel that fits your day and note why.</p>
+  </div>
+</div>
+
+<!-- SESSION 4 -->
+<div class="sessionhead" id="s4">
+  <h3>Session 4 — Identifying Feelings in Daily Life</h3>
+  <div class="meta">Goal: separate feeling from thought/action · Targets DIF/EOT · 60 min</div>
+</div>
+<p><b>Teach:</b> We often say a thought or a plan when asked how we feel ("I think he's wrong," "I'll just leave"). A feeling is one word (sad, angry, scared). Let's learn to tell them apart.</p>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 4 — The 4-Column Daily Log</h4></div>
+  <div class="wsbody">
+    <p>Pick one real moment from the last few days and break it into four parts:</p>
+    <table>
+      <tr><th>Situation (what happened)</th><th>Thought (what I said in my head)</th><th>Body sensation</th><th>Feeling (one word)</th></tr>
+      <tr><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td></tr>
+      <tr><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td></tr>
+    </table>
+    <p><b>Check:</b> Is the word in the last column really a <em>feeling</em>, or is it a thought in disguise? Circle: FEELING / THOUGHT</p>
+    <p class="small"><b>Home practice:</b> Fill one row of this log each day (an "emotion diary"). Bring it next time.</p>
+  </div>
+</div>
+
+<!-- SESSION 5 -->
+<div class="sessionhead" id="s5">
+  <h3>Session 5 — Describing Feelings to Others</h3>
+  <div class="meta">Goal: express emotion interpersonally · Targets DDF · 60 min</div>
+</div>
+<p><b>Teach:</b> Knowing a feeling inside is step one; saying it to someone is step two. A simple, safe way is the <b>"I" statement</b>: <em>"I feel ___ because ___, and I need ___."</em></p>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 5 — Saying How I Feel</h4></div>
+  <div class="wsbody">
+    <p><b>1. Build three "I" statements for real situations:</b></p>
+    <table>
+      <tr><th>I feel... (feeling word)</th><th>because... (situation)</th><th>and I need... (request)</th></tr>
+      <tr><td><div class="line"></div></td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td><div class="line"></div></td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+      <tr><td><div class="line"></div></td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>2. Role-play (in session):</b> Say one statement out loud to the clinician. How did it feel to say it?</p>
+    <div class="fill"></div>
+    <p><b>3. What gets in the way of telling people how you feel?</b></p>
+    <div class="fill"></div>
+    <p class="small"><b>Home practice:</b> Use one "I feel… because… and I need…" statement with a safe person (staff, family, peer) before next session.</p>
+  </div>
+</div>
+
+<!-- SESSION 6 -->
+<div class="sessionhead" id="s6">
+  <h3>Session 6 — Understanding Others' Emotions</h3>
+  <div class="meta">Goal: empathy &amp; emotion recognition · Targets EOT · 60 min</div>
+</div>
+<p><b>Teach:</b> Reading other people's feelings helps relationships and keeps us connected — connection protects recovery. We read others through faces, tone, and body language.</p>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 6 — Reading Other People</h4></div>
+  <div class="wsbody">
+    <p><b>1. Match the face to a feeling.</b> For each, write what feeling you think the person has and one clue that tells you:</p>
+    <table>
+      <tr><th>Clue (eyes, mouth, posture, tone)</th><th>Feeling I think they have</th></tr>
+      <tr><td>Furrowed brow, clenched jaw</td><td><div class="line"></div></td></tr>
+      <tr><td>Downcast eyes, slow movements</td><td><div class="line"></div></td></tr>
+      <tr><td>Wide eyes, tense shoulders</td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>2. Perspective-taking:</b> Think of a recent disagreement. What might the <em>other</em> person have been feeling?</p>
+    <div class="fill lg"></div>
+    <p><b>3. When I guessed someone's feeling this week, was I right? How did I check?</b></p>
+    <div class="fill"></div>
+    <p class="small"><b>Home practice:</b> Once a day, guess one feeling of someone around you and note the clue you used.</p>
+  </div>
+</div>
+
+<!-- SESSION 7 -->
+<div class="sessionhead" id="s7">
+  <h3>Session 7 — Emotions &amp; the Addiction Cycle</h3>
+  <div class="meta">Goal: link unrecognised emotion to craving/relapse · The clinical core · 60 min</div>
+</div>
+<p><b>Teach:</b> Unnamed feelings build up like pressure. For many people, that pressure turns into craving, and using brings quick relief — but then shame returns and the cycle repeats. If we <em>catch and name the feeling early</em>, we can break the chain before craving takes over.</p>
+<div class="box soft">
+  <b>The cycle:</b> &nbsp; Trigger → <b>unnamed feeling</b> → rising tension → <b>craving</b> → use → short relief → shame/guilt → (back to trigger).<br>
+  <b>Where the new skill goes in:</b> at "unnamed feeling" — stop, do a body scan, name it, name what it needs.
+</div>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 7 — Breaking My Cycle</h4></div>
+  <div class="wsbody">
+    <p><b>1. Map your own cycle.</b> Fill in a real craving episode:</p>
+    <table>
+      <tr><th>Trigger</th><th>Feeling underneath (name it)</th><th>Where I felt it in my body</th><th>What I did</th></tr>
+      <tr><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td><td><div class="fill"></div></td></tr>
+    </table>
+    <p><b>2. My early warning signs (body + feeling) that craving is building:</b></p>
+    <div class="fill"></div>
+    <p><b>3. My new plan — what I will do instead when I notice the feeling:</b></p>
+    <div class="fill lg"></div>
+    <p class="small"><b>Home practice:</b> Each day, note one feeling you caught <em>early</em> and what you did with it.</p>
+  </div>
+</div>
+
+<!-- SESSION 8 -->
+<div class="sessionhead" id="s8">
+  <h3>Session 8 — Integration &amp; Maintenance</h3>
+  <div class="meta">Goal: consolidate skills + relapse-proof plan · 60 min</div>
+</div>
+<p><b>Teach:</b> You've built a full chain of skills: notice the body → name the feeling → describe it → use it to guide a choice. Now we make a plan to keep using them after discharge.</p>
+<div class="ws">
+  <div class="wshead"><h4>Worksheet 8 — My Emotion Toolkit (keep this)</h4></div>
+  <div class="wsbody">
+    <p><b>1. The three skills that helped me most:</b></p>
+    <div class="fill"></div>
+    <p><b>2. My go-to steps when a strong feeling hits:</b></p>
+    <table>
+      <tr><th>Step</th><th>What I do</th></tr>
+      <tr><td>1. Notice</td><td><div class="line"></div></td></tr>
+      <tr><td>2. Name</td><td><div class="line"></div></td></tr>
+      <tr><td>3. Need</td><td><div class="line"></div></td></tr>
+      <tr><td>4. Next action</td><td><div class="line"></div></td></tr>
+    </table>
+    <p><b>3. My support people I can talk to about feelings after discharge:</b></p>
+    <div class="fill"></div>
+    <p><b>4. One sentence to remind myself why this matters:</b></p>
+    <div class="fill"></div>
+    <p class="small"><b>Clinician:</b> re-administer TAS-20 / DERS / BDI-II at post-test window (Days 25–28); collect participant feedback.</p>
+  </div>
+</div>
+
+<div class="box">
+  <h4>Session fidelity checklist (clinician — tick per session for your study records)</h4>
+  <table>
+    <tr><th>Session</th><th>Check-in</th><th>Teach</th><th>Worksheet done</th><th>Recovery link</th><th>Homework set</th></tr>
+    <tr><td>1</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>2</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>3</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>4</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>6</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>7</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>8</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  </table>
+</div>
+
+<h2 id="refs">References &amp; Sources</h2>
+<p class="small">Techniques above are grounded in the EFT/EFST and alexithymia-intervention literature. Primary clinical sources are listed first; evidence sources verified for this manual follow with links.</p>
+<ol class="ref">
+  <li>Greenberg, L. S. (2002). <i>Emotion-Focused Therapy: Coaching Clients to Work Through Their Feelings.</i> APA Press.</li>
+  <li>Bagby, R. M., Parker, J. D. A., &amp; Taylor, G. J. (1994). The twenty-item Toronto Alexithymia Scale—I. <i>Journal of Psychosomatic Research, 38</i>(1), 23–32.</li>
+  <li>Khantzian, E. J. (1997). The self-medication hypothesis of substance use disorders. <i>Harvard Review of Psychiatry, 4</i>(5), 231–244.</li>
+  <li>Lane, R. D., &amp; Schwartz, G. E. (1987). Levels of emotional awareness. <i>American Journal of Psychiatry, 144</i>(2), 133–143.</li>
+  <li>Cameron, K., et al. (2014). Emotion-focused group therapy for alexithymia. <i>Psychotherapy Research, 24</i>(5), 592–603.</li>
+  <li>Tsubaki, K., &amp; Shimizu, E. (2024). Psychological Treatments for Alexithymia: A Systematic Review. <i>Behavioral Sciences, 14</i>(12), 1173. <a href="https://www.mdpi.com/2076-328X/14/12/1173">doi:10.3390/bs14121173</a></li>
+  <li>Identifying therapies to effectively reduce alexithymia: a systematic review and meta-analysis (2026). <i>Journal of Affective Disorders, 400,</i> 121167. <a href="https://pubmed.ncbi.nlm.nih.gov/41525940/">PMID 41525940</a></li>
+  <li>Neumann, D., et al. (2017). Reductions in alexithymia and emotion dysregulation after training emotional self-awareness following TBI: a Phase I trial. <a href="https://pubmed.ncbi.nlm.nih.gov/28060205/">PMID 28060205</a></li>
+  <li>TREAT: Training to Reconnect with Emotional Awareness Therapy — RCT (2024). <a href="https://pubmed.ncbi.nlm.nih.gov/39154927/">PMID 39154927</a></li>
+  <li>Herbert, B. M., &amp; Pollatos, O. Motivated cue integration in alexithymia: improving interoception and emotion processing by awareness-of-sensation techniques. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6524402/">PMC6524402</a></li>
+  <li>Smartphone-based emotion recognition skills training for alexithymia (2019). <a href="https://pubmed.ncbi.nlm.nih.gov/31110950/">PMID 31110950</a></li>
+  <li>Smith, R., et al. Alexithymia (emotional awareness review). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8456171/">PMC8456171</a></li>
+</ol>
+
+<div class="footer">
+  <b>Emotion-Focused Skills Training — Clinician Manual &amp; Patient Worksheets.</b> Prepared for Avani Shah's MPhil Clinical Psychology dissertation intervention. Use within your IEC-approved protocol and clinical supervision. External evidence content was summarised/paraphrased for licensing compliance; see linked sources for full text. This document supports, and does not replace, clinical judgement and supervision.
+</div>
+
+</div>
+</body>
+</html>
